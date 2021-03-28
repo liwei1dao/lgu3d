@@ -9,8 +9,21 @@ namespace lgu3d
         private AndroidJavaObject activity;
         private AndroidJavaObject mSplashAdManager;
         private AdNative adNative;
+        private ExpressSplashAdComp expressSplashAdComp;  //开屏广告
+        private ExpressInterstitialAdComp expressInterstitialAdComp; //插屏广告
+        private ExpressFullScreenVideoAdComp expressFullScreenVideoAdComp; //全屏视频广告
+        private ExpressBannerAdComp expressBannerAdComp;    //横幅广告
+        private ExpressRewardAdComp expressRewardAdComp;    //奖励广告
+        private ExpressFeedAdComp expressFeedAdComp;     //Feed广告
+
         public override void Load(params object[] _Agr)
         {
+            expressSplashAdComp = AddComp<ExpressSplashAdComp>();
+            expressInterstitialAdComp = AddComp<ExpressInterstitialAdComp>();
+            expressFullScreenVideoAdComp = AddComp<ExpressFullScreenVideoAdComp>();
+            expressBannerAdComp = AddComp<ExpressBannerAdComp>();
+            expressRewardAdComp = AddComp<ExpressRewardAdComp>();
+            expressFeedAdComp = AddComp<ExpressFeedAdComp>();
             base.Load(_Agr);
         }
 
@@ -53,6 +66,28 @@ namespace lgu3d
             mSplashAdManager = jc.CallStatic<AndroidJavaObject>("getSplashAdManager");
             return mSplashAdManager;
         }
+
+        #region 接口
+        public void ShowSplashAd(string advId){
+            expressSplashAdComp.ShowAdv(advId);
+        }
+        
+        public void ShowInterstitialAd(string advId){
+            expressInterstitialAdComp.ShowAdv(advId);
+        }
+        public void ShowFullScreenVideoAd(string advId){
+            expressFullScreenVideoAdComp.ShowAdv(advId);
+        }
+        public void ShowBannerAd(string advId){
+            expressBannerAdComp.ShowAdv(advId);
+        }
+        public void ShowRewardAd(string advId){
+            expressRewardAdComp.ShowAdv(advId);
+        }
+        public void ShowFeedAd(string advId){
+            expressFeedAdComp.ShowAdv(advId); 
+        }
+        #endregion
 
         #region 下载监听
         public void OnIdle()

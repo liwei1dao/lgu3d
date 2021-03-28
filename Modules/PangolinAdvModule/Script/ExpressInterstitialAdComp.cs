@@ -20,7 +20,7 @@ namespace lgu3d
         }
 
         /// <summary>
-        /// 显示开屏广告
+        /// 显示插屏广告
         /// </summary>
         public void ShowAdv(string advId){
             #if !UNITY_EDITOR && UNITY_IOS
@@ -86,6 +86,8 @@ namespace lgu3d
             {
                this.mExpressInterstitialAd = enumerator.Current;
             }
+            this.mExpressInterstitialAd.SetDownloadListener(MyModule);
+            NativeAdManager.Instance().ShowExpressInterstitialAd(MyModule.GetActivity(), mExpressInterstitialAd.handle, this);
         }
 
         public void OnExpressBannerAdLoad(ExpressBannerAd ad)
@@ -99,6 +101,7 @@ namespace lgu3d
             ad.SetExpressInteractionListener(this);
             ad.SetDownloadListener(this.MyModule);
             this.iExpressInterstitialAd = ad;
+            this.iExpressInterstitialAd.ShowExpressAd(0, 100);
         }
 
         #endregion
@@ -106,27 +109,27 @@ namespace lgu3d
         #region 显示监听
         public void OnAdViewRenderSucc(ExpressAd ad, float width, float height)
         {
-              Debug.LogError("express OnAdViewRenderSucc,type:ExpressInterstitialAd");
+              Debug.Log("express OnAdViewRenderSucc,type:ExpressInterstitialAdComp");
         }
 
         public void OnAdViewRenderError(ExpressAd ad, int code, string message)
         {
-            Debug.LogError("express OnAdViewRenderError,type:ExpressInterstitialAd");
+            Debug.LogError("express OnAdViewRenderError,type:ExpressInterstitialAdComp");
         }
 
         public void OnAdShow(ExpressAd ad)
         {
-            Debug.LogError("express OnAdShow,type: ExpressInterstitialAd");
+            Debug.Log("express OnAdShow,type:ExpressInterstitialAdComp");
         }
 
         public void OnAdClicked(ExpressAd ad)
         {
-            Debug.LogError("express OnAdClicked,type: ExpressInterstitialAd");
+            Debug.Log("express OnAdClicked,type:ExpressInterstitialAdComp");
         }
 
         public void OnAdClose(ExpressAd ad)
         {
-              Debug.LogError("express OnAdClose,type:ExpressInterstitialAd");
+              Debug.Log("express OnAdClose,type:ExpressInterstitialAdComp");
         }
         #endregion
     }
