@@ -5,6 +5,7 @@ using UnityEditor;
 using System.Runtime.InteropServices;
 
 namespace lgu3d {
+    #if UNITY_IOS
     //微信接口组件 IOS
     public class Wechat_IOSComp : WeChatComp
     {
@@ -82,5 +83,6 @@ namespace lgu3d {
             __sharecontent_wx((int)platformtype, content.GetShareParamsStr());
         }
     }
+    #endif
 }
 //#endif

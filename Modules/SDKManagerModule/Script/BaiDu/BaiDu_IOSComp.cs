@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 
 namespace lgu3d {
     //微信接口组件 IOS
+    #if UNITY_IOS
     public class BaiDu_IOSComp : BaiDuComp
     {
         [DllImport("__Internal")]
@@ -52,5 +53,6 @@ namespace lgu3d {
             __stoplocation_bd();
         }
     }
+    #endif
 }
 //#endif

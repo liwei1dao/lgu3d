@@ -68,10 +68,10 @@ namespace lgu3d
             Debug.Log("OnFullScreenAdLoad");
             ad.SetFullScreenVideoAdInteractionListener(this);
             ad.SetDownloadListener(MyModule);
-
             this.fullScreenVideoAd = ad;
+            this.fullScreenVideoAd.ShowFullScreenVideoAd();
         }
-
+    
         public void OnFullScreenVideoCached()
         {
             Debug.LogError("express OnFullScreenVideoCached,type:ExpressFullScreenVideoAdComp");

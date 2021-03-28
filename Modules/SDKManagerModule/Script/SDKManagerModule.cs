@@ -110,9 +110,9 @@ namespace lgu3d {
         }
         public PhoneComp InitPhoneSys()
         {
-#if UNITY_ANDROID && !UNITY_EDITORsdk
+#if UNITY_ANDROID && !UNITY_EDITOR
             phoneComp = AddComp<Phone_AndroidComp>();
-#elif UNITY_IPHONE && !UNITY_EDITOR
+#elif UNITY_IOS && !UNITY_EDITOR
             phoneComp = AddComp<Phone_IOSComp>();
 #else
             Debug.LogError("初始化公共SDK 失败 平台异常");

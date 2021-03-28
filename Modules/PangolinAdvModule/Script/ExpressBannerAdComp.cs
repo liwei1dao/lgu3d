@@ -11,7 +11,9 @@ namespace lgu3d
     /// </summary>
     public class ExpressBannerAdComp : ModelCompBase<PangolinAdvModule>,IExpressAdListener,IExpressAdInteractionListener,IDislikeInteractionListener
     {
+        #if UNITY_IOS
         private ExpressBannerAd iExpressBannerAd; // for iOS
+        #endif
         private ExpressAd mExpressBannerAd;// for Android
         public override void Load(ModelBase _ModelContorl, params object[] _Agr)
         {
@@ -33,11 +35,13 @@ namespace lgu3d
         }
 
         private void  ShowAdv_IOS(string advId){
+            #if UNITY_IOS
             if (this.iExpressBannerAd != null)
             {
                 this.iExpressBannerAd.Dispose();
                 this.iExpressBannerAd = null;
             }
+            #endif
             int width = UnityEngine.Screen.width;
             int height =  width / 600 * 90;
             var adSlot = new AdSlot.Builder()
@@ -92,6 +96,7 @@ namespace lgu3d
             this.mExpressBannerAd.SetDownloadListener(MyModule);
             NativeAdManager.Instance().ShowExpressBannerAd(MyModule.GetActivity(), mExpressBannerAd.handle, this, this);
         }
+        #if UNITY_IOS
         public void OnExpressBannerAdLoad(ExpressBannerAd ad)
         {
             Debug.Log("OnExpressBannerAdLoad");
@@ -105,6 +110,7 @@ namespace lgu3d
         {
 
         }
+        #endif
         #endregion
 
         #region 显示监听

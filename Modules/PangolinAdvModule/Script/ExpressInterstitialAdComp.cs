@@ -1,8 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using ByteDance.Union;
 using UnityEngine;
-using System;
 
 namespace lgu3d
 {
@@ -10,8 +8,10 @@ namespace lgu3d
     /// 穿山甲广告模块 插屏广告
     /// </summary>
     public class ExpressInterstitialAdComp : ModelCompBase<PangolinAdvModule>,IExpressAdListener,IExpressAdInteractionListener
-    {
+    {      
+        #if UNITY_IOS
         private ExpressInterstitialAd iExpressInterstitialAd;   // for iOS
+        #endif
         private ExpressAd mExpressInterstitialAd;               // for Android
         public override void Load(ModelBase _ModelContorl, params object[] _Agr)
         {
@@ -28,16 +28,18 @@ namespace lgu3d
             #elif !UNITY_EDITOR && UNITY_ANDROID
                 ShowAdv_Android(advId);
             #else
-                Debug.Log("PangolinAdvModule SplashAdComp ShowAdv current platform not support");
+                Debug.Log("PangolinAdvModule ExpressInterstitialAdComp ShowAdv current platform not support");
             #endif
         }
 
         private void  ShowAdv_IOS(string advId){
+            #if UNITY_IOS
             if (this.iExpressInterstitialAd != null)
             {
                 this.iExpressInterstitialAd.Dispose();
                 this.iExpressInterstitialAd = null;
             }
+            #endif
             int width = UnityEngine.Screen.width;
             int height = width / 200 * 300;
 
@@ -89,7 +91,7 @@ namespace lgu3d
             this.mExpressInterstitialAd.SetDownloadListener(MyModule);
             NativeAdManager.Instance().ShowExpressInterstitialAd(MyModule.GetActivity(), mExpressInterstitialAd.handle, this);
         }
-
+        #if UNITY_IOS
         public void OnExpressBannerAdLoad(ExpressBannerAd ad)
         {
             
@@ -103,7 +105,7 @@ namespace lgu3d
             this.iExpressInterstitialAd = ad;
             this.iExpressInterstitialAd.ShowExpressAd(0, 100);
         }
-
+        #endif
         #endregion
 
         #region 显示监听

@@ -86,11 +86,11 @@ namespace lgu3d
                 this.mExpressFeedad.ShowExpressAd(0, 100);
             #elif UNITY_ANDROID
                 this.mExpressFeedad.SetExpressInteractionListener(this);
-                this.mExpressFeedad.SetDownloadListener();
-                NativeAdManager.Instance().ShowExpressFeedAd(GetActivity(),mExpressFeedad.handle,this,this);
+                this.mExpressFeedad.SetDownloadListener(MyModule);
+                NativeAdManager.Instance().ShowExpressFeedAd(MyModule.GetActivity(),mExpressFeedad.handle,this,this);
             #endif
         }
-
+       #if UNITY_IOS
         public void OnExpressBannerAdLoad(ExpressBannerAd ad)
         {
 
@@ -100,6 +100,7 @@ namespace lgu3d
         {
 
         }
+        #endif
         #endregion
         #region 播放监听实例接口
         public void OnAdViewRenderSucc(ExpressAd ad, float width, float height)

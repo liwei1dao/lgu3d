@@ -1,0 +1,2096 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad5b914f0eb0f924fb6d4a4aaa7ee1d8, type: 3}
+  m_Name: PackingToolsSetting
+  m_EditorClassIdentifier: 
+  BuildPlatform: 2
+  BuildTarget: 0
+  ProVersion: 0
+  ResVersion: 0
+  IsCompress: 1
+  ResourceOutPath: E:/u3d/lgu3d_demo/Assets/StreamingAssets
+  ResourceCatalog:
+  - Name: Modules
+    Path: /lgu3d/Modules
+  - Name: AppModules
+    Path: /AppModules
+  ModelBuildConfig:
+  - Name: CommonModule
+    Path: /lgu3d/Modules\CommonModule
+    RootName: /lgu3d/Modules
+    ModelName: CommonModule
+    AssetBundleName: CommonModule
+    Layer: 0
+    NodelType: 1
+    Foldout: 0
+    IsMergeBuild: 0
+    IsShowBuildToogle: 1
+    ChildBuildItem:
+    - Name: Image
+      Path: /lgu3d/Modules\CommonModule\Image
+      RootName: /lgu3d/Modules
+      ModelName: CommonModule
+      AssetBundleName: CommonModule/Image
+      Layer: 1
+      NodelType: 2
+      Foldout: 0
+      IsMergeBuild: 1
+      IsShowBuildToogle: 1
+      ChildBuildItem:
+      - Name: button
+        Path: /lgu3d/Modules\CommonModule\Image\button.png
+        RootName: /lgu3d/Modules
+        ModelName: CommonModule
+        AssetBundleName: CommonModule/Image
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: buttongreen
+        Path: /lgu3d/Modules\CommonModule\Image\buttongreen.png
+        RootName: /lgu3d/Modules
+        ModelName: CommonModule
+        AssetBundleName: CommonModule/Image
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: buttongreen1
+        Path: /lgu3d/Modules\CommonModule\Image\buttongreen1.png
+        RootName: /lgu3d/Modules
+        ModelName: CommonModule
+        AssetBundleName: CommonModule/Image
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: buttonyellow
+        Path: /lgu3d/Modules\CommonModule\Image\buttonyellow.png
+        RootName: /lgu3d/Modules
+        ModelName: CommonModule
+        AssetBundleName: CommonModule/Image
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: close_btn
+        Path: /lgu3d/Modules\CommonModule\Image\close_btn.png
+        RootName: /lgu3d/Modules
+        ModelName: CommonModule
+        AssetBundleName: CommonModule/Image
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: dly_bg_bfb
+        Path: /lgu3d/Modules\CommonModule\Image\dly_bg_bfb.png
+        RootName: /lgu3d/Modules
+        ModelName: CommonModule
+        AssetBundleName: CommonModule/Image
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: MsgBox
+        Path: /lgu3d/Modules\CommonModule\Image\MsgBox.png
+        RootName: /lgu3d/Modules
+        ModelName: CommonModule
+        AssetBundleName: CommonModule/Image
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: progress
+        Path: /lgu3d/Modules\CommonModule\Image\progress.png
+        RootName: /lgu3d/Modules
+        ModelName: CommonModule
+        AssetBundleName: CommonModule/Image
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: progress_bg
+        Path: /lgu3d/Modules\CommonModule\Image\progress_bg.png
+        RootName: /lgu3d/Modules
+        ModelName: CommonModule
+        AssetBundleName: CommonModule/Image
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+    - Name: Lua
+      Path: /lgu3d/Modules\CommonModule\Lua
+      RootName: /lgu3d/Modules
+      ModelName: CommonModule
+      AssetBundleName: CommonModule/Lua
+      Layer: 1
+      NodelType: 2
+      Foldout: 0
+      IsMergeBuild: 1
+      IsShowBuildToogle: 1
+      ChildBuildItem:
+      - Name: LoadingViewComp
+        Path: /lgu3d/Modules\CommonModule\Lua\LoadingViewComp.lua
+        RootName: /lgu3d/Modules
+        ModelName: CommonModule
+        AssetBundleName: CommonModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: Main
+        Path: /lgu3d/Modules\CommonModule\Lua\Main.lua
+        RootName: /lgu3d/Modules
+        ModelName: CommonModule
+        AssetBundleName: CommonModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: Module
+        Path: /lgu3d/Modules\CommonModule\Lua\Module.lua
+        RootName: /lgu3d/Modules
+        ModelName: CommonModule
+        AssetBundleName: CommonModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: MsgBoxViewComp
+        Path: /lgu3d/Modules\CommonModule\Lua\MsgBoxViewComp.lua
+        RootName: /lgu3d/Modules
+        ModelName: CommonModule
+        AssetBundleName: CommonModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: MsgTiplsViewComp
+        Path: /lgu3d/Modules\CommonModule\Lua\MsgTiplsViewComp.lua
+        RootName: /lgu3d/Modules
+        ModelName: CommonModule
+        AssetBundleName: CommonModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: WaitingViewComp
+        Path: /lgu3d/Modules\CommonModule\Lua\WaitingViewComp.lua
+        RootName: /lgu3d/Modules
+        ModelName: CommonModule
+        AssetBundleName: CommonModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+    - Name: Prefab
+      Path: /lgu3d/Modules\CommonModule\Prefab
+      RootName: /lgu3d/Modules
+      ModelName: CommonModule
+      AssetBundleName: CommonModule/Prefab
+      Layer: 1
+      NodelType: 2
+      Foldout: 0
+      IsMergeBuild: 1
+      IsShowBuildToogle: 1
+      ChildBuildItem:
+      - Name: LoadingView
+        Path: /lgu3d/Modules\CommonModule\Prefab\LoadingView.prefab
+        RootName: /lgu3d/Modules
+        ModelName: CommonModule
+        AssetBundleName: CommonModule/Prefab
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: MessageBox
+        Path: /lgu3d/Modules\CommonModule\Prefab\MessageBox.prefab
+        RootName: /lgu3d/Modules
+        ModelName: CommonModule
+        AssetBundleName: CommonModule/Prefab
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: MessageTipls
+        Path: /lgu3d/Modules\CommonModule\Prefab\MessageTipls.prefab
+        RootName: /lgu3d/Modules
+        ModelName: CommonModule
+        AssetBundleName: CommonModule/Prefab
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: Tips
+        Path: /lgu3d/Modules\CommonModule\Prefab\Tips.prefab
+        RootName: /lgu3d/Modules
+        ModelName: CommonModule
+        AssetBundleName: CommonModule/Prefab
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: WaitingView
+        Path: /lgu3d/Modules\CommonModule\Prefab\WaitingView.prefab
+        RootName: /lgu3d/Modules
+        ModelName: CommonModule
+        AssetBundleName: CommonModule/Prefab
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+    IsSelection: 1
+    IsUpdataModule: 0
+  - Name: EventModule
+    Path: /lgu3d/Modules\EventModule
+    RootName: /lgu3d/Modules
+    ModelName: EventModule
+    AssetBundleName: EventModule
+    Layer: 0
+    NodelType: 1
+    Foldout: 0
+    IsMergeBuild: 0
+    IsShowBuildToogle: 1
+    ChildBuildItem:
+    - Name: Lua
+      Path: /lgu3d/Modules\EventModule\Lua
+      RootName: /lgu3d/Modules
+      ModelName: EventModule
+      AssetBundleName: EventModule/Lua
+      Layer: 1
+      NodelType: 2
+      Foldout: 0
+      IsMergeBuild: 1
+      IsShowBuildToogle: 1
+      ChildBuildItem:
+      - Name: Main
+        Path: /lgu3d/Modules\EventModule\Lua\Main.lua
+        RootName: /lgu3d/Modules
+        ModelName: EventModule
+        AssetBundleName: EventModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: Module
+        Path: /lgu3d/Modules\EventModule\Lua\Module.lua
+        RootName: /lgu3d/Modules
+        ModelName: EventModule
+        AssetBundleName: EventModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+    IsSelection: 1
+    IsUpdataModule: 0
+  - Name: LocalServiceModule
+    Path: /lgu3d/Modules\LocalServiceModule
+    RootName: /lgu3d/Modules
+    ModelName: LocalServiceModule
+    AssetBundleName: LocalServiceModule
+    Layer: 0
+    NodelType: 1
+    Foldout: 0
+    IsMergeBuild: 0
+    IsShowBuildToogle: 1
+    ChildBuildItem:
+    - Name: Lua
+      Path: /lgu3d/Modules\LocalServiceModule\Lua
+      RootName: /lgu3d/Modules
+      ModelName: LocalServiceModule
+      AssetBundleName: LocalServiceModule/Lua
+      Layer: 1
+      NodelType: 2
+      Foldout: 0
+      IsMergeBuild: 1
+      IsShowBuildToogle: 1
+      ChildBuildItem:
+      - Name: ILocalServiceComp
+        Path: /lgu3d/Modules\LocalServiceModule\Lua\ILocalServiceComp.lua
+        RootName: /lgu3d/Modules
+        ModelName: LocalServiceModule
+        AssetBundleName: LocalServiceModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: IServiceBase
+        Path: /lgu3d/Modules\LocalServiceModule\Lua\IServiceBase.lua
+        RootName: /lgu3d/Modules
+        ModelName: LocalServiceModule
+        AssetBundleName: LocalServiceModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: LocalServiceManagerComp
+        Path: /lgu3d/Modules\LocalServiceModule\Lua\LocalServiceManagerComp.lua
+        RootName: /lgu3d/Modules
+        ModelName: LocalServiceModule
+        AssetBundleName: LocalServiceModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: Main
+        Path: /lgu3d/Modules\LocalServiceModule\Lua\Main.lua
+        RootName: /lgu3d/Modules
+        ModelName: LocalServiceModule
+        AssetBundleName: LocalServiceModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: Module
+        Path: /lgu3d/Modules\LocalServiceModule\Lua\Module.lua
+        RootName: /lgu3d/Modules
+        ModelName: LocalServiceModule
+        AssetBundleName: LocalServiceModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: ServiceManagerComp
+        Path: /lgu3d/Modules\LocalServiceModule\Lua\ServiceManagerComp.lua
+        RootName: /lgu3d/Modules
+        ModelName: LocalServiceModule
+        AssetBundleName: LocalServiceModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+    IsSelection: 1
+    IsUpdataModule: 0
+  - Name: LuaManagerModule
+    Path: /lgu3d/Modules\LuaManagerModule
+    RootName: /lgu3d/Modules
+    ModelName: LuaManagerModule
+    AssetBundleName: LuaManagerModule
+    Layer: 0
+    NodelType: 1
+    Foldout: 0
+    IsMergeBuild: 0
+    IsShowBuildToogle: 1
+    ChildBuildItem:
+    - Name: Lua
+      Path: /lgu3d/Modules\LuaManagerModule\Lua
+      RootName: /lgu3d/Modules
+      ModelName: LuaManagerModule
+      AssetBundleName: LuaManagerModule/Lua
+      Layer: 1
+      NodelType: 2
+      Foldout: 0
+      IsMergeBuild: 1
+      IsShowBuildToogle: 1
+      ChildBuildItem:
+      - Name: Config
+        Path: /lgu3d/Modules\LuaManagerModule\Lua\Config
+        RootName: /lgu3d/Modules
+        ModelName: LuaManagerModule
+        AssetBundleName: LuaManagerModule/Lua
+        Layer: 2
+        NodelType: 2
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem:
+        - Name: AppConfig
+          Path: /lgu3d/Modules\LuaManagerModule\Lua\Config\AppConfig.lua
+          RootName: /lgu3d/Modules
+          ModelName: LuaManagerModule
+          AssetBundleName: LuaManagerModule/Lua
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+      - Name: LuaFaamework
+        Path: /lgu3d/Modules\LuaManagerModule\Lua\LuaFaamework
+        RootName: /lgu3d/Modules
+        ModelName: LuaManagerModule
+        AssetBundleName: LuaManagerModule/Lua
+        Layer: 2
+        NodelType: 2
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem:
+        - Name: BaseModel
+          Path: /lgu3d/Modules\LuaManagerModule\Lua\LuaFaamework\BaseModel.lua
+          RootName: /lgu3d/Modules
+          ModelName: LuaManagerModule
+          AssetBundleName: LuaManagerModule/Lua
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: BaseModelComp
+          Path: /lgu3d/Modules\LuaManagerModule\Lua\LuaFaamework\BaseModelComp.lua
+          RootName: /lgu3d/Modules
+          ModelName: LuaManagerModule
+          AssetBundleName: LuaManagerModule/Lua
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: BaseModelViewComp
+          Path: /lgu3d/Modules\LuaManagerModule\Lua\LuaFaamework\BaseModelViewComp.lua
+          RootName: /lgu3d/Modules
+          ModelName: LuaManagerModule
+          AssetBundleName: LuaManagerModule/Lua
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: Class
+          Path: /lgu3d/Modules\LuaManagerModule\Lua\LuaFaamework\Class.lua
+          RootName: /lgu3d/Modules
+          ModelName: LuaManagerModule
+          AssetBundleName: LuaManagerModule/Lua
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: LuaGameObject
+          Path: /lgu3d/Modules\LuaManagerModule\Lua\LuaFaamework\LuaGameObject.lua
+          RootName: /lgu3d/Modules
+          ModelName: LuaManagerModule
+          AssetBundleName: LuaManagerModule/Lua
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: LuaUIGameObject
+          Path: /lgu3d/Modules\LuaManagerModule\Lua\LuaFaamework\LuaUIGameObject.lua
+          RootName: /lgu3d/Modules
+          ModelName: LuaManagerModule
+          AssetBundleName: LuaManagerModule/Lua
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: Queue
+          Path: /lgu3d/Modules\LuaManagerModule\Lua\LuaFaamework\Queue.lua
+          RootName: /lgu3d/Modules
+          ModelName: LuaManagerModule
+          AssetBundleName: LuaManagerModule/Lua
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: Stack
+          Path: /lgu3d/Modules\LuaManagerModule\Lua\LuaFaamework\Stack.lua
+          RootName: /lgu3d/Modules
+          ModelName: LuaManagerModule
+          AssetBundleName: LuaManagerModule/Lua
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+      - Name: Main
+        Path: /lgu3d/Modules\LuaManagerModule\Lua\Main.lua
+        RootName: /lgu3d/Modules
+        ModelName: LuaManagerModule
+        AssetBundleName: LuaManagerModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: ToLua
+        Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua
+        RootName: /lgu3d/Modules
+        ModelName: LuaManagerModule
+        AssetBundleName: LuaManagerModule/Lua
+        Layer: 2
+        NodelType: 2
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem:
+        - Name: cjson
+          Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\cjson
+          RootName: /lgu3d/Modules
+          ModelName: LuaManagerModule
+          AssetBundleName: LuaManagerModule/Lua
+          Layer: 3
+          NodelType: 2
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem:
+          - Name: util
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\cjson\util.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+        - Name: event
+          Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\event.lua
+          RootName: /lgu3d/Modules
+          ModelName: LuaManagerModule
+          AssetBundleName: LuaManagerModule/Lua
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: jit
+          Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\jit
+          RootName: /lgu3d/Modules
+          ModelName: LuaManagerModule
+          AssetBundleName: LuaManagerModule/Lua
+          Layer: 3
+          NodelType: 2
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem:
+          - Name: bc
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\jit\bc.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: bcsave
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\jit\bcsave.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: dis_arm
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\jit\dis_arm.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: dis_arm64
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\jit\dis_arm64.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: dis_arm64be
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\jit\dis_arm64be.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: dis_mips
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\jit\dis_mips.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: dis_mips64
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\jit\dis_mips64.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: dis_mips64el
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\jit\dis_mips64el.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: dis_mipsel
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\jit\dis_mipsel.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: dis_ppc
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\jit\dis_ppc.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: dis_x64
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\jit\dis_x64.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: dis_x86
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\jit\dis_x86.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: dump
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\jit\dump.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: p
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\jit\p.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: v
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\jit\v.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: vmdef
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\jit\vmdef.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: zone
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\jit\zone.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+        - Name: list
+          Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\list.lua
+          RootName: /lgu3d/Modules
+          ModelName: LuaManagerModule
+          AssetBundleName: LuaManagerModule/Lua
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: lpeg
+          Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\lpeg
+          RootName: /lgu3d/Modules
+          ModelName: LuaManagerModule
+          AssetBundleName: LuaManagerModule/Lua
+          Layer: 3
+          NodelType: 2
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem:
+          - Name: re
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\lpeg\re.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+        - Name: ltn12
+          Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\ltn12.lua
+          RootName: /lgu3d/Modules
+          ModelName: LuaManagerModule
+          AssetBundleName: LuaManagerModule/Lua
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: mime
+          Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\mime.lua
+          RootName: /lgu3d/Modules
+          ModelName: LuaManagerModule
+          AssetBundleName: LuaManagerModule/Lua
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: misc
+          Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\misc
+          RootName: /lgu3d/Modules
+          ModelName: LuaManagerModule
+          AssetBundleName: LuaManagerModule/Lua
+          Layer: 3
+          NodelType: 2
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem:
+          - Name: functions
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\misc\functions.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: strict
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\misc\strict.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: utf8
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\misc\utf8.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+        - Name: protobuf
+          Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\protobuf
+          RootName: /lgu3d/Modules
+          ModelName: LuaManagerModule
+          AssetBundleName: LuaManagerModule/Lua
+          Layer: 3
+          NodelType: 2
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem:
+          - Name: containers
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\protobuf\containers.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: decoder
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\protobuf\decoder.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: descriptor
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\protobuf\descriptor.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: encoder
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\protobuf\encoder.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: listener
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\protobuf\listener.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: protobuf
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\protobuf\protobuf.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: text_format
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\protobuf\text_format.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: type_checkers
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\protobuf\type_checkers.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: wire_format
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\protobuf\wire_format.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+        - Name: protoc
+          Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\protoc.lua
+          RootName: /lgu3d/Modules
+          ModelName: LuaManagerModule
+          AssetBundleName: LuaManagerModule/Lua
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: serpent
+          Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\serpent.lua
+          RootName: /lgu3d/Modules
+          ModelName: LuaManagerModule
+          AssetBundleName: LuaManagerModule/Lua
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: slot
+          Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\slot.lua
+          RootName: /lgu3d/Modules
+          ModelName: LuaManagerModule
+          AssetBundleName: LuaManagerModule/Lua
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: socket
+          Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\socket
+          RootName: /lgu3d/Modules
+          ModelName: LuaManagerModule
+          AssetBundleName: LuaManagerModule/Lua
+          Layer: 3
+          NodelType: 2
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem:
+          - Name: ftp
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\socket\ftp.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: headers
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\socket\headers.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: http
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\socket\http.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: mbox
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\socket\mbox.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: smtp
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\socket\smtp.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: tp
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\socket\tp.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: url
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\socket\url.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+        - Name: socket
+          Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\socket.lua
+          RootName: /lgu3d/Modules
+          ModelName: LuaManagerModule
+          AssetBundleName: LuaManagerModule/Lua
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: System
+          Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\System
+          RootName: /lgu3d/Modules
+          ModelName: LuaManagerModule
+          AssetBundleName: LuaManagerModule/Lua
+          Layer: 3
+          NodelType: 2
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem:
+          - Name: coroutine
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\System\coroutine.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: Injection
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\System\Injection
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 2
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem:
+            - Name: InjectionBridgeInfo
+              Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\System\Injection\InjectionBridgeInfo.lua
+              RootName: /lgu3d/Modules
+              ModelName: LuaManagerModule
+              AssetBundleName: LuaManagerModule/Lua
+              Layer: 5
+              NodelType: 3
+              Foldout: 0
+              IsMergeBuild: 1
+              IsShowBuildToogle: 0
+              ChildBuildItem: []
+            - Name: LuaInjectionBus
+              Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\System\Injection\LuaInjectionBus.lua
+              RootName: /lgu3d/Modules
+              ModelName: LuaManagerModule
+              AssetBundleName: LuaManagerModule/Lua
+              Layer: 5
+              NodelType: 3
+              Foldout: 0
+              IsMergeBuild: 1
+              IsShowBuildToogle: 0
+              ChildBuildItem: []
+            - Name: LuaInjectionStation
+              Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\System\Injection\LuaInjectionStation.lua
+              RootName: /lgu3d/Modules
+              ModelName: LuaManagerModule
+              AssetBundleName: LuaManagerModule/Lua
+              Layer: 5
+              NodelType: 3
+              Foldout: 0
+              IsMergeBuild: 1
+              IsShowBuildToogle: 0
+              ChildBuildItem: []
+          - Name: Reflection
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\System\Reflection
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 2
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem:
+            - Name: BindingFlags
+              Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\System\Reflection\BindingFlags.lua
+              RootName: /lgu3d/Modules
+              ModelName: LuaManagerModule
+              AssetBundleName: LuaManagerModule/Lua
+              Layer: 5
+              NodelType: 3
+              Foldout: 0
+              IsMergeBuild: 1
+              IsShowBuildToogle: 0
+              ChildBuildItem: []
+          - Name: Timer
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\System\Timer.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: ValueType
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\System\ValueType.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+        - Name: tolua
+          Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\tolua.lua
+          RootName: /lgu3d/Modules
+          ModelName: LuaManagerModule
+          AssetBundleName: LuaManagerModule/Lua
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: typeof
+          Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\typeof.lua
+          RootName: /lgu3d/Modules
+          ModelName: LuaManagerModule
+          AssetBundleName: LuaManagerModule/Lua
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: UnityEngine
+          Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\UnityEngine
+          RootName: /lgu3d/Modules
+          ModelName: LuaManagerModule
+          AssetBundleName: LuaManagerModule/Lua
+          Layer: 3
+          NodelType: 2
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem:
+          - Name: Bounds
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\UnityEngine\Bounds.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: Color
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\UnityEngine\Color.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: LayerMask
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\UnityEngine\LayerMask.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: Mathf
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\UnityEngine\Mathf.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: Plane
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\UnityEngine\Plane.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: Profiler
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\UnityEngine\Profiler.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: Quaternion
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\UnityEngine\Quaternion.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: Ray
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\UnityEngine\Ray.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: RaycastHit
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\UnityEngine\RaycastHit.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: Time
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\UnityEngine\Time.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: Touch
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\UnityEngine\Touch.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: Vector2
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\UnityEngine\Vector2.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: Vector3
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\UnityEngine\Vector3.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: Vector4
+            Path: /lgu3d/Modules\LuaManagerModule\Lua\ToLua\UnityEngine\Vector4.lua
+            RootName: /lgu3d/Modules
+            ModelName: LuaManagerModule
+            AssetBundleName: LuaManagerModule/Lua
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+      - Name: Tools
+        Path: /lgu3d/Modules\LuaManagerModule\Lua\Tools
+        RootName: /lgu3d/Modules
+        ModelName: LuaManagerModule
+        AssetBundleName: LuaManagerModule/Lua
+        Layer: 2
+        NodelType: 2
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem:
+        - Name: LuaMath
+          Path: /lgu3d/Modules\LuaManagerModule\Lua\Tools\LuaMath.lua
+          RootName: /lgu3d/Modules
+          ModelName: LuaManagerModule
+          AssetBundleName: LuaManagerModule/Lua
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: LuaString
+          Path: /lgu3d/Modules\LuaManagerModule\Lua\Tools\LuaString.lua
+          RootName: /lgu3d/Modules
+          ModelName: LuaManagerModule
+          AssetBundleName: LuaManagerModule/Lua
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: LuaTableTools
+          Path: /lgu3d/Modules\LuaManagerModule\Lua\Tools\LuaTableTools.lua
+          RootName: /lgu3d/Modules
+          ModelName: LuaManagerModule
+          AssetBundleName: LuaManagerModule/Lua
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: Unity3dTools
+          Path: /lgu3d/Modules\LuaManagerModule\Lua\Tools\Unity3dTools.lua
+          RootName: /lgu3d/Modules
+          ModelName: LuaManagerModule
+          AssetBundleName: LuaManagerModule/Lua
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+    IsSelection: 1
+    IsUpdataModule: 0
+  - Name: LuaServiceModule
+    Path: /lgu3d/Modules\LuaServiceModule
+    RootName: /lgu3d/Modules
+    ModelName: LuaServiceModule
+    AssetBundleName: LuaServiceModule
+    Layer: 0
+    NodelType: 1
+    Foldout: 0
+    IsMergeBuild: 0
+    IsShowBuildToogle: 1
+    ChildBuildItem:
+    - Name: Lua
+      Path: /lgu3d/Modules\LuaServiceModule\Lua
+      RootName: /lgu3d/Modules
+      ModelName: LuaServiceModule
+      AssetBundleName: LuaServiceModule/Lua
+      Layer: 1
+      NodelType: 2
+      Foldout: 0
+      IsMergeBuild: 1
+      IsShowBuildToogle: 1
+      ChildBuildItem:
+      - Name: IServiceBase
+        Path: /lgu3d/Modules\LuaServiceModule\Lua\IServiceBase.lua
+        RootName: /lgu3d/Modules
+        ModelName: LuaServiceModule
+        AssetBundleName: LuaServiceModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: Main
+        Path: /lgu3d/Modules\LuaServiceModule\Lua\Main.lua
+        RootName: /lgu3d/Modules
+        ModelName: LuaServiceModule
+        AssetBundleName: LuaServiceModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: Module
+        Path: /lgu3d/Modules\LuaServiceModule\Lua\Module.lua
+        RootName: /lgu3d/Modules
+        ModelName: LuaServiceModule
+        AssetBundleName: LuaServiceModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: ServiceManagerComp
+        Path: /lgu3d/Modules\LuaServiceModule\Lua\ServiceManagerComp.lua
+        RootName: /lgu3d/Modules
+        ModelName: LuaServiceModule
+        AssetBundleName: LuaServiceModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: ServiceModuleViewComp
+        Path: /lgu3d/Modules\LuaServiceModule\Lua\ServiceModuleViewComp.lua
+        RootName: /lgu3d/Modules
+        ModelName: LuaServiceModule
+        AssetBundleName: LuaServiceModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+    - Name: Prefab
+      Path: /lgu3d/Modules\LuaServiceModule\Prefab
+      RootName: /lgu3d/Modules
+      ModelName: LuaServiceModule
+      AssetBundleName: LuaServiceModule/Prefab
+      Layer: 1
+      NodelType: 2
+      Foldout: 0
+      IsMergeBuild: 1
+      IsShowBuildToogle: 1
+      ChildBuildItem:
+      - Name: ServiceModuleView
+        Path: /lgu3d/Modules\LuaServiceModule\Prefab\ServiceModuleView.prefab
+        RootName: /lgu3d/Modules
+        ModelName: LuaServiceModule
+        AssetBundleName: LuaServiceModule/Prefab
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+    IsSelection: 1
+    IsUpdataModule: 0
+  - Name: SceneModule
+    Path: /lgu3d/Modules\SceneModule
+    RootName: /lgu3d/Modules
+    ModelName: SceneModule
+    AssetBundleName: SceneModule
+    Layer: 0
+    NodelType: 1
+    Foldout: 0
+    IsMergeBuild: 0
+    IsShowBuildToogle: 1
+    ChildBuildItem:
+    - Name: Lua
+      Path: /lgu3d/Modules\SceneModule\Lua
+      RootName: /lgu3d/Modules
+      ModelName: SceneModule
+      AssetBundleName: SceneModule/Lua
+      Layer: 1
+      NodelType: 2
+      Foldout: 0
+      IsMergeBuild: 1
+      IsShowBuildToogle: 1
+      ChildBuildItem:
+      - Name: ISceneLoadCompBase
+        Path: /lgu3d/Modules\SceneModule\Lua\ISceneLoadCompBase.lua
+        RootName: /lgu3d/Modules
+        ModelName: SceneModule
+        AssetBundleName: SceneModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: Main
+        Path: /lgu3d/Modules\SceneModule\Lua\Main.lua
+        RootName: /lgu3d/Modules
+        ModelName: SceneModule
+        AssetBundleName: SceneModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: Module
+        Path: /lgu3d/Modules\SceneModule\Lua\Module.lua
+        RootName: /lgu3d/Modules
+        ModelName: SceneModule
+        AssetBundleName: SceneModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: SceneChedulerComp
+        Path: /lgu3d/Modules\SceneModule\Lua\SceneChedulerComp.lua
+        RootName: /lgu3d/Modules
+        ModelName: SceneModule
+        AssetBundleName: SceneModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: SwitchSceneViewComp
+        Path: /lgu3d/Modules\SceneModule\Lua\SwitchSceneViewComp.lua
+        RootName: /lgu3d/Modules
+        ModelName: SceneModule
+        AssetBundleName: SceneModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+    - Name: Prefab
+      Path: /lgu3d/Modules\SceneModule\Prefab
+      RootName: /lgu3d/Modules
+      ModelName: SceneModule
+      AssetBundleName: SceneModule/Prefab
+      Layer: 1
+      NodelType: 2
+      Foldout: 0
+      IsMergeBuild: 1
+      IsShowBuildToogle: 1
+      ChildBuildItem:
+      - Name: SwitchSceneView
+        Path: /lgu3d/Modules\SceneModule\Prefab\SwitchSceneView.prefab
+        RootName: /lgu3d/Modules
+        ModelName: SceneModule
+        AssetBundleName: SceneModule/Prefab
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+    IsSelection: 1
+    IsUpdataModule: 0
+  - Name: SDKManagerModule
+    Path: /lgu3d/Modules\SDKManagerModule
+    RootName: /lgu3d/Modules
+    ModelName: SDKManagerModule
+    AssetBundleName: SDKManagerModule
+    Layer: 0
+    NodelType: 1
+    Foldout: 0
+    IsMergeBuild: 0
+    IsShowBuildToogle: 1
+    ChildBuildItem:
+    - Name: Lua
+      Path: /lgu3d/Modules\SDKManagerModule\Lua
+      RootName: /lgu3d/Modules
+      ModelName: SDKManagerModule
+      AssetBundleName: SDKManagerModule/Lua
+      Layer: 1
+      NodelType: 2
+      Foldout: 0
+      IsMergeBuild: 1
+      IsShowBuildToogle: 1
+      ChildBuildItem:
+      - Name: Main
+        Path: /lgu3d/Modules\SDKManagerModule\Lua\Main.lua
+        RootName: /lgu3d/Modules
+        ModelName: SDKManagerModule
+        AssetBundleName: SDKManagerModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: Module
+        Path: /lgu3d/Modules\SDKManagerModule\Lua\Module.lua
+        RootName: /lgu3d/Modules
+        ModelName: SDKManagerModule
+        AssetBundleName: SDKManagerModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+    IsSelection: 1
+    IsUpdataModule: 0
+  - Name: SoundModule
+    Path: /lgu3d/Modules\SoundModule
+    RootName: /lgu3d/Modules
+    ModelName: SoundModule
+    AssetBundleName: SoundModule
+    Layer: 0
+    NodelType: 1
+    Foldout: 0
+    IsMergeBuild: 0
+    IsShowBuildToogle: 1
+    ChildBuildItem:
+    - Name: Lua
+      Path: /lgu3d/Modules\SoundModule\Lua
+      RootName: /lgu3d/Modules
+      ModelName: SoundModule
+      AssetBundleName: SoundModule/Lua
+      Layer: 1
+      NodelType: 2
+      Foldout: 0
+      IsMergeBuild: 1
+      IsShowBuildToogle: 1
+      ChildBuildItem:
+      - Name: Main
+        Path: /lgu3d/Modules\SoundModule\Lua\Main.lua
+        RootName: /lgu3d/Modules
+        ModelName: SoundModule
+        AssetBundleName: SoundModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: Module
+        Path: /lgu3d/Modules\SoundModule\Lua\Module.lua
+        RootName: /lgu3d/Modules
+        ModelName: SoundModule
+        AssetBundleName: SoundModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+    IsSelection: 1
+    IsUpdataModule: 0
+  - Name: VersionManagerModule
+    Path: /lgu3d/Modules\VersionManagerModule
+    RootName: /lgu3d/Modules
+    ModelName: VersionManagerModule
+    AssetBundleName: VersionManagerModule
+    Layer: 0
+    NodelType: 1
+    Foldout: 0
+    IsMergeBuild: 0
+    IsShowBuildToogle: 1
+    ChildBuildItem:
+    - Name: Lua
+      Path: /lgu3d/Modules\VersionManagerModule\Lua
+      RootName: /lgu3d/Modules
+      ModelName: VersionManagerModule
+      AssetBundleName: VersionManagerModule/Lua
+      Layer: 1
+      NodelType: 2
+      Foldout: 0
+      IsMergeBuild: 1
+      IsShowBuildToogle: 1
+      ChildBuildItem:
+      - Name: DownloadTask
+        Path: /lgu3d/Modules\VersionManagerModule\Lua\DownloadTask.lua
+        RootName: /lgu3d/Modules
+        ModelName: VersionManagerModule
+        AssetBundleName: VersionManagerModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: LocalVersionCheckeComp
+        Path: /lgu3d/Modules\VersionManagerModule\Lua\LocalVersionCheckeComp.lua
+        RootName: /lgu3d/Modules
+        ModelName: VersionManagerModule
+        AssetBundleName: VersionManagerModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: Main
+        Path: /lgu3d/Modules\VersionManagerModule\Lua\Main.lua
+        RootName: /lgu3d/Modules
+        ModelName: VersionManagerModule
+        AssetBundleName: VersionManagerModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: Module
+        Path: /lgu3d/Modules\VersionManagerModule\Lua\Module.lua
+        RootName: /lgu3d/Modules
+        ModelName: VersionManagerModule
+        AssetBundleName: VersionManagerModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: ModuleUpdataViewComp
+        Path: /lgu3d/Modules\VersionManagerModule\Lua\ModuleUpdataViewComp.lua
+        RootName: /lgu3d/Modules
+        ModelName: VersionManagerModule
+        AssetBundleName: VersionManagerModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: VersionContrastComp
+        Path: /lgu3d/Modules\VersionManagerModule\Lua\VersionContrastComp.lua
+        RootName: /lgu3d/Modules
+        ModelName: VersionManagerModule
+        AssetBundleName: VersionManagerModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: VersionDownlooadComp
+        Path: /lgu3d/Modules\VersionManagerModule\Lua\VersionDownlooadComp.lua
+        RootName: /lgu3d/Modules
+        ModelName: VersionManagerModule
+        AssetBundleName: VersionManagerModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+    - Name: Prefab
+      Path: /lgu3d/Modules\VersionManagerModule\Prefab
+      RootName: /lgu3d/Modules
+      ModelName: VersionManagerModule
+      AssetBundleName: VersionManagerModule/Prefab
+      Layer: 1
+      NodelType: 2
+      Foldout: 0
+      IsMergeBuild: 1
+      IsShowBuildToogle: 1
+      ChildBuildItem:
+      - Name: AppLoadingView
+        Path: /lgu3d/Modules\VersionManagerModule\Prefab\AppLoadingView.prefab
+        RootName: /lgu3d/Modules
+        ModelName: VersionManagerModule
+        AssetBundleName: VersionManagerModule/Prefab
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: ModuleUpdataView
+        Path: /lgu3d/Modules\VersionManagerModule\Prefab\ModuleUpdataView.prefab
+        RootName: /lgu3d/Modules
+        ModelName: VersionManagerModule
+        AssetBundleName: VersionManagerModule/Prefab
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+    IsSelection: 1
+    IsUpdataModule: 0
+  - Name: ViewManagerModule
+    Path: /lgu3d/Modules\ViewManagerModule
+    RootName: /lgu3d/Modules
+    ModelName: ViewManagerModule
+    AssetBundleName: ViewManagerModule
+    Layer: 0
+    NodelType: 1
+    Foldout: 0
+    IsMergeBuild: 0
+    IsShowBuildToogle: 1
+    ChildBuildItem:
+    - Name: Lua
+      Path: /lgu3d/Modules\ViewManagerModule\Lua
+      RootName: /lgu3d/Modules
+      ModelName: ViewManagerModule
+      AssetBundleName: ViewManagerModule/Lua
+      Layer: 1
+      NodelType: 2
+      Foldout: 0
+      IsMergeBuild: 1
+      IsShowBuildToogle: 1
+      ChildBuildItem:
+      - Name: Main
+        Path: /lgu3d/Modules\ViewManagerModule\Lua\Main.lua
+        RootName: /lgu3d/Modules
+        ModelName: ViewManagerModule
+        AssetBundleName: ViewManagerModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: Module
+        Path: /lgu3d/Modules\ViewManagerModule\Lua\Module.lua
+        RootName: /lgu3d/Modules
+        ModelName: ViewManagerModule
+        AssetBundleName: ViewManagerModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+    - Name: Prefab
+      Path: /lgu3d/Modules\ViewManagerModule\Prefab
+      RootName: /lgu3d/Modules
+      ModelName: ViewManagerModule
+      AssetBundleName: ViewManagerModule/Prefab
+      Layer: 1
+      NodelType: 2
+      Foldout: 0
+      IsMergeBuild: 1
+      IsShowBuildToogle: 1
+      ChildBuildItem:
+      - Name: UIRoot
+        Path: /lgu3d/Modules\ViewManagerModule\Prefab\UIRoot.prefab
+        RootName: /lgu3d/Modules
+        ModelName: ViewManagerModule
+        AssetBundleName: ViewManagerModule/Prefab
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+    IsSelection: 1
+    IsUpdataModule: 0
+  - Name: WebServiceModule
+    Path: /lgu3d/Modules\WebServiceModule
+    RootName: /lgu3d/Modules
+    ModelName: WebServiceModule
+    AssetBundleName: WebServiceModule
+    Layer: 0
+    NodelType: 1
+    Foldout: 0
+    IsMergeBuild: 0
+    IsShowBuildToogle: 1
+    ChildBuildItem:
+    - Name: Lua
+      Path: /lgu3d/Modules\WebServiceModule\Lua
+      RootName: /lgu3d/Modules
+      ModelName: WebServiceModule
+      AssetBundleName: WebServiceModule/Lua
+      Layer: 1
+      NodelType: 2
+      Foldout: 0
+      IsMergeBuild: 1
+      IsShowBuildToogle: 1
+      ChildBuildItem:
+      - Name: Main
+        Path: /lgu3d/Modules\WebServiceModule\Lua\Main.lua
+        RootName: /lgu3d/Modules
+        ModelName: WebServiceModule
+        AssetBundleName: WebServiceModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: Module
+        Path: /lgu3d/Modules\WebServiceModule\Lua\Module.lua
+        RootName: /lgu3d/Modules
+        ModelName: WebServiceModule
+        AssetBundleName: WebServiceModule/Lua
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+    IsSelection: 1
+    IsUpdataModule: 0
+  - Name: PangolinAdvDomeModule
+    Path: /AppModules\PangolinAdvDomeModule
+    RootName: /AppModules
+    ModelName: PangolinAdvDomeModule
+    AssetBundleName: PangolinAdvDomeModule
+    Layer: 0
+    NodelType: 1
+    Foldout: 1
+    IsMergeBuild: 0
+    IsShowBuildToogle: 1
+    ChildBuildItem:
+    - Name: Prefab
+      Path: /AppModules\PangolinAdvDomeModule\Prefab
+      RootName: /AppModules
+      ModelName: PangolinAdvDomeModule
+      AssetBundleName: PangolinAdvDomeModule/Prefab
+      Layer: 1
+      NodelType: 2
+      Foldout: 1
+      IsMergeBuild: 1
+      IsShowBuildToogle: 1
+      ChildBuildItem:
+      - Name: DemoMain
+        Path: /AppModules\PangolinAdvDomeModule\Prefab\DemoMain.prefab
+        RootName: /AppModules
+        ModelName: PangolinAdvDomeModule
+        AssetBundleName: PangolinAdvDomeModule/Prefab
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+    IsSelection: 1
+    IsUpdataModule: 0
