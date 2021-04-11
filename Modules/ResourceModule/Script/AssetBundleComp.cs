@@ -57,11 +57,18 @@ namespace lgu3d
 
         IEnumerator AssemblyAsset(Action CallBack)
         {
+        #if UNITY_EDITOR || UNITY_EDITOR_WIN
             string resPath = "file://" + AppConfig.GetstreamingAssetsPath + "/Res.zip";
+        #else 
+            string resPath = AppConfig.GetstreamingAssetsPath + "/Res.zip";
+        #endif
+            Debug.Log("AssemblyAsset Ready: "+resPath);
             UnityWebRequest www = new UnityWebRequest(resPath);
             DownloadHandlerBuffer dowle = new DownloadHandlerBuffer();
             www.downloadHandler = dowle;
+            Debug.Log("AssemblyAsset Start: "+resPath);
             yield return www.SendWebRequest();
+            Debug.Log("AssemblyAsset Result: "+resPath);
             if (www.error != null)
                 Debug.LogError("读取内部资源文件失败 path:"+ resPath +" err:"+ www.error);
             else
@@ -72,6 +79,8 @@ namespace lgu3d
                     if (IsHaveLoadView) {
                         Progress1Describe.text = "正在解压资源:" + describe;
                         Progress.fillAmount = progress;
+                    }else{
+                        Debug.Log(string.Format("正在解压资源 {0}:{1}",progress,describe));
                     }
                 });
                 if (IsHaveLoadView)
