@@ -9,6 +9,7 @@ namespace lgu3d
         private AndroidJavaObject activity;
         private AndroidJavaObject mSplashAdManager;
         private AdNative adNative;
+        private SplashAdComp splashAdComp;                  //开屏广告
         private ExpressSplashAdComp expressSplashAdComp;  //开屏广告
         private ExpressInterstitialAdComp expressInterstitialAdComp; //插屏广告
         private ExpressFullScreenVideoAdComp expressFullScreenVideoAdComp; //全屏视频广告
@@ -18,6 +19,7 @@ namespace lgu3d
 
         public override void Load(params object[] _Agr)
         {
+            splashAdComp = AddComp<SplashAdComp>();
             expressSplashAdComp = AddComp<ExpressSplashAdComp>();
             expressInterstitialAdComp = AddComp<ExpressInterstitialAdComp>();
             expressFullScreenVideoAdComp = AddComp<ExpressFullScreenVideoAdComp>();
@@ -69,6 +71,9 @@ namespace lgu3d
 
         #region 接口
         public void ShowSplashAd(string advId){
+            splashAdComp.ShowAdv(advId);
+        }
+        public void ExpressShowSplashAd(string advId){
             expressSplashAdComp.ShowAdv(advId);
         }
         
