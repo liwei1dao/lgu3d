@@ -2094,3 +2094,38 @@ MonoBehaviour:
         ChildBuildItem: []
     IsSelection: 1
     IsUpdataModule: 0
+  - Name: UmengDemoModule
+    Path: /AppModules\UmengDemoModule
+    RootName: /AppModules
+    ModelName: UmengDemoModule
+    AssetBundleName: UmengDemoModule
+    Layer: 0
+    NodelType: 1
+    Foldout: 0
+    IsMergeBuild: 0
+    IsShowBuildToogle: 1
+    ChildBuildItem:
+    - Name: Prefab
+      Path: /AppModules\UmengDemoModule\Prefab
+      RootName: /AppModules
+      ModelName: UmengDemoModule
+      AssetBundleName: UmengDemoModule/Prefab
+      Layer: 1
+      NodelType: 2
+      Foldout: 0
+      IsMergeBuild: 1
+      IsShowBuildToogle: 1
+      ChildBuildItem:
+      - Name: DemoMain
+        Path: /AppModules\UmengDemoModule\Prefab\DemoMain.prefab
+        RootName: /AppModules
+        ModelName: UmengDemoModule
+        AssetBundleName: UmengDemoModule/Prefab
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+    IsSelection: 1
+    IsUpdataModule: 0
