@@ -72,13 +72,15 @@ namespace lgu3d
             if (IsBackMusic)
             {
                 AudioPlayer = Player.GetBackMusicPlayer();
-                AudioPlayer.Stop();
+                AudioPlayer.clip = Music;
+                AudioPlayer.Play();
             }
             else
             {
                 AudioPlayer = Player.GetEffectMusicPlayer();
+                AudioPlayer.PlayOneShot(Music);
             }
-            AudioPlayer.PlayOneShot(Music);
+            
             return AudioPlayer;
         }
 
@@ -89,14 +91,15 @@ namespace lgu3d
             if (IsBackMusic)
             {
                 AudioPlayer = Player.GetBackMusicPlayer();
-                AudioPlayer.Stop();
+                AudioPlayer.clip = Music;
+                AudioPlayer.Play();
             }
             else
             {
                 AudioPlayer = Player.GetEffectMusicPlayer();
+                AudioPlayer.volume = MusicValue;
+                AudioPlayer.PlayOneShot(Music);
             }
-            AudioPlayer.volume = MusicValue;
-            AudioPlayer.PlayOneShot(Music);
             return AudioPlayer;
         }
     }

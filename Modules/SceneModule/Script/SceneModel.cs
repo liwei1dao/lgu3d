@@ -22,7 +22,7 @@ namespace lgu3d
             else
             {
                 Cheduler = new ScenesDefaultCheduler();
-                _Agr =new object[] { Cheduler } ;
+                _Agr =new object[] {Cheduler};
             }
             CoroutineComp = AddComp<Module_CoroutineComp>();
             ResourceComp = AddComp<Module_ResourceComp>();

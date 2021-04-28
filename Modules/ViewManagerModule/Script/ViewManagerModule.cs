@@ -131,7 +131,7 @@ namespace lgu3d
             _cs2.referenceResolution = mViewSzie;
             _cs2.matchWidthOrHeight = mMatch;
 
-            GameObject EventSystem = mUIRoot.CreateChild("EventSystem", typeof(UnityEngine.EventSystems.EventSystem), typeof(UnityEngine.EventSystems.StandaloneInputModule));
+            // GameObject EventSystem = mUIRoot.CreateChild("EventSystem", typeof(UnityEngine.EventSystems.EventSystem), typeof(UnityEngine.EventSystems.StandaloneInputModule));
         }
 
         public GameObject CreateView(ViewComp View,GameObject ViewAsset)

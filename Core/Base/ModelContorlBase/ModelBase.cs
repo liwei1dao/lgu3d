@@ -57,6 +57,7 @@ namespace lgu3d
         public ModelBaseState State = ModelBaseState.Close;                         //模块状态
         protected List<ModelCompBase> MyComps = new List<ModelCompBase>();          //组件列表
         protected Module_TimerComp TimerComp;                                       //计时器组件 （需要则初始化）
+        protected Module_SoundComp SoundComp;                                       //声音组件 （需要则初始化）
         protected Module_CoroutineComp CoroutineComp;                               //协程组件（需要则初始化）
         protected Module_ResourceComp ResourceComp;                                 //资源管理组件（需要则初始化）
 
@@ -182,6 +183,17 @@ namespace lgu3d
         }
         #endregion
 
+        #region 声音组件
+        public AudioSource PlayMusic(string Music,float MusicValue, bool IsBackMusic = false){
+            if (SoundComp == null)
+            {
+                Debug.LogError(ModuleName + " No Load SoundComp");
+                return null;
+            }
+            return SoundComp.PlayMusic(Music, MusicValue,IsBackMusic);
+        }
+        #endregion
+
         #region 资源管理组件扩展
 
         /// <summary>
@@ -217,11 +229,11 @@ namespace lgu3d
             return ResourceComp.LoadAsset<T>(BundleOrPath, AssetName);
         }
         #endregion
-            #endregion
+        #endregion
 
-            /// <summary>
-            /// Inspector 属性界面
-            /// </summary>
+        /// <summary>
+        /// Inspector 属性界面
+        /// </summary>
         public virtual void ShowInspector(){}
     }
     #endregion
