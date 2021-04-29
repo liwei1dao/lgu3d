@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using UnityEditor;
 
 namespace lgu3d
 {
@@ -415,6 +416,10 @@ namespace lgu3d
                     type.GetMethod("SetValue").Invoke(result, new object[] { v, i });
                 }
                 return result;
+            }
+            else if (type.IsSubclassOf(typeof(UnityEngine.Object))){ //unity3d 对象 
+                UnityEngine.Object obj = AssetDatabase.LoadAssetAtPath(value, typeof(UnityEngine.Object));
+                return obj;
             }
             else
             {

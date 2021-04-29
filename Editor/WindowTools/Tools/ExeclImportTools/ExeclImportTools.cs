@@ -21,6 +21,7 @@ namespace lgu3d.Editor
     {
         Excel = 1,
         Xml = 2,
+        Json = 3,
     }
     /// <summary>
     /// 导出文件类型
@@ -62,8 +63,11 @@ namespace lgu3d.Editor
                 case ImputFileType.Excel:
                     filter = new string[] { ".xlsx" };
                     break;
+                case ImputFileType.Json:
+                    filter = new string[] { ".json" };
+                    break;
                 default:
-                    filter = new string[] { ".xml",".xlsx" };
+                    filter = new string[] { ".xml",".xlsx",".json" };
                     break;
 
             }
@@ -128,9 +132,16 @@ namespace lgu3d.Editor
                                 break;
                         }
                         break;
+                    case DataFileType.Josn:
+                        switch ((DataFileType)exportDataType)
+                        {
+                            case DataFileType.Asset:
+                                savepath = SavePath + filetree.GetPath().Replace(".json", ".asset");
+                                JsonToAsset(filetree.GetPath(), savepath);
+                                break;
+                        }
+                        break;
                 }
-
-
             }
         }
 
@@ -156,22 +167,35 @@ namespace lgu3d.Editor
             ClassName = ClassName.Substring(0, ClassName.LastIndexOf("."));
             string _AssetFile = AssetFile.Substring(AssetFile.LastIndexOf("Assets"));
             DataSet result = ExcelDataTools.ReadExcelFile(ExcelFile);
-            ScriptableObject ddata = ExcelDataTools.ExcelToAsset(result, ClassName);
+            ScriptableObject ddata = ExcelDataTools.DataSetToAsset(result, ClassName);
             AssetDatabase.CreateAsset(ddata, _AssetFile);
         }
         #endregion
 
         #region Xml数据文件转换
-        private static void XmlToAsset(string ExcelFile, string AssetFile)
+        private static void XmlToAsset(string XmlFile, string AssetFile)
         {
-            string ClassName = ExcelFile.Substring(ExcelFile.LastIndexOf("/") + 1);
+            string ClassName = XmlFile.Substring(XmlFile.LastIndexOf("/") + 1);
             ClassName = ClassName.Substring(0, ClassName.LastIndexOf("."));
             string _AssetFile = AssetFile.Substring(AssetFile.LastIndexOf("Assets"));
-            //DataSet result = EditorDataTools.ReadExcelFile(ExcelFile);
-            ScriptableObject ddata = ExcelDataTools.XmlToAsset(null, ClassName);
+            DataSet result = ExcelDataTools.ReadXmlFile(XmlFile);
+            ScriptableObject ddata = ExcelDataTools.DataSetToAsset(result, ClassName);
             AssetDatabase.CreateAsset(ddata, _AssetFile);
         }
         #endregion
+
+        #region Json数据文件转换
+        private static void JsonToAsset(string JsonFile, string AssetFile)
+        {
+            string ClassName = JsonFile.Substring(JsonFile.LastIndexOf("/") + 1);
+            ClassName = ClassName.Substring(0, ClassName.LastIndexOf("."));
+            string _AssetFile = AssetFile.Substring(AssetFile.LastIndexOf("Assets"));
+            DataSet result = ExcelDataTools.ReadJsonFile(JsonFile);
+            ScriptableObject ddata = ExcelDataTools.DataSetToAsset(result, ClassName);
+            AssetDatabase.CreateAsset(ddata, _AssetFile);
+        }
+        #endregion
+
     }
 
 }

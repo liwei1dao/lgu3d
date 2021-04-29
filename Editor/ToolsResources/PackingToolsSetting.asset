@@ -2066,7 +2066,7 @@ MonoBehaviour:
     AssetBundleName: TuoluoModule
     Layer: 0
     NodelType: 1
-    Foldout: 0
+    Foldout: 1
     IsMergeBuild: 0
     IsShowBuildToogle: 1
     ChildBuildItem:
@@ -2988,6 +2988,39 @@ MonoBehaviour:
         RootName: /app
         ModelName: TuoluoModule
         AssetBundleName: TuoluoModule/Asset
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+    - Name: Data
+      Path: /app\TuoluoModule\Data
+      RootName: /app
+      ModelName: TuoluoModule
+      AssetBundleName: TuoluoModule/Data
+      Layer: 1
+      NodelType: 2
+      Foldout: 0
+      IsMergeBuild: 1
+      IsShowBuildToogle: 1
+      ChildBuildItem:
+      - Name: NameDatas
+        Path: /app\TuoluoModule\Data\NameDatas.asset
+        RootName: /app
+        ModelName: TuoluoModule
+        AssetBundleName: TuoluoModule/Data
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: TuoluoDatas
+        Path: /app\TuoluoModule\Data\TuoluoDatas.asset
+        RootName: /app
+        ModelName: TuoluoModule
+        AssetBundleName: TuoluoModule/Data
         Layer: 2
         NodelType: 3
         Foldout: 0
