@@ -210,7 +210,6 @@ public static class CustomSettings
         _GT(typeof(lgu3d.SDKManagerModule)),
         _GT(typeof(lgu3d.WeChatComp)),
         _GT(typeof(lgu3d.BaiDuComp)),
-        _GT(typeof(lgu3d.XianLiaoComp)),
         _GT(typeof(lgu3d.PhoneComp)),
         _GT(typeof(LuaInterface.LuaByteBuffer)),
         _GT(typeof(lgu3d.ProtoType)),

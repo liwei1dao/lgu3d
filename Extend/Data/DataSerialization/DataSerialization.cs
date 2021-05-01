@@ -3,7 +3,9 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 namespace lgu3d
 {
@@ -417,10 +419,12 @@ namespace lgu3d
                 }
                 return result;
             }
+            #if UNITY_EDITOR
             else if (type.IsSubclassOf(typeof(UnityEngine.Object))){ //unity3d 对象 
                 UnityEngine.Object obj = AssetDatabase.LoadAssetAtPath(value, typeof(UnityEngine.Object));
                 return obj;
             }
+            #endif
             else
             {
                 return null;

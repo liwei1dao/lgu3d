@@ -18,7 +18,6 @@ namespace lgu3d {
         private SDKMessageReceiveComp messageComp;
         private WeChatComp wechatComp;
         private BaiDuComp bdComp;
-        private XianLiaoComp xianliaoComp;
         private PhoneComp phoneComp;
 
         public override void Load<Model>(ModelLoadBackCall<Model> _LoadBackCall, params object[] _Agr)
@@ -80,26 +79,6 @@ namespace lgu3d {
                 bdComp.InitSdk();
             }
             return bdComp;
-        }
-        #endregion
-
-        #region 闲聊
-        public XianLiaoComp GetXianLiaoComp() {
-            return xianliaoComp;
-        }
-        public XianLiaoComp InitXianLiao(string xlAppId, string xlAppSecret)
-        {
-#if UNITY_ANDROID && !UNITY_EDITOR
-            xianliaoComp = AddComp<XianLiao_AndroidComp>();
-#elif UNITY_IPHONE && !UNITY_EDITOR
-            xianliaoComp = AddComp<XianLiao_IOSComp>();
-#else
-            Debug.LogError("初始化闲聊 SDK 失败 平台异常");
-#endif
-            if (xianliaoComp != null) {
-                xianliaoComp.InitSdk(xlAppId, xlAppSecret);
-            }
-            return xianliaoComp;
         }
         #endregion
 
