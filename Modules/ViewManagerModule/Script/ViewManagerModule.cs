@@ -24,6 +24,11 @@ namespace lgu3d
     private GameObject mLowUIRoot;                //底优先级显示节点
     private GameObject mNormalUIRoot;             //中优先级显示节点
     private GameObject mHightUIRoot;              //高优先级显示节点
+
+    private Camera mLowUICamera;                //底优先级显示相机
+    private Camera mNormalUCamera;             //中优先级显示相机
+    private Camera mHightUICamera;              //高优先级显示相机
+
     private Vector2 mViewSzie;                    //UI界面尺寸
     private List<ViewComp> mLowViewComps;         //底优先级UI面板
     private List<ViewComp> mNormalViewComps;      //底优先级UI面板
@@ -43,6 +48,21 @@ namespace lgu3d
     public GameObject HightUIRoot
     {
       get { return mHightUIRoot; }
+    }
+
+    public Camera LowUICamera
+    {
+      get { return mLowUICamera; }
+    }
+
+    public Camera NormalUICamera
+    {
+      get { return mNormalUCamera; }
+    }
+
+    public Camera HightUICamera
+    {
+      get { return mHightUICamera; }
     }
 
     public Vector2 ViewSzie
@@ -89,6 +109,7 @@ namespace lgu3d
       _cm0.orthographicSize = 20;
       _cm0.depth = 0;
       _cm0.cullingMask = LayerMask.GetMask("UI");
+      mLowUICamera = _cm0;
       Canvas _ca0 = mLowUIRoot.GetComponent<Canvas>();
       _ca0.renderMode = RenderMode.ScreenSpaceCamera;
       _ca0.worldCamera = _cm0;
@@ -107,6 +128,7 @@ namespace lgu3d
       _cm1.orthographicSize = 20;
       _cm1.depth = 1;
       _cm1.cullingMask = LayerMask.GetMask("UI");
+      mNormalUCamera = _cm1;
       Canvas _ca1 = mNormalUIRoot.GetComponent<Canvas>();
       _ca1.renderMode = RenderMode.ScreenSpaceCamera;
       _ca1.worldCamera = _cm1;
@@ -126,6 +148,7 @@ namespace lgu3d
       _cm2.orthographicSize = 20;
       _cm2.depth = 2;
       _cm2.cullingMask = LayerMask.GetMask("UI");
+      mHightUICamera = _cm2;
       Canvas _ca2 = mHightUIRoot.GetComponent<Canvas>();
       _ca2.renderMode = RenderMode.ScreenSpaceCamera;
       _ca2.worldCamera = _cm2;
