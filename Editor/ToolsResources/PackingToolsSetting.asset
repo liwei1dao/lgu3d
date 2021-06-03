@@ -3060,6 +3060,150 @@ MonoBehaviour:
       IsMergeBuild: 1
       IsShowBuildToogle: 1
       ChildBuildItem:
+      - Name: effect_chuchang
+        Path: /app\TuoluoModule\Effect\effect_chuchang
+        RootName: /app
+        ModelName: TuoluoModule
+        AssetBundleName: TuoluoModule/Effect
+        Layer: 2
+        NodelType: 2
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem:
+        - Name: asset
+          Path: /app\TuoluoModule\Effect\effect_chuchang\asset
+          RootName: /app
+          ModelName: TuoluoModule
+          AssetBundleName: TuoluoModule/Effect
+          Layer: 3
+          NodelType: 2
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem:
+          - Name: aura_slam
+            Path: /app\TuoluoModule\Effect\effect_chuchang\asset\aura_slam.mat
+            RootName: /app
+            ModelName: TuoluoModule
+            AssetBundleName: TuoluoModule/Effect
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: aura_slam
+            Path: /app\TuoluoModule\Effect\effect_chuchang\asset\aura_slam.png
+            RootName: /app
+            ModelName: TuoluoModule
+            AssetBundleName: TuoluoModule/Effect
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: magic_line
+            Path: /app\TuoluoModule\Effect\effect_chuchang\asset\magic_line.mat
+            RootName: /app
+            ModelName: TuoluoModule
+            AssetBundleName: TuoluoModule/Effect
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: magic_line
+            Path: /app\TuoluoModule\Effect\effect_chuchang\asset\magic_line.png
+            RootName: /app
+            ModelName: TuoluoModule
+            AssetBundleName: TuoluoModule/Effect
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: magic_orb
+            Path: /app\TuoluoModule\Effect\effect_chuchang\asset\magic_orb.mat
+            RootName: /app
+            ModelName: TuoluoModule
+            AssetBundleName: TuoluoModule/Effect
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: magic_orb
+            Path: /app\TuoluoModule\Effect\effect_chuchang\asset\magic_orb.png
+            RootName: /app
+            ModelName: TuoluoModule
+            AssetBundleName: TuoluoModule/Effect
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: magic_runecircle
+            Path: /app\TuoluoModule\Effect\effect_chuchang\asset\magic_runecircle.mat
+            RootName: /app
+            ModelName: TuoluoModule
+            AssetBundleName: TuoluoModule/Effect
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: magic_runecircle
+            Path: /app\TuoluoModule\Effect\effect_chuchang\asset\magic_runecircle.png
+            RootName: /app
+            ModelName: TuoluoModule
+            AssetBundleName: TuoluoModule/Effect
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: verticalglow02 - Copy
+            Path: /app\TuoluoModule\Effect\effect_chuchang\asset\verticalglow02 -
+              Copy.mat
+            RootName: /app
+            ModelName: TuoluoModule
+            AssetBundleName: TuoluoModule/Effect
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: verticalglow02
+            Path: /app\TuoluoModule\Effect\effect_chuchang\asset\verticalglow02.mat
+            RootName: /app
+            ModelName: TuoluoModule
+            AssetBundleName: TuoluoModule/Effect
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+        - Name: chuchang
+          Path: /app\TuoluoModule\Effect\effect_chuchang\chuchang.prefab
+          RootName: /app
+          ModelName: TuoluoModule
+          AssetBundleName: TuoluoModule/Effect
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
       - Name: effect_guang
         Path: /app\TuoluoModule\Effect\effect_guang
         RootName: /app
@@ -3106,6 +3250,248 @@ MonoBehaviour:
             ChildBuildItem: []
         - Name: Glow
           Path: /app\TuoluoModule\Effect\effect_guang\Glow.prefab
+          RootName: /app
+          ModelName: TuoluoModule
+          AssetBundleName: TuoluoModule/Effect
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+      - Name: effect_hudun
+        Path: /app\TuoluoModule\Effect\effect_hudun
+        RootName: /app
+        ModelName: TuoluoModule
+        AssetBundleName: TuoluoModule/Effect
+        Layer: 2
+        NodelType: 2
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem:
+        - Name: asset
+          Path: /app\TuoluoModule\Effect\effect_hudun\asset
+          RootName: /app
+          ModelName: TuoluoModule
+          AssetBundleName: TuoluoModule/Effect
+          Layer: 3
+          NodelType: 2
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem:
+          - Name: circlecurve
+            Path: /app\TuoluoModule\Effect\effect_hudun\asset\circlecurve.png
+            RootName: /app
+            ModelName: TuoluoModule
+            AssetBundleName: TuoluoModule/Effect
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: circlecurve_magic
+            Path: /app\TuoluoModule\Effect\effect_hudun\asset\circlecurve_magic.mat
+            RootName: /app
+            ModelName: TuoluoModule
+            AssetBundleName: TuoluoModule/Effect
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: etfx_shield 1
+            Path: /app\TuoluoModule\Effect\effect_hudun\asset\etfx_shield 1.mat
+            RootName: /app
+            ModelName: TuoluoModule
+            AssetBundleName: TuoluoModule/Effect
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: etfx_shield
+            Path: /app\TuoluoModule\Effect\effect_hudun\asset\etfx_shield.mat
+            RootName: /app
+            ModelName: TuoluoModule
+            AssetBundleName: TuoluoModule/Effect
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: etfx_shield
+            Path: /app\TuoluoModule\Effect\effect_hudun\asset\etfx_shield.png
+            RootName: /app
+            ModelName: TuoluoModule
+            AssetBundleName: TuoluoModule/Effect
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: etfx_shield2
+            Path: /app\TuoluoModule\Effect\effect_hudun\asset\etfx_shield2.png
+            RootName: /app
+            ModelName: TuoluoModule
+            AssetBundleName: TuoluoModule/Effect
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: sparkle2
+            Path: /app\TuoluoModule\Effect\effect_hudun\asset\sparkle2.mat
+            RootName: /app
+            ModelName: TuoluoModule
+            AssetBundleName: TuoluoModule/Effect
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: sparkle2
+            Path: /app\TuoluoModule\Effect\effect_hudun\asset\sparkle2.png
+            RootName: /app
+            ModelName: TuoluoModule
+            AssetBundleName: TuoluoModule/Effect
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: sphereshield
+            Path: /app\TuoluoModule\Effect\effect_hudun\asset\sphereshield.mat
+            RootName: /app
+            ModelName: TuoluoModule
+            AssetBundleName: TuoluoModule/Effect
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+        - Name: hudun
+          Path: /app\TuoluoModule\Effect\effect_hudun\hudun.prefab
+          RootName: /app
+          ModelName: TuoluoModule
+          AssetBundleName: TuoluoModule/Effect
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+      - Name: effect_huohua
+        Path: /app\TuoluoModule\Effect\effect_huohua
+        RootName: /app
+        ModelName: TuoluoModule
+        AssetBundleName: TuoluoModule/Effect
+        Layer: 2
+        NodelType: 2
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem:
+        - Name: asset
+          Path: /app\TuoluoModule\Effect\effect_huohua\asset
+          RootName: /app
+          ModelName: TuoluoModule
+          AssetBundleName: TuoluoModule/Effect
+          Layer: 3
+          NodelType: 2
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem:
+          - Name: circle
+            Path: /app\TuoluoModule\Effect\effect_huohua\asset\circle.mat
+            RootName: /app
+            ModelName: TuoluoModule
+            AssetBundleName: TuoluoModule/Effect
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: circle
+            Path: /app\TuoluoModule\Effect\effect_huohua\asset\circle.png
+            RootName: /app
+            ModelName: TuoluoModule
+            AssetBundleName: TuoluoModule/Effect
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: glow
+            Path: /app\TuoluoModule\Effect\effect_huohua\asset\glow.mat
+            RootName: /app
+            ModelName: TuoluoModule
+            AssetBundleName: TuoluoModule/Effect
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: glow
+            Path: /app\TuoluoModule\Effect\effect_huohua\asset\glow.png
+            RootName: /app
+            ModelName: TuoluoModule
+            AssetBundleName: TuoluoModule/Effect
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: triangle_soft
+            Path: /app\TuoluoModule\Effect\effect_huohua\asset\triangle_soft.mat
+            RootName: /app
+            ModelName: TuoluoModule
+            AssetBundleName: TuoluoModule/Effect
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: triangle_soft
+            Path: /app\TuoluoModule\Effect\effect_huohua\asset\triangle_soft.png
+            RootName: /app
+            ModelName: TuoluoModule
+            AssetBundleName: TuoluoModule/Effect
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+        - Name: huohua
+          Path: /app\TuoluoModule\Effect\effect_huohua\huohua.prefab
+          RootName: /app
+          ModelName: TuoluoModule
+          AssetBundleName: TuoluoModule/Effect
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: pengzhuang_huohua
+          Path: /app\TuoluoModule\Effect\effect_huohua\pengzhuang_huohua.prefab
           RootName: /app
           ModelName: TuoluoModule
           AssetBundleName: TuoluoModule/Effect
@@ -6756,6 +7142,17 @@ MonoBehaviour:
       IsMergeBuild: 1
       IsShowBuildToogle: 1
       ChildBuildItem:
+      - Name: playhead
+        Path: /app\TuoluoModule\Prefab\playhead.prefab
+        RootName: /app
+        ModelName: TuoluoModule
+        AssetBundleName: TuoluoModule/Prefab
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
       - Name: TuoLuoBattleView
         Path: /app\TuoluoModule\Prefab\TuoLuoBattleView.prefab
         RootName: /app
@@ -8021,8 +8418,8 @@ MonoBehaviour:
         IsMergeBuild: 1
         IsShowBuildToogle: 0
         ChildBuildItem: []
-      - Name: "\u5931\u8D251"
-        Path: "/app\\TuoluoModule\\Sound\\\u5931\u8D251.mp3"
+      - Name: faill_1
+        Path: /app\TuoluoModule\Sound\faill_1.mp3
         RootName: /app
         ModelName: TuoluoModule
         AssetBundleName: TuoluoModule/Sound
@@ -8032,8 +8429,8 @@ MonoBehaviour:
         IsMergeBuild: 1
         IsShowBuildToogle: 0
         ChildBuildItem: []
-      - Name: "\u5931\u8D252"
-        Path: "/app\\TuoluoModule\\Sound\\\u5931\u8D252.mp3"
+      - Name: faill_2
+        Path: /app\TuoluoModule\Sound\faill_2.mp3
         RootName: /app
         ModelName: TuoluoModule
         AssetBundleName: TuoluoModule/Sound
@@ -8043,8 +8440,8 @@ MonoBehaviour:
         IsMergeBuild: 1
         IsShowBuildToogle: 0
         ChildBuildItem: []
-      - Name: "\u649E\u51FB1"
-        Path: "/app\\TuoluoModule\\Sound\\\u649E\u51FB1.mp3"
+      - Name: win_1
+        Path: /app\TuoluoModule\Sound\win_1.mp3
         RootName: /app
         ModelName: TuoluoModule
         AssetBundleName: TuoluoModule/Sound
@@ -8054,8 +8451,8 @@ MonoBehaviour:
         IsMergeBuild: 1
         IsShowBuildToogle: 0
         ChildBuildItem: []
-      - Name: "\u649E\u51FB2"
-        Path: "/app\\TuoluoModule\\Sound\\\u649E\u51FB2.mp3"
+      - Name: win_2
+        Path: /app\TuoluoModule\Sound\win_2.mp3
         RootName: /app
         ModelName: TuoluoModule
         AssetBundleName: TuoluoModule/Sound
@@ -8065,8 +8462,8 @@ MonoBehaviour:
         IsMergeBuild: 1
         IsShowBuildToogle: 0
         ChildBuildItem: []
-      - Name: "\u80DC\u52291"
-        Path: "/app\\TuoluoModule\\Sound\\\u80DC\u52291.mp3"
+      - Name: zhuangjia_1
+        Path: /app\TuoluoModule\Sound\zhuangjia_1.mp3
         RootName: /app
         ModelName: TuoluoModule
         AssetBundleName: TuoluoModule/Sound
@@ -8076,8 +8473,8 @@ MonoBehaviour:
         IsMergeBuild: 1
         IsShowBuildToogle: 0
         ChildBuildItem: []
-      - Name: "\u80DC\u52292"
-        Path: "/app\\TuoluoModule\\Sound\\\u80DC\u52292.mp3"
+      - Name: zhuangjia_2
+        Path: /app\TuoluoModule\Sound\zhuangjia_2.mp3
         RootName: /app
         ModelName: TuoluoModule
         AssetBundleName: TuoluoModule/Sound
