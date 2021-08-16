@@ -1,4 +1,0 @@
-namespace lgu3d
-{
-  
-}
