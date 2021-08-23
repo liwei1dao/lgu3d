@@ -191,6 +191,7 @@ namespace lgu3d.Editor
       return result;
     }
 
+
     /// <summary>
     /// 读取excel到xml字符串
     /// </summary>
@@ -257,6 +258,69 @@ namespace lgu3d.Editor
       jsonString.Append("]");
       return jsonString.ToString();
     }
+    #endregion
+
+    #region CSV文件处理接口
+    /// <summary>
+    /// 读取Excel文件
+    /// </summary>
+    /// <param name="CSVFile"></param>
+    /// <returns></returns>
+    public static DataSet ReadCsvFile(string CsvFile)
+    {
+      DataSet ds = new DataSet();
+      DataTable result = new DataTable();
+      System.IO.FileStream fs = new System.IO.FileStream(CsvFile, System.IO.FileMode.Open,
+          System.IO.FileAccess.Read);
+
+      System.IO.StreamReader sr = new System.IO.StreamReader(fs);
+
+      //记录每次读取的一行记录
+      string strLine = "";
+      //记录每行记录中的各字段内容
+      string[] aryLine = null;
+      string[] tableHead = null;
+      //标示列数
+      int columnCount = 0;
+      //标示是否是读取的第一行
+      bool IsFirst = true;
+      //逐行读取CSV中的数据
+      while ((strLine = sr.ReadLine()) != null)
+      {
+        if (IsFirst == true)
+        {
+          tableHead = strLine.Split(',');
+          IsFirst = false;
+          columnCount = tableHead.Length;
+          //创建列
+          for (int i = 0; i < columnCount; i++)
+          {
+            DataColumn dc = new DataColumn(tableHead[i]);
+            result.Columns.Add(dc);
+          }
+        }
+        else
+        {
+          aryLine = strLine.Split(',');
+          DataRow dr = result.NewRow();
+          for (int j = 0; j < columnCount; j++)
+          {
+            dr[j] = aryLine[j];
+          }
+          result.Rows.Add(dr);
+        }
+      }
+      if (aryLine != null && aryLine.Length > 0)
+      {
+        result.DefaultView.Sort = tableHead[0] + " " + "asc";
+      }
+
+      sr.Close();
+      fs.Close();
+      ds.Tables.Add(result);
+      return ds;
+    }
+
     #endregion
 
     #region Xml文件处理接口
