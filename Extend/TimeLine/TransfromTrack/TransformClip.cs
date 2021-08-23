@@ -10,6 +10,7 @@ using UnityEngine.Timeline;
 public class TransformClip : PlayableAsset, ITimelineClipAsset
 {
   private TransformBehaviour template = new TransformBehaviour();
+  public ExposedReference<Transform> startLocation;
   public ExposedReference<Transform> endLocation;
 
   public ClipCaps clipCaps => ClipCaps.None;
@@ -17,6 +18,7 @@ public class TransformClip : PlayableAsset, ITimelineClipAsset
   {
     var playable = ScriptPlayable<TransformBehaviour>.Create(graph, template);
     TransformBehaviour clone = playable.GetBehaviour();
+    clone.startLocation = startLocation.Resolve(graph.GetResolver());
     clone.endLocation = endLocation.Resolve(graph.GetResolver());
     return playable;
   }

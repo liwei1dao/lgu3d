@@ -158,13 +158,13 @@ namespace lgu3d
       Canvas = _Canvas;
     }
 
-    public void Show()
+    public virtual void Show()
     {
       ViewManagerModule.Instance.SetViewToTop(this);
       UIGameobject.SetActive(true);
     }
 
-    public void Hide()
+    public virtual void Hide()
     {
       UIGameobject.SetActive(false);
     }
