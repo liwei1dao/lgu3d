@@ -391,6 +391,63 @@ MonoBehaviour:
         ChildBuildItem: []
     IsSelection: 1
     IsUpdataModule: 0
+  - Name: LanguageModule
+    Path: /lgu3d/Modules\LanguageModule
+    RootName: /lgu3d/Modules
+    ModelName: LanguageModule
+    AssetBundleName: LanguageModule
+    Layer: 0
+    NodelType: 1
+    Foldout: 0
+    IsMergeBuild: 0
+    IsShowBuildToogle: 1
+    ChildBuildItem:
+    - Name: Data
+      Path: /lgu3d/Modules\LanguageModule\Data
+      RootName: /lgu3d/Modules
+      ModelName: LanguageModule
+      AssetBundleName: LanguageModule/Data
+      Layer: 1
+      NodelType: 2
+      Foldout: 0
+      IsMergeBuild: 1
+      IsShowBuildToogle: 1
+      ChildBuildItem:
+      - Name: zh_CN
+        Path: /lgu3d/Modules\LanguageModule\Data\zh_CN.asset
+        RootName: /lgu3d/Modules
+        ModelName: LanguageModule
+        AssetBundleName: LanguageModule/Data
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: en
+        Path: /app\LanguageModule\Data\en.asset
+        RootName: /app
+        ModelName: LanguageModule
+        AssetBundleName: LanguageModule/Data
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: zh
+        Path: /app\LanguageModule\Data\zh.asset
+        RootName: /app
+        ModelName: LanguageModule
+        AssetBundleName: LanguageModule/Data
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+    IsSelection: 1
+    IsUpdataModule: 0
   - Name: LocalServiceModule
     Path: /lgu3d/Modules\LocalServiceModule
     RootName: /lgu3d/Modules
