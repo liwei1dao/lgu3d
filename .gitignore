@@ -60,5 +60,6 @@ crashlytics-build.properties
 
 */Script/*.meta
 */Lua/*.meta
+*/PackingToolsSetting.asset
 
 

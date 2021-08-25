@@ -5,14 +5,16 @@ using UnityEngine;
 
 namespace lgu3d
 {
+  public delegate void LanguageModule_ChangeLanguage();
   /// <summary>
   /// 语言模块
   /// </summary>
-  public class LanguageModule : ManagerContorBase<EventModule>
+  public class LanguageModule : ManagerContorBase<LanguageModule>
   {
     public string[] Language;
     public string SelectLanguage;
     public Language_Data_Comp Data_Comp;
+    public LanguageModule_ChangeLanguage chanagelanguage;
     public override void Load(params object[] agr)
     {
       base.Load(agr);
@@ -20,6 +22,7 @@ namespace lgu3d
       {
         Language = (string[])agr[0];
         SelectLanguage = (string)agr[1];
+        ResourceComp = AddComp<Module_ResourceComp>();
         Data_Comp = AddComp<Language_Data_Comp>();
       }
       else
@@ -28,11 +31,22 @@ namespace lgu3d
       }
     }
 
+    public virtual void RegisterChangeLanguage(LanguageModule_ChangeLanguage _delegate)
+    {
+      this.chanagelanguage += _delegate;
+    }
+    public virtual void UnRegisterChangeLanguage(LanguageModule_ChangeLanguage _delegate)
+    {
+      this.chanagelanguage -= _delegate;
+    }
+
+
     public virtual void ChangeLanguage(string selectLanguage)
     {
       if (Language.Contains(selectLanguage))
       {
         SelectLanguage = selectLanguage;
+        this.chanagelanguage();
       }
       else
       {
