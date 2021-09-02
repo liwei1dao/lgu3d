@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: PackingToolsSetting
   m_EditorClassIdentifier: 
   BuildPlatform: 1
-  BuildTarget: 0
-  ProVersion: 0
-  ResVersion: 0
+  BuildTarget: 2
+  ProVersion: 1
+  ResVersion: 1
   IsCompress: 1
   ResourceOutPath: E:/u3d/lgu3d/lgu3d_tuoluo/lgu3d_tuoluo/Assets/StreamingAssets
   ResourceCatalog:
@@ -3172,6 +3172,149 @@ MonoBehaviour:
       IsMergeBuild: 1
       IsShowBuildToogle: 1
       ChildBuildItem:
+      - Name: effect_basiczone
+        Path: /app\TuoluoModule\Effect\effect_basiczone
+        RootName: /app
+        ModelName: TuoluoModule
+        AssetBundleName: TuoluoModule/Effect
+        Layer: 2
+        NodelType: 2
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem:
+        - Name: asset
+          Path: /app\TuoluoModule\Effect\effect_basiczone\asset
+          RootName: /app
+          ModelName: TuoluoModule
+          AssetBundleName: TuoluoModule/Effect
+          Layer: 3
+          NodelType: 2
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem:
+          - Name: aura_vertical_soft
+            Path: /app\TuoluoModule\Effect\effect_basiczone\asset\aura_vertical_soft.mat
+            RootName: /app
+            ModelName: TuoluoModule
+            AssetBundleName: TuoluoModule/Effect
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: aura_vertical_soft
+            Path: /app\TuoluoModule\Effect\effect_basiczone\asset\aura_vertical_soft.png
+            RootName: /app
+            ModelName: TuoluoModule
+            AssetBundleName: TuoluoModule/Effect
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: ring (additive)
+            Path: /app\TuoluoModule\Effect\effect_basiczone\asset\ring (additive).mat
+            RootName: /app
+            ModelName: TuoluoModule
+            AssetBundleName: TuoluoModule/Effect
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: ring
+            Path: /app\TuoluoModule\Effect\effect_basiczone\asset\ring.png
+            RootName: /app
+            ModelName: TuoluoModule
+            AssetBundleName: TuoluoModule/Effect
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: verticalgradient2
+            Path: /app\TuoluoModule\Effect\effect_basiczone\asset\verticalgradient2.mat
+            RootName: /app
+            ModelName: TuoluoModule
+            AssetBundleName: TuoluoModule/Effect
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+        - Name: BasicZoneBlue
+          Path: /app\TuoluoModule\Effect\effect_basiczone\BasicZoneBlue.prefab
+          RootName: /app
+          ModelName: TuoluoModule
+          AssetBundleName: TuoluoModule/Effect
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: BasicZoneGreen
+          Path: /app\TuoluoModule\Effect\effect_basiczone\BasicZoneGreen.prefab
+          RootName: /app
+          ModelName: TuoluoModule
+          AssetBundleName: TuoluoModule/Effect
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: BasicZonePurple
+          Path: /app\TuoluoModule\Effect\effect_basiczone\BasicZonePurple.prefab
+          RootName: /app
+          ModelName: TuoluoModule
+          AssetBundleName: TuoluoModule/Effect
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: BasicZoneRed
+          Path: /app\TuoluoModule\Effect\effect_basiczone\BasicZoneRed.prefab
+          RootName: /app
+          ModelName: TuoluoModule
+          AssetBundleName: TuoluoModule/Effect
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: BasicZoneWhite
+          Path: /app\TuoluoModule\Effect\effect_basiczone\BasicZoneWhite.prefab
+          RootName: /app
+          ModelName: TuoluoModule
+          AssetBundleName: TuoluoModule/Effect
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: BasicZoneYellow
+          Path: /app\TuoluoModule\Effect\effect_basiczone\BasicZoneYellow.prefab
+          RootName: /app
+          ModelName: TuoluoModule
+          AssetBundleName: TuoluoModule/Effect
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
       - Name: effect_blasbow
         Path: /app\TuoluoModule\Effect\effect_blasbow
         RootName: /app
@@ -3328,40 +3471,6 @@ MonoBehaviour:
             ChildBuildItem: []
           - Name: magic_runecircle
             Path: /app\TuoluoModule\Effect\effect_chuchang\asset\magic_runecircle.png
-            RootName: /app
-            ModelName: TuoluoModule
-            AssetBundleName: TuoluoModule/Effect
-            Layer: 4
-            NodelType: 3
-            Foldout: 0
-            IsMergeBuild: 1
-            IsShowBuildToogle: 0
-            ChildBuildItem: []
-          - Name: Materials
-            Path: /app\TuoluoModule\Effect\effect_chuchang\asset\Materials
-            RootName: /app
-            ModelName: TuoluoModule
-            AssetBundleName: TuoluoModule/Effect
-            Layer: 4
-            NodelType: 2
-            Foldout: 0
-            IsMergeBuild: 1
-            IsShowBuildToogle: 0
-            ChildBuildItem:
-            - Name: verticalglow02
-              Path: /app\TuoluoModule\Effect\effect_chuchang\asset\Materials\verticalglow02.mat
-              RootName: /app
-              ModelName: TuoluoModule
-              AssetBundleName: TuoluoModule/Effect
-              Layer: 5
-              NodelType: 3
-              Foldout: 0
-              IsMergeBuild: 1
-              IsShowBuildToogle: 0
-              ChildBuildItem: []
-          - Name: verticalglow02 - Copy
-            Path: /app\TuoluoModule\Effect\effect_chuchang\asset\verticalglow02 -
-              Copy.mat
             RootName: /app
             ModelName: TuoluoModule
             AssetBundleName: TuoluoModule/Effect
@@ -3877,6 +3986,116 @@ MonoBehaviour:
           IsMergeBuild: 1
           IsShowBuildToogle: 0
           ChildBuildItem: []
+      - Name: effect_RoundHit
+        Path: /app\TuoluoModule\Effect\effect_RoundHit
+        RootName: /app
+        ModelName: TuoluoModule
+        AssetBundleName: TuoluoModule/Effect
+        Layer: 2
+        NodelType: 2
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem:
+        - Name: asset
+          Path: /app\TuoluoModule\Effect\effect_RoundHit\asset
+          RootName: /app
+          ModelName: TuoluoModule
+          AssetBundleName: TuoluoModule/Effect
+          Layer: 3
+          NodelType: 2
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem:
+          - Name: wave3
+            Path: /app\TuoluoModule\Effect\effect_RoundHit\asset\wave3.mat
+            RootName: /app
+            ModelName: TuoluoModule
+            AssetBundleName: TuoluoModule/Effect
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+          - Name: wave3
+            Path: /app\TuoluoModule\Effect\effect_RoundHit\asset\wave3.png
+            RootName: /app
+            ModelName: TuoluoModule
+            AssetBundleName: TuoluoModule/Effect
+            Layer: 4
+            NodelType: 3
+            Foldout: 0
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem: []
+        - Name: RoundHitBlue
+          Path: /app\TuoluoModule\Effect\effect_RoundHit\RoundHitBlue.prefab
+          RootName: /app
+          ModelName: TuoluoModule
+          AssetBundleName: TuoluoModule/Effect
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: RoundHitGreen
+          Path: /app\TuoluoModule\Effect\effect_RoundHit\RoundHitGreen.prefab
+          RootName: /app
+          ModelName: TuoluoModule
+          AssetBundleName: TuoluoModule/Effect
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: RoundHitPurple
+          Path: /app\TuoluoModule\Effect\effect_RoundHit\RoundHitPurple.prefab
+          RootName: /app
+          ModelName: TuoluoModule
+          AssetBundleName: TuoluoModule/Effect
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: RoundHitRed
+          Path: /app\TuoluoModule\Effect\effect_RoundHit\RoundHitRed.prefab
+          RootName: /app
+          ModelName: TuoluoModule
+          AssetBundleName: TuoluoModule/Effect
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: RoundHitWhite
+          Path: /app\TuoluoModule\Effect\effect_RoundHit\RoundHitWhite.prefab
+          RootName: /app
+          ModelName: TuoluoModule
+          AssetBundleName: TuoluoModule/Effect
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: RoundHitYellow
+          Path: /app\TuoluoModule\Effect\effect_RoundHit\RoundHitYellow.prefab
+          RootName: /app
+          ModelName: TuoluoModule
+          AssetBundleName: TuoluoModule/Effect
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
       - Name: effect_wu
         Path: /app\TuoluoModule\Effect\effect_wu
         RootName: /app
@@ -3945,6 +4164,28 @@ MonoBehaviour:
       ChildBuildItem:
       - Name: 880
         Path: /app\TuoluoModule\Image\880.jpg
+        RootName: /app
+        ModelName: TuoluoModule
+        AssetBundleName: TuoluoModule/Image
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: bg001
+        Path: /app\TuoluoModule\Image\bg001.png
+        RootName: /app
+        ModelName: TuoluoModule
+        AssetBundleName: TuoluoModule/Image
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: btn_icon_viking_helmet
+        Path: /app\TuoluoModule\Image\btn_icon_viking_helmet.png
         RootName: /app
         ModelName: TuoluoModule
         AssetBundleName: TuoluoModule/Image
@@ -4086,8 +4327,74 @@ MonoBehaviour:
           IsMergeBuild: 1
           IsShowBuildToogle: 0
           ChildBuildItem: []
+      - Name: equipment_tab_icon_0_f
+        Path: /app\TuoluoModule\Image\equipment_tab_icon_0_f.png
+        RootName: /app
+        ModelName: TuoluoModule
+        AssetBundleName: TuoluoModule/Image
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: equipment_tab_icon_1_f
+        Path: /app\TuoluoModule\Image\equipment_tab_icon_1_f.png
+        RootName: /app
+        ModelName: TuoluoModule
+        AssetBundleName: TuoluoModule/Image
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: equipment_tab_icon_2_f
+        Path: /app\TuoluoModule\Image\equipment_tab_icon_2_f.png
+        RootName: /app
+        ModelName: TuoluoModule
+        AssetBundleName: TuoluoModule/Image
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
       - Name: faill
         Path: /app\TuoluoModule\Image\faill.png
+        RootName: /app
+        ModelName: TuoluoModule
+        AssetBundleName: TuoluoModule/Image
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: hard
+        Path: /app\TuoluoModule\Image\hard.png
+        RootName: /app
+        ModelName: TuoluoModule
+        AssetBundleName: TuoluoModule/Image
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: inventory_detail_info_bg
+        Path: /app\TuoluoModule\Image\inventory_detail_info_bg.png
+        RootName: /app
+        ModelName: TuoluoModule
+        AssetBundleName: TuoluoModule/Image
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: inventory_detail_info_shadow
+        Path: /app\TuoluoModule\Image\inventory_detail_info_shadow.png
         RootName: /app
         ModelName: TuoluoModule
         AssetBundleName: TuoluoModule/Image
@@ -4130,6 +4437,17 @@ MonoBehaviour:
         IsMergeBuild: 1
         IsShowBuildToogle: 0
         ChildBuildItem: []
+      - Name: profile_img_frame
+        Path: /app\TuoluoModule\Image\profile_img_frame.png
+        RootName: /app
+        ModelName: TuoluoModule
+        AssetBundleName: TuoluoModule/Image
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
       - Name: Progressbg
         Path: /app\TuoluoModule\Image\Progressbg.png
         RootName: /app
@@ -4154,6 +4472,39 @@ MonoBehaviour:
         ChildBuildItem: []
       - Name: shop_img_gold_4
         Path: /app\TuoluoModule\Image\shop_img_gold_4.png
+        RootName: /app
+        ModelName: TuoluoModule
+        AssetBundleName: TuoluoModule/Image
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: slider_fill_blue
+        Path: /app\TuoluoModule\Image\slider_fill_blue.png
+        RootName: /app
+        ModelName: TuoluoModule
+        AssetBundleName: TuoluoModule/Image
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: slider_fill_red
+        Path: /app\TuoluoModule\Image\slider_fill_red.png
+        RootName: /app
+        ModelName: TuoluoModule
+        AssetBundleName: TuoluoModule/Image
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: slider_fill_yellow
+        Path: /app\TuoluoModule\Image\slider_fill_yellow.png
         RootName: /app
         ModelName: TuoluoModule
         AssetBundleName: TuoluoModule/Image
@@ -4207,6 +4558,50 @@ MonoBehaviour:
         IsMergeBuild: 1
         IsShowBuildToogle: 0
         ChildBuildItem: []
+      - Name: starprogram
+        Path: /app\TuoluoModule\Image\starprogram.png
+        RootName: /app
+        ModelName: TuoluoModule
+        AssetBundleName: TuoluoModule/Image
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: user_enemy_prg_red
+        Path: /app\TuoluoModule\Image\user_enemy_prg_red.png
+        RootName: /app
+        ModelName: TuoluoModule
+        AssetBundleName: TuoluoModule/Image
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: user_player_prg_blue
+        Path: /app\TuoluoModule\Image\user_player_prg_blue.png
+        RootName: /app
+        ModelName: TuoluoModule
+        AssetBundleName: TuoluoModule/Image
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: xieqie
+        Path: /app\TuoluoModule\Image\xieqie.png
+        RootName: /app
+        ModelName: TuoluoModule
+        AssetBundleName: TuoluoModule/Image
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
     - Name: Prefab
       Path: /app\TuoluoModule\Prefab
       RootName: /app
@@ -4231,6 +4626,17 @@ MonoBehaviour:
         ChildBuildItem: []
       - Name: SceneChanageView
         Path: /app\TuoluoModule\Prefab\SceneChanageView.prefab
+        RootName: /app
+        ModelName: TuoluoModule
+        AssetBundleName: TuoluoModule/Prefab
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: TuoLouUserView
+        Path: /app\TuoluoModule\Prefab\TuoLouUserView.prefab
         RootName: /app
         ModelName: TuoluoModule
         AssetBundleName: TuoluoModule/Prefab

@@ -250,6 +250,10 @@ namespace lgu3d
     {
       return ResourceComp.LoadAsset<T>(BundleOrPath, AssetName);
     }
+    public T[] LoadAllAsset<T>(string BundleOrPath, string AssetName) where T : UnityEngine.Object
+    {
+      return ResourceComp.LoadAllAsset<T>(BundleOrPath, AssetName);
+    }
     #endregion
     #endregion
 
