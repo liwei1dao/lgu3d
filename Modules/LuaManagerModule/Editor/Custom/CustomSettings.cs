@@ -9,14 +9,14 @@ using System.Reflection;
 
 public static class CustomSettings
 {
-    public static string saveDir = LuaConfig.ukuaDir + "Source/Generate/";
-    public static string toluaBaseType = LuaConfig.ukuaDir + "ToLua/BaseType/";
-    public static string injectionFilesPath = LuaConfig.ukuaDir + "ToLua/Injection/";
+  public static string saveDir = LuaConfig.ukuaDir + "Source/Generate/";
+  public static string toluaBaseType = LuaConfig.ukuaDir + "ToLua/BaseType/";
+  public static string injectionFilesPath = LuaConfig.ukuaDir + "ToLua/Injection/";
 
-    //导出时强制做为静态类的类型(注意customTypeList 还要添加这个类型才能导出)
-    //unity 有些类作为sealed class, 其实完全等价于静态类
-    public static List<Type> staticClassTypes = new List<Type>
-    {        
+  //导出时强制做为静态类的类型(注意customTypeList 还要添加这个类型才能导出)
+  //unity 有些类作为sealed class, 其实完全等价于静态类
+  public static List<Type> staticClassTypes = new List<Type>
+    {
         typeof(UnityEngine.Application),
         typeof(UnityEngine.Time),
         typeof(UnityEngine.Screen),
@@ -30,10 +30,10 @@ public static class CustomSettings
         typeof(UnityEngine.Graphics),
     };
 
-    //附加导出委托类型(在导出委托时, customTypeList 中牵扯的委托类型都会导出， 无需写在这里)
-    public static DelegateType[] customDelegateList = 
-    {        
-        _DT(typeof(Action)),                
+  //附加导出委托类型(在导出委托时, customTypeList 中牵扯的委托类型都会导出， 无需写在这里)
+  public static DelegateType[] customDelegateList =
+  {
+        _DT(typeof(Action)),
         _DT(typeof(UnityEngine.Events.UnityAction)),
         _DT(typeof(System.Predicate<int>)),
         _DT(typeof(System.Action<int>)),
@@ -41,9 +41,9 @@ public static class CustomSettings
         _DT(typeof(System.Func<int, int>)),
     };
 
-    //在这里添加你要导出注册到lua的类型列表
-    public static BindType[] customTypeList =
-    {                
+  //在这里添加你要导出注册到lua的类型列表
+  public static BindType[] customTypeList =
+  {                
         //------------------------为例子导出--------------------------------
         //_GT(typeof(TestEventListener)),
         //_GT(typeof(TestProtol)),
@@ -192,7 +192,6 @@ public static class CustomSettings
         _GT(typeof(UnityEngine.TextAsset)),
         _GT(typeof(UnityEngine.Sprite)),
         _GT(typeof(UnityEngine.RuntimePlatform)),
-        _GT(typeof(CircleImage)),
         _GT(typeof(UnityEngine.EventSystems.EventSystem)),
         _GT(typeof(UnityEngine.EventSystems.StandaloneInputModule)),
         _GT(typeof(UnityEngine.RenderMode)),
@@ -216,9 +215,10 @@ public static class CustomSettings
         _GT(typeof(lgu3d.LuaServiceModule)),
         _GT(typeof(lgu3d.MessageType)),
         _GT(typeof(lgu3d.RegularTools)),
+        _GT(typeof(lgu3d.CircleImage)),
     };
 
-    public static List<Type> dynamicList = new List<Type>()
+  public static List<Type> dynamicList = new List<Type>()
     {
         typeof(MeshRenderer),
 #if !UNITY_5_4_OR_NEWER
@@ -242,85 +242,85 @@ public static class CustomSettings
         typeof(Rigidbody),
     };
 
-    //重载函数，相同参数个数，相同位置out参数匹配出问题时, 需要强制匹配解决
-    //使用方法参见例子14
-    public static List<Type> outList = new List<Type>()
-    {
-        
-    };
-        
-    //ngui优化，下面的类没有派生类，可以作为sealed class
-    public static List<Type> sealedList = new List<Type>()
-    {
-        /*typeof(Transform),
-        typeof(UIRoot),
-        typeof(UICamera),
-        typeof(UIViewport),
-        typeof(UIPanel),
-        typeof(UILabel),
-        typeof(UIAnchor),
-        typeof(UIAtlas),
-        typeof(UIFont),
-        typeof(UITexture),
-        typeof(UISprite),
-        typeof(UIGrid),
-        typeof(UITable),
-        typeof(UIWrapGrid),
-        typeof(UIInput),
-        typeof(UIScrollView),
-        typeof(UIEventListener),
-        typeof(UIScrollBar),
-        typeof(UICenterOnChild),
-        typeof(UIScrollView),        
-        typeof(UIButton),
-        typeof(UITextList),
-        typeof(UIPlayTween),
-        typeof(UIDragScrollView),
-        typeof(UISpriteAnimation),
-        typeof(UIWrapContent),
-        typeof(TweenWidth),
-        typeof(TweenAlpha),
-        typeof(TweenColor),
-        typeof(TweenRotation),
-        typeof(TweenPosition),
-        typeof(TweenScale),
-        typeof(TweenHeight),
-        typeof(TypewriterEffect),
-        typeof(UIToggle),
-        typeof(Localization),*/
-    };
+  //重载函数，相同参数个数，相同位置out参数匹配出问题时, 需要强制匹配解决
+  //使用方法参见例子14
+  public static List<Type> outList = new List<Type>()
+  {
 
-    public static BindType _GT(Type t)
+  };
+
+  //ngui优化，下面的类没有派生类，可以作为sealed class
+  public static List<Type> sealedList = new List<Type>()
+  {
+    /*typeof(Transform),
+    typeof(UIRoot),
+    typeof(UICamera),
+    typeof(UIViewport),
+    typeof(UIPanel),
+    typeof(UILabel),
+    typeof(UIAnchor),
+    typeof(UIAtlas),
+    typeof(UIFont),
+    typeof(UITexture),
+    typeof(UISprite),
+    typeof(UIGrid),
+    typeof(UITable),
+    typeof(UIWrapGrid),
+    typeof(UIInput),
+    typeof(UIScrollView),
+    typeof(UIEventListener),
+    typeof(UIScrollBar),
+    typeof(UICenterOnChild),
+    typeof(UIScrollView),        
+    typeof(UIButton),
+    typeof(UITextList),
+    typeof(UIPlayTween),
+    typeof(UIDragScrollView),
+    typeof(UISpriteAnimation),
+    typeof(UIWrapContent),
+    typeof(TweenWidth),
+    typeof(TweenAlpha),
+    typeof(TweenColor),
+    typeof(TweenRotation),
+    typeof(TweenPosition),
+    typeof(TweenScale),
+    typeof(TweenHeight),
+    typeof(TypewriterEffect),
+    typeof(UIToggle),
+    typeof(Localization),*/
+  };
+
+  public static BindType _GT(Type t)
+  {
+    return new BindType(t);
+  }
+
+  public static DelegateType _DT(Type t)
+  {
+    return new DelegateType(t);
+  }
+
+
+  [MenuItem("Lua/Attach Profiler", false, 151)]
+  static void AttachProfiler()
+  {
+    if (!Application.isPlaying)
     {
-        return new BindType(t);
+      EditorUtility.DisplayDialog("警告", "请在运行时执行此功能", "确定");
+      return;
     }
 
-    public static DelegateType _DT(Type t)
+    LuaClient.Instance.AttachProfiler();
+  }
+
+  [MenuItem("Lua/Detach Profiler", false, 152)]
+  static void DetachProfiler()
+  {
+    if (!Application.isPlaying)
     {
-        return new DelegateType(t);
-    }    
-
-
-    [MenuItem("Lua/Attach Profiler", false, 151)]
-    static void AttachProfiler()
-    {
-        if (!Application.isPlaying)
-        {
-            EditorUtility.DisplayDialog("警告", "请在运行时执行此功能", "确定");
-            return;
-        }
-
-        LuaClient.Instance.AttachProfiler();
+      return;
     }
 
-    [MenuItem("Lua/Detach Profiler", false, 152)]
-    static void DetachProfiler()
-    {
-        if (!Application.isPlaying)
-        {            
-            return;
-        }
-
-        LuaClient.Instance.DetachProfiler();
-    }
+    LuaClient.Instance.DetachProfiler();
+  }
 }

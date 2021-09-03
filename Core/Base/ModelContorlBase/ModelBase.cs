@@ -184,6 +184,15 @@ namespace lgu3d
     #endregion
 
     #region 声音组件
+    public AudioSource PlayMusic(string Music, bool IsBackMusic = false)
+    {
+      if (SoundComp == null)
+      {
+        Debug.LogError(ModuleName + " No Load SoundComp");
+        return null;
+      }
+      return SoundComp.PlayMusic(Music, IsBackMusic);
+    }
     public AudioSource PlayMusic(string Music, float MusicValue, bool IsBackMusic = false)
     {
       if (SoundComp == null)

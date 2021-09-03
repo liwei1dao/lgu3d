@@ -5999,6 +5999,17 @@ MonoBehaviour:
         IsMergeBuild: 1
         IsShowBuildToogle: 0
         ChildBuildItem: []
+      - Name: gamstart
+        Path: /app\TuoluoModule\Sound\gamstart.mp3
+        RootName: /app
+        ModelName: TuoluoModule
+        AssetBundleName: TuoluoModule/Sound
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
       - Name: tips
         Path: /app\TuoluoModule\Sound\tips.mp3
         RootName: /app

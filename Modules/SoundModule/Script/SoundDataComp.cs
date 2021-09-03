@@ -10,6 +10,8 @@ namespace lgu3d
     private class ModelSoundPlayerData
     {
       public string ModelName;
+      private float MusicValue;
+      private float SoundValue;
       private GameObject ModelPlayer;
       public AudioSource BackMusicPlayer;
       public List<AudioSource> EffectMusicPlayer;
@@ -17,6 +19,8 @@ namespace lgu3d
       public ModelSoundPlayerData(string _ModelName)
       {
         ModelName = _ModelName;
+        MusicValue = 1;
+        SoundValue = 1;
         ModelPlayer = SoundModule.Instance.SoundPlayers.CreateChild(ModelName);
         BackMusicPlayer = null;
         EffectMusicPlayer = new List<AudioSource>();
@@ -42,6 +46,7 @@ namespace lgu3d
           }
         }
         AudioSource MusicPlayer = ModelPlayer.AddComponent<AudioSource>();
+        MusicPlayer.volume = SoundValue;
         EffectMusicPlayer.Add(MusicPlayer);
         return MusicPlayer;
       }
@@ -58,19 +63,21 @@ namespace lgu3d
       /// 设置背景音量
       /// </summary>
       /// <param name="MusicValue"></param>
-      public void SetBackMusicValue(float MusicValue)
+      public void SetBackMusicValue(float musicValue)
       {
-        GetBackMusicPlayer().volume = MusicValue;
+        MusicValue = musicValue;
+        GetBackMusicPlayer().volume = musicValue;
       }
       /// <summary>
       /// 设置特效音量
       /// </summary>
-      /// <param name="MusicValue"></param>
-      public void SetEffectMusicValue(float MusicValue)
+      /// <param name="soundValue"></param>
+      public void SetEffectMusicValue(float soundValue)
       {
+        SoundValue = soundValue;
         for (int i = 0; i < EffectMusicPlayer.Count; i++)
         {
-          EffectMusicPlayer[i].volume = MusicValue;
+          EffectMusicPlayer[i].volume = soundValue;
         }
       }
     }
@@ -140,6 +147,7 @@ namespace lgu3d
       if (IsBackMusic)
       {
         AudioPlayer = Player.GetBackMusicPlayer();
+        AudioPlayer.volume = MusicValue;
         AudioPlayer.clip = Music;
         AudioPlayer.Play();
       }

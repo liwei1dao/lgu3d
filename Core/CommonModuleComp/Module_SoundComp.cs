@@ -36,6 +36,31 @@ namespace lgu3d
     {
       SoundModule.Instance.UnPauseBackMusic(MyModule.ModuleName);
     }
+
+    public void SetBackMusicValue(string ModelName, float soundValue)
+    {
+      SoundModule.Instance.SetBackMusicValue(MyModule.ModuleName, soundValue);
+    }
+
+    public void SetEffectMusicValue(string ModelName, float soundValue)
+    {
+      SoundModule.Instance.SetEffectMusicValue(MyModule.ModuleName, soundValue);
+    }
+
+    /// <summary>
+    /// 播放音效
+    /// </summary>
+    /// <param name="ModelName"></param>
+    /// <param name="Music"></param>
+    /// <param name="MusicValue"></param>
+    /// <param name="IsBackMusic"></param>
+    /// <returns></returns>
+    public AudioSource PlayMusic(string Music, bool IsBackMusic = false)
+    {
+      AudioClip music = MyModule.LoadAsset<AudioClip>("Sound", Music);
+      return SoundModule.Instance.PlayMusic(MyModule.ModuleName, music, IsBackMusic);
+    }
+
     /// <summary>
     /// 播放音效
     /// </summary>

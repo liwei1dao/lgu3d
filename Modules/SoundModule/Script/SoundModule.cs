@@ -39,6 +39,24 @@ namespace lgu3d
     {
       DataComp.UnPauseBackMusic(ModelName);
     }
+    /// <summary>
+    /// 设置 音乐 音量
+    /// </summary>
+    /// <param name="ModelName"></param>
+    public void SetBackMusicValue(string ModelName, float soundValue)
+    {
+      DataComp.SetBackMusicValue(ModelName, soundValue);
+
+    }
+    /// <summary>
+    /// 设置 音效 音量
+    /// </summary>
+    /// <param name="ModelName"></param>
+    public void SetEffectMusicValue(string ModelName, float soundValue)
+    {
+      DataComp.SetEffectMusicValue(ModelName, soundValue);
+
+    }
 
     /// <summary>
     /// 播放模块音乐/背景音乐

@@ -3,9 +3,10 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
-
-public class BaseImage : MaskableGraphic, ISerializationCallbackReceiver, ILayoutElement, ICanvasRaycastFilter
+namespace lgu3d
 {
+  public class BaseImage : MaskableGraphic, ISerializationCallbackReceiver, ILayoutElement, ICanvasRaycastFilter
+  {
     [FormerlySerializedAs("m_Frame")]
     [SerializeField]
     private Sprite m_Sprite;
@@ -22,25 +23,25 @@ public class BaseImage : MaskableGraphic, ISerializationCallbackReceiver, ILayou
     /// </summary>
     public override Texture mainTexture
     {
-        get
-        {
-            return overrideSprite == null ? s_WhiteTexture : overrideSprite.texture;
-        }
+      get
+      {
+        return overrideSprite == null ? s_WhiteTexture : overrideSprite.texture;
+      }
     }
 
     public float pixelsPerUnit
     {
-        get
-        {
-            float spritePixelsPerUnit = 100;
-            if (sprite)
-                spritePixelsPerUnit = sprite.pixelsPerUnit;
+      get
+      {
+        float spritePixelsPerUnit = 100;
+        if (sprite)
+          spritePixelsPerUnit = sprite.pixelsPerUnit;
 
-            float referencePixelsPerUnit = 100;
-            if (canvas)
-                referencePixelsPerUnit = canvas.referencePixelsPerUnit;
-            return spritePixelsPerUnit / referencePixelsPerUnit;
-        }
+        float referencePixelsPerUnit = 100;
+        if (canvas)
+          referencePixelsPerUnit = canvas.referencePixelsPerUnit;
+        return spritePixelsPerUnit / referencePixelsPerUnit;
+      }
     }
 
     /// <summary>
@@ -49,7 +50,7 @@ public class BaseImage : MaskableGraphic, ISerializationCallbackReceiver, ILayou
     /// <param name="vh"></param>
     protected override void OnPopulateMesh(VertexHelper vh)
     {
-        base.OnPopulateMesh(vh);
+      base.OnPopulateMesh(vh);
     }
 
     #region ISerializationCallbackReceiver
@@ -81,12 +82,12 @@ public class BaseImage : MaskableGraphic, ISerializationCallbackReceiver, ILayou
 
     public virtual float preferredWidth
     {
-        get
-        {
-            if (overrideSprite == null)
-                return 0;
-            return overrideSprite.rect.size.x / pixelsPerUnit;
-        }
+      get
+      {
+        if (overrideSprite == null)
+          return 0;
+        return overrideSprite.rect.size.x / pixelsPerUnit;
+      }
     }
 
     public virtual float flexibleWidth { get { return -1; } }
@@ -95,12 +96,12 @@ public class BaseImage : MaskableGraphic, ISerializationCallbackReceiver, ILayou
 
     public virtual float preferredHeight
     {
-        get
-        {
-            if (overrideSprite == null)
-                return 0;
-            return overrideSprite.rect.size.y / pixelsPerUnit;
-        }
+      get
+      {
+        if (overrideSprite == null)
+          return 0;
+        return overrideSprite.rect.size.y / pixelsPerUnit;
+      }
     }
 
     public virtual float flexibleHeight { get { return -1; } }
@@ -113,8 +114,9 @@ public class BaseImage : MaskableGraphic, ISerializationCallbackReceiver, ILayou
 
     public virtual bool IsRaycastLocationValid(Vector2 screenPoint, Camera eventCamera)
     {
-        return true;
+      return true;
     }
 
     #endregion ICanvasRaycastFilter
+  }
 }
