@@ -43,7 +43,7 @@ namespace lgu3d
                 .SetCodeId(advId)
                 .SetImageAcceptedSize(1080, 1920)
                 .Build();
-            this.splashAd = (this.AdNative.LoadSplashAd_iOS(adSlot, this));
+            this.splashAd = (this.MyModule.AdNative.LoadSplashAd_iOS(adSlot, this));
         }
     #elif UNITY_ANDROID
         private void  ShowAdv_Android(string advId){
