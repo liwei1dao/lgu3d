@@ -66,12 +66,12 @@ namespace lgu3d
       State = ModelBaseState.Close;
     }
 
-    public virtual void Load(params object[] agr)
+    public virtual void Load(params object[] agrs)
     {
       State = ModelBaseState.Loading;
       for (int i = 0; i < MyComps.Count; i++)
       {
-        MyComps[i].Load(this, agr);
+        MyComps[i].Load(this, agrs);
       }
       LoadEnd();
     }

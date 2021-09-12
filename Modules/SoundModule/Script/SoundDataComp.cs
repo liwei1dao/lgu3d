@@ -88,6 +88,7 @@ namespace lgu3d
     {
       ModelMusicPLayers = new Dictionary<string, ModelSoundPlayerData>();
       base.Load(_ModelContorl, _Agr);
+      LoadEnd();
     }
 
     public void InitModelMusicPLayers(string ModelName)

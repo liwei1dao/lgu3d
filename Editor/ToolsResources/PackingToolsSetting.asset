@@ -24,6 +24,371 @@ MonoBehaviour:
   - Name: app
     Path: /app
   ModelBuildConfig:
+  - Name: AdmobModule
+    Path: /lgu3d/Modules\AdmobModule
+    RootName: /lgu3d/Modules
+    ModelName: AdmobModule
+    AssetBundleName: AdmobModule
+    Layer: 0
+    NodelType: 1
+    Foldout: 0
+    IsMergeBuild: 0
+    IsShowBuildToogle: 1
+    ChildBuildItem:
+    - Name: GoogleMobileAds
+      Path: /lgu3d/Modules\AdmobModule\GoogleMobileAds
+      RootName: /lgu3d/Modules
+      ModelName: AdmobModule
+      AssetBundleName: AdmobModule/GoogleMobileAds
+      Layer: 1
+      NodelType: 2
+      Foldout: 1
+      IsMergeBuild: 1
+      IsShowBuildToogle: 1
+      ChildBuildItem:
+      - Name: Editor
+        Path: /lgu3d/Modules\AdmobModule\GoogleMobileAds\Editor
+        RootName: /lgu3d/Modules
+        ModelName: AdmobModule
+        AssetBundleName: AdmobModule/GoogleMobileAds
+        Layer: 2
+        NodelType: 2
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem:
+        - Name: Resources
+          Path: /lgu3d/Modules\AdmobModule\GoogleMobileAds\Editor\Resources
+          RootName: /lgu3d/Modules
+          ModelName: AdmobModule
+          AssetBundleName: AdmobModule/GoogleMobileAds
+          Layer: 3
+          NodelType: 2
+          Foldout: 1
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem:
+          - Name: DummyAds
+            Path: /lgu3d/Modules\AdmobModule\GoogleMobileAds\Editor\Resources\DummyAds
+            RootName: /lgu3d/Modules
+            ModelName: AdmobModule
+            AssetBundleName: AdmobModule/GoogleMobileAds
+            Layer: 4
+            NodelType: 2
+            Foldout: 1
+            IsMergeBuild: 1
+            IsShowBuildToogle: 0
+            ChildBuildItem:
+            - Name: AdImages
+              Path: /lgu3d/Modules\AdmobModule\GoogleMobileAds\Editor\Resources\DummyAds\AdImages
+              RootName: /lgu3d/Modules
+              ModelName: AdmobModule
+              AssetBundleName: AdmobModule/GoogleMobileAds
+              Layer: 5
+              NodelType: 2
+              Foldout: 1
+              IsMergeBuild: 1
+              IsShowBuildToogle: 0
+              ChildBuildItem:
+              - Name: 1024x768
+                Path: /lgu3d/Modules\AdmobModule\GoogleMobileAds\Editor\Resources\DummyAds\AdImages\1024x768.png
+                RootName: /lgu3d/Modules
+                ModelName: AdmobModule
+                AssetBundleName: AdmobModule/GoogleMobileAds
+                Layer: 6
+                NodelType: 3
+                Foldout: 0
+                IsMergeBuild: 1
+                IsShowBuildToogle: 0
+                ChildBuildItem: []
+              - Name: 300x250
+                Path: /lgu3d/Modules\AdmobModule\GoogleMobileAds\Editor\Resources\DummyAds\AdImages\300x250.png
+                RootName: /lgu3d/Modules
+                ModelName: AdmobModule
+                AssetBundleName: AdmobModule/GoogleMobileAds
+                Layer: 6
+                NodelType: 3
+                Foldout: 0
+                IsMergeBuild: 1
+                IsShowBuildToogle: 0
+                ChildBuildItem: []
+              - Name: 320x100
+                Path: /lgu3d/Modules\AdmobModule\GoogleMobileAds\Editor\Resources\DummyAds\AdImages\320x100.png
+                RootName: /lgu3d/Modules
+                ModelName: AdmobModule
+                AssetBundleName: AdmobModule/GoogleMobileAds
+                Layer: 6
+                NodelType: 3
+                Foldout: 0
+                IsMergeBuild: 1
+                IsShowBuildToogle: 0
+                ChildBuildItem: []
+              - Name: 320x480
+                Path: /lgu3d/Modules\AdmobModule\GoogleMobileAds\Editor\Resources\DummyAds\AdImages\320x480.png
+                RootName: /lgu3d/Modules
+                ModelName: AdmobModule
+                AssetBundleName: AdmobModule/GoogleMobileAds
+                Layer: 6
+                NodelType: 3
+                Foldout: 0
+                IsMergeBuild: 1
+                IsShowBuildToogle: 0
+                ChildBuildItem: []
+              - Name: 320x50
+                Path: /lgu3d/Modules\AdmobModule\GoogleMobileAds\Editor\Resources\DummyAds\AdImages\320x50.png
+                RootName: /lgu3d/Modules
+                ModelName: AdmobModule
+                AssetBundleName: AdmobModule/GoogleMobileAds
+                Layer: 6
+                NodelType: 3
+                Foldout: 0
+                IsMergeBuild: 1
+                IsShowBuildToogle: 0
+                ChildBuildItem: []
+              - Name: 468x60
+                Path: /lgu3d/Modules\AdmobModule\GoogleMobileAds\Editor\Resources\DummyAds\AdImages\468x60.png
+                RootName: /lgu3d/Modules
+                ModelName: AdmobModule
+                AssetBundleName: AdmobModule/GoogleMobileAds
+                Layer: 6
+                NodelType: 3
+                Foldout: 0
+                IsMergeBuild: 1
+                IsShowBuildToogle: 0
+                ChildBuildItem: []
+              - Name: 480x320
+                Path: /lgu3d/Modules\AdmobModule\GoogleMobileAds\Editor\Resources\DummyAds\AdImages\480x320.png
+                RootName: /lgu3d/Modules
+                ModelName: AdmobModule
+                AssetBundleName: AdmobModule/GoogleMobileAds
+                Layer: 6
+                NodelType: 3
+                Foldout: 0
+                IsMergeBuild: 1
+                IsShowBuildToogle: 0
+                ChildBuildItem: []
+              - Name: 728x90
+                Path: /lgu3d/Modules\AdmobModule\GoogleMobileAds\Editor\Resources\DummyAds\AdImages\728x90.png
+                RootName: /lgu3d/Modules
+                ModelName: AdmobModule
+                AssetBundleName: AdmobModule/GoogleMobileAds
+                Layer: 6
+                NodelType: 3
+                Foldout: 0
+                IsMergeBuild: 1
+                IsShowBuildToogle: 0
+                ChildBuildItem: []
+              - Name: 768x1024
+                Path: /lgu3d/Modules\AdmobModule\GoogleMobileAds\Editor\Resources\DummyAds\AdImages\768x1024.png
+                RootName: /lgu3d/Modules
+                ModelName: AdmobModule
+                AssetBundleName: AdmobModule/GoogleMobileAds
+                Layer: 6
+                NodelType: 3
+                Foldout: 0
+                IsMergeBuild: 1
+                IsShowBuildToogle: 0
+                ChildBuildItem: []
+            - Name: AppOpen
+              Path: /lgu3d/Modules\AdmobModule\GoogleMobileAds\Editor\Resources\DummyAds\AppOpen
+              RootName: /lgu3d/Modules
+              ModelName: AdmobModule
+              AssetBundleName: AdmobModule/GoogleMobileAds
+              Layer: 5
+              NodelType: 2
+              Foldout: 0
+              IsMergeBuild: 1
+              IsShowBuildToogle: 0
+              ChildBuildItem:
+              - Name: 1024x768
+                Path: /lgu3d/Modules\AdmobModule\GoogleMobileAds\Editor\Resources\DummyAds\AppOpen\1024x768.prefab
+                RootName: /lgu3d/Modules
+                ModelName: AdmobModule
+                AssetBundleName: AdmobModule/GoogleMobileAds
+                Layer: 6
+                NodelType: 3
+                Foldout: 0
+                IsMergeBuild: 1
+                IsShowBuildToogle: 0
+                ChildBuildItem: []
+              - Name: 768x1024
+                Path: /lgu3d/Modules\AdmobModule\GoogleMobileAds\Editor\Resources\DummyAds\AppOpen\768x1024.prefab
+                RootName: /lgu3d/Modules
+                ModelName: AdmobModule
+                AssetBundleName: AdmobModule/GoogleMobileAds
+                Layer: 6
+                NodelType: 3
+                Foldout: 0
+                IsMergeBuild: 1
+                IsShowBuildToogle: 0
+                ChildBuildItem: []
+            - Name: Banners
+              Path: /lgu3d/Modules\AdmobModule\GoogleMobileAds\Editor\Resources\DummyAds\Banners
+              RootName: /lgu3d/Modules
+              ModelName: AdmobModule
+              AssetBundleName: AdmobModule/GoogleMobileAds
+              Layer: 5
+              NodelType: 2
+              Foldout: 0
+              IsMergeBuild: 1
+              IsShowBuildToogle: 0
+              ChildBuildItem:
+              - Name: ADAPTIVE
+                Path: /lgu3d/Modules\AdmobModule\GoogleMobileAds\Editor\Resources\DummyAds\Banners\ADAPTIVE.prefab
+                RootName: /lgu3d/Modules
+                ModelName: AdmobModule
+                AssetBundleName: AdmobModule/GoogleMobileAds
+                Layer: 6
+                NodelType: 3
+                Foldout: 0
+                IsMergeBuild: 1
+                IsShowBuildToogle: 0
+                ChildBuildItem: []
+              - Name: BANNER
+                Path: /lgu3d/Modules\AdmobModule\GoogleMobileAds\Editor\Resources\DummyAds\Banners\BANNER.prefab
+                RootName: /lgu3d/Modules
+                ModelName: AdmobModule
+                AssetBundleName: AdmobModule/GoogleMobileAds
+                Layer: 6
+                NodelType: 3
+                Foldout: 0
+                IsMergeBuild: 1
+                IsShowBuildToogle: 0
+                ChildBuildItem: []
+              - Name: CENTER
+                Path: /lgu3d/Modules\AdmobModule\GoogleMobileAds\Editor\Resources\DummyAds\Banners\CENTER.prefab
+                RootName: /lgu3d/Modules
+                ModelName: AdmobModule
+                AssetBundleName: AdmobModule/GoogleMobileAds
+                Layer: 6
+                NodelType: 3
+                Foldout: 0
+                IsMergeBuild: 1
+                IsShowBuildToogle: 0
+                ChildBuildItem: []
+              - Name: FULL_BANNER
+                Path: /lgu3d/Modules\AdmobModule\GoogleMobileAds\Editor\Resources\DummyAds\Banners\FULL_BANNER.prefab
+                RootName: /lgu3d/Modules
+                ModelName: AdmobModule
+                AssetBundleName: AdmobModule/GoogleMobileAds
+                Layer: 6
+                NodelType: 3
+                Foldout: 0
+                IsMergeBuild: 1
+                IsShowBuildToogle: 0
+                ChildBuildItem: []
+              - Name: LARGE_BANNER
+                Path: /lgu3d/Modules\AdmobModule\GoogleMobileAds\Editor\Resources\DummyAds\Banners\LARGE_BANNER.prefab
+                RootName: /lgu3d/Modules
+                ModelName: AdmobModule
+                AssetBundleName: AdmobModule/GoogleMobileAds
+                Layer: 6
+                NodelType: 3
+                Foldout: 0
+                IsMergeBuild: 1
+                IsShowBuildToogle: 0
+                ChildBuildItem: []
+              - Name: LEADERBOARD
+                Path: /lgu3d/Modules\AdmobModule\GoogleMobileAds\Editor\Resources\DummyAds\Banners\LEADERBOARD.prefab
+                RootName: /lgu3d/Modules
+                ModelName: AdmobModule
+                AssetBundleName: AdmobModule/GoogleMobileAds
+                Layer: 6
+                NodelType: 3
+                Foldout: 0
+                IsMergeBuild: 1
+                IsShowBuildToogle: 0
+                ChildBuildItem: []
+              - Name: MEDIUM_RECTANGLE
+                Path: /lgu3d/Modules\AdmobModule\GoogleMobileAds\Editor\Resources\DummyAds\Banners\MEDIUM_RECTANGLE.prefab
+                RootName: /lgu3d/Modules
+                ModelName: AdmobModule
+                AssetBundleName: AdmobModule/GoogleMobileAds
+                Layer: 6
+                NodelType: 3
+                Foldout: 0
+                IsMergeBuild: 1
+                IsShowBuildToogle: 0
+                ChildBuildItem: []
+              - Name: SMART_BANNER
+                Path: /lgu3d/Modules\AdmobModule\GoogleMobileAds\Editor\Resources\DummyAds\Banners\SMART_BANNER.prefab
+                RootName: /lgu3d/Modules
+                ModelName: AdmobModule
+                AssetBundleName: AdmobModule/GoogleMobileAds
+                Layer: 6
+                NodelType: 3
+                Foldout: 0
+                IsMergeBuild: 1
+                IsShowBuildToogle: 0
+                ChildBuildItem: []
+            - Name: Interstitials
+              Path: /lgu3d/Modules\AdmobModule\GoogleMobileAds\Editor\Resources\DummyAds\Interstitials
+              RootName: /lgu3d/Modules
+              ModelName: AdmobModule
+              AssetBundleName: AdmobModule/GoogleMobileAds
+              Layer: 5
+              NodelType: 2
+              Foldout: 0
+              IsMergeBuild: 1
+              IsShowBuildToogle: 0
+              ChildBuildItem:
+              - Name: 1024x768
+                Path: /lgu3d/Modules\AdmobModule\GoogleMobileAds\Editor\Resources\DummyAds\Interstitials\1024x768.prefab
+                RootName: /lgu3d/Modules
+                ModelName: AdmobModule
+                AssetBundleName: AdmobModule/GoogleMobileAds
+                Layer: 6
+                NodelType: 3
+                Foldout: 0
+                IsMergeBuild: 1
+                IsShowBuildToogle: 0
+                ChildBuildItem: []
+              - Name: 768x1024
+                Path: /lgu3d/Modules\AdmobModule\GoogleMobileAds\Editor\Resources\DummyAds\Interstitials\768x1024.prefab
+                RootName: /lgu3d/Modules
+                ModelName: AdmobModule
+                AssetBundleName: AdmobModule/GoogleMobileAds
+                Layer: 6
+                NodelType: 3
+                Foldout: 0
+                IsMergeBuild: 1
+                IsShowBuildToogle: 0
+                ChildBuildItem: []
+            - Name: Rewarded
+              Path: /lgu3d/Modules\AdmobModule\GoogleMobileAds\Editor\Resources\DummyAds\Rewarded
+              RootName: /lgu3d/Modules
+              ModelName: AdmobModule
+              AssetBundleName: AdmobModule/GoogleMobileAds
+              Layer: 5
+              NodelType: 2
+              Foldout: 0
+              IsMergeBuild: 1
+              IsShowBuildToogle: 0
+              ChildBuildItem:
+              - Name: 1024x768
+                Path: /lgu3d/Modules\AdmobModule\GoogleMobileAds\Editor\Resources\DummyAds\Rewarded\1024x768.prefab
+                RootName: /lgu3d/Modules
+                ModelName: AdmobModule
+                AssetBundleName: AdmobModule/GoogleMobileAds
+                Layer: 6
+                NodelType: 3
+                Foldout: 0
+                IsMergeBuild: 1
+                IsShowBuildToogle: 0
+                ChildBuildItem: []
+              - Name: 768x1024
+                Path: /lgu3d/Modules\AdmobModule\GoogleMobileAds\Editor\Resources\DummyAds\Rewarded\768x1024.prefab
+                RootName: /lgu3d/Modules
+                ModelName: AdmobModule
+                AssetBundleName: AdmobModule/GoogleMobileAds
+                Layer: 6
+                NodelType: 3
+                Foldout: 0
+                IsMergeBuild: 1
+                IsShowBuildToogle: 0
+                ChildBuildItem: []
+    IsSelection: 0
+    IsUpdataModule: 0
   - Name: CommonModule
     Path: /lgu3d/Modules\CommonModule
     RootName: /lgu3d/Modules
@@ -389,7 +754,7 @@ MonoBehaviour:
         IsMergeBuild: 1
         IsShowBuildToogle: 0
         ChildBuildItem: []
-    IsSelection: 1
+    IsSelection: 0
     IsUpdataModule: 0
   - Name: LanguageModule
     Path: /lgu3d/Modules\LanguageModule
@@ -536,7 +901,7 @@ MonoBehaviour:
         IsMergeBuild: 1
         IsShowBuildToogle: 0
         ChildBuildItem: []
-    IsSelection: 1
+    IsSelection: 0
     IsUpdataModule: 0
   - Name: LuaManagerModule
     Path: /lgu3d/Modules\LuaManagerModule
@@ -1728,7 +2093,7 @@ MonoBehaviour:
         IsMergeBuild: 1
         IsShowBuildToogle: 0
         ChildBuildItem: []
-    IsSelection: 1
+    IsSelection: 0
     IsUpdataModule: 0
   - Name: SceneModule
     Path: /lgu3d/Modules\SceneModule
@@ -1875,7 +2240,7 @@ MonoBehaviour:
         IsMergeBuild: 1
         IsShowBuildToogle: 0
         ChildBuildItem: []
-    IsSelection: 1
+    IsSelection: 0
     IsUpdataModule: 0
   - Name: SoundModule
     Path: /lgu3d/Modules\SoundModule
@@ -2055,7 +2420,7 @@ MonoBehaviour:
         IsMergeBuild: 1
         IsShowBuildToogle: 0
         ChildBuildItem: []
-    IsSelection: 1
+    IsSelection: 0
     IsUpdataModule: 0
   - Name: ViewManagerModule
     Path: /lgu3d/Modules\ViewManagerModule
@@ -2169,7 +2534,7 @@ MonoBehaviour:
         IsMergeBuild: 1
         IsShowBuildToogle: 0
         ChildBuildItem: []
-    IsSelection: 1
+    IsSelection: 0
     IsUpdataModule: 0
   - Name: TuoluoModule
     Path: /app\TuoluoModule
@@ -2261,17 +2626,6 @@ MonoBehaviour:
           ChildBuildItem: []
         - Name: j6
           Path: /app\TuoluoModule\Asset\fbx\j6.fbx
-          RootName: /app
-          ModelName: TuoluoModule
-          AssetBundleName: TuoluoModule/Asset
-          Layer: 3
-          NodelType: 3
-          Foldout: 0
-          IsMergeBuild: 1
-          IsShowBuildToogle: 0
-          ChildBuildItem: []
-        - Name: pengzhuang - Copy
-          Path: /app\TuoluoModule\Asset\fbx\pengzhuang - Copy.fbx
           RootName: /app
           ModelName: TuoluoModule
           AssetBundleName: TuoluoModule/Asset
@@ -2382,6 +2736,17 @@ MonoBehaviour:
           ChildBuildItem: []
         - Name: tiejia
           Path: /app\TuoluoModule\Asset\fbx\tiejia.fbx
+          RootName: /app
+          ModelName: TuoluoModule
+          AssetBundleName: TuoluoModule/Asset
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: yuanpan
+          Path: /app\TuoluoModule\Asset\fbx\yuanpan.fbx
           RootName: /app
           ModelName: TuoluoModule
           AssetBundleName: TuoluoModule/Asset

@@ -12,6 +12,7 @@ namespace lgu3d
     public override void Load(ModelBase module, params object[] agr)
     {
       base.Load(module, "MessageTipls", UILevel.HightUI);
+      LoadEnd();
     }
 
 
