@@ -61,5 +61,6 @@ crashlytics-build.properties
 */Script/*.meta
 */Lua/*.meta
 */PackingToolsSetting.asset
-
-
+!*/AdmobModule/AdmobModule.unitypackage
+!*/FirebaseModule/FirebaseModule.unitypackage
+!*/GoogleSignInModule/GoogleSignInModule.unitypackage
