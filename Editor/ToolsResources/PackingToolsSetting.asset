@@ -42,7 +42,7 @@ MonoBehaviour:
       AssetBundleName: AdmobModule/GoogleMobileAds
       Layer: 1
       NodelType: 2
-      Foldout: 1
+      Foldout: 0
       IsMergeBuild: 1
       IsShowBuildToogle: 1
       ChildBuildItem:
@@ -64,7 +64,7 @@ MonoBehaviour:
           AssetBundleName: AdmobModule/GoogleMobileAds
           Layer: 3
           NodelType: 2
-          Foldout: 1
+          Foldout: 0
           IsMergeBuild: 1
           IsShowBuildToogle: 0
           ChildBuildItem:
@@ -75,7 +75,7 @@ MonoBehaviour:
             AssetBundleName: AdmobModule/GoogleMobileAds
             Layer: 4
             NodelType: 2
-            Foldout: 1
+            Foldout: 0
             IsMergeBuild: 1
             IsShowBuildToogle: 0
             ChildBuildItem:
@@ -86,7 +86,7 @@ MonoBehaviour:
               AssetBundleName: AdmobModule/GoogleMobileAds
               Layer: 5
               NodelType: 2
-              Foldout: 1
+              Foldout: 0
               IsMergeBuild: 1
               IsShowBuildToogle: 0
               ChildBuildItem:
@@ -387,7 +387,7 @@ MonoBehaviour:
                 IsMergeBuild: 1
                 IsShowBuildToogle: 0
                 ChildBuildItem: []
-    IsSelection: 0
+    IsSelection: 1
     IsUpdataModule: 0
   - Name: CommonModule
     Path: /lgu3d/Modules\CommonModule
@@ -754,7 +754,262 @@ MonoBehaviour:
         IsMergeBuild: 1
         IsShowBuildToogle: 0
         ChildBuildItem: []
-    IsSelection: 0
+    IsSelection: 1
+    IsUpdataModule: 0
+  - Name: FirebaseModule
+    Path: /lgu3d/Modules\FirebaseModule
+    RootName: /lgu3d/Modules
+    ModelName: FirebaseModule
+    AssetBundleName: FirebaseModule
+    Layer: 0
+    NodelType: 1
+    Foldout: 0
+    IsMergeBuild: 0
+    IsShowBuildToogle: 1
+    ChildBuildItem:
+    - Name: Editor Default Resources
+      Path: /lgu3d/Modules\FirebaseModule\Editor Default Resources
+      RootName: /lgu3d/Modules
+      ModelName: FirebaseModule
+      AssetBundleName: FirebaseModule/Editor Default Resources
+      Layer: 1
+      NodelType: 2
+      Foldout: 0
+      IsMergeBuild: 1
+      IsShowBuildToogle: 1
+      ChildBuildItem:
+      - Name: Firebase
+        Path: /lgu3d/Modules\FirebaseModule\Editor Default Resources\Firebase
+        RootName: /lgu3d/Modules
+        ModelName: FirebaseModule
+        AssetBundleName: FirebaseModule/Editor Default Resources
+        Layer: 2
+        NodelType: 2
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem:
+        - Name: fb_analytics
+          Path: /lgu3d/Modules\FirebaseModule\Editor Default Resources\Firebase\fb_analytics.png
+          RootName: /lgu3d/Modules
+          ModelName: FirebaseModule
+          AssetBundleName: FirebaseModule/Editor Default Resources
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: fb_analytics_dark
+          Path: /lgu3d/Modules\FirebaseModule\Editor Default Resources\Firebase\fb_analytics_dark.png
+          RootName: /lgu3d/Modules
+          ModelName: FirebaseModule
+          AssetBundleName: FirebaseModule/Editor Default Resources
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: fb_auth
+          Path: /lgu3d/Modules\FirebaseModule\Editor Default Resources\Firebase\fb_auth.png
+          RootName: /lgu3d/Modules
+          ModelName: FirebaseModule
+          AssetBundleName: FirebaseModule/Editor Default Resources
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: fb_auth_dark
+          Path: /lgu3d/Modules\FirebaseModule\Editor Default Resources\Firebase\fb_auth_dark.png
+          RootName: /lgu3d/Modules
+          ModelName: FirebaseModule
+          AssetBundleName: FirebaseModule/Editor Default Resources
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: fb_cloud_messaging
+          Path: /lgu3d/Modules\FirebaseModule\Editor Default Resources\Firebase\fb_cloud_messaging.png
+          RootName: /lgu3d/Modules
+          ModelName: FirebaseModule
+          AssetBundleName: FirebaseModule/Editor Default Resources
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: fb_cloud_messaging_dark
+          Path: /lgu3d/Modules\FirebaseModule\Editor Default Resources\Firebase\fb_cloud_messaging_dark.png
+          RootName: /lgu3d/Modules
+          ModelName: FirebaseModule
+          AssetBundleName: FirebaseModule/Editor Default Resources
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: fb_config
+          Path: /lgu3d/Modules\FirebaseModule\Editor Default Resources\Firebase\fb_config.png
+          RootName: /lgu3d/Modules
+          ModelName: FirebaseModule
+          AssetBundleName: FirebaseModule/Editor Default Resources
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: fb_config_dark
+          Path: /lgu3d/Modules\FirebaseModule\Editor Default Resources\Firebase\fb_config_dark.png
+          RootName: /lgu3d/Modules
+          ModelName: FirebaseModule
+          AssetBundleName: FirebaseModule/Editor Default Resources
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: fb_crashlytics
+          Path: /lgu3d/Modules\FirebaseModule\Editor Default Resources\Firebase\fb_crashlytics.png
+          RootName: /lgu3d/Modules
+          ModelName: FirebaseModule
+          AssetBundleName: FirebaseModule/Editor Default Resources
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: fb_crashlytics_dark
+          Path: /lgu3d/Modules\FirebaseModule\Editor Default Resources\Firebase\fb_crashlytics_dark.png
+          RootName: /lgu3d/Modules
+          ModelName: FirebaseModule
+          AssetBundleName: FirebaseModule/Editor Default Resources
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: fb_database
+          Path: /lgu3d/Modules\FirebaseModule\Editor Default Resources\Firebase\fb_database.png
+          RootName: /lgu3d/Modules
+          ModelName: FirebaseModule
+          AssetBundleName: FirebaseModule/Editor Default Resources
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: fb_database_dark
+          Path: /lgu3d/Modules\FirebaseModule\Editor Default Resources\Firebase\fb_database_dark.png
+          RootName: /lgu3d/Modules
+          ModelName: FirebaseModule
+          AssetBundleName: FirebaseModule/Editor Default Resources
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: fb_dynamic_links
+          Path: /lgu3d/Modules\FirebaseModule\Editor Default Resources\Firebase\fb_dynamic_links.png
+          RootName: /lgu3d/Modules
+          ModelName: FirebaseModule
+          AssetBundleName: FirebaseModule/Editor Default Resources
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: fb_dynamic_links_dark
+          Path: /lgu3d/Modules\FirebaseModule\Editor Default Resources\Firebase\fb_dynamic_links_dark.png
+          RootName: /lgu3d/Modules
+          ModelName: FirebaseModule
+          AssetBundleName: FirebaseModule/Editor Default Resources
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: fb_functions
+          Path: /lgu3d/Modules\FirebaseModule\Editor Default Resources\Firebase\fb_functions.png
+          RootName: /lgu3d/Modules
+          ModelName: FirebaseModule
+          AssetBundleName: FirebaseModule/Editor Default Resources
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: fb_functions_dark
+          Path: /lgu3d/Modules\FirebaseModule\Editor Default Resources\Firebase\fb_functions_dark.png
+          RootName: /lgu3d/Modules
+          ModelName: FirebaseModule
+          AssetBundleName: FirebaseModule/Editor Default Resources
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: fb_storage
+          Path: /lgu3d/Modules\FirebaseModule\Editor Default Resources\Firebase\fb_storage.png
+          RootName: /lgu3d/Modules
+          ModelName: FirebaseModule
+          AssetBundleName: FirebaseModule/Editor Default Resources
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: fb_storage_dark
+          Path: /lgu3d/Modules\FirebaseModule\Editor Default Resources\Firebase\fb_storage_dark.png
+          RootName: /lgu3d/Modules
+          ModelName: FirebaseModule
+          AssetBundleName: FirebaseModule/Editor Default Resources
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: firebase_lockup
+          Path: /lgu3d/Modules\FirebaseModule\Editor Default Resources\Firebase\firebase_lockup.png
+          RootName: /lgu3d/Modules
+          ModelName: FirebaseModule
+          AssetBundleName: FirebaseModule/Editor Default Resources
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+        - Name: firebase_lockup_dark
+          Path: /lgu3d/Modules\FirebaseModule\Editor Default Resources\Firebase\firebase_lockup_dark.png
+          RootName: /lgu3d/Modules
+          ModelName: FirebaseModule
+          AssetBundleName: FirebaseModule/Editor Default Resources
+          Layer: 3
+          NodelType: 3
+          Foldout: 0
+          IsMergeBuild: 1
+          IsShowBuildToogle: 0
+          ChildBuildItem: []
+    IsSelection: 1
     IsUpdataModule: 0
   - Name: LanguageModule
     Path: /lgu3d/Modules\LanguageModule
@@ -901,7 +1156,7 @@ MonoBehaviour:
         IsMergeBuild: 1
         IsShowBuildToogle: 0
         ChildBuildItem: []
-    IsSelection: 0
+    IsSelection: 1
     IsUpdataModule: 0
   - Name: LuaManagerModule
     Path: /lgu3d/Modules\LuaManagerModule
@@ -2093,7 +2348,7 @@ MonoBehaviour:
         IsMergeBuild: 1
         IsShowBuildToogle: 0
         ChildBuildItem: []
-    IsSelection: 0
+    IsSelection: 1
     IsUpdataModule: 0
   - Name: SceneModule
     Path: /lgu3d/Modules\SceneModule
@@ -2240,7 +2495,7 @@ MonoBehaviour:
         IsMergeBuild: 1
         IsShowBuildToogle: 0
         ChildBuildItem: []
-    IsSelection: 0
+    IsSelection: 1
     IsUpdataModule: 0
   - Name: SoundModule
     Path: /lgu3d/Modules\SoundModule
@@ -2420,7 +2675,7 @@ MonoBehaviour:
         IsMergeBuild: 1
         IsShowBuildToogle: 0
         ChildBuildItem: []
-    IsSelection: 0
+    IsSelection: 1
     IsUpdataModule: 0
   - Name: ViewManagerModule
     Path: /lgu3d/Modules\ViewManagerModule
@@ -2534,7 +2789,7 @@ MonoBehaviour:
         IsMergeBuild: 1
         IsShowBuildToogle: 0
         ChildBuildItem: []
-    IsSelection: 0
+    IsSelection: 1
     IsUpdataModule: 0
   - Name: TuoluoModule
     Path: /app\TuoluoModule
@@ -4549,6 +4804,39 @@ MonoBehaviour:
         IsMergeBuild: 1
         IsShowBuildToogle: 0
         ChildBuildItem: []
+      - Name: btn_icon_lock
+        Path: /app\TuoluoModule\Image\btn_icon_lock.png
+        RootName: /app
+        ModelName: TuoluoModule
+        AssetBundleName: TuoluoModule/Image
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: btn_icon_mail
+        Path: /app\TuoluoModule\Image\btn_icon_mail.png
+        RootName: /app
+        ModelName: TuoluoModule
+        AssetBundleName: TuoluoModule/Image
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: btn_icon_user
+        Path: /app\TuoluoModule\Image\btn_icon_user.png
+        RootName: /app
+        ModelName: TuoluoModule
+        AssetBundleName: TuoluoModule/Image
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
       - Name: btn_icon_viking_helmet
         Path: /app\TuoluoModule\Image\btn_icon_viking_helmet.png
         RootName: /app
@@ -4692,6 +4980,17 @@ MonoBehaviour:
           IsMergeBuild: 1
           IsShowBuildToogle: 0
           ChildBuildItem: []
+      - Name: email
+        Path: /app\TuoluoModule\Image\email.png
+        RootName: /app
+        ModelName: TuoluoModule
+        AssetBundleName: TuoluoModule/Image
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
       - Name: equipment_tab_icon_0_f
         Path: /app\TuoluoModule\Image\equipment_tab_icon_0_f.png
         RootName: /app
@@ -4727,6 +5026,17 @@ MonoBehaviour:
         ChildBuildItem: []
       - Name: faill
         Path: /app\TuoluoModule\Image\faill.png
+        RootName: /app
+        ModelName: TuoluoModule
+        AssetBundleName: TuoluoModule/Image
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: google
+        Path: /app\TuoluoModule\Image\google.png
         RootName: /app
         ModelName: TuoluoModule
         AssetBundleName: TuoluoModule/Image
@@ -4991,6 +5301,17 @@ MonoBehaviour:
         ChildBuildItem: []
       - Name: SceneChanageView
         Path: /app\TuoluoModule\Prefab\SceneChanageView.prefab
+        RootName: /app
+        ModelName: TuoluoModule
+        AssetBundleName: TuoluoModule/Prefab
+        Layer: 2
+        NodelType: 3
+        Foldout: 0
+        IsMergeBuild: 1
+        IsShowBuildToogle: 0
+        ChildBuildItem: []
+      - Name: TuoLouLoginView
+        Path: /app\TuoluoModule\Prefab\TuoLouLoginView.prefab
         RootName: /app
         ModelName: TuoluoModule
         AssetBundleName: TuoluoModule/Prefab
