@@ -68,3 +68,7 @@ crashlytics-build.properties
 !*/FirebaseModule/FirebaseModule.unitypackage
 */GoogleSignInModule/*
 !*/GoogleSignInModule/GoogleSignInModule.unitypackage
+*/PangolinAdvModule/*
+!*/PangolinAdvModule/PangolinAdvModule.unitypackage
+*/ToolsResources/PackingToolsSetting.asset
+*/ToolsResources/PackingToolsSetting.asset.meta
