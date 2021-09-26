@@ -15,10 +15,10 @@ namespace lgu3d
   /// </summary>
   public class AssetBundleComp : ModelCompBase<ResourceModule>
   {
-    private bool IsHaveLoadView;
-    private GameObject LoadView;
-    private Image Progress;
-    private Text Progress1Describe;
+    // private bool IsHaveLoadView;
+    // private GameObject LoadView;
+    // private Image Progress;
+    // private Text Progress1Describe;
     private Dictionary<string, Dictionary<string, AssetBundle>> Bundles;
     private Dictionary<string, Dictionary<string, UnityEngine.Object>> Assets;
     AppModuleAssetInfo ResourceInfo;
@@ -27,7 +27,7 @@ namespace lgu3d
     public override void Load(ModelBase _ModelContorl, params object[] _Agr)
     {
       base.Load(_ModelContorl, _Agr);
-      IsHaveLoadView = false;
+      // IsHaveLoadView = false;
       Bundles = new Dictionary<string, Dictionary<string, AssetBundle>>();
       Assets = new Dictionary<string, Dictionary<string, UnityEngine.Object>>();
       bool IsSucc = FilesTools.IsKeepFileOrDirectory(AppConfig.AppAssetBundleAddress + "/AssetInfo.json");
@@ -35,21 +35,23 @@ namespace lgu3d
       {
         string jsonStr = FilesTools.ReadFileToStr(AppConfig.AppAssetBundleAddress + "/AssetInfo.json");
         ResourceInfo = LoadAppBuileInfo(jsonStr);
+        // MyModule.LoadViewComp?.Hide();
         LoadEnd();
       }
       else
       {
-        if (GameObject.Find("UIRoot/HightUIRoot/LoadingView") != null)
-        {
-          IsHaveLoadView = true;
-          LoadView = GameObject.Find("UIRoot/HightUIRoot/LoadingView");
-          Progress = LoadView.OnSubmit<Image>("Progress");
-          Progress1Describe = LoadView.OnSubmit<Text>("Describe");
-        }
+        // if (GameObject.Find("UIRoot/HightUIRoot/LoadingView") != null)
+        // {
+        //   IsHaveLoadView = true;
+        //   LoadView = GameObject.Find("UIRoot/HightUIRoot/LoadingView");
+        //   Progress = LoadView.OnSubmit<Image>("Progress");
+        //   Progress1Describe = LoadView.OnSubmit<Text>("Describe");
+        // }
         Manager_ManagerModel.Instance.StartCoroutine(AssemblyAsset(() =>
         {
           string jsonStr = FilesTools.ReadFileToStr(AppConfig.AppAssetBundleAddress + "/AssetInfo.json");
           ResourceInfo = LoadAppBuileInfo(jsonStr);
+          // MyModule.LoadViewComp?.Hide();
           LoadEnd();
         }));
       }
@@ -73,22 +75,23 @@ namespace lgu3d
         Debug.LogError("读取内部资源文件失败 path:" + resPath + " err:" + www.error);
       else
       {
-        if (IsHaveLoadView)
-          LoadView.SetActive(true);
+        // if (IsHaveLoadView)
+        MyModule.LoadViewComp?.Show();
         yield return ZipTools.UnzipFile(dowle.data, AppConfig.AppAssetBundleAddress, AppConfig.ResZipPassword, (string describe, float progress) =>
         {
-          if (IsHaveLoadView)
-          {
-            Progress1Describe.text = "正在解压资源:" + describe;
-            Progress.fillAmount = progress;
-          }
-          else
-          {
-            Debug.Log(string.Format("正在解压资源 {0}:{1}", progress, describe));
-          }
+          // if (IsHaveLoadView)
+          // {
+          //   Progress1Describe.text = "正在解压资源:" + describe;
+          //   Progress.fillAmount = progress;
+          // }
+          // else
+          // {
+          MyModule.LoadViewComp?.UpdateProgress(progress, "正在解压资源:" + describe);
+          Debug.Log(string.Format("正在解压资源 {0}:{1}", progress, describe));
+          // }
         });
-        if (IsHaveLoadView)
-          LoadView.SetActive(false);
+        // if (IsHaveLoadView)
+        //   LoadView.SetActive(false);
         if (CallBack != null)
         {
           CallBack();

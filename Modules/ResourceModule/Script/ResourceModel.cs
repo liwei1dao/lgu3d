@@ -7,15 +7,16 @@ namespace lgu3d
   /// </summary>
   public class ResourceModule : ManagerContorBase<ResourceModule>
   {
+    public ILoadViewComp LoadViewComp;
     private AssetBundleComp BundleResComp;
 #if UNITY_EDITOR
     private EditorResourComp EditorResComp;
 #endif
-    public override void Load(params object[] _Agr)
+    public override void Load(params object[] agrs)
     {
       if (AppConfig.AppResModel == AppResModel.release)
       {
-
+        LoadViewComp = agrs[0] as ILoadViewComp;
         BundleResComp = AddComp<AssetBundleComp>();
       }
       else
@@ -23,12 +24,24 @@ namespace lgu3d
 #if UNITY_EDITOR
         EditorResComp = AddComp<EditorResourComp>();
 #else
-                BundleResComp = AddComp<AssetBundleComp>();
+        LoadViewComp = agrs[0] as ILoadViewComp;
+        BundleResComp = AddComp<AssetBundleComp>();
 #endif
       }
-      base.Load(_Agr);
+      LoadViewComp?.Load(this);
+      base.Load(agrs);
     }
 
+    public override void Start(params object[] agrs)
+    {
+      LoadViewComp?.Start();
+      base.Start(agrs);
+    }
+    public override void Close()
+    {
+      LoadViewComp?.Close();
+      base.Close();
+    }
     //加载资源文件
     public void LoadAppAssetInfo()
     {
