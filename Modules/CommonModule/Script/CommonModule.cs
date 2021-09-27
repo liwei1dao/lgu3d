@@ -7,6 +7,7 @@ namespace lgu3d
 {
   public class CommonModule : ManagerContorBase<CommonModule>
   {
+    private LoadingViewComp LoadingViewComp;
     private MessageBoxViewComp MessageBoxComp;
     private TipsViewComp TipsViewComp;
     public override void Load(params object[] _Agr)
@@ -14,6 +15,7 @@ namespace lgu3d
       ResourceComp = AddComp<Module_ResourceComp>();
       MessageBoxComp = AddComp<MessageBoxViewComp>();
       TipsViewComp = AddComp<TipsViewComp>();
+      LoadingViewComp = AddComp<LoadingViewComp>();
       base.Load(_Agr);
     }
     public void ShowBox(string msg, Action confirmFun, Action cancelFun)
@@ -24,6 +26,15 @@ namespace lgu3d
     public void ShowTips(string message, float time)
     {
       TipsViewComp.ShowTips(message, time);
+    }
+
+    public void ShowLoadingView()
+    {
+      LoadingViewComp.Show();
+    }
+    public void HideLoadingView()
+    {
+      LoadingViewComp.Hide();
     }
   }
 }
