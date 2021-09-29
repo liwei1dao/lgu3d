@@ -364,7 +364,7 @@ namespace lgu3d.Editor
         for (int i = 0; i < arrays.Count; i++)
         {
           string strData = arrays[i].ToString();
-          strData = strData.Replace("  ", "").Replace(" ", "").Replace("\r\n", "").Replace(",\"", "*\"").Replace("\":", "\"#").ToString();
+          strData = strData.Replace("  ", "").Replace("\r\n", "").Replace(",\"", "*\"").Replace("\":", "\"~").ToString();
           strData = strData.Remove(0, 1);
           strData = strData.Remove(strData.Length - 1);
           string[] strRows = strData.Split('*');
@@ -376,7 +376,7 @@ namespace lgu3d.Editor
             foreach (string str in strRows)
             {
               var dc = new DataColumn();
-              string[] strCell = str.Split('#');
+              string[] strCell = str.Split('~');
               if (strCell[0].Substring(0, 1) == "\"")
               {
                 int a = strCell[0].Length;
@@ -396,7 +396,7 @@ namespace lgu3d.Editor
           {
             if (strRows[r].Length > 1)
             {
-              dr[r] = strRows[r].Split('#')[1].Trim().Replace("，", ",").Replace("：", ":").Replace("\"", "");
+              dr[r] = strRows[r].Split('~')[1].Trim().Replace("，", ",").Replace("：", ":").Replace("\"", "");
             }
           }
           tb.Rows.Add(dr);
