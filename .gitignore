@@ -63,6 +63,8 @@ crashlytics-build.properties
 */Lua/*.meta
 */PackingToolsSetting.asset
 
+*/SDKManagerModule/*
+!*/SDKManagerModule/SDKManagerModule.unitypackage
 */AdmobModule/*
 !*/AdmobModule/AdmobModule.unitypackage
 */FirebaseModule/*
