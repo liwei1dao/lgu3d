@@ -11,17 +11,11 @@ namespace lgu3d
     private Text text;
     private void Awake()
     {
-      LanguageModule.Instance.RegisterChangeLanguage(this.ChangeLanguage);
       text = GetComponent<Text>();
       if (text != null)
       {
         text.text = LanguageModule.Instance.GetStatement(key);
       }
-    }
-
-    private void OnDestroy()
-    {
-      LanguageModule.Instance.UnRegisterChangeLanguage(this.ChangeLanguage);
     }
 
     private void ChangeLanguage()

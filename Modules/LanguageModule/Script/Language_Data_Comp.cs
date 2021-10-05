@@ -10,32 +10,35 @@ namespace lgu3d
   public class Language_Data_Comp : ModelCompBase<LanguageModule>
   {
 
-    public Dictionary<string, LanguageTable> Languages;
+    public LanguageTable Languages;
 
     #region 框架构造
     public override void Load(ModelBase _ModelContorl, params object[] _Agr)
     {
       base.Load(_ModelContorl);
-      Languages = new Dictionary<string, LanguageTable>();
-      foreach (var item in MyModule.Language)
-      {
-        Languages[item] = MyModule.LoadAsset<LanguageTable>("Data", item);
-      }
+      Languages = MyModule.LoadAsset<LanguageTable>("Data", "LanguageTable");
       base.LoadEnd();
     }
     #endregion
 
     public virtual string GetStatement(string key)
     {
-      if (Languages.ContainsKey(MyModule.SelectLanguage))
+      Statement item = Languages.GetData(key);
+      switch (MyModule.SelectLanguage)
       {
-        return Languages[MyModule.SelectLanguage].GetData(key).Value;
+        case LanguageType.ZH:
+          return item.ZH;
+        case LanguageType.EN:
+          return item.EN;
+        case LanguageType.IN:
+          return item.IN;
+        case LanguageType.VI:
+          return item.ZH;
+        case LanguageType.RU:
+          return item.RU;
+        default:
+          return "";
       }
-      else
-      {
-        Debug.LogError(string.Format("LanguageModule GetStatement {0} found", MyModule.SelectLanguage));
-      }
-      return "";
     }
   }
 }
