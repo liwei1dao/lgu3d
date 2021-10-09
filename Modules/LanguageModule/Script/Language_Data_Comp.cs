@@ -32,8 +32,8 @@ namespace lgu3d
           return item.EN;
         case LanguageType.HI:
           return item.HI;
-        case LanguageType.DI:
-          return item.DI;
+        case LanguageType.ID:
+          return item.ID;
         case LanguageType.VI:
           return item.ZH;
         case LanguageType.RU:
