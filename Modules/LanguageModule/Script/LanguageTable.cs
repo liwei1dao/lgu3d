@@ -7,7 +7,8 @@ namespace lgu3d
   {
     public string ZH;   //中文
     public string EN;   //中文
-    public string IN;   //印度尼西亚语
+    public string HI;   //印地语言
+    public string DI;   //印度尼西亚语
     public string VI;   //越南文
     public string RU;   //俄文
   }
