@@ -21,6 +21,7 @@ namespace lgu3d
     // private Text Progress1Describe;
     private Dictionary<string, Dictionary<string, AssetBundle>> Bundles;
     private Dictionary<string, Dictionary<string, UnityEngine.Object>> Assets;
+    AppModuleVersionInfo VersionInfo;
     AppModuleAssetInfo ResourceInfo;
 
 
@@ -30,28 +31,36 @@ namespace lgu3d
       // IsHaveLoadView = false;
       Bundles = new Dictionary<string, Dictionary<string, AssetBundle>>();
       Assets = new Dictionary<string, Dictionary<string, UnityEngine.Object>>();
-      bool IsSucc = FilesTools.IsKeepFileOrDirectory(AppConfig.AppAssetBundleAddress + "/AssetInfo.json");
+      bool IsSucc = FilesTools.IsKeepFileOrDirectory(AppConfig.AppAssetBundleAddress + "/VersionInfo.json");
       if (IsSucc)
       {
-        string jsonStr = FilesTools.ReadFileToStr(AppConfig.AppAssetBundleAddress + "/AssetInfo.json");
-        ResourceInfo = LoadAppBuileInfo(jsonStr);
-        // MyModule.LoadViewComp?.Hide();
-        LoadEnd();
+
+        string VersionStr = FilesTools.ReadFileToStr(AppConfig.AppAssetBundleAddress + "/VersionInfo.json");
+        VersionInfo = LoadAppVersionInfo(VersionStr);
+        Debug.Log("version:" + Application.version + "ProVersion" + VersionInfo.ProVersion);
+        float AppVersion = float.Parse(Application.version);
+        if (AppVersion > VersionInfo.ProVersion)//app版本大于当前资源版本
+        {
+          Manager_ManagerModel.Instance.StartCoroutine(AssemblyAsset(() =>
+          {
+            string AssetStr = FilesTools.ReadFileToStr(AppConfig.AppAssetBundleAddress + "/AssetInfo.json");
+            ResourceInfo = LoadAppBuileInfo(AssetStr);
+            LoadEnd();
+          }));
+        }
+        else
+        {
+          string AssetStr = FilesTools.ReadFileToStr(AppConfig.AppAssetBundleAddress + "/AssetInfo.json");
+          ResourceInfo = LoadAppBuileInfo(AssetStr);
+          LoadEnd();
+        }
       }
       else
       {
-        // if (GameObject.Find("UIRoot/HightUIRoot/LoadingView") != null)
-        // {
-        //   IsHaveLoadView = true;
-        //   LoadView = GameObject.Find("UIRoot/HightUIRoot/LoadingView");
-        //   Progress = LoadView.OnSubmit<Image>("Progress");
-        //   Progress1Describe = LoadView.OnSubmit<Text>("Describe");
-        // }
         Manager_ManagerModel.Instance.StartCoroutine(AssemblyAsset(() =>
         {
           string jsonStr = FilesTools.ReadFileToStr(AppConfig.AppAssetBundleAddress + "/AssetInfo.json");
           ResourceInfo = LoadAppBuileInfo(jsonStr);
-          // MyModule.LoadViewComp?.Hide();
           LoadEnd();
         }));
       }
@@ -131,7 +140,14 @@ namespace lgu3d
         }
       }
     }
-
+    private AppModuleVersionInfo LoadAppVersionInfo(string JsonStr)
+    {
+      AppModuleVersionInfo data = new AppModuleVersionInfo();
+      JSONNode json = JSON.Parse(JsonStr);
+      data.ProVersion = float.Parse(json["ProVersion"].Value);
+      // data.ResVersion = int.Parse(json["ResVersion"].Value);
+      return data;
+    }
     private AppModuleAssetInfo LoadAppBuileInfo(string JsonStr)
     {
       AppModuleAssetInfo data = new AppModuleAssetInfo();
