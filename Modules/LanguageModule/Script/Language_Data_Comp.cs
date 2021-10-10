@@ -35,7 +35,7 @@ namespace lgu3d
         case LanguageType.ID:
           return item.ID;
         case LanguageType.VI:
-          return item.ZH;
+          return item.VI;
         case LanguageType.RU:
           return item.RU;
         default:
