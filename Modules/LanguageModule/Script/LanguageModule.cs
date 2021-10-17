@@ -42,5 +42,11 @@ namespace lgu3d
     {
       return Data_Comp.GetStatement(key);
     }
+
+    public virtual void ChanageLanguage(LanguageType selectLanguage)
+    {
+      SelectLanguage = selectLanguage;
+      this.chanagelanguage();
+    }
   }
 }

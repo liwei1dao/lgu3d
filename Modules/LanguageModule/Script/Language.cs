@@ -15,6 +15,15 @@ namespace lgu3d
       if (text != null)
       {
         text.text = LanguageModule.Instance.GetStatement(key);
+        LanguageModule.Instance.chanagelanguage += ChangeLanguage;
+      }
+    }
+
+    private void OnDestroy()
+    {
+      if (text != null)
+      {
+        LanguageModule.Instance.chanagelanguage -= ChangeLanguage;
       }
     }
 
