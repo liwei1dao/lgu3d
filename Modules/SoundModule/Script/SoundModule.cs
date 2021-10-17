@@ -46,8 +46,13 @@ namespace lgu3d
     public void SetBackMusicValue(string ModelName, float soundValue)
     {
       DataComp.SetBackMusicValue(ModelName, soundValue);
-
     }
+
+    public float GetBackMusicValue(string ModelName)
+    {
+      return DataComp.GetBackMusicValue(ModelName);
+    }
+
     /// <summary>
     /// 设置 音效 音量
     /// </summary>
@@ -56,6 +61,11 @@ namespace lgu3d
     {
       DataComp.SetEffectMusicValue(ModelName, soundValue);
 
+    }
+
+    public float GetEffectMusicValue(string ModelName)
+    {
+      return DataComp.GetEffectMusicValue(ModelName);
     }
 
     /// <summary>

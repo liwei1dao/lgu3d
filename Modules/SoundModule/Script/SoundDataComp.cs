@@ -69,6 +69,14 @@ namespace lgu3d
         GetBackMusicPlayer().volume = musicValue;
       }
       /// <summary>
+      /// 获取背景音量
+      /// </summary>
+      /// <param name="MusicValue"></param>
+      public float GetBackMusicValue()
+      {
+        return MusicValue;
+      }
+      /// <summary>
       /// 设置特效音量
       /// </summary>
       /// <param name="soundValue"></param>
@@ -79,6 +87,14 @@ namespace lgu3d
         {
           EffectMusicPlayer[i].volume = soundValue;
         }
+      }
+      /// <summary>
+      /// 获取特效音量
+      /// </summary>
+      /// <param name="soundValue"></param>
+      public float GetEffectMusicValue()
+      {
+        return SoundValue;
       }
     }
 
@@ -115,13 +131,21 @@ namespace lgu3d
       ModelSoundPlayerData Player = ModelMusicPLayers[ModelName];
       Player.SetBackMusicValue(MusicValue);
     }
-
+    public float GetBackMusicValue(string ModelName)
+    {
+      ModelSoundPlayerData Player = ModelMusicPLayers[ModelName];
+      return Player.GetBackMusicValue();
+    }
     public void SetEffectMusicValue(string ModelName, float MusicValue)
     {
       ModelSoundPlayerData Player = ModelMusicPLayers[ModelName];
       Player.SetEffectMusicValue(MusicValue);
     }
-
+    public float GetEffectMusicValue(string ModelName)
+    {
+      ModelSoundPlayerData Player = ModelMusicPLayers[ModelName];
+      return Player.GetEffectMusicValue();
+    }
     public AudioSource PlayMusic(string ModelName, AudioClip Music, bool IsBackMusic)
     {
       ModelSoundPlayerData Player = ModelMusicPLayers[ModelName];
