@@ -13,6 +13,7 @@ namespace lgu3d
     ID,//印度尼西亚
     VI,//越南文
     RU,//俄罗斯
+    JA,//日语
   }
   public delegate void LanguageModule_ChangeLanguage();
   /// <summary>

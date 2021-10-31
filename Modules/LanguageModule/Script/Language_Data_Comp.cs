@@ -38,6 +38,8 @@ namespace lgu3d
           return item.VI;
         case LanguageType.RU:
           return item.RU;
+        case LanguageType.JA:
+          return item.JA;
         default:
           return "";
       }

@@ -11,6 +11,7 @@ namespace lgu3d
     public string ID;   //印度尼西亚语
     public string VI;   //越南文
     public string RU;   //俄文
+    public string JA;   //日语
   }
 
   [CreateAssetMenu(fileName = "LanguageTable", menuName = "Data/LanguageTable", order = 1)]
