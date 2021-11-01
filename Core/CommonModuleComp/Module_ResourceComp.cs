@@ -7,6 +7,7 @@ namespace lgu3d
   /// </summary>
   public class Module_ResourceComp : ModelCompBase
   {
+ 
     #region 构架
     public override void Load(ModelBase _ModelContorl, params object[] _Agr)
     {
@@ -38,6 +39,10 @@ namespace lgu3d
         Debug.LogError("ResourceModel No Load");
         return null;
       }
+    }
+
+    public T LoadGameObjectForPool (string BundleName, string AssetName) where T:UnityEngine.GameObject{
+
     }
 
     public T LoadAsset<T>(string BundleName, string AssetName) where T : UnityEngine.Object
