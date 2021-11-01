@@ -40,11 +40,7 @@ namespace lgu3d
         return null;
       }
     }
-
-    public T LoadGameObjectForPool (string BundleName, string AssetName) where T:UnityEngine.GameObject{
-
-    }
-
+    
     public T LoadAsset<T>(string BundleName, string AssetName) where T : UnityEngine.Object
     {
       string ModelName = MyModule.ModuleName;
