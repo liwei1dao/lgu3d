@@ -16,6 +16,7 @@ namespace lgu3d
   {
     NoLoad, //未加载
     Loading,//加载中
+    Playing,//播放中
     Loaded,//加载完毕
   }
 
@@ -23,14 +24,19 @@ namespace lgu3d
   {
     void OpenAd_Show();
     void OpenAd_Hide();
+    AdvState OpenAd_State();
     void BannerAd_Show();
     void BannerAd_Hide();
+    AdvState BannerAd_State();
     void Intersitial_Show();
     void Intersitial_Hide();
+    AdvState Intersitial_State();
     void Video_RewardedAd_Show(Action<bool> backcall);
     void Video_RewardedAd_Hide();
+    AdvState Video_RewardedAd_State();
     void Interstitial_RewardedAd_Show(Action<bool> backcall);
     void Interstitial_RewardedAd_Hide();
+    AdvState Interstitial_RewardedAd_State();
   }
 
 }
