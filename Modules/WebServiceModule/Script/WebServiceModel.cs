@@ -54,14 +54,29 @@ namespace lgu3d
         /// 向服务器提交post请求
         /// </summary>
         /// <param name="serverURL">服务器请求目标地址,like "http://www.my-server.com/myform"</param>
-        /// <param name="lstformData">form表单参数</param>
+        /// <param name="lstformData">
+        /// form表单参数
+        /// List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
+        /// formData.Add(new MultipartFormDataSection("field1=foo&field2=bar"));
+        /// formData.Add(new MultipartFormFileSection("my file data", "myfile.txt"));
+        /// </param>
         /// <param name="lstformData">处理返回结果的委托,处理请求对象</param>
         /// <returns></returns>
         public void Post(string serverURL, List<IMultipartFormSection> lstformData, Action<UnityWebRequest> actionResult)
         {
             StartCoroutine(_Post(serverURL, lstformData, actionResult));
         }
-
+        /// <summary>
+        /// 向服务器提交post请求
+        /// </summary>
+        /// <param name="serverURL">服务器请求目标地址,like "http://www.my-server.com/myform"</param>
+        /// <param name="lstformData"> form表单参数</param>
+        /// <param name="lstformData">处理返回结果的委托,处理请求对象</param>
+        /// <returns></returns>
+        public void Post(string serverURL, byte[] databyte, Action<UnityWebRequest> actionResult)
+        {
+            StartCoroutine(_Post(serverURL, databyte, actionResult));
+        }
         /// <summary>
         /// 下载文件
         /// </summary>
@@ -238,6 +253,26 @@ namespace lgu3d
             //formData.Add(new MultipartFormDataSection("field1=foo&field2=bar"));
             //formData.Add(new MultipartFormFileSection("my file data", "myfile.txt"));
             UnityWebRequest uwr = UnityWebRequest.Post(serverURL, lstformData);
+            yield return uwr.SendWebRequest();
+            if (actionResult != null)
+            {
+                actionResult(uwr);
+            }
+        }
+
+        /// <summary>
+        /// 向服务器提交post请求
+        /// </summary>
+        /// <param name="serverURL">服务器请求目标地址,like "http://www.my-server.com/myform"</param>
+        /// <param name="lstformData">form表单参数</param>
+        /// <param name="lstformData">处理返回结果的委托</param>
+        /// <returns></returns>
+        IEnumerator _Post(string serverURL, byte[] databyte, Action<UnityWebRequest> actionResult)
+        {
+            UnityWebRequest uwr = new UnityWebRequest(serverURL, UnityWebRequest.kHttpVerbPOST);
+            uwr.uploadHandler = new UploadHandlerRaw(databyte);
+            uwr.downloadHandler = new DownloadHandlerBuffer();
+            uwr.SetRequestHeader("Content-Type", "application/json;charset=utf-8");
             yield return uwr.SendWebRequest();
             if (actionResult != null)
             {
