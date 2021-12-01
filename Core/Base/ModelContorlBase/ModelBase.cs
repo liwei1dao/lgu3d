@@ -203,6 +203,15 @@ namespace lgu3d
       return SoundComp.PlayMusic(Music, MusicValue, IsBackMusic);
     }
 
+    public void StopBackMusic()
+    {
+      if (SoundComp == null)
+      {
+        Debug.LogError(ModuleName + " No Load SoundComp");
+      }
+      SoundComp.StopBackMusic();
+    }
+
     public void PauseBackMusic()
     {
       if (SoundComp == null)

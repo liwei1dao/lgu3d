@@ -75,5 +75,10 @@ namespace lgu3d
       return SoundModule.Instance.PlayMusic(MyModule.ModuleName, music, MusicValue, IsBackMusic);
     }
 
+    public void StopBackMusic()
+    {
+      SoundModule.Instance.StopBackMusic(MyModule.ModuleName);
+    }
+
   }
 }

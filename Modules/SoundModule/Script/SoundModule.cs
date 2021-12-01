@@ -92,6 +92,9 @@ namespace lgu3d
       return DataComp.PlayMusic(ModelName, Music, MusicValue, IsBackMusic);
     }
 
-
+    public void StopBackMusic(string ModelName)
+    {
+      DataComp.StopBackMusic(ModelName);
+    }
   }
 }
