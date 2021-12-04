@@ -30,6 +30,8 @@ namespace lgu3d
           return item.ZH;
         case LanguageType.EN:
           return item.EN;
+        case LanguageType.ES:
+          return item.ES;
         case LanguageType.HI:
           return item.HI;
         case LanguageType.ID:

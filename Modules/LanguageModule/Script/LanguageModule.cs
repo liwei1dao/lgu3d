@@ -9,6 +9,7 @@ namespace lgu3d
   {
     ZH, //中文
     EN,//英文
+    ES,//西班牙文
     HI,//印地语言
     ID,//印度尼西亚
     VI,//越南文
