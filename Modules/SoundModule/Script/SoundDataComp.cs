@@ -51,6 +51,11 @@ namespace lgu3d
         return MusicPlayer;
       }
 
+      public void StopBackMusic()
+      {
+        GetBackMusicPlayer().Stop();
+      }
+
       public void PauseBackMusic()
       {
         GetBackMusicPlayer().Pause();
@@ -184,6 +189,10 @@ namespace lgu3d
       }
       return AudioPlayer;
     }
+    public void StopBackMusic(string ModelName)
+    {
+      ModelSoundPlayerData Player = ModelMusicPLayers[ModelName];
+      Player.StopBackMusic();
+    }
   }
-
 }
