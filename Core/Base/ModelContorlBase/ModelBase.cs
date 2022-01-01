@@ -45,11 +45,6 @@ namespace lgu3d
     void FixedUpdate();
   }
 
-  public interface ISceneMode : IModule
-  {
-    IEnumerator LoadScene();
-  }
-
   #region 普通模块基类
   public abstract class ModelBase : IModule
   {
