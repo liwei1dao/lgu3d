@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 namespace lgu3d
 {
 
@@ -7,91 +9,118 @@ namespace lgu3d
   /// </summary>
   public interface IEntityBaseSkillReleaseComp
   {
-    bool Release(params object[] _Agr);
-    void ReleaseEnd(params object[] _Agr);
+    bool Release(string skillName, params object[] agrs);
+    void ReleaseEnd(string skillName);
   }
-
+  public enum SkillReleaseCompState
+  {
+    Idle,
+    InRelease,
+  }
   /// <summary>
   /// 实体技能释放组件
   /// </summary>
   /// <typeparam name="E"></typeparam>
   public abstract class EntityBaseSkillReleaseComp<E> : EntityCompBase<E>, IEntityBaseSkillReleaseComp where E : EntityBase
   {
-    public enum CompState
-    {
-      Idle,
-      InRelease,
-    }
-    public CompState State;
-    protected SkillBase[] Skills;
+
+    public SkillReleaseCompState ReleaseState;
+    protected Dictionary<string, ISkillBase> Skills;
 
     public override void Load(E entity, params object[] agrs)
     {
-      State = CompState.Idle;
       base.Load(entity, agrs);
+      ReleaseState = SkillReleaseCompState.Idle;
+      Skills = new Dictionary<string, ISkillBase>();
     }
 
-
-    public virtual bool Release(params object[] _Agr)
+    public virtual void AddSkill(string skillName, ISkillBase skill)
     {
-      State = CompState.InRelease;
+      Skills[skillName] = skill;
+    }
+    public virtual void RemoveSkill(string skillName, ISkillBase skill)
+    {
+      Skills.Remove(skillName);
+    }
+    public virtual bool Release(string skillName, params object[] agrs)
+    {
+      if (ReleaseState == SkillReleaseCompState.InRelease) return false;
+      ReleaseState = SkillReleaseCompState.InRelease;
+      Skills[skillName].Release(agrs);
       return true;
     }
 
-    private void Updata()
+    protected virtual void Updata()
     {
-      if (Skills == null) return;
-      for (int i = 0; i < Skills.Length; i++)
+      foreach (var item in Skills)
       {
-        Skills[i].Update(Time.deltaTime);
+        item.Value.Update(Time.deltaTime);
       }
     }
 
-    public virtual void ReleaseEnd(params object[] _Agr)
+    public virtual void ReleaseEnd(string skillName)
     {
-      State = CompState.Idle;
+      foreach (var item in Skills)
+      {
+        if (item.Value.State == SkillState.InRelease)
+        {
+          return;
+        }
+      }
+      ReleaseState = SkillReleaseCompState.Idle;
     }
+
   }
 
   /// <summary>
   /// 实体技能释放组件
   /// </summary>
   /// <typeparam name="E"></typeparam>
-  public abstract class MonoEntityBaseSkillReleaseComp<E> : MonoEntityCompBase<E>, IEntityBaseSkillReleaseComp where E : MonoEntityBase
+  public abstract class MonoEntityBaseSkillReleaseComp<E, S> : MonoEntityCompBase<E>, IEntityBaseSkillReleaseComp where E : MonoEntityBase
   {
-    public enum CompState
-    {
-      Idle,
-      InRelease,
-    }
-    public CompState State;
-    protected SkillBase[] Skills;
+    public SkillReleaseCompState ReleaseState;
+    protected Dictionary<string, ISkillBase> Skills;
 
     public override void Load(E entity, params object[] agrs)
     {
-      State = CompState.Idle;
+      Skills = new Dictionary<string, ISkillBase>();
+      ReleaseState = SkillReleaseCompState.Idle;
       base.Load(entity, agrs);
     }
-
-
-    public virtual bool Release(params object[] _Agr)
+    public virtual void AddSkill(string skillName, ISkillBase skill)
     {
-      State = CompState.InRelease;
+      Skills[skillName] = skill;
+    }
+    public virtual void RemoveSkill(string skillName, ISkillBase skill)
+    {
+      Skills.Remove(skillName);
+    }
+    public virtual bool Release(string skillName, params object[] agrs)
+    {
+      if (ReleaseState == SkillReleaseCompState.InRelease) return false;
+      ReleaseState = SkillReleaseCompState.InRelease;
+      Skills[skillName].Release(agrs);
       return true;
     }
 
     private void Updata()
     {
-      if (Skills == null) return;
-      for (int i = 0; i < Skills.Length; i++)
+      foreach (var item in Skills)
       {
-        Skills[i].Update(Time.deltaTime);
+        item.Value.Update(Time.deltaTime);
       }
     }
 
-    public virtual void ReleaseEnd(params object[] _Agr)
+    public virtual void ReleaseEnd(string skillName)
     {
-      State = CompState.Idle;
+      foreach (var item in Skills)
+      {
+        if (item.Value.State == SkillState.InRelease)
+        {
+          return;
+        }
+      }
+      ReleaseState = SkillReleaseCompState.Idle;
     }
   }
 }

@@ -1,43 +1,37 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace lgu3d
 {
-
-
-
   public class SkillBase : ISkillBase
   {
+    public string SkillId { get; set; }
     public IEntityBase Entity { get; set; }
     public SkillDataBase Config { get; set; }
+    public SkillState State { get; set; }
     public SkillCDBase Cd;
-    public SkillState State;
-    protected List<BulletBase> Bullets;
+    protected List<IBulletBase> Bullets;
 
-    public virtual void Load(IEntityBase entity, SkillDataBase config)
+    public SkillBase(string skillId, IEntityBase entity, SkillDataBase config)
     {
+      SkillId = skillId;
       Entity = entity;
       Config = config;
       Cd = new SkillCDBase(this, Config.CdTime);
       State = SkillState.NoRelease;
-      Bullets = new List<BulletBase>();
+      Bullets = new List<IBulletBase>();
     }
 
-    public virtual void Init(params object[] _Agr)
+    public virtual void Init(params object[] agrs)
     {
 
     }
 
-    public virtual void Release(params object[] _Agr)
+    public virtual void Release(params object[] agrs)
     {
       State = SkillState.InRelease;
-      Entity.StartCoroutine(ReleaseAnim());
-    }
-
-    protected virtual IEnumerator ReleaseAnim()
-    {
-      yield return 1;
     }
 
     public virtual void Update(float time)
@@ -52,16 +46,27 @@ namespace lgu3d
 
     public virtual void ReleaseEnd()
     {
-      State = SkillState.InCd;
-      Cd.CdStart();
+      if (Config.CdTime > 0)
+      {
+        State = SkillState.InCd;
+        Cd.CdStart();
+      }
+      else
+      {
+        State = SkillState.NoRelease;
+      }
     }
 
     public virtual void CdEnd()
     {
       State = SkillState.NoRelease;
     }
-
-    public virtual void RemoveBullet(BulletBase bullet)
+    public virtual IBulletBase AddBullet(IBulletBase bullet)
+    {
+      Bullets.Add(bullet);
+      return bullet;
+    }
+    public virtual void RemoveBullet(IBulletBase bullet)
     {
       Bullets.Remove(bullet);
     }
@@ -69,11 +74,11 @@ namespace lgu3d
 
   public abstract class SkillBase<E, D> : SkillBase, ISkillBase<E, D> where E : IEntityBase where D : SkillDataBase
   {
+
     public new E Entity { get; set; }
     public new D Config { get; set; }
-    public virtual void Load(E entity, D config)
+    protected SkillBase(string skillId, E entity, D config) : base(skillId, entity, config)
     {
-      base.Load(entity, config);
       Entity = entity;
       Config = config;
     }

@@ -8,17 +8,33 @@ namespace lgu3d
   {
 
     public SkillBase Skill { get; set; }
-    public BulletBase(SkillBase skill, params object[] agrs)
+    public BulletBase(SkillBase skill)
     {
       Skill = skill;
     }
 
-
+    /// <summary>
+    /// 发射
+    /// </summary>
+    /// <param name="agrs"></param>
     public virtual void Launch(params object[] agrs)
     {
 
     }
 
+    /// <summary>
+    /// 起效
+    /// </summary>
+    /// <param name="agrs"></param>
+    public virtual void TakeEffect(params object[] agrs)
+    {
+      
+    }
+
+    /// <summary>
+    /// 更新
+    /// </summary>
+    /// <param name="time"></param>
     public virtual void Update(float time)
     {
 
@@ -33,8 +49,8 @@ namespace lgu3d
   public abstract class BulletBase<S> : BulletBase where S : SkillBase
   {
     protected new S Skill;
-    public BulletBase(S skill, params object[] agrs)
-        : base(skill, agrs)
+    public BulletBase(S skill)
+        : base(skill)
     {
       Skill = skill;
     }

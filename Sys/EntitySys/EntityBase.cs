@@ -12,10 +12,6 @@ namespace lgu3d
   {
     public IEntityBase Entity { get; set; }
     protected List<IEntityCompBase> MyComps = new List<IEntityCompBase>();
-    #region 基础组件接口
-    public IEntityBaseSkillReleaseComp SkillReleaseComp;          //技能释放组件
-    public IEntityBaseSkillAcceptComp SkilllAcceptComp;           //技能承受组件
-    #endregion
 
     #region 框架函数
     public virtual void Load(IEntityBase entity)
@@ -30,13 +26,26 @@ namespace lgu3d
         MyComps[i].Init();
       }
     }
-    public virtual CP AddComp<CP>(params object[] agrs) where CP : IEntityCompBase, new()
+    public virtual CP AddComp<CP>(params object[] agrs) where CP : class, IEntityCompBase, new()
     {
       CP Comp = new CP();
       Comp.Load(this, agrs);
       MyComps.Add(Comp);
       return Comp;
     }
+
+    public virtual CP GetComp<CP>() where CP : class, IEntityCompBase
+    {
+      foreach (var item in MyComps)
+      {
+        if (item is CP)
+        {
+          return item as CP;
+        }
+      }
+      return null;
+    }
+
     public virtual void RemoveComp(IEntityCompBase comp)
     {
       MyComps.Remove(comp);
@@ -73,13 +82,7 @@ namespace lgu3d
   {
     public IMonoEntityBase Entity { get; set; }
     IEntityBase IEntityBase.Entity { get; set; }
-
     protected List<IEntityCompBase> MyComps = new List<IEntityCompBase>();
-    #region 基础组件接口
-    public IEntityBaseSkillReleaseComp SkillReleaseComp;          //技能释放组件
-    public IEntityBaseSkillAcceptComp SkilllAcceptComp;           //技能承受组件
-    #endregion
-
     #region 框架函数
     public virtual void Load(IMonoEntityBase entity)
     {
@@ -98,7 +101,35 @@ namespace lgu3d
         MyComps[i].Init();
       }
     }
+    public CP AddComp<CP>(params object[] agrs) where CP : Component, IMonoEntityCompBase
+    {
+      CP comp = gameObject.AddMissingComponent<CP>();
+      comp.Load(Entity, agrs);
+      MyComps.Add(comp);
+      return comp;
+    }
 
+    CP IEntityBase.AddComp<CP>(params object[] agrs)
+    {
+      throw new System.NotImplementedException();
+    }
+
+    public CP GetComp<CP>() where CP : Component, IMonoEntityCompBase
+    {
+      foreach (var item in MyComps)
+      {
+        if (item is CP)
+        {
+          return item as CP;
+        }
+      }
+      return null;
+    }
+
+    CP IEntityBase.GetComp<CP>()
+    {
+      throw new System.NotImplementedException();
+    }
     public virtual void RemoveComp(IEntityCompBase comp)
     {
       MyComps.Remove(comp);
@@ -115,19 +146,6 @@ namespace lgu3d
     public new CoroutineTask StartCoroutine(IEnumerator routine)
     {
       return CoroutineModule.Instance.StartCoroutine(routine);
-    }
-
-    public CP AddComp<CP>(params object[] agrs) where CP : Component, IMonoEntityCompBase
-    {
-      CP comp = gameObject.AddMissingComponent<CP>();
-      comp.Load(Entity, agrs);
-      MyComps.Add(comp);
-      return comp;
-    }
-
-    CP IEntityBase.AddComp<CP>(params object[] agrs)
-    {
-      throw new System.NotImplementedException();
     }
 
     #endregion
@@ -153,6 +171,23 @@ namespace lgu3d
     }
 
     CP IEntityBase.AddComp<CP>(params object[] agrs)
+    {
+      throw new System.NotImplementedException();
+    }
+
+    public new CP GetComp<CP>() where CP : Component, IMonoEntityCompBase<E>
+    {
+      foreach (var item in MyComps)
+      {
+        if (item is CP)
+        {
+          return item as CP;
+        }
+      }
+      return null;
+    }
+
+    CP IEntityBase.GetComp<CP>()
     {
       throw new System.NotImplementedException();
     }
