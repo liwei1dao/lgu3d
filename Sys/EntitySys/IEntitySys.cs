@@ -17,7 +17,6 @@ namespace lgu3d
     IEntityBase Entity { get; set; }
     void Load(IEntityBase entity, params object[] agrs);
     void Init();
-    void Updata(float time);
     void Destroy();
   }
 

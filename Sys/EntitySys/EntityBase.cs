@@ -11,6 +11,10 @@ namespace lgu3d
   {
     public EntityDataBase Config { get; set; }
     protected List<IEntityCompBase> MyComps = new List<IEntityCompBase>();
+    #region 基础组件接口
+    public IEntityBaseSkillReleaseComp SkillReleaseComp;          //技能释放组件
+    public IEntityBaseSkillAcceptComp SkilllAcceptComp;           //技能承受组件
+    #endregion
 
     #region 框架函数
     public virtual void Load(EntityDataBase config)
@@ -23,14 +27,6 @@ namespace lgu3d
       for (int i = 0; i < MyComps.Count; i++)
       {
         MyComps[i].Init();
-      }
-    }
-
-    protected void Update()
-    {
-      for (int i = 0; i < MyComps.Count; i++)
-      {
-        MyComps[i].Updata(Time.deltaTime);
       }
     }
     public virtual CP AddComp<CP>(params object[] agrs) where CP : IEntityCompBase, new()
@@ -53,7 +49,6 @@ namespace lgu3d
       }
       GameObject.Destroy(this);
     }
-
     #endregion
   }
 
@@ -62,11 +57,7 @@ namespace lgu3d
   public abstract class EntityBase<E, D> : EntityBase, IEntityBase<E, D> where E : EntityBase, IEntityBase<E, D> where D : EntityDataBase
   {
     public new D Config { get; set; }
-    #region 基础组件接口
-    public EntityBaseAttributeComp<E> AttributeComp;                //属性组件
-    public EntityBaseSkillReleaseComp<E> SkillReleaseComp;          //技能释放组件
-    public EntityBaseSkillAcceptComp<E> SkilllAcceptComp;           //技能承受组件
-    #endregion
+
 
     public virtual void Load(D config)
     {

@@ -1,32 +1,31 @@
 ﻿
+using System;
+using System.Collections.Generic;
+
 namespace lgu3d
 {
-  public delegate void EntityAttributeChanage(byte AttributeType);
-  public class EntityBaseAttributeComp<E> : EntityCompBase<E> where E : EntityBase
+
+  public class EntityBaseAttributeComp<E, A> : EntityCompBase<E> where E : EntityBase where A : Enum
   {
-    protected EntityAttributeChanage AttributeChanage;
+    protected Dictionary<A, float> Attributes;
 
-    public void RegisterChanageEvent(EntityAttributeChanage _AttributeChanage)
+    public override void Load(E entity, params object[] agrs)
     {
-      AttributeChanage += _AttributeChanage;
-    }
-
-    public void UnRegisterChanageEvent(EntityAttributeChanage _AttributeChanage)
-    {
-      AttributeChanage -= _AttributeChanage;
-    }
-
-    public virtual void SetAttribute(byte _AttributeType, object _Value)
-    {
-      if (AttributeChanage != null)
+      base.Load(entity, agrs);
+      Attributes = new Dictionary<A, float>();
+      foreach (A item in Enum.GetValues(typeof(A)))
       {
-        AttributeChanage(_AttributeType);
+        Attributes[item] = 0;
       }
     }
-
-    public virtual object GetAttribute(byte _AttributeType)
+    public virtual void AddAttribute(A aType, float value)
     {
-      return null;
+      Attributes[aType] = value;
+    }
+
+    public virtual float GetAttribute(A aType)
+    {
+      return Attributes[aType];
     }
   }
 }

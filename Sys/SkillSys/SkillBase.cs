@@ -9,8 +9,8 @@ namespace lgu3d
 
   public class SkillBase : ISkillBase
   {
-    public EntityBase Entity;
-    protected SkillDataBase Config;
+    public EntityBase Entity { get; set; }
+    public SkillDataBase Config { get; set; }
     public SkillCDBase Cd;
     public SkillState State;
     protected List<BulletBase> Bullets;
@@ -62,9 +62,21 @@ namespace lgu3d
       State = SkillState.NoRelease;
     }
 
-    public virtual void RemoveBullet(BulletBase _Bullet)
+    public virtual void RemoveBullet(BulletBase bullet)
     {
-      Bullets.Remove(_Bullet);
+      Bullets.Remove(bullet);
+    }
+  }
+
+  public abstract class SkillBase<E, D> : SkillBase, ISkillBase<E, D> where E : EntityBase where D : SkillDataBase
+  {
+    public new E Entity { get; set; }
+    public new D Config { get; set; }
+    public virtual void Load(E entity, D config)
+    {
+      base.Load(entity, config);
+      Entity = entity;
+      Config = config;
     }
   }
 }

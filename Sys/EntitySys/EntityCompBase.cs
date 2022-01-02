@@ -1,8 +1,9 @@
 ﻿using System;
+using UnityEngine;
 
 namespace lgu3d
 {
-  public abstract class EntityCompBase : IEntityCompBase
+  public abstract class EntityCompBase : MonoBehaviour, IEntityCompBase
   {
     public IEntityBase Entity { get; set; }
 
@@ -16,15 +17,10 @@ namespace lgu3d
 
     }
 
-    public virtual void Updata(float time)
-    {
-
-    }
     public virtual void Destroy()
     {
 
     }
-
   }
   public abstract class EntityCompBase<E> : EntityCompBase, IEntityCompBase<E> where E : IEntityBase
   {

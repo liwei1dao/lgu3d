@@ -5,11 +5,11 @@ namespace lgu3d
 {
   public abstract class FSMBaseState<E, T, S> where E : EntityBase where T : struct where S : struct
   {
-    protected E Ector;
+    protected E Entity;
     protected Dictionary<T, S> mFSMStateIdDic = new Dictionary<T, S>();
-    public FSMBaseState(E _Ector)
+    public FSMBaseState(E entity)
     {
-      Ector = _Ector;
+      Entity = entity;
     }
     public void AddTransition(T transition, S stateID)
     {
@@ -37,11 +37,10 @@ namespace lgu3d
       }
       return mFSMStateIdDic[transition];
     }
-    public abstract void OnEntry(params object[] _Egr);
+    public abstract void OnEntry(params object[] agrs);
     public abstract void OnExecute(float time);
     public abstract void OnExit();
     public abstract void TransitionReason(float time);
-
   }
 
 
@@ -63,43 +62,42 @@ namespace lgu3d
       base.Load(entity, agrs);
     }
 
-    protected void SetDefaultState(S _State)
+    protected void SetDefaultState(S state)
     {
-      mCurrentStateID = _State;
+      mCurrentStateID = state;
       mCurrentState = mFSMStateDic[mCurrentStateID];
     }
 
 
-    public void EddFSMSate(S StateID, FSMBaseState<E, T, S> State)
+    public void AddFSMSate(S stateID, FSMBaseState<E, T, S> state)
     {
-      if (mFSMStateDic.ContainsKey(StateID))
+      if (mFSMStateDic.ContainsKey(stateID))
       {
-        Debug.LogError("加入状态机 重复" + StateID.ToString());
+        Debug.LogError("加入状态机 重复" + stateID.ToString());
         return;
       }
-      mFSMStateDic.Add(StateID, State);
+      mFSMStateDic.Add(stateID, state);
     }
 
-    public void RemoveFSMSate(S StateID)
+    public void RemoveFSMSate(S stateID)
     {
 
-      if (!mFSMStateDic.ContainsKey(StateID))
+      if (!mFSMStateDic.ContainsKey(stateID))
       {
-        Debug.LogError("移除状态机 不存在" + StateID.ToString());
+        Debug.LogError("移除状态机 不存在" + stateID.ToString());
         return;
       }
-      mFSMStateDic.Remove(StateID);
+      mFSMStateDic.Remove(stateID);
     }
 
 
     /// <summary>
     /// 
     /// </summary>
-    /// <param name="transition"></param>
-    /// <param name="_Egr"></param>
-    public virtual void TransitionFSMState(T transition, params object[] _Egr)
+    /// <param name="transition">转换</param>
+    /// <param name="agrs"></param>
+    public virtual void TransitionFSMState(T transition, params object[] agrs)
     {
-
       S stateID = mCurrentState.GetStateIdByTransition(transition);
       if (!stateID.Equals(default(S)))
       {
@@ -107,19 +105,18 @@ namespace lgu3d
         if (mCurrentState != null)
           mCurrentState.OnExit();
         mCurrentState = mFSMStateDic[stateID];
-        mCurrentState.OnEntry(_Egr);
+        mCurrentState.OnEntry(agrs);
       }
     }
 
     //更新（执行）系统
-    public override void Updata(float time)
+    private void Updata()
     {
       if (mCurrentState != null)
       {
-        mCurrentState.OnExecute(time);
-        mCurrentState.TransitionReason(time);
+        mCurrentState.OnExecute(Time.deltaTime);
+        mCurrentState.TransitionReason(Time.deltaTime);
       }
     }
-
   }
 }

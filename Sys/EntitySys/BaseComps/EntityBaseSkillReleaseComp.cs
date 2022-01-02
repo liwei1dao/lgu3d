@@ -1,21 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿using UnityEngine;
 namespace lgu3d
 {
 
   /// <summary>
-  /// 技能承受接口
+  /// 技能释放接口
   /// </summary>
-  public interface ISkillRelease
+  public interface IEntityBaseSkillReleaseComp
   {
     bool Release(params object[] _Agr);
     void ReleaseEnd(params object[] _Agr);
   }
 
-  public class EntityBaseSkillReleaseComp<E> : EntityCompBase<E>, ISkillRelease where E : EntityBase
+  /// <summary>
+  /// 实体技能释放组件
+  /// </summary>
+  /// <typeparam name="E"></typeparam>
+  public class EntityBaseSkillReleaseComp<E> : EntityCompBase<E>, IEntityBaseSkillReleaseComp where E : EntityBase
   {
     public enum CompState
     {
@@ -38,12 +38,12 @@ namespace lgu3d
       return true;
     }
 
-    public override void Updata(float time)
+    private void Updata()
     {
       if (Skills == null) return;
       for (int i = 0; i < Skills.Length; i++)
       {
-        Skills[i].Update(time);
+        Skills[i].Update(Time.deltaTime);
       }
     }
 
