@@ -68,15 +68,15 @@ namespace lgu3d
     /// 创建游戏对象
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    /// <param name="_Object"></param>
-    /// <param name="Parent"></param>
+    /// <param name="_object"></param>
+    /// <param name="parent"></param>
     /// <returns></returns>
-    public static GameObject CreateToParnt(this UnityEngine.Object _Object, GameObject Parent)
+    public static GameObject CreateToParnt(this UnityEngine.Object _object, GameObject parent)
     {
-      GameObject obj = GameObject.Instantiate(_Object) as GameObject;
-      if (obj != null && Parent != null)
+      GameObject obj = GameObject.Instantiate(_object) as GameObject;
+      if (obj != null && parent != null)
       {
-        obj.SetParent(Parent);
+        obj.SetParent(parent);
       }
       return obj;
     }
@@ -84,10 +84,10 @@ namespace lgu3d
     /// 创建子对象
     /// </summary>
     /// <param name="Parent"></param>
-    public static GameObject CreateChild(this GameObject Parent, string name, params Type[] components)
+    public static GameObject CreateChild(this GameObject parent, string name, params Type[] components)
     {
       GameObject child = new GameObject(name, components);
-      child.SetParent(Parent);
+      child.SetParent(parent);
       return child;
     }
 

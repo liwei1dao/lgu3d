@@ -35,7 +35,9 @@ namespace lgu3d
 
   public abstract class MonoEntityCompBase : MonoBehaviour, IMonoEntityCompBase
   {
-    public IEntityBase Entity { get; set; }
+    public IMonoEntityBase Entity { get; set; }
+    IEntityBase IEntityCompBase.Entity { get; set; }
+
     public void Load(IMonoEntityBase entity, params object[] agrs)
     {
       Entity = entity;

@@ -24,13 +24,16 @@ namespace lgu3d
 
   public interface IMonoEntityBase : IEntityBase
   {
-
+    new IMonoEntityBase Entity { get; set; }
+    void Load(IMonoEntityBase entity);
+    new CP AddComp<CP>(params object[] agrs) where CP : Component, IMonoEntityCompBase;
   }
   public interface IMonoEntityBase<E, D> : IEntityBase where E : MonoBehaviour, IMonoEntityBase where D : EntityDataBase
   {
     D Config { get; set; }
     new E Entity { get; set; }
     void Load(E entity, D config);
+    new CP AddComp<CP>(params object[] agrs) where CP : Component, IMonoEntityCompBase<E>;
   }
 
   public interface IEntityCompBase
@@ -47,6 +50,7 @@ namespace lgu3d
   }
   public interface IMonoEntityCompBase : IEntityCompBase
   {
+    new IMonoEntityBase Entity { get; set; }
     void Load(IMonoEntityBase entity, params object[] agrs);
   }
   public interface IMonoEntityCompBase<E> : IMonoEntityCompBase where E : MonoBehaviour, IMonoEntityBase

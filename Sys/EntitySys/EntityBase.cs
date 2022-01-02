@@ -56,9 +56,6 @@ namespace lgu3d
     }
     #endregion
   }
-
-
-
   public abstract class EntityBase<E, D> : EntityBase, IEntityBase<E, D> where E : EntityBase, IEntityBase<E, D> where D : EntityDataBase
   {
     public D Config { get; set; }
@@ -74,7 +71,9 @@ namespace lgu3d
 
   public abstract class MonoEntityBase : MonoBehaviour, IMonoEntityBase
   {
-    public IEntityBase Entity { get; set; }
+    public IMonoEntityBase Entity { get; set; }
+    IEntityBase IEntityBase.Entity { get; set; }
+
     protected List<IEntityCompBase> MyComps = new List<IEntityCompBase>();
     #region 基础组件接口
     public IEntityBaseSkillReleaseComp SkillReleaseComp;          //技能释放组件
@@ -82,9 +81,14 @@ namespace lgu3d
     #endregion
 
     #region 框架函数
-    public virtual void Load(IEntityBase entity)
+    public virtual void Load(IMonoEntityBase entity)
     {
       Entity = entity;
+    }
+
+    public void Load(IEntityBase entity)
+    {
+
     }
 
     public virtual void Init()
@@ -94,13 +98,7 @@ namespace lgu3d
         MyComps[i].Init();
       }
     }
-    public virtual CP AddComp<CP>(params object[] agrs) where CP : IEntityCompBase, new()
-    {
-      CP Comp = new CP();
-      Comp.Load(this, agrs);
-      MyComps.Add(Comp);
-      return Comp;
-    }
+
     public virtual void RemoveComp(IEntityCompBase comp)
     {
       MyComps.Remove(comp);
@@ -118,6 +116,20 @@ namespace lgu3d
     {
       return CoroutineModule.Instance.StartCoroutine(routine);
     }
+
+    public CP AddComp<CP>(params object[] agrs) where CP : Component, IMonoEntityCompBase
+    {
+      CP comp = gameObject.AddMissingComponent<CP>();
+      comp.Load(Entity, agrs);
+      MyComps.Add(comp);
+      return comp;
+    }
+
+    CP IEntityBase.AddComp<CP>(params object[] agrs)
+    {
+      throw new System.NotImplementedException();
+    }
+
     #endregion
   }
 
@@ -130,6 +142,19 @@ namespace lgu3d
       Entity = entity;
       Config = config;
       base.Load(entity);
+    }
+
+    public new CP AddComp<CP>(params object[] agrs) where CP : Component, IMonoEntityCompBase<E>
+    {
+      CP comp = gameObject.AddMissingComponent<CP>();
+      comp.Load(Entity, agrs);
+      MyComps.Add(comp);
+      return comp;
+    }
+
+    CP IEntityBase.AddComp<CP>(params object[] agrs)
+    {
+      throw new System.NotImplementedException();
     }
   }
 }
