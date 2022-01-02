@@ -1,15 +1,36 @@
 using System;
+using System.Collections;
+using UnityEngine;
 
 namespace lgu3d
 {
   public interface IEntityBase
   {
-    EntityDataBase Config { get; set; }
-    void Load(EntityDataBase config);
+    IEntityBase Entity { get; set; }
+    void Load(IEntityBase entity);
     void Init();
     CP AddComp<CP>(params object[] agrs) where CP : IEntityCompBase, new();
     void RemoveComp(IEntityCompBase comp);
+    CoroutineTask StartCoroutine(IEnumerator routine);
     void Destroy();
+  }
+
+  public interface IEntityBase<E, D> : IEntityBase where E : IEntityBase<E, D> where D : EntityDataBase
+  {
+    D Config { get; set; }
+    new E Entity { get; set; }
+    void Load(E entity, D config);
+  }
+
+  public interface IMonoEntityBase : IEntityBase
+  {
+
+  }
+  public interface IMonoEntityBase<E, D> : IEntityBase where E : MonoBehaviour, IMonoEntityBase where D : EntityDataBase
+  {
+    D Config { get; set; }
+    new E Entity { get; set; }
+    void Load(E entity, D config);
   }
 
   public interface IEntityCompBase
@@ -19,15 +40,16 @@ namespace lgu3d
     void Init();
     void Destroy();
   }
-
-  public interface IEntityBase<E, D> : IEntityBase where E : IEntityBase<E, D> where D : EntityDataBase
-  {
-    new D Config { get; set; }
-
-    void Load(D config);
-  }
-
   public interface IEntityCompBase<E> : IEntityCompBase where E : IEntityBase
+  {
+    new E Entity { get; set; }
+    void Load(E entity, params object[] agrs);
+  }
+  public interface IMonoEntityCompBase : IEntityCompBase
+  {
+    void Load(IMonoEntityBase entity, params object[] agrs);
+  }
+  public interface IMonoEntityCompBase<E> : IMonoEntityCompBase where E : MonoBehaviour, IMonoEntityBase
   {
     new E Entity { get; set; }
     void Load(E entity, params object[] agrs);

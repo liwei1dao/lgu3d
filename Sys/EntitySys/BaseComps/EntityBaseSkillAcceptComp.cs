@@ -11,7 +11,18 @@
   /// 技能接收
   /// </summary>
   /// <typeparam name="E"></typeparam>
-  public class EntityBaseSkillAcceptComp<E> : EntityCompBase<E>, IEntityBaseSkillAcceptComp where E : EntityBase
+  public abstract class EntityBaseSkillAcceptComp<E> : EntityCompBase<E>, IEntityBaseSkillAcceptComp where E : EntityBase
+  {
+    public virtual void Accept(BulletBase Bullet)
+    {
+
+    }
+  }
+  /// <summary>
+  /// 技能接收
+  /// </summary>
+  /// <typeparam name="E"></typeparam>
+  public abstract class MonoEntityBaseSkillAcceptComp<E> : MonoEntityCompBase<E>, IEntityBaseSkillAcceptComp where E : MonoEntityBase
   {
     public virtual void Accept(BulletBase Bullet)
     {

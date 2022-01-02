@@ -10,15 +10,15 @@ namespace lgu3d
 
   public interface ISkillBase
   {
-    EntityBase Entity { get; set; }
+    IEntityBase Entity { get; set; }
     SkillDataBase Config { get; set; }
-    void Load(EntityBase entity, SkillDataBase config);          //加载
+    void Load(IEntityBase entity, SkillDataBase config);          //加载
     void Init(params object[] agrs);
     void Release(params object[] agrs);                         //技能释放
     void Update(float time);                                    //技能更新
     void ReleaseEnd();                                          //技能释放结束
   }
-  public interface ISkillBase<E, D> : ISkillBase where E : EntityBase where D : SkillDataBase
+  public interface ISkillBase<E, D> : ISkillBase where E : IEntityBase where D : SkillDataBase
   {
     new E Entity { get; set; }
     new D Config { get; set; }

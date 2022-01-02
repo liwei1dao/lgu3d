@@ -15,7 +15,49 @@ namespace lgu3d
   /// 实体技能释放组件
   /// </summary>
   /// <typeparam name="E"></typeparam>
-  public class EntityBaseSkillReleaseComp<E> : EntityCompBase<E>, IEntityBaseSkillReleaseComp where E : EntityBase
+  public abstract class EntityBaseSkillReleaseComp<E> : EntityCompBase<E>, IEntityBaseSkillReleaseComp where E : EntityBase
+  {
+    public enum CompState
+    {
+      Idle,
+      InRelease,
+    }
+    public CompState State;
+    protected SkillBase[] Skills;
+
+    public override void Load(E entity, params object[] agrs)
+    {
+      State = CompState.Idle;
+      base.Load(entity, agrs);
+    }
+
+
+    public virtual bool Release(params object[] _Agr)
+    {
+      State = CompState.InRelease;
+      return true;
+    }
+
+    private void Updata()
+    {
+      if (Skills == null) return;
+      for (int i = 0; i < Skills.Length; i++)
+      {
+        Skills[i].Update(Time.deltaTime);
+      }
+    }
+
+    public virtual void ReleaseEnd(params object[] _Agr)
+    {
+      State = CompState.Idle;
+    }
+  }
+
+  /// <summary>
+  /// 实体技能释放组件
+  /// </summary>
+  /// <typeparam name="E"></typeparam>
+  public abstract class MonoEntityBaseSkillReleaseComp<E> : MonoEntityCompBase<E>, IEntityBaseSkillReleaseComp where E : MonoEntityBase
   {
     public enum CompState
     {

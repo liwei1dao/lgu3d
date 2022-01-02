@@ -9,13 +9,13 @@ namespace lgu3d
 
   public class SkillBase : ISkillBase
   {
-    public EntityBase Entity { get; set; }
+    public IEntityBase Entity { get; set; }
     public SkillDataBase Config { get; set; }
     public SkillCDBase Cd;
     public SkillState State;
     protected List<BulletBase> Bullets;
 
-    public virtual void Load(EntityBase entity, SkillDataBase config)
+    public virtual void Load(IEntityBase entity, SkillDataBase config)
     {
       Entity = entity;
       Config = config;
@@ -38,7 +38,6 @@ namespace lgu3d
     protected virtual IEnumerator ReleaseAnim()
     {
       yield return 1;
-
     }
 
     public virtual void Update(float time)
@@ -68,7 +67,7 @@ namespace lgu3d
     }
   }
 
-  public abstract class SkillBase<E, D> : SkillBase, ISkillBase<E, D> where E : EntityBase where D : SkillDataBase
+  public abstract class SkillBase<E, D> : SkillBase, ISkillBase<E, D> where E : IEntityBase where D : SkillDataBase
   {
     public new E Entity { get; set; }
     public new D Config { get; set; }
