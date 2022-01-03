@@ -38,21 +38,21 @@ namespace lgu3d
     public IMonoEntityBase Entity { get; set; }
     IEntityBase IEntityCompBase.Entity { get; set; }
 
-    public void Load(IMonoEntityBase entity, params object[] agrs)
+    public virtual void Load(IMonoEntityBase entity, params object[] agrs)
     {
       Entity = entity;
     }
 
-    public void Load(IEntityBase entity, params object[] agrs)
+    public virtual void Load(IEntityBase entity, params object[] agrs)
     {
       throw new NotImplementedException();
     }
-    public void Destroy()
+    public virtual void Destroy()
     {
       GameObject.Destroy(this);
     }
 
-    public void Init()
+    public virtual void Init()
     {
 
     }
