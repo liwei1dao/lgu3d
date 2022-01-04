@@ -44,7 +44,7 @@ namespace lgu3d
     }
     public virtual void AddAttribute(A aType, float value)
     {
-      Attributes[aType] = value;
+      Attributes[aType] += value;
     }
 
     public virtual float GetAttribute(A aType)
