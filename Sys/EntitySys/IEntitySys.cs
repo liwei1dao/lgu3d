@@ -37,22 +37,18 @@ namespace lgu3d
     new CP GetComp<CP>() where CP : Component, IMonoEntityCompBase;
   }
 
-  public interface IMonoEntityBase<E> : IEntityBase where E : MonoBehaviour, IMonoEntityBase
+  public interface IMonoEntityBase<E> : IMonoEntityBase where E : MonoBehaviour, IMonoEntityBase
   {
     new E Entity { get; set; }
     void Load(E entity);
-    new CP AddComp<CP>(params object[] agrs) where CP : Component, IMonoEntityCompBase<E>;
-    new CP GetComp<CP>() where CP : Component, IMonoEntityCompBase<E>;
   }
 
 
-  public interface IMonoEntityBase<E, D> : IEntityBase where E : MonoBehaviour, IMonoEntityBase where D : EntityDataBase
+  public interface IMonoEntityBase<E, D> : IMonoEntityBase where E : MonoBehaviour, IMonoEntityBase where D : EntityDataBase
   {
     D Config { get; set; }
     new E Entity { get; set; }
     void Load(E entity, D config);
-    new CP AddComp<CP>(params object[] agrs) where CP : Component, IMonoEntityCompBase<E>;
-    new CP GetComp<CP>() where CP : Component, IMonoEntityCompBase<E>;
   }
 
   public interface IEntityCompBase

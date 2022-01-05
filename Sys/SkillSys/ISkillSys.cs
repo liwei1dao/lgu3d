@@ -8,7 +8,12 @@ namespace lgu3d
     InRelease,
     InCd,
   }
-
+  public enum BulletState
+  {
+    WaitLaunch,
+    Launching,
+    Destroyed,
+  }
 
   public interface ISkillBase
   {
@@ -32,6 +37,7 @@ namespace lgu3d
 
   public interface IBulletBase
   {
+    BulletState State { get; set; }
     SkillBase Skill { get; set; }
     void Destroy();
     void Launch(params object[] agrs);

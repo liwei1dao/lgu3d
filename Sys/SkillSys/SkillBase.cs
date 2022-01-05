@@ -38,7 +38,10 @@ namespace lgu3d
     {
       for (int i = 0; i < Bullets.Count; i++)
       {
-        Bullets[i].Update(time);
+        if (Bullets[i].State == BulletState.Launching)
+        {
+          Bullets[i].Update(time);
+        }
       }
       if (State == SkillState.InCd)
         Cd.Update(time);

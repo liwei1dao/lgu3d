@@ -12,6 +12,7 @@ namespace lgu3d
     bool Release(string skillName, params object[] agrs);
     void ReleaseEnd(string skillName);
   }
+
   public enum SkillReleaseCompState
   {
     Idle,
@@ -21,13 +22,12 @@ namespace lgu3d
   /// 实体技能释放组件
   /// </summary>
   /// <typeparam name="E"></typeparam>
-  public abstract class EntityBaseSkillReleaseComp<E> : EntityCompBase<E>, IEntityBaseSkillReleaseComp where E : EntityBase
+  public abstract class EntityBaseSkillReleaseComp : EntityCompBase, IEntityBaseSkillReleaseComp
   {
-
     public SkillReleaseCompState ReleaseState;
     protected Dictionary<string, ISkillBase> Skills;
 
-    public override void Load(E entity, params object[] agrs)
+    public override void Load(IEntityBase entity, params object[] agrs)
     {
       base.Load(entity, agrs);
       ReleaseState = SkillReleaseCompState.Idle;
@@ -71,17 +71,30 @@ namespace lgu3d
     }
 
   }
-
   /// <summary>
   /// 实体技能释放组件
   /// </summary>
   /// <typeparam name="E"></typeparam>
-  public abstract class MonoEntityBaseSkillReleaseComp<E, S> : MonoEntityCompBase<E>, IEntityBaseSkillReleaseComp where E : MonoEntityBase
+  public abstract class EntityBaseSkillReleaseComp<E> : EntityBaseSkillReleaseComp, IEntityBaseSkillReleaseComp where E : EntityBase
+  {
+    public new E Entity { get; set; }
+
+    public virtual void Load(E entity, params object[] agrs)
+    {
+      Entity = entity;
+      base.Load(entity);
+    }
+  }
+
+  /// <summary>
+  /// 实体技能释放组件
+  /// </summary>
+  public abstract class MonoEntityBaseSkillReleaseComp : MonoEntityCompBase, IEntityBaseSkillReleaseComp
   {
     public SkillReleaseCompState ReleaseState;
     protected Dictionary<string, ISkillBase> Skills;
 
-    public override void Load(E entity, params object[] agrs)
+    public override void Load(IMonoEntityBase entity, params object[] agrs)
     {
       Skills = new Dictionary<string, ISkillBase>();
       ReleaseState = SkillReleaseCompState.Idle;
@@ -121,6 +134,21 @@ namespace lgu3d
         }
       }
       ReleaseState = SkillReleaseCompState.Idle;
+    }
+  }
+
+  /// <summary>
+  /// 实体技能释放组件
+  /// </summary>
+  /// <typeparam name="E"></typeparam>
+  public abstract class MonoEntityBaseSkillReleaseComp<E> : MonoEntityBaseSkillReleaseComp where E : MonoEntityBase
+  {
+    public new E Entity { get; set; }
+
+    public virtual void Load(E entity, params object[] agrs)
+    {
+      Entity = entity;
+      base.Load(entity);
     }
   }
 }

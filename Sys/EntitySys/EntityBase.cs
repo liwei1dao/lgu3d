@@ -66,7 +66,6 @@ namespace lgu3d
     #endregion
   }
 
-
   public abstract class EntityBase<E> : EntityBase, IEntityBase<E> where E : EntityBase, IEntityBase<E>
   {
     public new E Entity { get; set; }
@@ -114,7 +113,7 @@ namespace lgu3d
         MyComps[i].Init();
       }
     }
-    public CP AddComp<CP>(params object[] agrs) where CP : Component, IMonoEntityCompBase
+    public virtual CP AddComp<CP>(params object[] agrs) where CP : Component, IMonoEntityCompBase
     {
       CP comp = gameObject.AddMissingComponent<CP>();
       comp.Load(Entity, agrs);
@@ -127,7 +126,7 @@ namespace lgu3d
       throw new System.NotImplementedException();
     }
 
-    public CP GetComp<CP>() where CP : Component, IMonoEntityCompBase
+    public virtual CP GetComp<CP>() where CP : Component, IMonoEntityCompBase
     {
       foreach (var item in MyComps)
       {
@@ -173,36 +172,6 @@ namespace lgu3d
       Entity = entity;
       base.Load(entity);
     }
-
-    public new CP AddComp<CP>(params object[] agrs) where CP : Component, IMonoEntityCompBase<E>
-    {
-      CP comp = gameObject.AddMissingComponent<CP>();
-      comp.Load(Entity, agrs);
-      MyComps.Add(comp);
-      return comp;
-    }
-
-    CP IEntityBase.AddComp<CP>(params object[] agrs)
-    {
-      throw new System.NotImplementedException();
-    }
-
-    public new CP GetComp<CP>() where CP : Component, IMonoEntityCompBase<E>
-    {
-      foreach (var item in MyComps)
-      {
-        if (item is CP)
-        {
-          return item as CP;
-        }
-      }
-      return null;
-    }
-
-    CP IEntityBase.GetComp<CP>()
-    {
-      throw new System.NotImplementedException();
-    }
   }
 
   public abstract class MonoEntityBase<E, D> : MonoEntityBase, IMonoEntityBase<E, D> where E : MonoEntityBase, IMonoEntityBase<E, D> where D : EntityDataBase
@@ -214,36 +183,6 @@ namespace lgu3d
       Entity = entity;
       Config = config;
       base.Load(entity);
-    }
-
-    public new CP AddComp<CP>(params object[] agrs) where CP : Component, IMonoEntityCompBase<E>
-    {
-      CP comp = gameObject.AddMissingComponent<CP>();
-      comp.Load(Entity, agrs);
-      MyComps.Add(comp);
-      return comp;
-    }
-
-    CP IEntityBase.AddComp<CP>(params object[] agrs)
-    {
-      throw new System.NotImplementedException();
-    }
-
-    public new CP GetComp<CP>() where CP : Component, IMonoEntityCompBase<E>
-    {
-      foreach (var item in MyComps)
-      {
-        if (item is CP)
-        {
-          return item as CP;
-        }
-      }
-      return null;
-    }
-
-    CP IEntityBase.GetComp<CP>()
-    {
-      throw new System.NotImplementedException();
     }
   }
 }
