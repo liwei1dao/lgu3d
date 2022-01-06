@@ -6,12 +6,11 @@
   {
     void Accept(IBulletBase Bullet);
   }
-
   /// <summary>
   /// 技能接收
   /// </summary>
   /// <typeparam name="E"></typeparam>
-  public abstract class EntityBaseSkillAcceptComp<E> : EntityCompBase<E>, IEntityBaseSkillAcceptComp where E : EntityBase
+  public abstract class EntityBaseSkillAcceptComp : EntityCompBase, IEntityBaseSkillAcceptComp
   {
     public virtual void Accept(IBulletBase Bullet)
     {
@@ -22,11 +21,40 @@
   /// 技能接收
   /// </summary>
   /// <typeparam name="E"></typeparam>
-  public abstract class MonoEntityBaseSkillAcceptComp<E> : MonoEntityCompBase<E>, IEntityBaseSkillAcceptComp where E : MonoEntityBase
+  public abstract class EntityBaseSkillAcceptComp<E> : EntityBaseSkillAcceptComp where E : EntityBase
+  {
+    public new E Entity { get; set; }
+
+    public virtual void Load(E entity, params object[] agrs)
+    {
+      Entity = entity;
+      base.Load(entity);
+    }
+  }
+
+    /// <summary>
+  /// 技能接收
+  /// </summary>
+  /// <typeparam name="E"></typeparam>
+  public abstract class MonoEntityBaseSkillAcceptComp : MonoEntityCompBase, IEntityBaseSkillAcceptComp 
   {
     public virtual void Accept(IBulletBase Bullet)
     {
 
+    }
+  }
+  /// <summary>
+  /// 技能接收
+  /// </summary>
+  /// <typeparam name="E"></typeparam>
+  public abstract class MonoEntityBaseSkillAcceptComp<E> : MonoEntityBaseSkillAcceptComp where E : MonoEntityBase
+  {
+    public new E Entity { get; set; }
+
+    public virtual void Load(E entity, params object[] agrs)
+    {
+      Entity = entity;
+      base.Load(entity);
     }
   }
 }
