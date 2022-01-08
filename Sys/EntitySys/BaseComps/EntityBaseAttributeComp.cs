@@ -5,18 +5,18 @@ using UnityEngine;
 
 namespace lgu3d
 {
-  public class EntityBaseAttributeComp<E, A> : EntityCompBase<E> where E : IEntityBase where A : Enum
+  public class EntityBaseAttributeComp<E, A> : EntityCompBase<E> where E : class, IEntityBase where A : Enum
   {
     protected Dictionary<A, float> Attributes;
 
-    public override void Load(E entity, params object[] agrs)
+    public override void Load(IEntityBase entity, params object[] agrs)
     {
-      base.Load(entity, agrs);
       Attributes = new Dictionary<A, float>();
       foreach (A item in Enum.GetValues(typeof(A)))
       {
         Attributes[item] = 0;
       }
+      base.Load(entity, agrs);
     }
     public virtual void AddAttribute(A aType, float value)
     {
@@ -33,7 +33,7 @@ namespace lgu3d
   {
     protected Dictionary<A, float> Attributes;
 
-    public override void Load(E entity, params object[] agrs)
+    public override void Load(IMonoEntityBase entity, params object[] agrs)
     {
       base.Load(entity, agrs);
       Attributes = new Dictionary<A, float>();

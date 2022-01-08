@@ -56,7 +56,7 @@ namespace lgu3d
     protected FSMBaseState<E, T, S> mCurrentState;
     protected Dictionary<S, FSMBaseState<E, T, S>> mFSMStateDic;
 
-    public override void Load(E entity, params object[] agrs)
+    public override void Load(IEntityBase entity, params object[] agrs)
     {
       mFSMStateDic = new Dictionary<S, FSMBaseState<E, T, S>>();
       base.Load(entity, agrs);

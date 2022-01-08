@@ -40,7 +40,7 @@ namespace lgu3d
       {
         if (Bullets[i].State == BulletState.Launching)
         {
-          Bullets[i].Update(time);
+          Bullets[i].BulletUpdate(time);
         }
       }
       if (State == SkillState.InCd)

@@ -145,9 +145,9 @@ namespace lgu3d
   {
     public new E Entity { get; set; }
 
-    public virtual void Load(E entity, params object[] agrs)
+    public override void Load(IMonoEntityBase entity, params object[] agrs)
     {
-      Entity = entity;
+      Entity = entity as E;
       base.Load(entity);
     }
   }

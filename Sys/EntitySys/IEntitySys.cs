@@ -58,19 +58,10 @@ namespace lgu3d
     void Init();
     void Destroy();
   }
-  public interface IEntityCompBase<E> : IEntityCompBase where E : IEntityBase
-  {
-    new E Entity { get; set; }
-    void Load(E entity, params object[] agrs);
-  }
+
   public interface IMonoEntityCompBase : IEntityCompBase
   {
     new IMonoEntityBase Entity { get; set; }
     void Load(IMonoEntityBase entity, params object[] agrs);
-  }
-  public interface IMonoEntityCompBase<E> : IMonoEntityCompBase where E : MonoBehaviour, IMonoEntityBase
-  {
-    new E Entity { get; set; }
-    void Load(E entity, params object[] agrs);
   }
 }

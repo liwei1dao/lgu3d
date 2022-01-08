@@ -22,13 +22,13 @@ namespace lgu3d
 
     }
   }
-  public abstract class EntityCompBase<E> : EntityCompBase, IEntityCompBase<E> where E : IEntityBase
+  public abstract class EntityCompBase<E> : EntityCompBase where E : class, IEntityBase
   {
     public new E Entity { get; set; }
 
-    public virtual void Load(E entity, params object[] agrs)
+    public override void Load(IEntityBase entity, params object[] agrs)
     {
-      Entity = entity;
+      Entity = entity as E;
       base.Load(entity);
     }
   }
@@ -57,13 +57,13 @@ namespace lgu3d
 
     }
   }
-  public abstract class MonoEntityCompBase<E> : MonoEntityCompBase, IMonoEntityCompBase<E> where E : MonoBehaviour, IMonoEntityBase
+  public abstract class MonoEntityCompBase<E> : MonoEntityCompBase where E : MonoBehaviour, IMonoEntityBase
   {
     public new E Entity { get; set; }
 
-    public virtual void Load(E entity, params object[] agrs)
+    public override void Load(IMonoEntityBase entity, params object[] agrs)
     {
-      Entity = entity;
+      Entity = entity as E;
       base.Load(entity, agrs);
     }
   }

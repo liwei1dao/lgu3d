@@ -37,7 +37,7 @@ namespace lgu3d
     /// 更新
     /// </summary>
     /// <param name="time"></param>
-    public virtual void Update(float time)
+    public virtual void BulletUpdate(float time)
     {
 
     }
@@ -93,7 +93,7 @@ namespace lgu3d
     /// 更新
     /// </summary>
     /// <param name="time"></param>
-    public virtual void Update(float time)
+    public virtual void BulletUpdate(float time)
     {
 
     }

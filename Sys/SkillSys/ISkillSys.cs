@@ -42,7 +42,7 @@ namespace lgu3d
     void Destroy();
     void Launch(params object[] agrs);
     void TakeEffect(params object[] agrs);
-    void Update(float time);
+    void BulletUpdate(float time);
   }
   public interface IBulletBase<S> : IBulletBase where S : ISkillBase
   {
