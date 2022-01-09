@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace lgu3d
 {
-  public enum LanguageType
+  public enum LanguageType : int
   {
     ZH, //中文
     EN,//英文
@@ -22,6 +22,7 @@ namespace lgu3d
   /// </summary>
   public class LanguageModule : ManagerContorBase<LanguageModule>
   {
+    public const string Localization = "Localization";
     public LanguageType SelectLanguage;
     public Language_Data_Comp Data_Comp;
     public LanguageModule_ChangeLanguage chanagelanguage;
@@ -31,6 +32,10 @@ namespace lgu3d
       if (agr.Length == 1)
       {
         SelectLanguage = (LanguageType)agr[0];
+        if (PlayerPrefs.HasKey(Localization))
+        {
+          SelectLanguage = (LanguageType)PlayerPrefs.GetInt(Localization);
+        }
         ResourceComp = AddComp<Module_ResourceComp>();
         Data_Comp = AddComp<Language_Data_Comp>();
       }
@@ -48,6 +53,7 @@ namespace lgu3d
     public virtual void ChanageLanguage(LanguageType selectLanguage)
     {
       SelectLanguage = selectLanguage;
+      PlayerPrefs.SetInt(Localization, ((int)SelectLanguage));
       this.chanagelanguage();
     }
   }
