@@ -167,9 +167,9 @@ namespace lgu3d
   public abstract class MonoEntityBase<E> : MonoEntityBase, IMonoEntityBase<E> where E : MonoEntityBase, IMonoEntityBase<E>
   {
     public new E Entity { get; set; }
-    public virtual void Load(E entity)
+    public override void Load(IMonoEntityBase entity)
     {
-      Entity = entity;
+      Entity = entity as E;
       base.Load(entity);
     }
   }

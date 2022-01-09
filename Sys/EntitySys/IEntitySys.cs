@@ -40,7 +40,6 @@ namespace lgu3d
   public interface IMonoEntityBase<E> : IMonoEntityBase where E : MonoBehaviour, IMonoEntityBase
   {
     new E Entity { get; set; }
-    void Load(E entity);
   }
 
 
