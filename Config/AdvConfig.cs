@@ -20,12 +20,23 @@ namespace lgu3d
     Loaded,//加载完毕
   }
 
+  public enum AdPosition
+  {
+    Top = 0,
+    Bottom = 1,
+    TopLeft = 2,
+    TopRight = 3,
+    BottomLeft = 4,
+    BottomRight = 5,
+    Center = 6
+  }
+
   public interface IAdv
   {
     void OpenAd_Show();
     void OpenAd_Hide();
     AdvState OpenAd_State();
-    void BannerAd_Show();
+    void BannerAd_Show(AdPosition advpos);
     void BannerAd_Hide();
     AdvState BannerAd_State();
     void Intersitial_Show();
