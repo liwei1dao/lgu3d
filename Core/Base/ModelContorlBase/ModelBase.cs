@@ -45,6 +45,11 @@ namespace lgu3d
     void FixedUpdate();
   }
 
+  public interface ILateUpdateModule : IModule
+  {
+    void LateUpdate();
+  }
+
   #region 普通模块基类
   public abstract class ModelBase : IModule
   {

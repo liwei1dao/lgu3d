@@ -33,6 +33,11 @@ namespace lgu3d
     {
 
     }
+
+    public virtual void TriggerDestroy()
+    {
+
+    }
   }
 
   /// <summary>
@@ -52,6 +57,11 @@ namespace lgu3d
     }
 
     public virtual void TriggerClose()
+    {
+
+    }
+
+    public virtual void TriggerDestroy()
     {
 
     }

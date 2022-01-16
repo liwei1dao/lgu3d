@@ -74,11 +74,12 @@ namespace lgu3d
     {
       ResourceComp = AddComp<Module_ResourceComp>();
       base.Load(agr);
-      if (agr.Length == 1)
+      if (agr.Length == 2)
       {
         mViewSzie = (Vector2)agr[0];
-        float lv = Mathf.Clamp(1.33333f, 1.77777f, Screen.width / Screen.height);
-        mMatch = (lv - 1.33333f) / 0.44444f;
+        // float lv = Mathf.Clamp(1.33333f, 1.77777f, Screen.width / Screen.height);
+        // mMatch = (lv - 1.33333f) / 0.44444f;
+        mMatch = (float)agr[1];
         mLowViewComps = new List<ViewComp>();
         mNormalViewComps = new List<ViewComp>();
         mHightViewComps = new List<ViewComp>();

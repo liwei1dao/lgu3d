@@ -66,6 +66,7 @@ namespace lgu3d
     void TriggerStart(params object[] agrs);
     void TriggerClose();
     void Trigger(params object[] agrs);
+    void TriggerDestroy();
   }
   /// <summary>
   /// 机关执行器

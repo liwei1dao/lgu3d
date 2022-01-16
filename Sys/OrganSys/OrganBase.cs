@@ -106,6 +106,10 @@ namespace lgu3d
     {
       Trigger.TriggerClose();
     }
+    public override void OrganDestroy()
+    {
+      Trigger.TriggerDestroy();
+    }
   }
 
   public abstract class MonoOrganBaseByActuator<O, A> : MonoOrganBase, IOrganByActuator<O, A> where O : MonoOrganBaseByActuator<O, A> where A : IOrganActuator<O>
