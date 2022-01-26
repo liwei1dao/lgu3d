@@ -157,7 +157,7 @@ namespace lgu3d
     }
     public new CoroutineTask StartCoroutine(IEnumerator routine)
     {
-      return CoroutineModule.Instance.StartCoroutine(routine);
+      return CoroutineModule.Instance.StartCoroutineTask(routine);
     }
 
     #endregion
