@@ -6,7 +6,11 @@ namespace lgu3d
   /// <typeparam name="E"></typeparam>
   public class OrganBaseSkillReleaseComp : EntityBaseSkillReleaseComp<OrganBase>
   {
-
+    public override bool Release(string skillName, params object[] agrs)
+    {
+      Skills[skillName].Release(agrs);
+      return true;
+    }
   }
 
   /// <summary>
@@ -15,7 +19,11 @@ namespace lgu3d
   /// <typeparam name="E"></typeparam>
   public class MonoOrganBaseSkillReleaseComp : MonoEntityBaseSkillReleaseComp<MonoOrganBase>
   {
-
+    public override bool Release(string skillName, params object[] agrs)
+    {
+      Skills[skillName].Release(agrs);
+      return true;
+    }
   }
 
 }

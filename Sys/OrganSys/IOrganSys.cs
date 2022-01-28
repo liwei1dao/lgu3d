@@ -3,10 +3,27 @@ using lgu3d;
 namespace lgu3d
 {
   /// <summary>
+  /// 机关状态
+  /// </summary>
+  public enum OrganState
+  {
+    NoStart,    //未启动
+    Runing,     //运行中
+    Broken,     //已损坏
+    Repairing,  //修复中
+    Destroyed,  //修毁坏 不可修复
+  }
+
+  /// <summary>
   /// 机关系统
   /// </summary>
   public interface IOrgan : IEntityBase
   {
+    /// <summary>
+    /// 机关状态
+    /// </summary>
+    /// <value></value>
+    OrganState State { get; set; }
     /// <summary>
     /// 启动
     /// </summary>

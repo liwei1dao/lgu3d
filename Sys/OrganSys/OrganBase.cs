@@ -8,11 +8,21 @@ namespace lgu3d
   /// </summary>
   public abstract class OrganBase : EntityBase, IOrgan
   {
-    public virtual void OrganStart(params object[] agrs) { }
+    public OrganState State { get; set; }
+    public virtual void OrganStart(params object[] agrs)
+    {
+      State = OrganState.Runing;
+    }
     public virtual void OrganTrigger(params object[] agrs) { }
     public virtual void OrganExecute(params object[] agrs) { }
-    public virtual void OrganClose() { }
-    public virtual void OrganDestroy() { }
+    public virtual void OrganClose()
+    {
+      State = OrganState.NoStart;
+    }
+    public virtual void OrganDestroy()
+    {
+      State = OrganState.Destroyed;
+    }
     public virtual void OrganReset() { }
   }
   /// <summary>
@@ -81,12 +91,25 @@ namespace lgu3d
 
   public abstract class MonoOrganBase : MonoEntityBase, IOrgan
   {
-    public virtual void OrganStart(params object[] agrs) { }
+    public OrganState State { get; set; }
+    public virtual void OrganStart(params object[] agrs)
+    {
+      State = OrganState.Runing;
+    }
     public virtual void OrganTrigger(params object[] agrs) { }
     public virtual void OrganExecute(params object[] agrs) { }
-    public virtual void OrganClose() { }
-    public virtual void OrganDestroy() { }
-    public virtual void OrganReset() { }
+    public virtual void OrganClose()
+    {
+      State = OrganState.NoStart;
+    }
+    public virtual void OrganDestroy()
+    {
+      State = OrganState.Destroyed;
+    }
+    public virtual void OrganReset()
+    {
+      State = OrganState.NoStart;
+    }
   }
 
   public abstract class MonoOrganBaseByTrigger<O, T> : MonoOrganBase, IOrganByTrigger<O, T> where O : MonoOrganBaseByTrigger<O, T> where T : IOrganTrigger<O>
