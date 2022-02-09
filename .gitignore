@@ -65,6 +65,8 @@ crashlytics-build.properties
 
 */SDKManagerModule/*
 !*/SDKManagerModule/SDKManagerModule.unitypackage
+*/AndroidToolsModule/*
+!*/AndroidToolsModule/AndroidToolsModule.unitypackage
 */AdmobModule/*
 !*/AdmobModule/AdmobModule.unitypackage
 */FirebaseModule/*
