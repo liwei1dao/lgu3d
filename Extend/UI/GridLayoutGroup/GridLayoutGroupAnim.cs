@@ -182,14 +182,14 @@ namespace lgu3d
         // }
 
         private IEnumerator SetChildAnim(RectTransform rect,Vector2 pos,Vector2 size){
-            m_Tracker.Add(this, rect,
-                DrivenTransformProperties.Anchors |
-                DrivenTransformProperties.AnchoredPosition |
-                DrivenTransformProperties.SizeDelta);
             float lefttime = 0;
             float progress = 0;
             Vector2 _pos = rect.anchoredPosition;
             Vector2 _siez = rect.sizeDelta;
+            m_Tracker.Add(this, rect,
+                DrivenTransformProperties.Anchors |
+                DrivenTransformProperties.AnchoredPosition |
+                DrivenTransformProperties.SizeDelta);
             while(lefttime < animTime){
                 lefttime += Time.deltaTime;
                 progress = lefttime/animTime;
