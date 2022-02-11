@@ -3,6 +3,9 @@ using UnityEngine.UI;
 
 namespace lgu3d
 {
+  /// <summary>
+  /// 不规则按钮碰撞区域
+  /// </summary>
   [RequireComponent(typeof(PolygonCollider2D))]
   public class UIPolygon : Image
   {

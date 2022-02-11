@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 namespace lgu3d
 {
+    /// <summary>
+    /// 文字上下渐变特效
+    /// </summary>
     [AddComponentMenu("UI/Effects/Gradient")]
     [RequireComponent(typeof(Text))]
     public class TextGradient : BaseMeshEffect
