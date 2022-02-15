@@ -9,9 +9,11 @@ namespace lgu3d
   /// </summary>
   public class TipsViewComp : Model_BaseViewComp<CommonModule>
   {
+    private GameObject tipls;
     public override void Load(ModelBase module, params object[] agr)
     {
       base.Load(module, "MessageTipls", UILevel.HightUI);
+      tipls = UIGameobject.Find("tipls");
       LoadEnd();
     }
 
@@ -19,7 +21,7 @@ namespace lgu3d
     public void ShowTips(string message, float time)
     {
       GameObject tips = GameObject.Instantiate<GameObject>(MyModule.LoadAsset<GameObject>("Prefab", "Tips"));
-      tips.SetParent(UIGameobject);
+      tips.SetParent(tipls);
       RectTransform rectTrans = tips.GetComponent<RectTransform>();
       rectTrans.sizeDelta = new Vector2(0, 0);
       rectTrans.anchoredPosition = new Vector2(0, 0);
