@@ -60,6 +60,7 @@ namespace lgu3d
     protected Module_SoundComp SoundComp;                                       //声音组件 （需要则初始化）
     protected Module_CoroutineComp CoroutineComp;                               //协程组件（需要则初始化）
     protected Module_ResourceComp ResourceComp;                                 //资源管理组件（需要则初始化）
+    protected Module_GameObjectPool_Comp GameObjectPool_Comp;
 
     public ModelBase()
     {
@@ -181,6 +182,23 @@ namespace lgu3d
       }
       return TimerComp.VP(start, handler);
     }
+
+    /// <summary>
+    /// 启动计时器
+    /// </summary>
+    /// <param name="start">延迟时间</param>
+    /// <param name="interval">间隔时间</param>
+    /// <param name="handler">处理函数</param>
+    /// <returns></returns>
+    public uint VP(float start, int interval, Action handler){
+      if (TimerComp == null)
+      {
+        Debug.LogError(ModuleName + " No Load TimerComp");
+        return 0;
+      }
+      return TimerComp.VP(start,interval, handler);
+    }
+
     #endregion
 
     #region 声音组件
@@ -271,6 +289,23 @@ namespace lgu3d
     public T[] LoadAllAsset<T>(string BundleOrPath, string AssetName) where T : UnityEngine.Object
     {
       return ResourceComp.LoadAllAsset<T>(BundleOrPath, AssetName);
+    }
+    #endregion
+
+    #region 对象池
+    public T GetByQueuePool<T>(string poolname) where T : UnityEngine.Object 
+    {
+      return GameObjectPool_Comp.GetByQueuePool<T>(poolname);
+    }
+    public void PushByQueuePool<T>(string poolname, T obj)where T : UnityEngine.Object{
+      GameObjectPool_Comp.PushByQueuePool<T>(poolname,obj);
+    }
+    public T GetByDictionaryPool<T>(string poolname,string key) where T : UnityEngine.Object 
+    {
+      return GameObjectPool_Comp.GetByDictionaryPool<T>(poolname,key);
+    }
+    public void PushByDictionaryPool<T>(string poolname,string key, T obj)where T : UnityEngine.Object{
+      GameObjectPool_Comp.PushByDictionaryPool<T>(poolname,key,obj);
     }
     #endregion
     #endregion

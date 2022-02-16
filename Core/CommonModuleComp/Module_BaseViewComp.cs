@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 namespace lgu3d
 {
-
   public interface ViewComp
   {
     int GetIndex();
