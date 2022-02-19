@@ -35,19 +35,19 @@ namespace lgu3d
   {
     void OpenAd_Show();
     void OpenAd_Hide();
-    AdvState OpenAd_State();
+    bool OpenAd_IsReady();
     void BannerAd_Show(AdPosition advpos);
     void BannerAd_Hide();
-    AdvState BannerAd_State();
+    bool BannerAd_IsReady();
     void Intersitial_Show();
     void Intersitial_Hide();
-    AdvState Intersitial_State();
+    bool Intersitial_IsReady();
     void Video_RewardedAd_Show(Action<bool> backcall);
     void Video_RewardedAd_Hide();
-    AdvState Video_RewardedAd_State();
+    bool Video_RewardedAd_IsReady();
     void Interstitial_RewardedAd_Show(Action<bool> backcall);
     void Interstitial_RewardedAd_Hide();
-    AdvState Interstitial_RewardedAd_State();
+    bool Interstitial_RewardedAd_IsReady();
   }
 
 }
