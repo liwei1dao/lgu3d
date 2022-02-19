@@ -76,7 +76,7 @@ crashlytics-build.properties
 */GooglePayModule/*
 !*/GooglePayModule/GooglePayModule.unitypackage
 */VungleAdvModule/*
-!*/PangolinAdvModule/VungleAdvModule.unitypackage
+!*/VungleAdvModule/VungleAdvModule.unitypackage
 */PangolinAdvModule/*
 !*/PangolinAdvModule/PangolinAdvModule.unitypackage
 */ToolsResources/PackingToolsSetting.asset
