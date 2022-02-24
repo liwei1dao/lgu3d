@@ -33,21 +33,38 @@ namespace lgu3d
 
   public interface IAdv
   {
+    #region 开屏广告
+    void OpenAd_Load(Action<bool> backcall = null);
+    bool OpenAd_IsReady();
     void OpenAd_Show();
     void OpenAd_Hide();
-    bool OpenAd_IsReady();
+    #endregion
+    #region 横屏广告
+    void BannerAd_Load(AdPosition advpos, Action<bool> backcall = null);
+    bool BannerAd_IsReady();
     void BannerAd_Show(AdPosition advpos);
     void BannerAd_Hide();
-    bool BannerAd_IsReady();
+    #endregion
+    #region 插屏广告
+    void Intersitial_Load(Action<bool> backcall = null);
+    bool Intersitial_IsReady();
     void Intersitial_Show();
     void Intersitial_Hide();
-    bool Intersitial_IsReady();
+    #endregion
+
+    #region 视频激励广告
+    void Video_RewardedAd_Load(Action<bool> backcall = null);
+    bool Video_RewardedAd_IsReady();
     void Video_RewardedAd_Show(Action<bool> backcall);
     void Video_RewardedAd_Hide();
-    bool Video_RewardedAd_IsReady();
+    #endregion
+
+    #region 插屏激励广告
+    void Interstitial_RewardedAd_Load(Action<bool> backcall = null);
     void Interstitial_RewardedAd_Show(Action<bool> backcall);
     void Interstitial_RewardedAd_Hide();
     bool Interstitial_RewardedAd_IsReady();
+    #endregion
   }
 
 }
