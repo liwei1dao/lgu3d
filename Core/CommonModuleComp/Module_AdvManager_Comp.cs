@@ -18,6 +18,27 @@ namespace lgu3d
     }
     #endregion
 
+    public void AddAdv(IAdv adv)
+    {
+      advs.Add(adv);
+      advs.Sort((a, b) =>
+     {
+       if (a.Weights < b.Weights)
+       {
+         return 1;
+       }
+       else if (a.Weights == b.Weights)
+       {
+         return 0;
+       }
+       else
+       {
+         return -1;
+       }
+     });
+      Debug.Log(advs.ToString());
+    }
+
     /// <summary>
     /// 加载广告
     /// </summary>

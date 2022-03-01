@@ -3,6 +3,13 @@ using System;
 namespace lgu3d
 {
 
+  public enum AdvvWeights : int
+  {
+    Low,
+    Medium,
+    High,
+    VeryHigh,
+  }
   public enum AdvType
   {
     AppOpenAd,//开屏广告
@@ -33,6 +40,7 @@ namespace lgu3d
 
   public interface IAdv
   {
+    AdvvWeights Weights { get; set; }
     #region 开屏广告
     void OpenAd_Load(Action<bool> backcall = null);
     bool OpenAd_IsReady();
