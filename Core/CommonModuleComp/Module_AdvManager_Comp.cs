@@ -36,7 +36,6 @@ namespace lgu3d
          return -1;
        }
      });
-      Debug.Log(advs.ToString());
     }
 
     /// <summary>
