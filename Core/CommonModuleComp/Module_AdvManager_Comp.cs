@@ -10,8 +10,8 @@ namespace lgu3d
   public class Module_AdvManager_Comp<C> : ModelCompBase<C> where C : ModelBase, new()
   {
     protected List<IAdv> advs;
-    protected Action<IAdv,bool,string> initializationCall;
-    protected Action<AdvType,bool> advloadCall;
+    public AdvInitializationEvent InitializationEvent;
+    public AdvLoadEvent LoadEvent;
     protected Action<AdvType,bool> advRewarCall;
     #region 框架构造
     public override void Load(ModelBase module, params object[] agrs)
@@ -43,15 +43,32 @@ namespace lgu3d
           }
         });
       }
-      initializationCall?.Invoke(adv,isinitialization,message);
+      MyModule.VP(0,()=>{
+        InitializationEvent(adv,isinitialization,message);
+      });
     }
 
+    /// <summary>
+    /// 加载广告事件
+    /// </summary>
+    /// <param name="atype"></param>
+    /// <param name="isload"></param>
     protected virtual void AdvLoad(AdvType atype,bool isload){
-      advloadCall?.Invoke(atype,isload);
+      MyModule.VP(0,()=>{
+        LoadEvent(atype,isload);
+      });
     }
 
+    /// <summary>
+    /// 播放广告奖励事件
+    /// </summary>
+    /// <param name="atype"></param>
+    /// <param name="isload"></param>
     protected virtual void AdvReward(AdvType atype,bool isload){
-      advRewarCall?.Invoke(atype,isload);
+      MyModule.VP(0,()=>{
+        advRewarCall?.Invoke(atype,isload);
+        advRewarCall = null;
+      });
     }
 
     /// <summary>
@@ -60,7 +77,7 @@ namespace lgu3d
     /// <param name="adv"></param>
     /// <param name="advpos"></param>
     /// <param name="backcall"></param>
-    public void LoadAdv(AdvType adv, AdPosition advpos, Action<bool> backcall = null)
+    public void LoadAdv(AdvType adv, AdPosition advpos)
     {
       switch (adv)
       {
@@ -182,7 +199,7 @@ namespace lgu3d
     /// </summary>
     /// <param name="adv"></param>
     /// <param name="call"></param>
-    public void ShowRewardedAdv(AdvType adv, Action<bool> call)
+    public void ShowRewardedAdv(AdvType adv, Action<AdvType,bool> call)
     {
       switch (adv)
       {
@@ -191,8 +208,9 @@ namespace lgu3d
           {
             if (advs[i].Video_RewardedAd_IsReady())
             {
-              advs[i].Video_RewardedAd_Show(call);
-              break;
+              advRewarCall = call;
+              advs[i].Video_RewardedAd_Show();
+              return;
             }
           }
           break;
@@ -201,12 +219,14 @@ namespace lgu3d
           {
             if (advs[i].Interstitial_RewardedAd_IsReady())
             {
-              advs[i].Interstitial_RewardedAd_Show(call);
-              break;
+              advRewarCall = call;
+              advs[i].Interstitial_RewardedAd_Show();
+              return;
             }
           }
           break;
       }
+      Debug.LogErrorFormat("ShowRewardedAdv {0} No Can Use Adv!",adv.ToString());
     }
 
     /// <summary>
@@ -237,6 +257,5 @@ namespace lgu3d
         }
       }
     }
-  
   }
 }
