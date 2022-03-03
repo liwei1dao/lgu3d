@@ -10,6 +10,9 @@ namespace lgu3d
   public class Module_AdvManager_Comp<C> : ModelCompBase<C> where C : ModelBase, new()
   {
     protected List<IAdv> advs;
+    protected Action<IAdv,bool,string> initializationCall;
+    protected Action<AdvType,bool> advloadCall;
+    protected Action<AdvType,bool> advRewarCall;
     #region 框架构造
     public override void Load(ModelBase module, params object[] agrs)
     {
@@ -18,24 +21,37 @@ namespace lgu3d
     }
     #endregion
 
-    public void AddAdv(IAdv adv)
+    public virtual void AdvInitialization(IAdv adv,bool isinitialization,string message)
     {
-      advs.Add(adv);
-      advs.Sort((a, b) =>
-     {
-       if (a.Weights < b.Weights)
-       {
-         return 1;
-       }
-       else if (a.Weights == b.Weights)
-       {
-         return 0;
-       }
-       else
-       {
-         return -1;
-       }
-     });
+      if(isinitialization){
+        adv.LoadEvent += AdvLoad;
+        adv.RewardEvent += AdvReward;
+        advs.Add(adv);
+        advs.Sort((a, b) =>
+        {
+          if (a.Weights < b.Weights)
+          {
+            return 1;
+          }
+          else if (a.Weights == b.Weights)
+          {
+            return 0;
+          }
+          else
+          {
+            return -1;
+          }
+        });
+      }
+      initializationCall?.Invoke(adv,isinitialization,message);
+    }
+
+    protected virtual void AdvLoad(AdvType atype,bool isload){
+      advloadCall?.Invoke(atype,isload);
+    }
+
+    protected virtual void AdvReward(AdvType atype,bool isload){
+      advRewarCall?.Invoke(atype,isload);
     }
 
     /// <summary>
@@ -51,31 +67,31 @@ namespace lgu3d
         case AdvType.AppOpenAd:
           for (var i = 0; i < advs.Count; i++)
           {
-            advs[i].OpenAd_Load(backcall);
+            advs[i].OpenAd_Load();
           }
           break;
         case AdvType.BannerAd:
           for (var i = 0; i < advs.Count; i++)
           {
-            advs[i].BannerAd_Load(advpos, backcall);
+            advs[i].BannerAd_Load(advpos);
           }
           break;
         case AdvType.IntersitialAd:
           for (var i = 0; i < advs.Count; i++)
           {
-            advs[i].Intersitial_Load(backcall);
+            advs[i].Intersitial_Load();
           }
           break;
         case AdvType.Video_RewardedAd:
           for (var i = 0; i < advs.Count; i++)
           {
-            advs[i].Video_RewardedAd_Load(backcall);
+            advs[i].Video_RewardedAd_Load();
           }
           break;
         case AdvType.IntersitialAd_RewardedAd:
           for (var i = 0; i < advs.Count; i++)
           {
-            advs[i].Interstitial_RewardedAd_Load(backcall);
+            advs[i].Interstitial_RewardedAd_Load();
           }
           break;
       }
@@ -221,5 +237,6 @@ namespace lgu3d
         }
       }
     }
+  
   }
 }

@@ -2,7 +2,23 @@ using System;
 
 namespace lgu3d
 {
-
+  /// <summary>
+  /// 广告初始化完毕
+  /// </summary>
+  /// <param name="adv"></param>
+  public delegate void AdvInitializationEvent(IAdv adv,bool isinitialization,string message);
+  /// <summary>
+  /// 广告加载完毕
+  /// </summary>
+  /// <param name="atype"></param>
+  /// <param name="isload"></param>
+  public delegate void AdvLoadEvent(AdvType atype,bool isload);
+  /// <summary>
+  /// 广告奖励
+  /// </summary>
+  /// <param name="atype"></param>
+  /// <param name="isload"></param>
+  public delegate void AdvRewardEvent(AdvType atype,bool isload);
   public enum AdvvWeights : int
   {
     Low,
@@ -41,35 +57,38 @@ namespace lgu3d
   public interface IAdv
   {
     AdvvWeights Weights { get; set; }
+    AdvInitializationEvent InitializationEvent { get; set; }
+    AdvLoadEvent LoadEvent { get; set; }
+    AdvRewardEvent RewardEvent { get; set; }
     #region 开屏广告
-    void OpenAd_Load(Action<bool> backcall = null);
+    void OpenAd_Load();
     bool OpenAd_IsReady();
     void OpenAd_Show();
     void OpenAd_Hide();
     #endregion
     #region 横屏广告
-    void BannerAd_Load(AdPosition advpos, Action<bool> backcall = null);
+    void BannerAd_Load(AdPosition advpos);
     bool BannerAd_IsReady();
     void BannerAd_Show(AdPosition advpos);
     void BannerAd_Hide();
     #endregion
     #region 插屏广告
-    void Intersitial_Load(Action<bool> backcall = null);
+    void Intersitial_Load();
     bool Intersitial_IsReady();
     void Intersitial_Show();
     void Intersitial_Hide();
     #endregion
 
     #region 视频激励广告
-    void Video_RewardedAd_Load(Action<bool> backcall = null);
+    void Video_RewardedAd_Load();
     bool Video_RewardedAd_IsReady();
-    void Video_RewardedAd_Show(Action<bool> backcall);
+    void Video_RewardedAd_Show();
     void Video_RewardedAd_Hide();
     #endregion
 
     #region 插屏激励广告
-    void Interstitial_RewardedAd_Load(Action<bool> backcall = null);
-    void Interstitial_RewardedAd_Show(Action<bool> backcall);
+    void Interstitial_RewardedAd_Load();
+    void Interstitial_RewardedAd_Show();
     void Interstitial_RewardedAd_Hide();
     bool Interstitial_RewardedAd_IsReady();
     #endregion
