@@ -12,7 +12,7 @@ namespace lgu3d
     protected List<IAdv> advs;
     public AdvInitializationEvent InitializationEvent;
     public AdvLoadEvent LoadEvent;
-    protected Action<AdvType,bool> advRewarCall;
+    protected Action<AdvType, bool> advRewarCall;
     #region 框架构造
     public override void Load(ModelBase module, params object[] agrs)
     {
@@ -21,9 +21,10 @@ namespace lgu3d
     }
     #endregion
 
-    public virtual void AdvInitialization(IAdv adv,bool isinitialization,string message)
+    public virtual void AdvInitialization(IAdv adv, bool isinitialization, string message)
     {
-      if(isinitialization){
+      if (isinitialization)
+      {
         adv.LoadEvent += AdvLoad;
         adv.RewardEvent += AdvReward;
         advs.Add(adv);
@@ -43,8 +44,9 @@ namespace lgu3d
           }
         });
       }
-      MyModule.VP(0,()=>{
-        InitializationEvent(adv,isinitialization,message);
+      MyModule.VP(0, () =>
+      {
+        InitializationEvent?.Invoke(adv, isinitialization, message);
       });
     }
 
@@ -53,9 +55,11 @@ namespace lgu3d
     /// </summary>
     /// <param name="atype"></param>
     /// <param name="isload"></param>
-    protected virtual void AdvLoad(AdvType atype,bool isload){
-      MyModule.VP(0,()=>{
-        LoadEvent(atype,isload);
+    protected virtual void AdvLoad(AdvType atype, bool isload)
+    {
+      MyModule.VP(0, () =>
+      {
+        LoadEvent(atype, isload);
       });
     }
 
@@ -64,9 +68,11 @@ namespace lgu3d
     /// </summary>
     /// <param name="atype"></param>
     /// <param name="isload"></param>
-    protected virtual void AdvReward(AdvType atype,bool isload){
-      MyModule.VP(0,()=>{
-        advRewarCall?.Invoke(atype,isload);
+    protected virtual void AdvReward(AdvType atype, bool isload)
+    {
+      MyModule.VP(0, () =>
+      {
+        advRewarCall?.Invoke(atype, isload);
         advRewarCall = null;
       });
     }
@@ -199,7 +205,7 @@ namespace lgu3d
     /// </summary>
     /// <param name="adv"></param>
     /// <param name="call"></param>
-    public void ShowRewardedAdv(AdvType adv, Action<AdvType,bool> call)
+    public void ShowRewardedAdv(AdvType adv, Action<AdvType, bool> call)
     {
       switch (adv)
       {
@@ -226,7 +232,7 @@ namespace lgu3d
           }
           break;
       }
-      Debug.LogErrorFormat("ShowRewardedAdv {0} No Can Use Adv!",adv.ToString());
+      Debug.LogErrorFormat("ShowRewardedAdv {0} No Can Use Adv!", adv.ToString());
     }
 
     /// <summary>
