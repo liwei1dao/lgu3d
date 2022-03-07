@@ -112,7 +112,7 @@ namespace lgu3d
       _cm0.cullingMask = LayerMask.GetMask("UI");
       mLowUICamera = _cm0;
       Canvas _ca0 = mLowUIRoot.GetComponent<Canvas>();
-      _ca0.renderMode = RenderMode.ScreenSpaceCamera;
+      _ca0.renderMode = RenderMode.ScreenSpaceOverlay;
       _ca0.worldCamera = _cm0;
       _ca0.sortingOrder = 0;
       UnityEngine.UI.CanvasScaler _cs0 = mLowUIRoot.GetComponent<UnityEngine.UI.CanvasScaler>();
@@ -131,7 +131,7 @@ namespace lgu3d
       _cm1.cullingMask = LayerMask.GetMask("UI");
       mNormalUCamera = _cm1;
       Canvas _ca1 = mNormalUIRoot.GetComponent<Canvas>();
-      _ca1.renderMode = RenderMode.ScreenSpaceCamera;
+      _ca1.renderMode = RenderMode.ScreenSpaceOverlay;
       _ca1.worldCamera = _cm1;
       _ca1.sortingOrder = 1;
       UnityEngine.UI.CanvasScaler _cs1 = mNormalUIRoot.GetComponent<UnityEngine.UI.CanvasScaler>();
@@ -151,7 +151,7 @@ namespace lgu3d
       _cm2.cullingMask = LayerMask.GetMask("UI");
       mHightUICamera = _cm2;
       Canvas _ca2 = mHightUIRoot.GetComponent<Canvas>();
-      _ca2.renderMode = RenderMode.ScreenSpaceCamera;
+      _ca2.renderMode = RenderMode.ScreenSpaceOverlay;
       _ca2.worldCamera = _cm2;
       _ca2.sortingOrder = 2;
       UnityEngine.UI.CanvasScaler _cs2 = mHightUIRoot.GetComponent<UnityEngine.UI.CanvasScaler>();

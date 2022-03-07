@@ -13,7 +13,7 @@ namespace lgu3d
 
     public override void Load(params object[] _Agr)
     {
-      SoundPlayers = new GameObject("SoundPlayers", typeof(AudioListener));
+      SoundPlayers = new GameObject("SoundPlayers");
       DataComp = AddComp<SoundDataComp>();
       Object.DontDestroyOnLoad(SoundPlayers);
       base.Load(_Agr);
