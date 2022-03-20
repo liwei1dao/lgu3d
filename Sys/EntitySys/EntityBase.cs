@@ -147,7 +147,7 @@ namespace lgu3d
       MyComps.Remove(comp);
       comp.Destroy();
     }
-    public void Destroy()
+    public virtual void Destroy()
     {
       for (int i = 0; i < MyComps.Count; i++)
       {
@@ -167,9 +167,8 @@ namespace lgu3d
   public abstract class MonoEntityBase<E> : MonoEntityBase, IMonoEntityBase<E> where E : MonoEntityBase, IMonoEntityBase<E>
   {
     public new E Entity { get; set; }
-    public override void Load(IMonoEntityBase entity)
+    public virtual void Load(E entity)
     {
-      Entity = entity as E;
       base.Load(entity);
     }
   }

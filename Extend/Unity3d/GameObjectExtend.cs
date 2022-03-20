@@ -81,6 +81,22 @@ namespace lgu3d
       return obj;
     }
     /// <summary>
+    /// 创建游戏对象
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="_object"></param>
+    /// <param name="parent"></param>
+    /// <returns></returns>
+    public static GameObject CreateToParnt(this UnityEngine.Object _object, GameObject parent, Vector3 pos, Quaternion rot)
+    {
+      GameObject obj = GameObject.Instantiate(_object, pos, rot) as GameObject;
+      if (obj != null && parent != null)
+      {
+        obj.transform.SetParent(parent.transform);
+      }
+      return obj;
+    }
+    /// <summary>
     /// 创建子对象
     /// </summary>
     /// <param name="Parent"></param>
