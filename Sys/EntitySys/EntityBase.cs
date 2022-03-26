@@ -153,7 +153,7 @@ namespace lgu3d
       {
         MyComps[i].Destroy();
       }
-      GameObject.Destroy(this);
+      GameObject.Destroy(gameObject);
     }
     public new CoroutineTask StartCoroutine(IEnumerator routine)
     {
