@@ -59,7 +59,7 @@ namespace lgu3d
     {
       MyModule.VP(0, () =>
       {
-        LoadEvent(atype, isload);
+        LoadEvent?.Invoke(atype, isload);
       });
     }
 
