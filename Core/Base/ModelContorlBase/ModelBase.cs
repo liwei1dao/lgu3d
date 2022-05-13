@@ -190,13 +190,14 @@ namespace lgu3d
     /// <param name="interval">间隔时间</param>
     /// <param name="handler">处理函数</param>
     /// <returns></returns>
-    public uint VP(float start, int interval, Action handler){
+    public uint VP(float start, int interval, Action handler)
+    {
       if (TimerComp == null)
       {
         Debug.LogError(ModuleName + " No Load TimerComp");
         return 0;
       }
-      return TimerComp.VP(start,interval, handler);
+      return TimerComp.VP(start, interval, handler);
     }
 
     #endregion
@@ -293,19 +294,29 @@ namespace lgu3d
     #endregion
 
     #region 对象池
-    public T GetByQueuePool<T>(string poolname) where T : UnityEngine.Object 
+    public void RegisterDictionaryPool<T>(string poolname, Func<string, T> cf) where T : UnityEngine.Object
+    {
+      GameObjectPool_Comp.RegisterDictionaryPool<T>(poolname, cf);
+    }
+    public void RegisterQueuePool<T>(string poolname, Func<T> cf) where T : UnityEngine.Object
+    {
+      GameObjectPool_Comp.RegisterQueuePool<T>(poolname, cf);
+    }
+    public T GetByQueuePool<T>(string poolname) where T : UnityEngine.Object
     {
       return GameObjectPool_Comp.GetByQueuePool<T>(poolname);
     }
-    public void PushByQueuePool<T>(string poolname, T obj)where T : UnityEngine.Object{
-      GameObjectPool_Comp.PushByQueuePool<T>(poolname,obj);
-    }
-    public T GetByDictionaryPool<T>(string poolname,string key) where T : UnityEngine.Object 
+    public void PushByQueuePool<T>(string poolname, T obj) where T : UnityEngine.Object
     {
-      return GameObjectPool_Comp.GetByDictionaryPool<T>(poolname,key);
+      GameObjectPool_Comp.PushByQueuePool<T>(poolname, obj);
     }
-    public void PushByDictionaryPool<T>(string poolname,string key, T obj)where T : UnityEngine.Object{
-      GameObjectPool_Comp.PushByDictionaryPool<T>(poolname,key,obj);
+    public T GetByDictionaryPool<T>(string poolname, string key) where T : UnityEngine.Object
+    {
+      return GameObjectPool_Comp.GetByDictionaryPool<T>(poolname, key);
+    }
+    public void PushByDictionaryPool<T>(string poolname, string key, T obj) where T : UnityEngine.Object
+    {
+      GameObjectPool_Comp.PushByDictionaryPool<T>(poolname, key, obj);
     }
     #endregion
     #endregion

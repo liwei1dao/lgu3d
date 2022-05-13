@@ -50,41 +50,49 @@ namespace lgu3d
     /// </summary>
     public class GameObjectPoolByDictionary
     {
-      public Func<string,UnityEngine.Object> CreateFun;
-      public Dictionary<string,UnityEngine.Object> Pool;
-      public GameObjectPoolByDictionary(Func<string,UnityEngine.Object> cf)
+      public Func<string, UnityEngine.Object> CreateFun;
+      public Dictionary<string, Queue<UnityEngine.Object>> Pool;
+      public GameObjectPoolByDictionary(Func<string, UnityEngine.Object> cf)
       {
         CreateFun = cf;
-        Pool = new Dictionary<string,UnityEngine.Object>();
+        Pool = new Dictionary<string, Queue<UnityEngine.Object>>();
       }
 
       public UnityEngine.Object Get(string key)
       {
-        if(Pool.ContainsKey(key)){
-          return Pool[key];
-        }else{
-            UnityEngine.Object obj = CreateFun(key);
-            Pool[key] = obj;
-            return obj;
+        if (Pool.ContainsKey(key) && Pool[key].Count > 0)
+        {
+          return Pool[key].Dequeue();
+        }
+        else
+        {
+          UnityEngine.Object obj = CreateFun(key);
+          return obj;
         }
       }
 
-      public void Push(string key,UnityEngine.Object obj)
+      public void Push(string key, UnityEngine.Object obj)
       {
-        Pool[key] = obj;
+        if (!Pool.ContainsKey(key))
+        {
+          Pool[key] = new Queue<UnityEngine.Object>();
+        }
+        Pool[key].Enqueue(obj);
       }
     }
 
     protected Dictionary<string, GameObjectPoolByQueue> qpools;
-    protected Dictionary<string, GameObjectPoolByDictionary> dpools; 
+    protected Dictionary<string, GameObjectPoolByDictionary> dpools;
     public override void Load(ModelBase module, params object[] agr)
     {
       qpools = new Dictionary<string, GameObjectPoolByQueue>();
       dpools = new Dictionary<string, GameObjectPoolByDictionary>();
-      base.Load(module,agr);
+      base.Load(module, agr);
+      LoadEnd();
     }
 
-    public override void Close(){
+    public override void Close()
+    {
       base.Close();
       qpools.Clear();
     }
@@ -128,14 +136,14 @@ namespace lgu3d
       }
     }
     #endregion
-  
+
     #region DictionaryObjectPool
     /// <summary>
     /// 注册队列对象池
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="cf"></param>
-    public virtual void RegisterDictionaryPool<T>(string poolname,Func<string,T> cf) where T : UnityEngine.Object
+    public virtual void RegisterDictionaryPool<T>(string poolname, Func<string, T> cf) where T : UnityEngine.Object
     {
       if (dpools.ContainsKey(poolname))
       {
@@ -150,7 +158,7 @@ namespace lgu3d
 
 
 
-    public virtual T GetByDictionaryPool<T>(string poolname,string key) where T : UnityEngine.Object
+    public virtual T GetByDictionaryPool<T>(string poolname, string key) where T : UnityEngine.Object
     {
       if (dpools.ContainsKey(poolname))
       {
@@ -163,11 +171,11 @@ namespace lgu3d
       }
     }
 
-    public virtual void PushByDictionaryPool<T>(string poolname,string key, T obj) where T : UnityEngine.Object
+    public virtual void PushByDictionaryPool<T>(string poolname, string key, T obj) where T : UnityEngine.Object
     {
       if (dpools.ContainsKey(poolname))
       {
-        dpools[poolname].Push(key,obj);
+        dpools[poolname].Push(key, obj);
       }
       else
       {
