@@ -8,6 +8,20 @@ namespace lgu3d
 
   public static class GameObjectExtend
   {
+
+    public static GameObject Find(this GameObject Target, string target)
+    {
+      Transform targetran = Target.transform.Find(target);
+      if (targetran != null)
+      {
+        return targetran.gameObject;
+      }
+      else
+      {
+        return null;
+      }
+    }
+
     public static string GetPath(this Transform current)
     {
       if (current.parent == null)
