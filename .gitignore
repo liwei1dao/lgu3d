@@ -64,7 +64,9 @@ crashlytics-build.properties
 */PackingToolsSetting.asset
 
 */LuaManagerModule/*
-!*/SDKManagerModule/LuaManagerModule.unitypackage
+!*/LuaManagerModule/LuaManagerModule.unitypackage
+*/LuaServiceModule/*
+!*/LuaServiceModule/LuaServiceModule.unitypackage
 */SDKManagerModule/*
 !*/SDKManagerModule/SDKManagerModule.unitypackage
 */AndroidToolsModule/*
