@@ -63,6 +63,10 @@ crashlytics-build.properties
 */Lua/*.meta
 */PackingToolsSetting.asset
 
+*/UmengModule/*
+!*/UmengModule/UmengModule.unitypackage
+*/ServerModule/*
+!*/ServerModule/ServerModule.unitypackage
 */LuaManagerModule/*
 !*/LuaManagerModule/LuaManagerModule.unitypackage
 */LuaServiceModule/*
