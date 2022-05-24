@@ -94,6 +94,15 @@ namespace lgu3d
       }
       return obj;
     }
+    public static GameObject CreateToParnt(this UnityEngine.Object _object, GameObject parent, Vector3 pos)
+    {
+      GameObject obj = GameObject.Instantiate(_object, pos, Quaternion.identity) as GameObject;
+      if (obj != null && parent != null)
+      {
+        obj.transform.SetParent(parent.transform);
+      }
+      return obj;
+    }
     /// <summary>
     /// 创建游戏对象
     /// </summary>
@@ -148,7 +157,18 @@ namespace lgu3d
       Target.transform.localScale = Vector3.one;
       Target.transform.localRotation = Quaternion.identity;
     }
-
+    /// <summary>
+    /// 設置父物体对象
+    /// </summary>
+    /// <param name="Target"></param>
+    /// <param name="Parent"></param>
+    public static void SetParent(this GameObject Target, GameObject Parent, Vector3 Pos)
+    {
+      Target.transform.SetParent(Parent.transform);
+      Target.transform.localPosition = Pos;
+      Target.transform.localScale = Vector3.one;
+      Target.transform.localRotation = Quaternion.identity;
+    }
     /// <summary>
     /// 設置父物体对象
     /// </summary>
