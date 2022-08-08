@@ -172,6 +172,7 @@ Material:
     m_Floats:
     - Vector1_29210B31: 0.4
     - Vector1_81C3F29F: 0.5
+    - Vector1_ca245904fca243feadb091ca2e809eae: 0.25
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1
@@ -311,9 +312,11 @@ Material:
     - _ZTestTransparent: 0
     - _ZWrite: 1
     m_Colors:
-    - Vector2_E82F491D: {r: 1.5, g: 0, b: 0, a: 0}
+    - Vector2_E82F491D: {r: 0.1, g: 0.1, b: 0, a: 0}
+    - Vector2_b94517b32c924aeb99d065a40052735b: {r: 0.1, g: 0.1, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
+    - _BottomColor: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
@@ -324,6 +327,7 @@ Material:
     - _ShadeEnvironmentalColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
+    - _TopColor: {r: 1, g: 1, b: 1, a: 1}
     - _TransmittanceColor: {r: 1, g: 1, b: 1, a: 1}
     - _UVDetailsMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
