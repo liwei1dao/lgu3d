@@ -7,231 +7,235 @@ using System.Reflection;
 
 namespace lgu3d.Editor
 {
-  [CustomEditor(typeof(ModuleManagerBase))]
-  public class ManagerBaseEditor : UnityEditor.Editor
-  {
-    ModuleManagerBase obj;
-    Dictionary<string, ModelBase> Models;
-    List<string> ModelNames;
-
-    bool IsInit = false;
-
-    bool showPosition = true;
-    public Vector2 scrollPosition = Vector2.zero;
-    Dictionary<string, bool> ModelToggle;
-    Dictionary<string, bool> ModelDetailsToggle;
-    Dictionary<string, bool> ModelCompToggle;
-    Dictionary<string, Vector2> ModelDetailsPos;
-
-    public void initMe()
+    [CustomEditor(typeof(ModuleManagerBase))]
+    public class ManagerBaseEditor : UnityEditor.Editor
     {
-      obj = ((ModuleManagerBase)target);
-      Models = obj.Models;
-      ModelNames = new List<string>(Models.Keys);
-      ModelToggle = new Dictionary<string, bool>();
-      ModelDetailsToggle = new Dictionary<string, bool>();
-      ModelCompToggle = new Dictionary<string, bool>();
-      ModelDetailsPos = new Dictionary<string, Vector2>();
-      for (int i = 0; i < ModelNames.Count; i++)
-      {
-        ModelToggle[ModelNames[i]] = false;
-        ModelDetailsToggle[ModelNames[i]] = false;
-        ModelCompToggle[ModelNames[i]] = false;
-        ModelDetailsPos[ModelNames[i]] = Vector2.zero;
-      }
-      IsInit = true;
-    }
+        ModuleManagerBase obj;
+        Dictionary<string, ModelBase> Models;
+        List<string> ModelNames;
 
-    Rect ItemRect = new Rect(1, 1.5f, 100, 44);
-    public override void OnInspectorGUI()
-    {
-      if (!IsInit) initMe();
-      EditorGUI.indentLevel = 0;
-      showPosition = EditorGUILayout.Foldout(showPosition, "模块列表");
-      GUILayout.BeginHorizontal(EditorStyles.helpBox);
-      if (showPosition)
-      {
-        scrollPosition = GUILayout.BeginScrollView(scrollPosition, false, true, GUILayout.ExpandHeight(false));
+        bool IsInit = false;
 
-        for (int i = 0; i < ModelNames.Count; i++)
+        bool showPosition = true;
+        public Vector2 scrollPosition = Vector2.zero;
+        Dictionary<string, bool> ModelToggle;
+        Dictionary<string, bool> ModelDetailsToggle;
+        Dictionary<string, bool> ModelCompToggle;
+        Dictionary<string, Vector2> ModelDetailsPos;
+
+        public void initMe()
         {
-          EditorGUI.indentLevel = 1;
-          //ShowModeInfoStyle(i,new Rect(ItemRect.x, ItemRect.y + i * ItemRect.height, EditorHelper.visibleRect.width, ItemRect.height));
-          GUILayout.BeginVertical(EditorStyles.helpBox);
-          //GUILayout.BeginHorizontal(EditorStyles.helpBox);
-          ModelToggle[Models[ModelNames[i]].ModuleName] = EditorGUILayout.Foldout(ModelToggle[Models[ModelNames[i]].ModuleName], Models[ModelNames[i]].ModuleName);
-          if (ModelToggle[Models[ModelNames[i]].ModuleName])
-            ShowModeInfo(ModelNames[i], Models[ModelNames[i]]);
-          //GUILayout.EndHorizontal();
-          GUILayout.EndVertical();
+            obj = ((ModuleManagerBase)target);
+            Models = obj.Models;
+            ModelNames = new List<string>(Models.Keys);
+            ModelToggle = new Dictionary<string, bool>();
+            ModelDetailsToggle = new Dictionary<string, bool>();
+            ModelCompToggle = new Dictionary<string, bool>();
+            ModelDetailsPos = new Dictionary<string, Vector2>();
+            for (int i = 0; i < ModelNames.Count; i++)
+            {
+                ModelToggle[ModelNames[i]] = false;
+                ModelDetailsToggle[ModelNames[i]] = false;
+                ModelCompToggle[ModelNames[i]] = false;
+                ModelDetailsPos[ModelNames[i]] = Vector2.zero;
+            }
+            IsInit = true;
         }
-        GUILayout.EndScrollView();
 
-      }
-      GUILayout.EndHorizontal();
-      this.Repaint();
-    }
-    protected virtual void ShowModeInfo(string ModelStr, ModelBase Model)
-    {
-      var t = Model.GetType();
-      FieldInfo[] properties = t.GetFields(BindingFlags.Default | BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-      EditorGUILayout.LabelField("模块名称", Model.ModuleName);
-      EditorGUILayout.LabelField("状态", Model.State.ToString());
-      foreach (var item in properties)
-      {
-        SerializeObj(item, Model, item.GetValue(Model));
-      }
-      Model.ShowInspector();
-      GUILayout.BeginVertical(EditorStyles.helpBox);
-      ModelCompToggle[Model.ModuleName] = EditorGUILayout.Foldout(ModelCompToggle[Model.ModuleName], "组件列表");
-      if (ModelCompToggle[Model.ModuleName])
-      {
-        List<ModelCompBase> ModelComps = Model.GetMyComps();
-        for (int i = 0; i < ModelComps.Count; i++)
+        Rect ItemRect = new Rect(1, 1.5f, 100, 44);
+        public override void OnInspectorGUI()
         {
-          GUILayout.BeginVertical(EditorStyles.textField);
-          ShowCompInfo(ModelComps[i]);
-          GUILayout.EndVertical();
+            if (!IsInit) initMe();
+            EditorGUI.indentLevel = 0;
+            showPosition = EditorGUILayout.Foldout(showPosition, "模块列表");
+            GUILayout.BeginHorizontal(EditorStyles.helpBox);
+            if (showPosition)
+            {
+                scrollPosition = GUILayout.BeginScrollView(scrollPosition, false, true, GUILayout.ExpandHeight(false));
+
+                for (int i = 0; i < ModelNames.Count; i++)
+                {
+                    EditorGUI.indentLevel = 1;
+                    //ShowModeInfoStyle(i,new Rect(ItemRect.x, ItemRect.y + i * ItemRect.height, EditorHelper.visibleRect.width, ItemRect.height));
+                    GUILayout.BeginVertical(EditorStyles.helpBox);
+                    //GUILayout.BeginHorizontal(EditorStyles.helpBox);
+                    ModelToggle[Models[ModelNames[i]].ModuleName] = EditorGUILayout.Foldout(ModelToggle[Models[ModelNames[i]].ModuleName], Models[ModelNames[i]].ModuleName);
+                    if (ModelToggle[Models[ModelNames[i]].ModuleName])
+                        ShowModeInfo(ModelNames[i], Models[ModelNames[i]]);
+                    //GUILayout.EndHorizontal();
+                    GUILayout.EndVertical();
+                }
+                GUILayout.EndScrollView();
+
+            }
+            GUILayout.EndHorizontal();
+            this.Repaint();
         }
-      }
-      GUILayout.EndVertical();
-    }
-
-    /// <summary>
-    /// 显示组件信息
-    /// </summary>
-    /// <param name="Comp"></param>
-    protected virtual void ShowCompInfo(ModelCompBase Comp)
-    {
-      var t = Comp.GetType();
-      FieldInfo[] properties = t.GetFields(BindingFlags.Default | BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-      EditorGUILayout.LabelField("组件", t.Name.ToString());
-      EditorGUILayout.LabelField("状态", Comp.State.ToString());
-      foreach (var item in properties)
-      {
-        SerializeObj(item, Comp, item.GetValue(Comp));
-      }
-      Comp.ShowInspector();
-    }
-
-
-    /// <summary>
-    /// 显示模块对象样式
-    /// </summary>
-    /// <param name="Index"></param>
-    /// <param name="width"></param>
-    /// <param name="heght"></param>
-    public readonly GUIStyle listItemBackground2 = new GUIStyle("CN EntryBackEven");
-    public int CurrIndex = -1;
-    protected virtual void ShowModeInfoStyle(int Index, Rect Pos)
-    {
-      if (Event.current.type == EventType.MouseDown && Event.current.button == 0 && Pos.Contains(Event.current.mousePosition))
-      {
-        CurrIndex = Index;
-        Event.current.Use();
-        if (Event.current.clickCount == 2)
+        protected virtual void ShowModeInfo(string ModelStr, ModelBase Model)
         {
-          ModelBaseEditor.CloseView();
-          ModelBaseEditor.ShowModelView(ModelNames[CurrIndex], Models[ModelNames[CurrIndex]], new Rect(Pos.x, Pos.y, 300, 500));
+            var t = Model.GetType();
+            FieldInfo[] properties = t.GetFields(BindingFlags.Default | BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+            EditorGUILayout.LabelField("模块名称", Model.ModuleName);
+            EditorGUILayout.LabelField("状态", Model.State.ToString());
+            foreach (var item in properties)
+            {
+                SerializeObj(item, Model, item.GetValue(Model));
+            }
+            Model.ShowInspector();
+            GUILayout.BeginVertical(EditorStyles.helpBox);
+            ModelCompToggle[Model.ModuleName] = EditorGUILayout.Foldout(ModelCompToggle[Model.ModuleName], "组件列表");
+            if (ModelCompToggle[Model.ModuleName])
+            {
+                List<ModelCompBase> ModelComps = Model.GetMyComps();
+                for (int i = 0; i < ModelComps.Count; i++)
+                {
+                    GUILayout.BeginVertical(EditorStyles.textField);
+                    ShowCompInfo(ModelComps[i]);
+                    GUILayout.EndVertical();
+                }
+            }
+            GUILayout.EndVertical();
         }
-      }
-      if (Event.current.type == EventType.Repaint)
-      {
-        listItemBackground2.Draw(Pos, false, false, CurrIndex == Index, false);
-      }
+
+        /// <summary>
+        /// 显示组件信息
+        /// </summary>
+        /// <param name="Comp"></param>
+        protected virtual void ShowCompInfo(ModelCompBase Comp)
+        {
+            var t = Comp.GetType();
+            FieldInfo[] properties = t.GetFields(BindingFlags.Default | BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+            EditorGUILayout.LabelField("组件", t.Name.ToString());
+            EditorGUILayout.LabelField("状态", Comp.State.ToString());
+            foreach (var item in properties)
+            {
+                SerializeObj(item, Comp, item.GetValue(Comp));
+            }
+            Comp.ShowInspector();
+        }
+
+
+        /// <summary>
+        /// 显示模块对象样式
+        /// </summary>
+        /// <param name="Index"></param>
+        /// <param name="width"></param>
+        /// <param name="heght"></param>
+        public readonly GUIStyle listItemBackground2 = new GUIStyle("CN EntryBackEven");
+        public int CurrIndex = -1;
+        protected virtual void ShowModeInfoStyle(int Index, Rect Pos)
+        {
+            if (Event.current.type == EventType.MouseDown && Event.current.button == 0 && Pos.Contains(Event.current.mousePosition))
+            {
+                CurrIndex = Index;
+                Event.current.Use();
+                if (Event.current.clickCount == 2)
+                {
+                    ModelBaseEditor.CloseView();
+                    ModelBaseEditor.ShowModelView(ModelNames[CurrIndex], Models[ModelNames[CurrIndex]], new Rect(Pos.x, Pos.y, 300, 500));
+                }
+            }
+            if (Event.current.type == EventType.Repaint)
+            {
+                listItemBackground2.Draw(Pos, false, false, CurrIndex == Index, false);
+            }
+        }
+
+
+        #region 反射显示字段
+        private void SerializeObj(FieldInfo value, object Comp, object obj)
+        {
+            Type objtype = value.FieldType;
+            object[] attributes = value.GetCustomAttributes(typeof(lgu3d_SerializeAttribute), true);
+            if (attributes == null || attributes.Length == 0)
+                return;
+            object SerializeAttribute = attributes[0];
+            bool IsWirte = (bool)SerializeAttribute.GetType().GetField("IsWrite").GetValue(SerializeAttribute);
+            string Name = SerializeAttribute is lgu3d_SerializeNameAttribute ? (string)SerializeAttribute.GetType().GetField("Name").GetValue(SerializeAttribute) : value.Name;
+            if (objtype == typeof(string))
+            {
+                if (IsWirte)
+                    value.SetValue(Comp, EditorGUILayout.TextField(Name, (string)obj));
+                else
+                    EditorGUILayout.LabelField(Name, (string)obj);
+
+            }
+            else if (objtype == typeof(bool))
+            {
+                if (IsWirte)
+                    value.SetValue(Comp, EditorGUILayout.Toggle(Name, (bool)obj));
+                else
+                    EditorGUILayout.Toggle(Name, (bool)obj);
+            }
+            else if (objtype.IsEnum)
+            {
+                if (IsWirte)
+                    value.SetValue(Comp, EditorGUILayout.EnumPopup(Name, (Enum)obj));
+                else
+                    EditorGUILayout.EnumPopup(Name, (Enum)obj);
+            }
+            else if (objtype == typeof(byte) || objtype == typeof(int))
+            {
+                if (IsWirte)
+                    value.SetValue(Comp, EditorGUILayout.IntField(Name, (int)obj));
+                else
+                    EditorGUILayout.IntField(Name, (int)obj);
+            }
+            else if (objtype == typeof(long))
+            {
+                if (IsWirte)
+                    value.SetValue(Comp, EditorGUILayout.LongField(Name, (long)obj));
+                else
+                    EditorGUILayout.LongField(Name, (long)obj);
+            }
+            else if (objtype == typeof(float) || objtype == typeof(double))
+            {
+                if (IsWirte)
+                    value.SetValue(Comp, EditorGUILayout.FloatField(Name, (float)obj));
+                else
+                    EditorGUILayout.FloatField(Name, (float)obj);
+            }
+            else if (objtype == typeof(Vector2))
+            {
+                if (IsWirte)
+                    value.SetValue(Comp, EditorGUILayout.Vector2Field(Name, (Vector2)obj));
+                else
+                    EditorGUILayout.Vector2Field(Name, (Vector2)obj);
+            }
+            else if (objtype == typeof(Vector3))
+            {
+                if (IsWirte)
+                    value.SetValue(Comp, EditorGUILayout.Vector3Field(Name, (Vector3)obj));
+                else
+                    EditorGUILayout.Vector3Field(Name, (Vector3)obj);
+            }
+            else if (objtype == typeof(Color32))
+            {
+                if (IsWirte)
+                    value.SetValue(Comp, EditorGUILayout.ColorField(Name, (Color32)obj));
+                else
+                    EditorGUILayout.ColorField(Name, (Color32)obj);
+            }
+            else if (objtype.IsClass)
+            {
+                EditorGUILayout.LabelField(Name, JsonTools.ObjectToJsonStr(obj));
+            }
+            else if (objtype.IsGenericType && objtype.GetGenericTypeDefinition() == typeof(Dictionary<,>))
+            {
+                EditorGUILayout.LabelField(Name, JsonTools.ObjectToJsonStr(obj));
+            }
+            else if (objtype.IsGenericType && objtype.GetGenericTypeDefinition() == typeof(List<>))
+            {
+                EditorGUILayout.LabelField(Name, JsonTools.ObjectToJsonStr(obj));
+            }
+            else
+            {
+                GUILayout.Label(Name + ": 对象没有序列化");
+            }
+        }
+        #endregion
+
     }
-
-
-    #region 反射显示字段
-    private void SerializeObj(FieldInfo value, object Comp, object obj)
-    {
-      Type objtype = value.FieldType;
-      object[] attributes = value.GetCustomAttributes(typeof(lgu3d_SerializeAttribute), true);
-      if (attributes == null || attributes.Length == 0)
-        return;
-      object SerializeAttribute = attributes[0];
-      bool IsWirte = (bool)SerializeAttribute.GetType().GetField("IsWrite").GetValue(SerializeAttribute);
-      string Name = SerializeAttribute is lgu3d_SerializeNameAttribute ? (string)SerializeAttribute.GetType().GetField("Name").GetValue(SerializeAttribute) : value.Name;
-      if (objtype == typeof(string))
-      {
-        if (IsWirte)
-          value.SetValue(Comp, EditorGUILayout.TextField(Name, (string)obj));
-        else
-          EditorGUILayout.LabelField(Name, (string)obj);
-
-      }
-      else if (objtype == typeof(bool))
-      {
-        if (IsWirte)
-          value.SetValue(Comp, EditorGUILayout.Toggle(Name, (bool)obj));
-        else
-          EditorGUILayout.Toggle(Name, (bool)obj);
-      }
-      else if (objtype.IsEnum)
-      {
-        if (IsWirte)
-          value.SetValue(Comp, EditorGUILayout.EnumPopup(Name, (Enum)obj));
-        else
-          EditorGUILayout.EnumPopup(Name, (Enum)obj);
-      }
-      else if (objtype == typeof(byte) || objtype == typeof(int))
-      {
-        if (IsWirte)
-          value.SetValue(Comp, EditorGUILayout.IntField(Name, (int)obj));
-        else
-          EditorGUILayout.IntField(Name, (int)obj);
-      }
-      else if (objtype == typeof(long))
-      {
-        if (IsWirte)
-          value.SetValue(Comp, EditorGUILayout.LongField(Name, (long)obj));
-        else
-          EditorGUILayout.LongField(Name, (long)obj);
-      }
-      else if (objtype == typeof(float) || objtype == typeof(double))
-      {
-        if (IsWirte)
-          value.SetValue(Comp, EditorGUILayout.FloatField(Name, (float)obj));
-        else
-          EditorGUILayout.FloatField(Name, (float)obj);
-      }
-      else if (objtype == typeof(Vector2))
-      {
-        if (IsWirte)
-          value.SetValue(Comp, EditorGUILayout.Vector2Field(Name, (Vector2)obj));
-        else
-          EditorGUILayout.Vector2Field(Name, (Vector2)obj);
-      }
-      else if (objtype == typeof(Vector3))
-      {
-        if (IsWirte)
-          value.SetValue(Comp, EditorGUILayout.Vector3Field(Name, (Vector3)obj));
-        else
-          EditorGUILayout.Vector3Field(Name, (Vector3)obj);
-      }
-      else if (objtype == typeof(Color32))
-      {
-        if (IsWirte)
-          value.SetValue(Comp, EditorGUILayout.ColorField(Name, (Color32)obj));
-        else
-          EditorGUILayout.ColorField(Name, (Color32)obj);
-      }
-      else if (objtype.IsGenericType && objtype.GetGenericTypeDefinition() == typeof(Dictionary<,>))
-      {
-        EditorGUILayout.LabelField(Name + ": 字典列表");
-      }
-      else if (objtype.IsGenericType && objtype.GetGenericTypeDefinition() == typeof(List<>))
-      {
-        EditorGUILayout.LabelField(Name + ": 对象列表");
-      }
-      else
-      {
-        GUILayout.Label(Name + ": 对象没有序列化");
-      }
-    }
-    #endregion
-
-  }
 }
 
 /*自带样式名称（string to GUIStyle）
