@@ -263,6 +263,10 @@ namespace lgu3d
         public GameObject CreateObj(string BundleOrPath, string ObjectPath, GameObject Parnt)
         {
             GameObject obj = LoadAsset<GameObject>(BundleOrPath, ObjectPath);
+            if (obj == null)
+            {
+                return null;
+            }
             if (Parnt == null)
                 return obj.CreateToParnt(null);
             else
