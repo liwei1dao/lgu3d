@@ -221,7 +221,7 @@ namespace lgu3d
                         }
                     }
                     break;
-                case AdvType.IntersitialAd:
+                case AdvType.IntersitialAd_RewardedAd:
                     for (var i = 0; i < advs.Count; i++)
                     {
                         if (advs[i].Interstitial_RewardedAd_IsReady())
