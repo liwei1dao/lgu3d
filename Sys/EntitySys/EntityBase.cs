@@ -102,13 +102,13 @@ namespace lgu3d
         #region 框架函数
         public override void Init(IEntityBase entity)
         {
-            throw new System.Exception("请使用 Load(E entity) 接口初始化");
+            base.Init(entity);
+            Entity = entity as E;
         }
         public virtual void Init(E entity)
         {
             base.Init(entity);
             Entity = entity;
-            Comps = new List<IEntityCompBase>();
         }
 
         #endregion
@@ -128,7 +128,8 @@ namespace lgu3d
         #region 框架函数
         public override void Init(IEntityBase entity)
         {
-            throw new System.Exception("请使用 Init(E entity, D config) 接口初始化");
+            base.Init(entity);
+            Entity = entity as E;
         }
         public virtual void Init(E entity, D config)
         {

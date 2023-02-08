@@ -12,10 +12,10 @@ namespace lgu3d
     {
         public Gradient gradientColor = new Gradient();
         //是否垂直方向
-        [MFWAttributeRename("是否垂直方向")]
+        [LGAttributeRename("是否垂直方向")]
         public bool isVertical = true;
         //是否叠加原有颜色
-        [MFWAttributeRename("是否叠加原有颜色")]
+        [LGAttributeRename("是否叠加原有颜色")]
         public bool isMultiplyTextColor = false;
         protected TextGradientList()
         {

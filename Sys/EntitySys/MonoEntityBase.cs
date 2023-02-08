@@ -10,7 +10,7 @@ namespace lgu3d
         /// 实体ID
         /// </summary>
         /// <value></value>
-        public long EntityID { get; private set; }
+        [LGAttributeRename("实体ID", false)] public long EntityID;
         /// <summary>
         /// 实体对象
         /// </summary>
@@ -78,25 +78,28 @@ namespace lgu3d
         #region 框架函数
         public override void Init(IEntityBase entity)
         {
-            throw new System.Exception("请使用 Load(E entity) 接口初始化");
+            base.Init(entity);
+            Entity = entity as E;
         }
         public virtual void Init(E entity)
         {
             base.Init(entity);
             Entity = entity;
-            Comps = new List<IEntityCompBase>();
+
         }
         #endregion
     }
 
     public abstract class MonoEntityBase<E, D> : MonoEntityBase where E : MonoEntityBase<E, D> where D : EntityDataBase
     {
-        public D Config { get; set; }
+        [SerializeField] protected D Config;
+
         public new E Entity { get; set; }
         #region 框架函数
         public override void Init(IEntityBase entity)
         {
-            throw new System.Exception("请使用 Init(E entity, D config) 接口初始化");
+            base.Init(entity);
+            Entity = entity as E;
         }
         public virtual void Init(E entity, D config)
         {

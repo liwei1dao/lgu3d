@@ -3,29 +3,29 @@
 namespace lgu3d
 {
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
-    public class lgu3d_SerializeAttribute : UnityEngine.PropertyAttribute
+    public class LGSerializeAttribute : UnityEngine.PropertyAttribute
     {
         public bool IsWrite;
-        public lgu3d_SerializeAttribute()
+        public LGSerializeAttribute()
         {
             IsWrite = false;
         }
-        public lgu3d_SerializeAttribute(bool _IsWrite)
+        public LGSerializeAttribute(bool _IsWrite)
         {
             IsWrite = _IsWrite;
         }
     }
 
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
-    public class lgu3d_SerializeNameAttribute : lgu3d_SerializeAttribute
+    public class LGSerializeNameAttribute : LGSerializeAttribute
     {
         public string Name;
-        public lgu3d_SerializeNameAttribute(string _Name)
+        public LGSerializeNameAttribute(string _Name)
             : base()
         {
             Name = _Name;
         }
-        public lgu3d_SerializeNameAttribute(string _Name, bool _IsWrite)
+        public LGSerializeNameAttribute(string _Name, bool _IsWrite)
             : base(_IsWrite)
         {
             Name = _Name;

@@ -8,24 +8,24 @@ namespace lgu3d
     /// <summary>
     /// 列表数据
     /// </summary>
-    public interface ListDataTable
+    public interface IListDataTable
     {
     }
-    public interface ConfigData
+    public interface IConfigData
     {
     }
 
-    public class ConfigDataBase : ScriptableObject, ConfigData
+    public class ConfigDataBase : ScriptableObject, IConfigData
     {
     }
 
     [SerializeField]
-    public class ConfigDataBase<K> : ConfigData
+    public class ConfigDataBase<K> : ConfigDataBase
     {
         public K Id;
     }
 
-    public class ConfigTableDataBase<D> : ScriptableObject,ListDataTable where D : ConfigData
+    public class ConfigTableDataBase<D> : ScriptableObject, IListDataTable where D : IConfigData
     {
         public List<D> Datas = new List<D>();
         public void AddData(D data)
@@ -34,7 +34,7 @@ namespace lgu3d
         }
     }
 
-    public class ConfigTableDataBase<K, D> : ConfigTableDataBase<D> where D: ConfigDataBase<K>
+    public class ConfigTableDataBase<K, D> : ConfigTableDataBase<D> where D : ConfigDataBase<K>
     {
         protected Dictionary<K, D> _data = null;
 

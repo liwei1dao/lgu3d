@@ -146,12 +146,12 @@ namespace lgu3d.Editor
         private void SerializeObj(FieldInfo value, object Comp, object obj)
         {
             Type objtype = value.FieldType;
-            object[] attributes = value.GetCustomAttributes(typeof(lgu3d_SerializeAttribute), true);
+            object[] attributes = value.GetCustomAttributes(typeof(LGSerializeAttribute), true);
             if (attributes == null || attributes.Length == 0)
                 return;
             object SerializeAttribute = attributes[0];
             bool IsWirte = (bool)SerializeAttribute.GetType().GetField("IsWrite").GetValue(SerializeAttribute);
-            string Name = SerializeAttribute is lgu3d_SerializeNameAttribute ? (string)SerializeAttribute.GetType().GetField("Name").GetValue(SerializeAttribute) : value.Name;
+            string Name = SerializeAttribute is LGSerializeNameAttribute ? (string)SerializeAttribute.GetType().GetField("Name").GetValue(SerializeAttribute) : value.Name;
             if (objtype == typeof(string))
             {
                 if (IsWirte)
