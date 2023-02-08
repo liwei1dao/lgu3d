@@ -2,23 +2,19 @@ using BehaviorDesigner.Runtime;
 
 namespace lgu3d
 {
-    public class MonoEntityBaseAIComp : MonoEntityCompBase
+    /// <summary>
+    /// MonoAI组件基类
+    /// </summary>
+    /// <typeparam name="E"></typeparam>
+    public class MonoEntityBaseAIComp<E> : MonoEntityCompBase<E> where E : MonoEntityBase
     {
         protected BehaviorTree BT { get; set; }
-        public override void Load(IEntityBase entity, params object[] agrs)
-        {
-            BT = gameObject.AddComponent<BehaviorTree>();
-            base.Load(entity, agrs);
-        }
-    }
-    public class MonoEntityBaseAIComp<E> : MonoEntityCompBase where E : MonoEntityBase
-    {
-        public new E Entity { get; set; }
 
-        public virtual void Load(E entity, params object[] agrs)
+        public override void Init(E entity, params object[] agrs)
         {
+            base.Init(entity);
             Entity = entity;
-            base.Load(entity);
+            BT = gameObject.AddComponent<BehaviorTree>();
         }
     }
 }

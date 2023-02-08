@@ -21,14 +21,18 @@
     /// 技能接收
     /// </summary>
     /// <typeparam name="E"></typeparam>
-    public abstract class EntityBaseSkillAcceptComp<E> : EntityBaseSkillAcceptComp where E : EntityBase
+    public abstract class EntityBaseSkillAcceptComp<E> : EntityCompBase<E> where E : EntityBase<E>
     {
         public new E Entity { get; set; }
 
         public virtual void Load(E entity, params object[] agrs)
         {
             Entity = entity;
-            base.Load(entity);
+            base.Init(entity);
+        }
+        public virtual void Accept(IBulletBase Bullet)
+        {
+
         }
     }
 
@@ -51,10 +55,10 @@
     {
         public new E Entity { get; set; }
 
-        public override void Load(IEntityBase entity, params object[] agrs)
+        public override void Init(IEntityBase entity, params object[] agrs)
         {
             Entity = entity as E;
-            base.Load(entity);
+            base.Init(entity);
         }
     }
 }

@@ -9,14 +9,14 @@ namespace lgu3d
     {
         protected Dictionary<A, float> Attributes;
 
-        public override void Load(IEntityBase entity, params object[] agrs)
+        public override void Init(IEntityBase entity, params object[] agrs)
         {
             Attributes = new Dictionary<A, float>();
             foreach (A item in Enum.GetValues(typeof(A)))
             {
                 Attributes[item] = 0;
             }
-            base.Load(entity, agrs);
+            base.Init(entity, agrs);
         }
         public virtual void AddAttribute(A aType, float value)
         {
@@ -33,9 +33,9 @@ namespace lgu3d
     {
         protected Dictionary<A, float> Attributes;
 
-        public override void Load(IEntityBase entity, params object[] agrs)
+        public override void Init(IEntityBase entity, params object[] agrs)
         {
-            base.Load(entity, agrs);
+            base.Init(entity, agrs);
             Attributes = new Dictionary<A, float>();
             foreach (A item in Enum.GetValues(typeof(A)))
             {

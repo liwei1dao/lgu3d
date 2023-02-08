@@ -7,12 +7,12 @@ namespace lgu3d
     {
         public IEntityBase Entity { get; set; }
 
-        public virtual void Load(IEntityBase entity, params object[] agrs)
+        public virtual void Init(IEntityBase entity, params object[] agrs)
         {
             Entity = entity;
         }
 
-        public virtual void Init()
+        public virtual void Start()
         {
 
         }
@@ -22,23 +22,17 @@ namespace lgu3d
 
         }
     }
-    public abstract class EntityCompBase<E> : IEntityCompBase<E> where E : IEntityBase
+    public abstract class EntityCompBase<E> : EntityCompBase where E : IEntityBase
     {
-        public E Entity { get; set; }
-
-        public virtual void Load(IEntityBase entity, params object[] agrs)
+        public new E Entity { get; set; }
+        public override void Init(IEntityBase entity, params object[] agrs)
         {
-            Entity = entity as E;
+            throw new System.Exception("请使用 Init(E entity, params object[] agrs) 接口初始化");
         }
-
-        public virtual void Init()
+        public virtual void Init(E entity, params object[] agrs)
         {
-
-        }
-
-        public virtual void Destroy()
-        {
-
+            base.Init(entity);
+            Entity = entity;
         }
     }
 
@@ -46,38 +40,32 @@ namespace lgu3d
     {
         public IEntityBase Entity { get; set; }
 
-        public virtual void Load(IEntityBase entity, params object[] agrs)
+        public virtual void Init(IEntityBase entity, params object[] agrs)
         {
             Entity = entity;
         }
 
-        public virtual void Destroy()
+        public virtual void Start()
         {
-            GameObject.Destroy(this);
+
         }
 
-        public virtual void Init()
+        public virtual void Destroy()
         {
 
         }
     }
-    public abstract class MonoEntityCompBase<E> : MonoBehaviour, IEntityCompBase<E> where E : MonoEntityBase
+    public abstract class MonoEntityCompBase<E> : MonoEntityCompBase where E : IEntityBase
     {
-        public IEntityBase Entity { get; set; }
-
-        public virtual void Load(IEntityBase entity, params object[] agrs)
+        public new E Entity { get; set; }
+        public override void Init(IEntityBase entity, params object[] agrs)
         {
+            throw new System.Exception("请使用 Init(E entity, params object[] agrs) 接口初始化");
+        }
+        public virtual void Init(E entity, params object[] agrs)
+        {
+            base.Init(entity);
             Entity = entity;
-        }
-
-        public virtual void Destroy()
-        {
-            GameObject.Destroy(this);
-        }
-
-        public virtual void Init()
-        {
-
         }
     }
 }
