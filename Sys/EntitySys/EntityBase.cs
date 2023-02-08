@@ -8,180 +8,217 @@ using UnityEngine;
 /// </summary>
 namespace lgu3d
 {
-  public abstract class EntityBase : IEntityBase
-  {
-    public IEntityBase Entity { get; set; }
-    protected List<IEntityCompBase> MyComps = new List<IEntityCompBase>();
+    public abstract class EntityBase : IEntityBase
+    {
+        /// <summary>
+        /// 实体ID
+        /// </summary>
+        /// <value></value>
+        public long EntityID { get; private set; }
+        /// <summary>
+        /// 实体对象
+        /// </summary>
+        /// <value></value>
+        public IEntityBase Entity { get; set; }
+        protected List<IEntityCompBase> Comps;
 
-    #region 框架函数
-    public virtual void Load(IEntityBase entity)
-    {
-      Entity = entity;
-    }
-
-    public virtual void Init()
-    {
-      for (int i = 0; i < MyComps.Count; i++)
-      {
-        MyComps[i].Init();
-      }
-    }
-    public virtual CP AddComp<CP>(params object[] agrs) where CP : class, IEntityCompBase, new()
-    {
-      CP Comp = new CP();
-      Comp.Load(this, agrs);
-      MyComps.Add(Comp);
-      return Comp;
-    }
-
-    public virtual CP GetComp<CP>() where CP : class, IEntityCompBase
-    {
-      foreach (var item in MyComps)
-      {
-        if (item is CP)
+        #region 框架函数
+        public virtual void Init(IEntityBase entity)
         {
-          return item as CP;
+            EntityID = Utils.GuidToLongID();
+            Entity = entity;
+            Comps = new List<IEntityCompBase>();
         }
-      }
-      return null;
-    }
 
-    public virtual void RemoveComp(IEntityCompBase comp)
-    {
-      MyComps.Remove(comp);
-      comp.Destroy();
-    }
-    public void Destroy()
-    {
-      for (int i = 0; i < MyComps.Count; i++)
-      {
-        MyComps[i].Destroy();
-      }
-    }
-
-    public CoroutineTask StartCoroutine(IEnumerator routine)
-    {
-      return CoroutineModule.Instance.StartCoroutine(routine);
-    }
-    #endregion
-  }
-
-  public abstract class EntityBase<E> : EntityBase, IEntityBase<E> where E : EntityBase, IEntityBase<E>
-  {
-    public new E Entity { get; set; }
-
-    public virtual void Load(E entity)
-    {
-      Entity = entity;
-      base.Load(entity);
-    }
-  }
-
-  public abstract class EntityBase<E, D> : EntityBase, IEntityBase<E, D> where E : EntityBase, IEntityBase<E, D> where D : EntityDataBase
-  {
-    public D Config { get; set; }
-    public new E Entity { get; set; }
-
-    public virtual void Load(E entity, D config)
-    {
-      Entity = entity;
-      Config = config;
-      base.Load(entity);
-    }
-  }
-
-  public abstract class MonoEntityBase : MonoBehaviour, IMonoEntityBase
-  {
-    public IMonoEntityBase Entity { get; set; }
-    IEntityBase IEntityBase.Entity { get; set; }
-    protected List<IEntityCompBase> MyComps = new List<IEntityCompBase>();
-    #region 框架函数
-    public virtual void Load(IMonoEntityBase entity)
-    {
-      Entity = entity;
-    }
-
-    public void Load(IEntityBase entity)
-    {
-
-    }
-
-    public virtual void Init()
-    {
-      for (int i = 0; i < MyComps.Count; i++)
-      {
-        MyComps[i].Init();
-      }
-    }
-    public virtual CP AddComp<CP>(params object[] agrs) where CP : Component, IMonoEntityCompBase
-    {
-      CP comp = gameObject.AddMissingComponent<CP>();
-      comp.Load(Entity, agrs);
-      MyComps.Add(comp);
-      return comp;
-    }
-
-    CP IEntityBase.AddComp<CP>(params object[] agrs)
-    {
-      throw new System.NotImplementedException();
-    }
-
-    public virtual CP GetComp<CP>() where CP : Component, IMonoEntityCompBase
-    {
-      foreach (var item in MyComps)
-      {
-        if (item is CP)
+        public virtual void Start()
         {
-          return item as CP;
+            for (int i = 0; i < Comps.Count; i++)
+            {
+                Comps[i].Start();
+            }
         }
-      }
-      return null;
+        public virtual CP AddComp<CP>(params object[] agrs) where CP : class, IEntityCompBase, new()
+        {
+            CP Comp = new CP();
+            Comp.Load(this, agrs);
+            Comps.Add(Comp);
+            return Comp;
+        }
+
+        public virtual CP GetComp<CP>() where CP : class, IEntityCompBase
+        {
+            foreach (var item in Comps)
+            {
+                if (item is CP)
+                {
+                    return item as CP;
+                }
+            }
+            return null;
+        }
+
+        public virtual void RemoveComp(IEntityCompBase comp)
+        {
+            Comps.Remove(comp);
+            comp.Destroy();
+        }
+        public void Destroy()
+        {
+            for (int i = 0; i < Comps.Count; i++)
+            {
+                Comps[i].Destroy();
+            }
+        }
+
+        public CoroutineTask StartCoroutine(IEnumerator routine)
+        {
+            return CoroutineModule.Instance.StartCoroutine(routine);
+        }
+        #endregion
     }
 
-    CP IEntityBase.GetComp<CP>()
+    public abstract class EntityBase<E> : IEntityBase<E> where E : EntityBase<E>, IEntityBase<E>
     {
-      throw new System.NotImplementedException();
-    }
-    public virtual void RemoveComp(IEntityCompBase comp)
-    {
-      MyComps.Remove(comp);
-      comp.Destroy();
-    }
-    public virtual void Destroy()
-    {
-      for (int i = 0; i < MyComps.Count; i++)
-      {
-        MyComps[i].Destroy();
-      }
-      GameObject.Destroy(gameObject);
-    }
-    public new CoroutineTask StartCoroutine(IEnumerator routine)
-    {
-      return CoroutineModule.Instance.StartCoroutineTask(routine);
+        /// <summary>
+        /// 实体ID
+        /// </summary>
+        /// <value></value>
+        public long EntityID { get; private set; }
+        /// <summary>
+        /// 实体对象
+        /// </summary>
+        /// <value></value>
+        public E Entity { get; set; }
+        protected List<IEntityCompBase> Comps = new List<IEntityCompBase>();
+
+        #region 框架函数
+        public virtual void Init(IEntityBase entity)
+        {
+            throw new System.Exception("请使用 Load(E entity) 接口初始化");
+        }
+        public virtual void Init(E entity)
+        {
+            EntityID = Utils.GuidToLongID();
+            Entity = entity;
+            Comps = new List<IEntityCompBase>();
+        }
+
+        public virtual void Start()
+        {
+            for (int i = 0; i < Comps.Count; i++)
+            {
+                Comps[i].Start();
+            }
+        }
+        public virtual CP AddComp<CP>(params object[] agrs) where CP : class, IEntityCompBase, new()
+        {
+            CP Comp = new CP();
+            Comp.Load(this, agrs);
+            Comps.Add(Comp);
+            return Comp;
+        }
+
+        public virtual CP GetComp<CP>() where CP : class, IEntityCompBase
+        {
+            foreach (var item in Comps)
+            {
+                if (item is CP)
+                {
+                    return item as CP;
+                }
+            }
+            return null;
+        }
+
+        public virtual void RemoveComp(IEntityCompBase comp)
+        {
+            Comps.Remove(comp);
+            comp.Destroy();
+        }
+        public void Destroy()
+        {
+            for (int i = 0; i < Comps.Count; i++)
+            {
+                Comps[i].Destroy();
+            }
+        }
+
+        public CoroutineTask StartCoroutine(IEnumerator routine)
+        {
+            return CoroutineModule.Instance.StartCoroutine(routine);
+        }
+        #endregion
     }
 
-    #endregion
-  }
-
-
-  public abstract class MonoEntityBase<E> : MonoEntityBase, IMonoEntityBase<E> where E : MonoEntityBase, IMonoEntityBase<E>
-  {
-    public new E Entity { get; set; }
-    public virtual void Load(E entity)
+    public abstract class EntityBase<E, D> : IEntityBase<E, D> where E : EntityBase<E, D>, IEntityBase<E, D> where D : EntityDataBase
     {
-      base.Load(entity);
-    }
-  }
+        public D Config { get; set; }
+        /// <summary>
+        /// 实体ID
+        /// </summary>
+        /// <value></value>
+        public long EntityID { get; private set; }
+        /// <summary>
+        /// 实体对象
+        /// </summary>
+        /// <value></value>
+        public E Entity { get; set; }
+        protected List<IEntityCompBase> Comps = new List<IEntityCompBase>();
 
-  public abstract class MonoEntityBase<E, D> : MonoEntityBase, IMonoEntityBase<E, D> where E : MonoEntityBase, IMonoEntityBase<E, D> where D : EntityDataBase
-  {
-    public D Config { get; set; }
-    public new E Entity { get; set; }
-    public virtual void Load(E entity, D config)
-    {
-      Entity = entity;
-      Config = config;
-      base.Load(entity);
+        #region 框架函数
+        public virtual void Init(E entity, D config)
+        {
+            EntityID = Utils.GuidToLongID();
+            Entity = entity;
+            Config = config;
+        }
+
+        public virtual void Start()
+        {
+            for (int i = 0; i < Comps.Count; i++)
+            {
+                Comps[i].Start();
+            }
+        }
+        public virtual CP AddComp<CP>(params object[] agrs) where CP : class, IEntityCompBase, new()
+        {
+            CP Comp = new CP();
+            Comp.Load(this, agrs);
+            Comps.Add(Comp);
+            return Comp;
+        }
+
+        public virtual CP GetComp<CP>() where CP : class, IEntityCompBase
+        {
+            foreach (var item in Comps)
+            {
+                if (item is CP)
+                {
+                    return item as CP;
+                }
+            }
+            return null;
+        }
+
+        public virtual void RemoveComp(IEntityCompBase comp)
+        {
+            Comps.Remove(comp);
+            comp.Destroy();
+        }
+        public void Destroy()
+        {
+            for (int i = 0; i < Comps.Count; i++)
+            {
+                Comps[i].Destroy();
+            }
+        }
+
+        public CoroutineTask StartCoroutine(IEnumerator routine)
+        {
+            return CoroutineModule.Instance.StartCoroutine(routine);
+        }
+        #endregion
     }
-  }
+
+
 }
