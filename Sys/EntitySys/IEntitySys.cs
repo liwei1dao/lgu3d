@@ -7,23 +7,23 @@ namespace lgu3d
     public interface IEntityBase
     {
         IEntityBase Entity { get; set; }
-        void Init(IEntityBase entity);
-        void Start();
-        CP AddComp<CP>(CP comp, params object[] agrs) where CP : class, IEntityCompBase;
+        void LGInit(IEntityBase entity);
+        void LGStart();
+        CP LGAddComp<CP>(CP comp, params object[] agrs) where CP : class, IEntityCompBase;
 
-        CP GetComp<CP>() where CP : class, IEntityCompBase;
+        CP LGGetComp<CP>() where CP : class, IEntityCompBase;
 
-        void RemoveComp(IEntityCompBase comp);
-        CoroutineTask StartCoroutine(IEnumerator routine);
-        void Destroy();
+        void LGRemoveComp(IEntityCompBase comp);
+        CoroutineTask LGStartCoroutine(IEnumerator routine);
+        void LGDestroy();
     }
 
 
     public interface IEntityCompBase
     {
         IEntityBase Entity { get; set; }
-        void Init(IEntityBase entity, params object[] agrs);
-        void Start();
-        void Destroy();
+        void LGInit(IEntityBase entity, params object[] agrs);
+        void LGStart();
+        void LGDestroy();
     }
 }

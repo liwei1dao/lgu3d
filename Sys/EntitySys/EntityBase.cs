@@ -30,7 +30,7 @@ namespace lgu3d
         /// 初始化函数
         /// </summary>
         /// <param name="entity"></param>
-        public virtual void Init(IEntityBase entity)
+        public virtual void LGInit(IEntityBase entity)
         {
             EntityID = Utils.GuidToLongID();
             Entity = entity;
@@ -40,11 +40,11 @@ namespace lgu3d
         /// <summary>
         /// 启动函数
         /// </summary>
-        public virtual void Start()
+        public virtual void LGStart()
         {
             for (int i = 0; i < Comps.Count; i++)
             {
-                Comps[i].Start();
+                Comps[i].LGStart();
             }
         }
 
@@ -52,14 +52,14 @@ namespace lgu3d
         /// 添加组件
         /// </summary>
         /// <typeparam name="CP"></typeparam>
-        public virtual CP AddComp<CP>(CP comp, params object[] agrs) where CP : class, IEntityCompBase
+        public virtual CP LGAddComp<CP>(CP comp, params object[] agrs) where CP : class, IEntityCompBase
         {
-            comp.Init(this, agrs);
+            comp.LGInit(this, agrs);
             Comps.Add(comp);
             return comp;
         }
 
-        public virtual CP GetComp<CP>() where CP : class, IEntityCompBase
+        public virtual CP LGGetComp<CP>() where CP : class, IEntityCompBase
         {
             foreach (var item in Comps)
             {
@@ -71,20 +71,20 @@ namespace lgu3d
             return null;
         }
 
-        public virtual void RemoveComp(IEntityCompBase comp)
+        public virtual void LGRemoveComp(IEntityCompBase comp)
         {
             Comps.Remove(comp);
-            comp.Destroy();
+            comp.LGDestroy();
         }
-        public void Destroy()
+        public void LGDestroy()
         {
             for (int i = 0; i < Comps.Count; i++)
             {
-                Comps[i].Destroy();
+                Comps[i].LGDestroy();
             }
         }
 
-        public CoroutineTask StartCoroutine(IEnumerator routine)
+        public CoroutineTask LGStartCoroutine(IEnumerator routine)
         {
             return CoroutineModule.Instance.StartCoroutine(routine);
         }
@@ -100,14 +100,14 @@ namespace lgu3d
         public new E Entity { get; set; }
 
         #region 框架函数
-        public override void Init(IEntityBase entity)
+        public override void LGInit(IEntityBase entity)
         {
-            base.Init(entity);
+            base.LGInit(entity);
             Entity = entity as E;
         }
         public virtual void Init(E entity)
         {
-            base.Init(entity);
+            base.LGInit(entity);
             Entity = entity;
         }
 
@@ -126,14 +126,14 @@ namespace lgu3d
 
 
         #region 框架函数
-        public override void Init(IEntityBase entity)
+        public override void LGInit(IEntityBase entity)
         {
-            base.Init(entity);
+            base.LGInit(entity);
             Entity = entity as E;
         }
         public virtual void Init(E entity, D config)
         {
-            base.Init(entity);
+            base.LGInit(entity);
             Entity = entity;
             Config = config;
         }

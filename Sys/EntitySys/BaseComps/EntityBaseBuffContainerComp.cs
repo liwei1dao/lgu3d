@@ -25,9 +25,9 @@ namespace lgu3d
     public abstract class EntityBaseBuffContainerComp<E, A> : EntityCompBase<E>, IEntityBaseBuffContainerComp<A> where E : class, IEntityBase where A : Enum
     {
         protected List<IBuffBase<A>> Buffs;
-        public override void Init(IEntityBase entity, params object[] agrs)
+        public override void LGInit(IEntityBase entity, params object[] agrs)
         {
-            base.Init(entity, agrs);
+            base.LGInit(entity, agrs);
             Buffs = new List<IBuffBase<A>>();
         }
         public virtual void AddBuff(IBuffBase<A> buff)
@@ -54,10 +54,10 @@ namespace lgu3d
     public abstract class MonoEntityBaseBuffContainerComp<E, A> : MonoEntityCompBase<E>, IEntityBaseBuffContainerComp<A> where E : MonoEntityBase where A : Enum
     {
         protected List<IBuffBase<A>> Buffs;
-        public override void Init(IEntityBase entity, params object[] agrs)
+        public override void LGInit(IEntityBase entity, params object[] agrs)
         {
             Buffs = new List<IBuffBase<A>>();
-            base.Init(entity, agrs);
+            base.LGInit(entity, agrs);
         }
         public abstract void AddBuff(IBuffBase<A> buff);
 
@@ -72,10 +72,10 @@ namespace lgu3d
                 Buffs[i].Update(time);
             }
         }
-        public override void Destroy()
+        public override void LGDestroy()
         {
             Buffs.Clear();
-            base.Destroy();
+            base.LGDestroy();
         }
     }
 }

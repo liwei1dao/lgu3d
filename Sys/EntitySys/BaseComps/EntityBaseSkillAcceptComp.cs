@@ -55,10 +55,10 @@
     {
         public new E Entity { get; set; }
 
-        public override void Init(IEntityBase entity, params object[] agrs)
+        public override void LGInit(IEntityBase entity, params object[] agrs)
         {
             Entity = entity as E;
-            base.Init(entity);
+            base.LGInit(entity);
         }
     }
 }

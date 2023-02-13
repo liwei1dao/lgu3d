@@ -27,9 +27,9 @@ namespace lgu3d
         public SkillReleaseCompState ReleaseState;
         protected Dictionary<string, ISkillBase> Skills;
 
-        public override void Init(IEntityBase entity, params object[] agrs)
+        public override void LGInit(IEntityBase entity, params object[] agrs)
         {
-            base.Init(entity, agrs);
+            base.LGInit(entity, agrs);
             ReleaseState = SkillReleaseCompState.Idle;
             Skills = new Dictionary<string, ISkillBase>();
         }
@@ -82,7 +82,7 @@ namespace lgu3d
         public virtual void Init(E entity, params object[] agrs)
         {
             Entity = entity;
-            base.Init(entity);
+            base.LGInit(entity);
         }
     }
 
@@ -94,11 +94,11 @@ namespace lgu3d
         public SkillReleaseCompState ReleaseState;
         protected Dictionary<string, ISkillBase> Skills;
 
-        public override void Init(IEntityBase entity, params object[] agrs)
+        public override void LGInit(IEntityBase entity, params object[] agrs)
         {
             Skills = new Dictionary<string, ISkillBase>();
             ReleaseState = SkillReleaseCompState.Idle;
-            base.Init(entity, agrs);
+            base.LGInit(entity, agrs);
         }
         public virtual void AddSkill(string skillName, ISkillBase skill)
         {
@@ -145,10 +145,10 @@ namespace lgu3d
     {
         public new E Entity { get; set; }
 
-        public override void Init(IEntityBase entity, params object[] agrs)
+        public override void LGInit(IEntityBase entity, params object[] agrs)
         {
             Entity = entity as E;
-            base.Init(entity);
+            base.LGInit(entity);
         }
     }
 }
