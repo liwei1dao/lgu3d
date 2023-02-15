@@ -22,17 +22,13 @@ namespace lgu3d
 
         }
     }
-    public abstract class EntityCompBase<E> : EntityCompBase where E : IEntityBase
+    public abstract class EntityCompBase<E> : EntityCompBase where E : class, IEntityBase
     {
         public new E Entity { get; set; }
         public override void LGInit(IEntityBase entity, params object[] agrs)
         {
-            throw new System.Exception("请使用 Init(E entity, params object[] agrs) 接口初始化");
-        }
-        public virtual void Init(E entity, params object[] agrs)
-        {
             base.LGInit(entity);
-            Entity = entity;
+            Entity = entity as E;
         }
     }
 
@@ -55,17 +51,13 @@ namespace lgu3d
 
         }
     }
-    public abstract class MonoEntityCompBase<E> : MonoEntityCompBase where E : IEntityBase
+    public abstract class MonoEntityCompBase<E> : MonoEntityCompBase where E : class, IEntityBase
     {
         public new E Entity { get; set; }
         public override void LGInit(IEntityBase entity, params object[] agrs)
         {
-            throw new System.Exception("请使用 Init(E entity, params object[] agrs) 接口初始化");
-        }
-        public virtual void Init(E entity, params object[] agrs)
-        {
             base.LGInit(entity);
-            Entity = entity;
+            Entity = entity as E;
         }
     }
 }

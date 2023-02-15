@@ -10,10 +10,9 @@ namespace lgu3d
     {
         protected BehaviorTree BT { get; set; }
 
-        public override void Init(E entity, params object[] agrs)
+        public override void LGInit(IEntityBase entity, params object[] agrs)
         {
-            base.Init(entity);
-            Entity = entity;
+            base.LGInit(entity);
             BT = gameObject.AddComponent<BehaviorTree>();
         }
     }

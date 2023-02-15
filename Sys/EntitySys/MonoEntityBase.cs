@@ -35,6 +35,15 @@ namespace lgu3d
                 Comps[i].LGStart();
             }
         }
+        public virtual void LGAddComps(IEntityCompBase[] comps, params object[] agrs)
+        {
+            foreach (var comp in comps)
+            {
+                comp.LGInit(Entity, agrs);
+                Comps.Add(comp);
+            }
+            return;
+        }
         public virtual CP LGAddComp<CP>(CP comp, params object[] agrs) where CP : class, IEntityCompBase
         {
             comp.LGInit(Entity, agrs);
@@ -81,12 +90,6 @@ namespace lgu3d
             base.LGInit(entity);
             Entity = entity as E;
         }
-        public virtual void Init(E entity)
-        {
-            base.LGInit(entity);
-            Entity = entity;
-
-        }
         #endregion
     }
 
@@ -100,12 +103,6 @@ namespace lgu3d
         {
             base.LGInit(entity);
             Entity = entity as E;
-        }
-        public virtual void Init(E entity, D config)
-        {
-            base.LGInit(entity);
-            Entity = entity;
-            Config = config;
         }
         #endregion
     }

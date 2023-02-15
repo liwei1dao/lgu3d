@@ -18,11 +18,12 @@ namespace lgu3d
         Idle,
         InRelease,
     }
+
     /// <summary>
     /// 实体技能释放组件
     /// </summary>
     /// <typeparam name="E"></typeparam>
-    public abstract class EntityBaseSkillReleaseComp : EntityCompBase, IEntityBaseSkillReleaseComp
+    public abstract class EntityBaseSkillReleaseComp<E> : EntityCompBase<E>, IEntityBaseSkillReleaseComp where E : EntityBase
     {
         public SkillReleaseCompState ReleaseState;
         protected Dictionary<string, ISkillBase> Skills;
@@ -69,27 +70,14 @@ namespace lgu3d
             }
             ReleaseState = SkillReleaseCompState.Idle;
         }
-
     }
+
+
     /// <summary>
     /// 实体技能释放组件
     /// </summary>
     /// <typeparam name="E"></typeparam>
-    public abstract class EntityBaseSkillReleaseComp<E> : EntityBaseSkillReleaseComp, IEntityBaseSkillReleaseComp where E : EntityBase
-    {
-        public new E Entity { get; set; }
-
-        public virtual void Init(E entity, params object[] agrs)
-        {
-            Entity = entity;
-            base.LGInit(entity);
-        }
-    }
-
-    /// <summary>
-    /// 实体技能释放组件
-    /// </summary>
-    public abstract class MonoEntityBaseSkillReleaseComp : MonoEntityCompBase, IEntityBaseSkillReleaseComp
+    public abstract class MonoEntityBaseSkillReleaseComp<E> : MonoEntityCompBase<E> where E : MonoEntityBase
     {
         public SkillReleaseCompState ReleaseState;
         protected Dictionary<string, ISkillBase> Skills;
@@ -134,21 +122,6 @@ namespace lgu3d
                 }
             }
             ReleaseState = SkillReleaseCompState.Idle;
-        }
-    }
-
-    /// <summary>
-    /// 实体技能释放组件
-    /// </summary>
-    /// <typeparam name="E"></typeparam>
-    public abstract class MonoEntityBaseSkillReleaseComp<E> : MonoEntityBaseSkillReleaseComp where E : MonoEntityBase
-    {
-        public new E Entity { get; set; }
-
-        public override void LGInit(IEntityBase entity, params object[] agrs)
-        {
-            Entity = entity as E;
-            base.LGInit(entity);
         }
     }
 }
