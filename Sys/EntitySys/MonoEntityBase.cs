@@ -95,8 +95,7 @@ namespace lgu3d
 
     public abstract class MonoEntityBase<E, D> : MonoEntityBase where E : MonoEntityBase<E, D> where D : EntityDataBase
     {
-        [SerializeField] protected D Config;
-
+        public D Config;
         public new E Entity { get; set; }
         #region 框架函数
         public override void LGInit(IEntityBase entity)
