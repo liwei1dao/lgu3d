@@ -20,7 +20,7 @@ namespace lgu3d
     }
 
     [SerializeField]
-    public class ConfigDataBase<K> : ConfigDataBase
+    public class ConfigDataBase<K> : IConfigData
     {
         public K Id;
     }
