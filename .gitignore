@@ -91,3 +91,5 @@ crashlytics-build.properties
 !*/PangolinAdvModule/PangolinAdvModule.unitypackage
 */ToolsResources/PackingToolsSetting.asset
 */ToolsResources/PackingToolsSetting.asset.meta
+*/Shader/URP/*
+!*/Shader/URP/urp.unitypackage
