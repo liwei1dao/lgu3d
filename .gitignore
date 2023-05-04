@@ -93,3 +93,5 @@ crashlytics-build.properties
 */ToolsResources/PackingToolsSetting.asset.meta
 */Shader/URP/*
 !*/Shader/URP/urp.unitypackage
+*/FairyGUI/*
+!*/FairyGUI/FairyGUI.unitypackage
