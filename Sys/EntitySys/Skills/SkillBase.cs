@@ -13,6 +13,7 @@ namespace lgu3d
     }
     public interface ISkillBase
     {
+
         void LGInit(IEntityBase entity, ISkillMonitor monitor = null, params object[] agrs);
         ///技能释放接口
         void Release(params object[] agrs);

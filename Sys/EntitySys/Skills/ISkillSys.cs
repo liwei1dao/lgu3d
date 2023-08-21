@@ -13,14 +13,5 @@ namespace lgu3d
         CdEnd,
         CdIn,
     }
-    public enum BulletState
-    {
-        WaitLaunch,
-        Launching,
-        Destroyed,
-    }
-
-
-
 
 }

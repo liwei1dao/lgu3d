@@ -1,7 +1,7 @@
 ﻿namespace lgu3d
 {
 
-    public interface IEntityBaseSkillAcceptComp
+    public interface IEntityBaseSkillAcceptComp : IEntityCompBase
     {
         void Accept(IBulletBase Bullet);
     }
