@@ -56,7 +56,7 @@ namespace lgu3d
         /// 自我销毁
         /// </summary>
         protected virtual void LGDestroy() {
-            GameObject.Destroy(this);
+            GameObject.Destroy(gameObject);
         }
     }
 }
