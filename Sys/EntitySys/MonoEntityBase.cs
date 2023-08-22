@@ -67,6 +67,12 @@ namespace lgu3d
             Comps.Remove(comp);
             comp.LGDestroy();
         }
+
+        public CoroutineTask LGStartCoroutine(IEnumerator routine) 
+        {
+            return CoroutineModule.Instance.StartCoroutine(routine);
+        }
+
         public virtual void LGDestroy()
         {
             for (int i = 0; i < Comps.Count; i++)
@@ -75,10 +81,7 @@ namespace lgu3d
             }
             GameObject.Destroy(gameObject);
         }
-        public new CoroutineTask LGStartCoroutine(IEnumerator routine)
-        {
-            return CoroutineModule.Instance.StartCoroutineTask(routine);
-        }
+
         #endregion
     }
     public abstract class MonoEntityBase<E> : MonoEntityBase where E : MonoEntityBase<E>
