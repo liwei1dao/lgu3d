@@ -7,6 +7,7 @@ namespace lgu3d
     public interface IEntityBase
     {
         IEntityBase Entity { get; set; }
+        EntityState State { get; set; }
         void LGInit(IEntityBase entity);
         void LGStart();
         CP LGAddComp<CP>(CP comp, params object[] agrs) where CP : class, IEntityCompBase;

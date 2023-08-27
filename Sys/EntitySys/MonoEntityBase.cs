@@ -17,6 +17,11 @@ namespace lgu3d
         /// <value></value>
         public IEntityBase Entity { get; set; }
         /// <summary>
+        /// 实体状态
+        /// </summary>
+        /// <value></value>
+        public EntityState State { get; set; }
+        /// <summary>
         /// 组件列表
         /// </summary>
         protected List<IEntityCompBase> Comps;
