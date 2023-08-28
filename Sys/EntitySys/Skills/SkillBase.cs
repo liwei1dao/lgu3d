@@ -5,34 +5,21 @@ using UnityEngine;
 
 namespace lgu3d
 {
-
-    public interface ISkillMonitor 
-    {
-        void OnReleaseEnd(ISkillBase skil);
-        void OnCdEnd(ISkillBase skil);
-    }
-    public interface ISkillBase
-    {
-
-        void LGInit(IEntityBase entity, ISkillMonitor monitor = null, params object[] agrs);
-        ///技能释放接口
-        void Release(params object[] agrs);
-        void CdEnd();
-    }
-
     public abstract class SkillBase<E, D> : EntityCompBase<E>, ISkillBase where E : class, IEntityBase  where D : class
     {
         public D Config;
-        public SkillState State { get; set; }
+
+        public SkillState State;
         public SkillCDBase Cd;
         protected List<IBulletBase> Bullets;
-        protected ISkillMonitor Monitor;
-
-        public virtual void LGInit(IEntityBase entity, ISkillMonitor monitor = null, params object[] agrs)
+        public SkillState GetState (){
+            return State;
+        }
+        public virtual void Init(IEntityBase entity,  params object[] agrs)
         {
             base.LGInit(entity);
+            Cd.Skill = this;
             State = SkillState.NoRelease;
-            Monitor = monitor;
         }
 
         public virtual void Release(params object[] agrs)
@@ -43,13 +30,12 @@ namespace lgu3d
         public virtual void ReleaseEnd()
         {
             State = SkillState.InCd;
-            Monitor?.OnReleaseEnd(this);
+            Cd.CdStart();
         }
 
         public virtual void CdEnd()
         {
             State = SkillState.NoRelease;
-            Monitor?.OnCdEnd(this);
         }
 
     }
@@ -57,33 +43,39 @@ namespace lgu3d
     public abstract class MonoSkillBase<E, D> : MonoEntityCompBase<E>, ISkillBase where E : class, IEntityBase where D : class
     {
         public D Config;
-        public SkillState State { get; set; }
+        public SkillState State;
         public SkillCDBase Cd;
         protected List<IBulletBase> Bullets;
-        protected ISkillMonitor Monitor;
 
-        public virtual void LGInit(IEntityBase entity, ISkillMonitor monitor = null, params object[] agrs)
+        public SkillState GetState (){
+            return State;
+        }
+        public virtual void Init(IEntityBase entity, params object[] agrs)
         {
-            base.LGInit(entity);
+            base.LGInit(entity,agrs);
+            Cd.Skill = this;
             State = SkillState.NoRelease;
-            Monitor = monitor;
         }
 
         public virtual void Release(params object[] agrs)
         {
             State = SkillState.InRelease;
+
         }
 
         public virtual void ReleaseEnd()
         {
             State = SkillState.InCd;
-            Monitor?.OnReleaseEnd(this);
+            Cd.CdStart();
         }
 
         public virtual void CdEnd()
         {
             State = SkillState.NoRelease;
-            Monitor?.OnCdEnd(this);
+        }
+
+        protected virtual void Update(){
+            Cd.Update(Time.deltaTime);
         }
 
     }

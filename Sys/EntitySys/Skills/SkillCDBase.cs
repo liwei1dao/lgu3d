@@ -5,7 +5,7 @@ namespace lgu3d
     [Serializable]
     public class SkillCDBase
     {
-        private ISkillBase Skill;
+        public ISkillBase Skill;
         public float CdTime;
         public float CurrCd;
         public float Progress;
@@ -19,13 +19,15 @@ namespace lgu3d
 
         public void Update(float time)
         {
-            CurrCd -= time;
-            Progress = CurrCd / CdTime;
-            if (Progress <= 0)
-            {
-                CurrCd = 0;
-                Progress = 0;
-                CdEnd();
+            if (State == SkillCDState.CdIn) {
+                CurrCd -= time;
+                Progress = CurrCd / CdTime;
+                if (Progress <= 0)
+                {
+                    CurrCd = 0;
+                    Progress = 0;
+                    CdEnd();
+                }
             }
         }
 
