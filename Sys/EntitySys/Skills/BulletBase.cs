@@ -15,19 +15,31 @@ namespace lgu3d
     public interface IBulletBase
     {
         BulletState State { get;  set; }
-        void LGInit(ISkillBase skill, params object[] agrs);
+        object GetMeta(string key);
+        void SetMeta(string key,object value);
+        void LGInit(ISkillBase skill, Dictionary<string,object> meta);
     }
 
     public abstract class BulletBase<S> : IBulletBase where S : class, ISkillBase
     {
         public S Skill;
         public BulletState State { get;  set; }
-        public BulletBase(S skill, params object[] agrs)
+        /// <summary>
+        /// 元数据
+        /// </summary>
+        protected Dictionary<string,object> Meta;
+        public BulletBase(S skill, Dictionary<string,object> meta)
         {
-            LGInit(skill, agrs);
+            LGInit(skill,meta);
         }
 
-        public virtual void LGInit(ISkillBase skill, params object[] agrs)
+        public virtual object GetMeta(string key) {
+            return Meta[key];
+        }
+        public void SetMeta(string key,object value){
+            Meta[key] = value;
+        }
+        public virtual void LGInit(ISkillBase skill, Dictionary<string,object> meta)
         {
             Skill = skill as S;
         }
@@ -37,9 +49,19 @@ namespace lgu3d
     {
         public S Skill;
         public BulletState State { get;  set; }
-        public virtual void LGInit(ISkillBase skill, params object[] agrs)
+        protected Dictionary<string,object> Meta;
+
+        public virtual object GetMeta(string key) {
+            return Meta[key];
+        }
+        public void SetMeta(string key,object value){
+            Meta[key] = value;
+        }
+
+        public virtual void LGInit(ISkillBase skill, Dictionary<string,object> meta)
         {
             Skill = skill as S;
+            Meta = meta;
         }
 
         /// <summary>

@@ -67,6 +67,22 @@ namespace lgu3d
             }
             return null;
         }
+
+       public virtual CP LGAddMissingComp<CP>()where CP : Component, IEntityCompBase
+       {
+            foreach (var item in Comps)
+            {
+                if (item is CP)
+                {
+                    return item as CP;
+                }
+            }
+            CP comp = gameObject.AddMissingComponent<CP>();
+            comp.LGInit(Entity);
+            Comps.Add(comp);
+            return comp;
+       }
+
         public virtual void LGRemoveComp(IEntityCompBase comp)
         {
             Comps.Remove(comp);
