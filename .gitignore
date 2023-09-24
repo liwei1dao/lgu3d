@@ -89,8 +89,8 @@ crashlytics-build.properties
 !*/GooglePayModule/GooglePayModule.unitypackage
 */PangolinAdvModule/*
 !*/PangolinAdvModule/PangolinAdvModule.unitypackage
-*/Shader/*
-!*/Shader/Shader.unitypackage
+Shader/*
+!Shader/Shader.unitypackage
 
 */ToolsResources/PackingToolsSetting.asset
 */ToolsResources/PackingToolsSetting.asset.meta
