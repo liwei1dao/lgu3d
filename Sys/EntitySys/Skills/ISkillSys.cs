@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace lgu3d
 {
@@ -13,17 +14,26 @@ namespace lgu3d
         CdEnd,
         CdIn,
     }
-    public interface ISkillMonitor 
+    //技能释放类型
+    public enum SkilReleaseType
+    {
+        Target,                     //目标
+        Direction                   //方向
+    }
+    public interface ISkillMonitor
     {
         void OnReleaseEnd(ISkillBase skil);
         void OnCdEnd(ISkillBase skil);
     }
     public interface ISkillBase
     {
-        public SkillState GetState ();
-        void Init(IEntityBase entity,  params object[] agrs);
+        public SkillState GetState();
+        public SkilReleaseType GetSkilReleaseType();
+
+        void Init(IEntityBase entity, params object[] agrs);
         ///技能释放接口
-        void Release(params object[] agrs);
+        void Release(IEntityBase target, params object[] agrs);
+        void Release(Vector3 direction, params object[] agrs);
         void CdEnd();
     }
 }
