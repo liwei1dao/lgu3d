@@ -31,6 +31,7 @@ namespace lgu3d
             EntityID = Utils.GuidToLongID();
             Entity = entity;
             Comps = new List<IEntityCompBase>();
+            State = EntityState.Active;
         }
 
         public virtual void LGStart()
@@ -68,8 +69,8 @@ namespace lgu3d
             return null;
         }
 
-       public virtual CP LGAddMissingComp<CP>()where CP : Component, IEntityCompBase
-       {
+        public virtual CP LGAddMissingComp<CP>() where CP : Component, IEntityCompBase
+        {
             foreach (var item in Comps)
             {
                 if (item is CP)
@@ -81,7 +82,7 @@ namespace lgu3d
             comp.LGInit(Entity);
             Comps.Add(comp);
             return comp;
-       }
+        }
 
         public virtual void LGRemoveComp(IEntityCompBase comp)
         {
@@ -89,7 +90,7 @@ namespace lgu3d
             comp.LGDestroy();
         }
 
-        public CoroutineTask LGStartCoroutine(IEnumerator routine) 
+        public CoroutineTask LGStartCoroutine(IEnumerator routine)
         {
             return CoroutineModule.Instance.StartCoroutine(routine);
         }
