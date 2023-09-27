@@ -25,12 +25,11 @@ namespace lgu3d
         void OnReleaseEnd(ISkillBase skil);
         void OnCdEnd(ISkillBase skil);
     }
-    public interface ISkillBase
+    public interface ISkillBase : IEntityCompBase
     {
         public SkillState GetState();
         public SkilReleaseType GetSkilReleaseType();
 
-        void Init(IEntityBase entity, params object[] agrs);
         ///技能释放接口
         void Release(IEntityBase target, params object[] agrs);
         void Release(Vector3 direction, params object[] agrs);

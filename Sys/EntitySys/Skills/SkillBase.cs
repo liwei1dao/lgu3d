@@ -20,7 +20,7 @@ namespace lgu3d
         {
             return ReleaseType;
         }
-        public virtual void Init(IEntityBase entity, params object[] agrs)
+        public override void LGInit(IEntityBase entity, params object[] agrs)
         {
             base.LGInit(entity);
             Cd.Skill = this;
@@ -62,18 +62,13 @@ namespace lgu3d
         {
             return State;
         }
-        public virtual void Init(IEntityBase entity, params object[] agrs)
+        public override void LGInit(IEntityBase entity, params object[] agrs)
         {
             base.LGInit(entity, agrs);
             Cd.Skill = this;
             State = SkillState.NoRelease;
         }
 
-        public virtual void Release(params object[] agrs)
-        {
-            State = SkillState.InRelease;
-
-        }
         public virtual void Release(IEntityBase target, params object[] agrs)
         {
             throw new Exception("Release no Overload");
