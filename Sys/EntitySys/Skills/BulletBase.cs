@@ -18,6 +18,7 @@ namespace lgu3d
     {
         BulletState State { get; set; }
         object GetMeta(string key);
+        ISkillBase GetHostSkill();
         void SetMeta(string key, object value);
         void LGInit(ISkillBase skill, Dictionary<string, object> meta);
     }
@@ -34,7 +35,10 @@ namespace lgu3d
         {
             LGInit(skill, meta);
         }
-
+        public ISkillBase GetHostSkill()
+        {
+            return Skill;
+        }
         public virtual object GetMeta(string key)
         {
             return Meta[key];
@@ -43,6 +47,7 @@ namespace lgu3d
         {
             Meta[key] = value;
         }
+
         public virtual void LGInit(ISkillBase skill, Dictionary<string, object> meta)
         {
             Skill = skill as S;
@@ -54,7 +59,10 @@ namespace lgu3d
         public S Skill;
         public BulletState State { get; set; }
         protected Dictionary<string, object> Meta;
-
+        public ISkillBase GetHostSkill()
+        {
+            return Skill;
+        }
         public virtual object GetMeta(string key)
         {
             return Meta[key];

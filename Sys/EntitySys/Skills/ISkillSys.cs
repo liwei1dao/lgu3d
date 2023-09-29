@@ -29,7 +29,7 @@ namespace lgu3d
     {
         public SkillState GetState();
         public SkilReleaseType GetSkilReleaseType();
-
+        IEntityBase GetHostEntity();
         ///技能释放接口
         void Release(IEntityBase target, params object[] agrs);
         void Release(Vector3 direction, params object[] agrs);

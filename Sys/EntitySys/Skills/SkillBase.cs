@@ -20,6 +20,10 @@ namespace lgu3d
         {
             return ReleaseType;
         }
+        public virtual IEntityBase GetHostEntity()
+        {
+            return Entity;
+        }
         public override void LGInit(IEntityBase entity, params object[] agrs)
         {
             base.LGInit(entity);
@@ -61,6 +65,10 @@ namespace lgu3d
         public SkillState GetState()
         {
             return State;
+        }
+        public virtual IEntityBase GetHostEntity()
+        {
+            return Entity;
         }
         public override void LGInit(IEntityBase entity, params object[] agrs)
         {
@@ -108,6 +116,10 @@ namespace lgu3d
         public SkillState GetState()
         {
             return State;
+        }
+        public virtual IEntityBase GetHostEntity()
+        {
+            return Entity;
         }
         public virtual void Init(IEntityBase entity, params object[] agrs)
         {
