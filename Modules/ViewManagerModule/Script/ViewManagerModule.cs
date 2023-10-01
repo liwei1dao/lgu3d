@@ -220,7 +220,7 @@ namespace lgu3d
           views = mHightViewComps;
           break;
       }
-      GameObject UIGameobject = GameObject.Find(ViewName);
+      GameObject UIGameobject = UIRoot.Find(ViewName);
       if (UIGameobject != null)
       {
         RectTransform rectTrans = UIGameobject.GetComponent<RectTransform>();

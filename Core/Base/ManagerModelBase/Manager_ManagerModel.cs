@@ -20,33 +20,56 @@ namespace lgu3d
             Modules = new Dictionary<string, ManagerContorBase>();
             base.Init();
         }
-        public override void StartModule<C>(ModelLoadBackCall<C> BackCall = null, params object[] _Agr)
+        public override void StartModule<C>(ModelLoadBackCall<C> BackCall = null, params object[] agrs)
         {
             string ModelName = typeof(C).Name;
             if (!Modules.ContainsKey(ModelName))
             {
-                Modules[ModelName] = new C();
-                Modules[ModelName].ModuleName = ModelName;
+                Modules[ModelName] = new C
+                {
+                    ModuleName = ModelName
+                };
                 base.StartModule(ModelName, Modules[ModelName]);
-                Modules[ModelName].Load<C>((model)=> {
-                    StartCoroutine(ModuleStart<C>(model, BackCall, _Agr));
-                }, _Agr);
+                Modules[ModelName].Load<C>((model) =>
+                {
+                    StartCoroutine(ModuleStart<C>(model, BackCall, agrs));
+                }, agrs);
             }
             else
             {
                 Debug.LogError("This Model Already Load:" + typeof(C).Name);
             }
         }
-        public override void StartModuleObj(string moduleName,ManagerContorBase Mdule, ModelLoadBackCall<ManagerContorBase> BackCall = null, params object[] _Agr)
+        public override void StartModule<C>(string ModelName, ModelLoadBackCall<C> BackCall = null, params object[] agrs)
+        {
+            if (!Modules.ContainsKey(ModelName))
+            {
+                Modules[ModelName] = new C
+                {
+                    ModuleName = ModelName
+                };
+                base.StartModule(ModelName, Modules[ModelName]);
+                Modules[ModelName].Load<C>((model) =>
+                {
+                    StartCoroutine(ModuleStart<C>(model, BackCall, agrs));
+                }, agrs);
+            }
+            else
+            {
+                Debug.LogError("This Model Already Load:" + typeof(C).Name);
+            }
+        }
+        public override void StartModuleObj(string moduleName, ManagerContorBase Mdule, ModelLoadBackCall<ManagerContorBase> BackCall = null, params object[] agrs)
         {
             if (!Modules.ContainsKey(moduleName))
             {
                 Modules[moduleName] = Mdule;
                 Modules[moduleName].ModuleName = moduleName;
                 base.StartModule(moduleName, Modules[moduleName]);
-                Modules[moduleName].Load<ManagerContorBase>((model) => {
-                    StartCoroutine(ModuleStart<ManagerContorBase>(model, BackCall, _Agr));
-                }, _Agr);
+                Modules[moduleName].Load<ManagerContorBase>((model) =>
+                {
+                    StartCoroutine(ModuleStart<ManagerContorBase>(model, BackCall, agrs));
+                }, agrs);
             }
             else
             {
@@ -54,7 +77,7 @@ namespace lgu3d
             }
         }
 
-        public override void StartModuleForName(string nameSpace, string moduleName, ModelLoadBackCall<ManagerContorBase> BackCall = null, params object[] _Agr)
+        public override void StartModuleForName(string nameSpace, string moduleName, ModelLoadBackCall<ManagerContorBase> BackCall = null, params object[] agrs)
         {
             if (!Modules.ContainsKey(moduleName))
             {
@@ -66,19 +89,20 @@ namespace lgu3d
                 }
                 Modules[moduleName].ModuleName = moduleName;
                 base.StartModule(moduleName, Modules[moduleName]);
-                Modules[moduleName].Load<ManagerContorBase>((model) => {
-                    StartCoroutine(ModuleStart<ManagerContorBase>(model, BackCall, _Agr));
-                }, _Agr);
+                Modules[moduleName].Load<ManagerContorBase>((model) =>
+                {
+                    StartCoroutine(ModuleStart<ManagerContorBase>(model, BackCall, agrs));
+                }, agrs);
             }
             else
             {
                 Debug.LogWarning("This Model Already Load:" + moduleName);
             }
         }
-        protected override IEnumerator ModuleStart<C>(C model, ModelLoadBackCall<C> BackCall, params object[] _Agr)
+        protected override IEnumerator ModuleStart<C>(C model, ModelLoadBackCall<C> BackCall, params object[] agrs)
         {
             yield return new WaitForEndOfFrame();
-            model.Start(_Agr);
+            model.Start(agrs);
             if (BackCall != null)
                 BackCall(model);
         }

@@ -168,6 +168,7 @@ namespace lgu3d
     #endregion
 
     public abstract void StartModule<C>(ModelLoadBackCall<C> BackCall = null, params object[] _Agr) where C : BaseC, new();
+    public abstract void StartModule<C>(string moduleName, ModelLoadBackCall<C> BackCall = null, params object[] _Agr) where C : BaseC, new();
     public abstract void StartModuleObj(string moduleName, ManagerContorBase Mdule, ModelLoadBackCall<BaseC> BackCall = null, params object[] _Agr);
     public abstract void StartModuleForName(string nameSpace, string moduleName, ModelLoadBackCall<BaseC> BackCall = null, params object[] _Agr);
     protected abstract IEnumerator ModuleStart<C>(C model, ModelLoadBackCall<C> BackCall, params object[] _Agr) where C : BaseC, new();

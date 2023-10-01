@@ -12,15 +12,15 @@ namespace lgu3d
         protected ModelLoadBackCall<ManagerContorBase> LoadBackCall;
 
         public ManagerContorBase()
-            :base()
+            : base()
         {
 
         }
 
-        public virtual void Load<Model>(ModelLoadBackCall<Model> _LoadBackCall, params object[] _Agr) where Model : ManagerContorBase
+        public virtual void Load<Model>(ModelLoadBackCall<Model> _LoadBackCall, params object[] agrs) where Model : ManagerContorBase
         {
             LoadBackCall = _LoadBackCall as ModelLoadBackCall<ManagerContorBase>;
-            Load(_Agr);
+            Load(agrs);
         }
         public override bool LoadEnd()
         {
@@ -44,8 +44,8 @@ namespace lgu3d
     public class ManagerContorBase<C> : ManagerContorBase where C : ManagerContorBase<C>, new()
     {
         #region 单例接口
-        protected  static C _instance = null;
-        public  static C Instance
+        protected static C _instance = null;
+        public static C Instance
         {
             get
             {
@@ -70,10 +70,10 @@ namespace lgu3d
             _instance = this as C;
         }
 
-        public override void Load<Model>(ModelLoadBackCall<Model> _LoadBackCall, params object[] _Agr)
+        public override void Load<Model>(ModelLoadBackCall<Model> _LoadBackCall, params object[] agrs)
         {
             LoadBackCall = _LoadBackCall as ModelLoadBackCall<C>;
-            base.Load<Model>(_LoadBackCall,_Agr);
+            base.Load<Model>(_LoadBackCall, agrs);
         }
 
         public override bool LoadEnd()

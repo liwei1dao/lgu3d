@@ -97,11 +97,11 @@ namespace lgu3d
                 return false;
             }
         }
-        public virtual void Start(params object[] agr)
+        public virtual void Start(params object[] agrs)
         {
             for (int i = 0; i < MyComps.Count; i++)
             {
-                MyComps[i].Start(agr);
+                MyComps[i].Start(agrs);
             }
             State = ModelBaseState.Start;
         }
@@ -116,24 +116,24 @@ namespace lgu3d
         }
 
         //添加组件
-        protected virtual CP AddComp<CP>(params object[] agr) where CP : ModelCompBase, new()
+        protected virtual CP AddComp<CP>(params object[] agrs) where CP : ModelCompBase, new()
         {
             CP Comp = new CP();
             MyComps.Add(Comp);
             if (State > ModelBaseState.Close)
-                Comp.Load(this, agr);
+                Comp.Load(this, agrs);
             if (State == ModelBaseState.Start)
-                Comp.Start(this, agr);
+                Comp.Start(this, agrs);
             return Comp;
         }
 
-        protected virtual ModelCompBase AddComp(ModelCompBase Comp, params object[] agr)
+        protected virtual ModelCompBase AddComp(ModelCompBase Comp, params object[] agrs)
         {
             MyComps.Add(Comp);
             if (State > ModelBaseState.Close)
-                Comp.Load(this, agr);
+                Comp.Load(this, agrs);
             if (State == ModelBaseState.Start)
-                Comp.Start(this, agr);
+                Comp.Start(this, agrs);
             return Comp;
         }
 
