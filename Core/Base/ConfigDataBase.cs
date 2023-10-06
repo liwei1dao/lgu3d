@@ -19,12 +19,10 @@ namespace lgu3d
     {
     }
 
-    [SerializeField]
     public class ConfigDataBase<K> : IConfigData
     {
         public K Id;
     }
-
     public class ConfigTableDataBase<D> : ScriptableObject, IListDataTable where D : IConfigData
     {
         public List<D> Datas = new List<D>();

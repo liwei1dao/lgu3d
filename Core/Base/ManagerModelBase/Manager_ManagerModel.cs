@@ -17,20 +17,20 @@ namespace lgu3d
         protected override void Init()
         {
             DontDestroyOnLoad(gameObject);
-            Modules = new Dictionary<string, ManagerContorBase>();
+            modules = new Dictionary<string, ManagerContorBase>();
             base.Init();
         }
         public override void StartModule<C>(ModelLoadBackCall<C> BackCall = null, params object[] agrs)
         {
             string ModelName = typeof(C).Name;
-            if (!Modules.ContainsKey(ModelName))
+            if (!modules.ContainsKey(ModelName))
             {
-                Modules[ModelName] = new C
+                modules[ModelName] = new C
                 {
                     ModuleName = ModelName
                 };
-                base.StartModule(ModelName, Modules[ModelName]);
-                Modules[ModelName].Load<C>((model) =>
+                base.StartModule(ModelName, modules[ModelName]);
+                modules[ModelName].Load<C>((model) =>
                 {
                     StartCoroutine(ModuleStart<C>(model, BackCall, agrs));
                 }, agrs);
@@ -42,14 +42,35 @@ namespace lgu3d
         }
         public override void StartModule<C>(string ModelName, ModelLoadBackCall<C> BackCall = null, params object[] agrs)
         {
-            if (!Modules.ContainsKey(ModelName))
+            if (!modules.ContainsKey(ModelName))
             {
-                Modules[ModelName] = new C
+                modules[ModelName] = new C
                 {
                     ModuleName = ModelName
                 };
-                base.StartModule(ModelName, Modules[ModelName]);
-                Modules[ModelName].Load<C>((model) =>
+                base.StartModule(ModelName, modules[ModelName]);
+                modules[ModelName].Load<C>((model) =>
+                {
+                    StartCoroutine(ModuleStart<C>(model, BackCall, agrs));
+                }, agrs);
+            }
+            else
+            {
+                Debug.LogError("This Model Already Load:" + typeof(C).Name);
+            }
+        }
+        public override void StartModuleByTag<C>(string tag, ModelLoadBackCall<C> BackCall = null, params object[] agrs)
+        {
+            string ModelName = typeof(C).Name;
+            if (!modules.ContainsKey(ModelName))
+            {
+                modules[ModelName] = new C
+                {
+                    ModuleName = ModelName,
+                    ModuleTag = tag,
+                };
+                base.StartModule(ModelName, modules[ModelName]);
+                modules[ModelName].Load<C>((model) =>
                 {
                     StartCoroutine(ModuleStart<C>(model, BackCall, agrs));
                 }, agrs);
@@ -61,12 +82,12 @@ namespace lgu3d
         }
         public override void StartModuleObj(string moduleName, ManagerContorBase Mdule, ModelLoadBackCall<ManagerContorBase> BackCall = null, params object[] agrs)
         {
-            if (!Modules.ContainsKey(moduleName))
+            if (!modules.ContainsKey(moduleName))
             {
-                Modules[moduleName] = Mdule;
-                Modules[moduleName].ModuleName = moduleName;
-                base.StartModule(moduleName, Modules[moduleName]);
-                Modules[moduleName].Load<ManagerContorBase>((model) =>
+                modules[moduleName] = Mdule;
+                modules[moduleName].ModuleName = moduleName;
+                base.StartModule(moduleName, modules[moduleName]);
+                modules[moduleName].Load<ManagerContorBase>((model) =>
                 {
                     StartCoroutine(ModuleStart<ManagerContorBase>(model, BackCall, agrs));
                 }, agrs);
@@ -79,17 +100,17 @@ namespace lgu3d
 
         public override void StartModuleForName(string nameSpace, string moduleName, ModelLoadBackCall<ManagerContorBase> BackCall = null, params object[] agrs)
         {
-            if (!Modules.ContainsKey(moduleName))
+            if (!modules.ContainsKey(moduleName))
             {
-                Modules[moduleName] = Assembly.GetExecutingAssembly().CreateInstance(nameSpace == "" ? moduleName : nameSpace + "." + moduleName, true, System.Reflection.BindingFlags.Default, null, null, null, null) as ManagerContorBase;
-                if (Modules[moduleName] == null)
+                modules[moduleName] = Assembly.GetExecutingAssembly().CreateInstance(nameSpace == "" ? moduleName : nameSpace + "." + moduleName, true, System.Reflection.BindingFlags.Default, null, null, null, null) as ManagerContorBase;
+                if (modules[moduleName] == null)
                 {
                     Debug.LogError("StartModelForName  Error 反射为空  " + nameSpace + "." + moduleName);
                     return;
                 }
-                Modules[moduleName].ModuleName = moduleName;
-                base.StartModule(moduleName, Modules[moduleName]);
-                Modules[moduleName].Load<ManagerContorBase>((model) =>
+                modules[moduleName].ModuleName = moduleName;
+                base.StartModule(moduleName, modules[moduleName]);
+                modules[moduleName].Load<ManagerContorBase>((model) =>
                 {
                     StartCoroutine(ModuleStart<ManagerContorBase>(model, BackCall, agrs));
                 }, agrs);
@@ -103,17 +124,28 @@ namespace lgu3d
         {
             yield return new WaitForEndOfFrame();
             model.Start(agrs);
-            if (BackCall != null)
-                BackCall(model);
+            BackCall?.Invoke(model);
+        }
+
+        public override C GetModuleByTag<C>(string mtag)
+        {
+            foreach (var module in modules)
+            {
+                if (module.Value.ModuleTag == mtag)
+                {
+                    return module.Value as C;
+                }
+            }
+            return null;
         }
 
         public override void CloseModule<C>()
         {
             string ModelName = typeof(C).Name;
-            if (Modules.ContainsKey(ModelName))
+            if (modules.ContainsKey(ModelName))
             {
-                Modules[ModelName].Close();
-                Modules.Remove(ModelName);
+                modules[ModelName].Close();
+                modules.Remove(ModelName);
                 base.CloseModule(ModelName);
             }
             else
@@ -123,10 +155,10 @@ namespace lgu3d
         }
         public override void CloseModuleForName(string moduleName)
         {
-            if (Modules.ContainsKey(moduleName))
+            if (modules.ContainsKey(moduleName))
             {
-                Modules[moduleName].Close();
-                Modules.Remove(moduleName);
+                modules[moduleName].Close();
+                modules.Remove(moduleName);
                 base.CloseModule(moduleName);
             }
             else

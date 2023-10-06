@@ -16,6 +16,7 @@ namespace lgu3d
             SoundPlayers = new GameObject("SoundPlayers");
             SoundPlayers.AddComponent<AudioListener>();
             DataComp = AddComp<SoundDataComp>();
+            SoundComp = AddComp<Module_SoundComp>();
             Object.DontDestroyOnLoad(SoundPlayers);
             base.Load(_Agr);
         }

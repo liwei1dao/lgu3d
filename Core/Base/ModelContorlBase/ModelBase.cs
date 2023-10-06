@@ -14,7 +14,7 @@ using System.Reflection;
 namespace lgu3d
 {
     //模块初始化回调委托
-    public delegate void ModelLoadBackCall<C>(C ModelContorl) where C : ModelBase;
+    public delegate void ModelLoadBackCall<C>(C ModelContorl) where C : IModule;
     //模块基础状态
     public enum ModelBaseState
     {
@@ -54,6 +54,7 @@ namespace lgu3d
     public abstract class ModelBase : IModule
     {
         public string ModuleName;                                                   //模块名称
+        public string ModuleTag;                                                    //模块标签
         public ModelBaseState State = ModelBaseState.Close;                         //模块状态
         protected List<ModelCompBase> MyComps = new List<ModelCompBase>();          //组件列表
         protected Module_TimerComp TimerComp;                                       //计时器组件 （需要则初始化）

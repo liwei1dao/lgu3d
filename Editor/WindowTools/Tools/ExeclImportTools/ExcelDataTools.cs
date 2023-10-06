@@ -96,6 +96,9 @@ namespace lgu3d.Editor
 
     /// <summary>
     ///  Excel转换到Asset
+    ///  第一行字段名
+    ///  第二行字段类型
+    ///  第三行字段描述
     /// </summary>
     public static ScriptableObject DataSetToAsset(DataSet mData, string ClassName)
     {
@@ -107,11 +110,14 @@ namespace lgu3d.Editor
       FieldInfo[] DataFields = new FieldInfo[mData.Tables[0].Columns.Count];
       for (int m = 0; m < mData.Tables[0].Columns.Count; m++)
       {
-        DataFields[m] = DataType.GetField(mData.Tables[0].Columns[m].ColumnName);
+        string key = drc[0][m].ToString();
+        DataFields[m] = DataType.GetField(key);
       }
-      for (int n = 0; n < drc.Count; n++)
+      bool IsEmpty = false;
+      for (int n = 3; n < drc.Count; n++)
       {
         object dataitem = DataType.GetConstructor(Type.EmptyTypes).Invoke(null);
+        IsEmpty = false;
         for (int m = 0; m < mData.Tables[0].Columns.Count; m++)
         {
           string value = drc[n][m].ToString();
@@ -120,8 +126,20 @@ namespace lgu3d.Editor
             var obj = DataSerialization.GetValue(value, DataFields[m].FieldType);
             DataFields[m].SetValue(dataitem, obj);
           }
+          else
+          {
+            if (m == 0)
+            {
+              IsEmpty = true;
+              break;
+            }
+          }
         }
-        AddDataMethodInfo.Invoke(ddata, new object[] { dataitem });
+        if (!IsEmpty)
+        {
+          AddDataMethodInfo.Invoke(ddata, new object[] { dataitem });
+        }
+
       }
       return ddata;
     }
