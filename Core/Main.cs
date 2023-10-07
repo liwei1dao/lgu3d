@@ -10,14 +10,17 @@ namespace lgu3d
         public bool IsOpenVersionCheck;
         [LGAttributeRename("App资源加载方式")]
         public AppResModel AppResModel;
+        [LGAttributeRename("Web服务器地址")]
+        public string WebServiceAddr;
         protected virtual void SetConfig()
         {
             AppConfig.IsOpenVersionCheck = IsOpenVersionCheck;
             AppConfig.AppResModel = AppResModel;
+            AppConfig.ServiceAddr = WebServiceAddr;
 #if UNITY_IOS
             AppConfig.TargetPlatform = AppPlatform.IOS;
 #elif UNITY_ANDROID
-      AppConfig.TargetPlatform = AppPlatform.Android;
+            AppConfig.TargetPlatform = AppPlatform.Android;
 #else
             AppConfig.TargetPlatform = AppPlatform.Windows;
 #endif

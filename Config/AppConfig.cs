@@ -17,22 +17,16 @@ namespace lgu3d
         release,
     }
 
-    public static class AppConfig 
-    {   
-        public static bool IsOpenVersionCheck;                                      //是否开启版本检测
-
-        public static AppResModel AppResModel = AppResModel.debug;             //资源加载模式
-
-        public static AppPlatform TargetPlatform = AppPlatform.Windows;             //当前平台
-                    
-        public static string ResZipPassword = "liwei1dao";                          //内部资源压缩密码
-
+    public static class AppConfig
+    {
+        public static bool IsOpenVersionCheck;                                  //是否开启版本检测
+        public static string ServiceAddr;                                       //服务器地址
+        public static AppResModel AppResModel = AppResModel.debug;              //资源加载模式
+        public static AppPlatform TargetPlatform = AppPlatform.Windows;         //当前平台
+        public static string ResZipPassword = "liwei1dao";                      //内部资源压缩密码
         public static string ResFileSuffix = ".1dao";
-
         public const string mApplogAddress = "Log";
-
         public const string mAppExternalAddress = "AppResources";
-
         public const string mAppResourcesTemp = "AppResourcesTemp";
 
         public static string PlatformRoot
