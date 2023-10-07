@@ -53,8 +53,6 @@ sysinfo.txt
 
 # Builds
 *.apk
-*.unitypackage
-
 # Crashlytics generated file
 crashlytics-build.properties
 *.DS_Store
@@ -94,6 +92,9 @@ Shader/*
 
 */ToolsResources/PackingToolsSetting.asset
 */ToolsResources/PackingToolsSetting.asset.meta
-
+*/DOTween/*
+!*/DOTween/DOTween Pro 1.0.310.unitypackage
 */FairyGUI/*
 !*/FairyGUI/FairyGUI.unitypackage
+*/Best HTTP/*
+!*/Best HTTP/Best HTTP v1.11.0.unitypackage
