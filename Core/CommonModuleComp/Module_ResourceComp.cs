@@ -7,9 +7,9 @@ namespace lgu3d
   /// </summary>
   public class Module_ResourceComp : ModelCompBase
   {
- 
+
     #region 构架
-    public override void Load(ModelBase _ModelContorl, params object[] _Agr)
+    public override void Load(ModuleBase _ModelContorl, params object[] _Agr)
     {
       base.Load(_ModelContorl);
       base.LoadEnd();
@@ -40,7 +40,7 @@ namespace lgu3d
         return null;
       }
     }
-    
+
     public T LoadAsset<T>(string BundleName, string AssetName) where T : UnityEngine.Object
     {
       string ModelName = MyModule.ModuleName;

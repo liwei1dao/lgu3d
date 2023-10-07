@@ -2,11 +2,11 @@
 using System.Diagnostics;
 
 namespace lgu3d
-{ 
+{
     public class TimerModuleDataComp : ModelCompBase<TimerModule>
     {
         #region 框架构造
-        public override void Load(ModelBase _ModelContorl, params object[] _Agr)
+        public override void Load(ModuleBase _ModelContorl, params object[] _Agr)
         {
             m_queue = new KeyedPriorityQueue<uint, TimerDataBase, ulong>();
             m_stopWatch = new Stopwatch();

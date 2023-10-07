@@ -10,7 +10,7 @@ namespace lgu3d
         /// <summary>
         /// 计时器服务模块
         /// </summary>
-        public ModelBase TargetModel;
+        public ModuleBase TargetModel;
         /// <summary>
         /// 计时器ID
         /// </summary>

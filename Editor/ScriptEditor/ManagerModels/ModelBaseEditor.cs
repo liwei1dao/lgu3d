@@ -4,13 +4,13 @@ using UnityEditor;
 
 namespace lgu3d.Editor
 {
-    public class ModelBaseEditor: EditorWindow
+    public class ModelBaseEditor : EditorWindow
     {
         public static ModelBaseEditor newWindow;
         public static string ModelName;
-        public static ModelBase Model;
+        public static ModuleBase Model;
         public static List<ModelCompBase> ModelComps;
-        public static void ShowModelView(string _ModelName,ModelBase _Model,Rect Pos)
+        public static void ShowModelView(string _ModelName, ModuleBase _Model, Rect Pos)
         {
             Model = _Model;
             ModelName = _ModelName;
@@ -29,7 +29,7 @@ namespace lgu3d.Editor
         public virtual void OnGUI()
         {
             GUILayout.BeginVertical();
-            GUILayout.Label(ModelName,EditorStyles.centeredGreyMiniLabel);
+            GUILayout.Label(ModelName, EditorStyles.centeredGreyMiniLabel);
             ModelCompsGUI();
             GUILayout.EndVertical();
         }

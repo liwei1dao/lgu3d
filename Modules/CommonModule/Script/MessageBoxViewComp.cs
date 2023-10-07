@@ -11,7 +11,7 @@ namespace lgu3d
     private Button CancelButt;
     private Action ConfirmFun;
     private Action CancelFun;
-    public override void Load(ModelBase module, params object[] agr)
+    public override void Load(ModuleBase module, params object[] agr)
     {
       base.Load(module, "MessageBox", UILevel.HightUI);
       Message = UIGameobject.OnSubmit<Text>("Msg");

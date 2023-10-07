@@ -11,12 +11,12 @@ namespace lgu3d
     public class Module_CoroutineComp : ModelCompBase
     {
         #region 框架构造
-        public override void Load(ModelBase _ModelContorl, params object[] _Agr)
+        public override void Load(ModuleBase _ModelContorl, params object[] _Agr)
         {
             if (CoroutineModule.Instance == null)
             {
                 Debug.LogError("CoroutineModule User but No Load");
-                return ;
+                return;
             }
             CoroutineTasks = new List<CoroutineTask>();
             base.Load(_ModelContorl);
@@ -44,13 +44,13 @@ namespace lgu3d
 
         public void StopAllCoroutine()
         {
-            for (int i = 1; i< CoroutineTasks.Count; i++)
+            for (int i = 1; i < CoroutineTasks.Count; i++)
             {
                 StopCoroutine(CoroutineTasks[i]);
             }
         }
 
-        private void TaskFinshed(CoroutineTask task,bool IsFinsh)
+        private void TaskFinshed(CoroutineTask task, bool IsFinsh)
         {
             if (CoroutineTasks.Contains(task))
             {

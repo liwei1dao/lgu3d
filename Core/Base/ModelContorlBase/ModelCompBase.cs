@@ -18,7 +18,7 @@ namespace lgu3d
 
   public interface IModelCompBase
   {
-    void Load(ModelBase module, params object[] agr);                                   //模块初始化
+    void Load(ModuleBase module, params object[] agr);                                   //模块初始化
     void Start(params object[] agr);                                                   //模块启动
     void Close();
     void ShowInspector();                                                              //自定义监控面板
@@ -30,9 +30,9 @@ namespace lgu3d
   /// </summary>
   public abstract class ModelCompBase : IModelCompBase
   {
-    protected ModelBase MyModule;                                                           //挂在模块
+    protected ModuleBase MyModule;                                                           //挂在模块
     public ModelCompBaseState State = ModelCompBaseState.Close;                             //组件状态
-    public virtual void Load(ModelBase module, params object[] agr)
+    public virtual void Load(ModuleBase module, params object[] agr)
     {
       MyModule = module;
       State = ModelCompBaseState.Loading;
@@ -61,11 +61,11 @@ namespace lgu3d
     }
   }
 
-  public abstract class ModelCompBase<C> : ModelCompBase where C : ModelBase, new()
+  public abstract class ModelCompBase<C> : ModelCompBase where C : ModuleBase, new()
   {
     protected new C MyModule;
 
-    public override void Load(ModelBase module, params object[] agrs)
+    public override void Load(ModuleBase module, params object[] agrs)
     {
       MyModule = module as C;
       base.Load(module, agrs);

@@ -2,7 +2,7 @@
 
 namespace lgu3d
 {
-  public abstract class Module_BaseSceneComp<C> : ModelCompBase<C>, ISceneLoadCompBase where C : ModelBase, new()
+  public abstract class Module_BaseSceneComp<C> : ModelCompBase<C>, ISceneLoadCompBase where C : ModuleBase, new()
   {
     protected string SceneName;
     protected float Process;

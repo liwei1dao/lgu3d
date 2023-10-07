@@ -7,7 +7,7 @@ namespace lgu3d
     public class CoroutineModuleDataComp : ModelCompBase<CoroutineModule>
     {
         #region 框架构造
-        public override void Load(ModelBase _ModelContorl, params object[] _Agr)
+        public override void Load(ModuleBase _ModelContorl, params object[] _Agr)
         {
             AllTask = new List<CoroutineTask>();
             base.Load(_ModelContorl);
@@ -28,7 +28,7 @@ namespace lgu3d
         /// <summary>
         ///  任务完成通知
         /// </summary>
-        public void TaskFinished(CoroutineTask Task,bool IsFinish)
+        public void TaskFinished(CoroutineTask Task, bool IsFinish)
         {
             AllTask.Remove(Task);
         }

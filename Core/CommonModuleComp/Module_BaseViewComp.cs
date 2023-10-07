@@ -28,7 +28,7 @@ namespace lgu3d
     /// </summary>
     /// <param name="_ModelContorl"></param>
     /// <param name="_Agr">第一个参数 资源根路径</param>
-    public override void Load(ModelBase _ModelContorl, params object[] _Agr)
+    public override void Load(ModuleBase _ModelContorl, params object[] _Agr)
     {
       base.Load(_ModelContorl);
       string PrefabName = (string)_Agr[0];
@@ -81,7 +81,7 @@ namespace lgu3d
   /// <summary>
   /// 模块界面基础组件
   /// </summary>
-  public class Model_BaseViewComp<C> : ModelCompBase<C>, ViewComp where C : ModelBase, new()
+  public class Model_BaseViewComp<C> : ModelCompBase<C>, ViewComp where C : ModuleBase, new()
   {
     protected UILevel ShowLevel = UILevel.LowUI;
     private int Index;
@@ -93,7 +93,7 @@ namespace lgu3d
     /// </summary>
     /// <param name="_ModelContorl"></param>
     /// <param name="_Agr">第一个参数 资源根路径</param>
-    public override void Load(ModelBase module, params object[] agr)
+    public override void Load(ModuleBase module, params object[] agr)
     {
       base.Load(module);
       string PrefabName = (string)agr[0];

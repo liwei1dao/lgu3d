@@ -7,7 +7,7 @@ namespace lgu3d
     public class Module_TimerComp : ModelCompBase
     {
         #region 框架构造
-        public override void Load(ModelBase _ModelContorl,params object[] _Agr)
+        public override void Load(ModuleBase _ModelContorl, params object[] _Agr)
         {
             if (TimerModule.Instance == null)
             {
@@ -70,7 +70,7 @@ namespace lgu3d
             }
             else
             {
-                Debug.LogError("ModelTimer Complete a No Keep Timer -- ModelName:"+ this.GetType().FullName);
+                Debug.LogError("ModelTimer Complete a No Keep Timer -- ModelName:" + this.GetType().FullName);
             }
         }
     }

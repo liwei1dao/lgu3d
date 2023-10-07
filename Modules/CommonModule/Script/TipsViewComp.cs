@@ -10,7 +10,7 @@ namespace lgu3d
   public class TipsViewComp : Model_BaseViewComp<CommonModule>
   {
     private GameObject tipls;
-    public override void Load(ModelBase module, params object[] agr)
+    public override void Load(ModuleBase module, params object[] agr)
     {
       base.Load(module, "MessageTipls", UILevel.HightUI);
       tipls = UIGameobject.Find("tipls");

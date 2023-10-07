@@ -12,7 +12,7 @@ namespace lgu3d
     public class LocalVersionCheckeComp : ModelCompBase<VersionManagerModule>
     {
 
-        public override void Load(ModelBase _ModelContorl, params object[] _Agr)
+        public override void Load(ModuleBase _ModelContorl, params object[] _Agr)
         {
             base.Load(_ModelContorl, _Agr);
             LoadEnd();
@@ -90,7 +90,8 @@ namespace lgu3d
                 Debug.Log(www.error);
             else
             {
-                yield return ZipTools.UnzipFile(dowle.data, AppConfig.AppAssetBundleAddress, AppConfig.ResZipPassword, (string DescribeStr, float Progress) => {
+                yield return ZipTools.UnzipFile(dowle.data, AppConfig.AppAssetBundleAddress, AppConfig.ResZipPassword, (string DescribeStr, float Progress) =>
+                {
                     MyModule.InfoOutComp.UpdataView("初次运行解压资源文件", DescribeStr, Progress);
                 });
                 if (CallBack != null)
@@ -103,7 +104,8 @@ namespace lgu3d
 
 
         //校验本地模块资源信息文件
-        public void CheckLoadModule(string ModuleName, Action<Dictionary<string, int>, AppModuleAssetInfo> CallBack) {
+        public void CheckLoadModule(string ModuleName, Action<Dictionary<string, int>, AppModuleAssetInfo> CallBack)
+        {
             string localmodulepath = AppConfig.AppAssetBundleAddress + "/" + ModuleName + "/AssetInfo.json";
             bool IsSucc = FilesTools.IsKeepFileOrDirectory(localmodulepath);
             if (IsSucc)
@@ -112,7 +114,8 @@ namespace lgu3d
                 AppModuleAssetInfo LocalAssetInfo = JsonTools.JsonStrToObject<AppModuleAssetInfo>(assetinfostr);
                 CallBack?.Invoke(null, LocalAssetInfo);
             }
-            else {
+            else
+            {
                 CallBack?.Invoke(null, new AppModuleAssetInfo());
             }
         }

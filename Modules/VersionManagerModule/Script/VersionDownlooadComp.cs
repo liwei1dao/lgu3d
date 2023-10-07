@@ -11,7 +11,7 @@ namespace lgu3d
     /// </summary>
     public class VersionDownlooadComp : Module_DownloadComp<VersionManagerModule>
     {
-        public override void Load(ModelBase _ModelContorl, params object[] _Agr)
+        public override void Load(ModuleBase _ModelContorl, params object[] _Agr)
         {
             base.Load(_ModelContorl, _Agr);
             LoadEnd();

@@ -4,10 +4,11 @@ using UnityEngine.UI;
 
 namespace lgu3d
 {
-    public enum VersionCheckErrorType {
+    public enum VersionCheckErrorType
+    {
         CannotAccessResService = 0,             //无法访问资源服务器
-        AppVersionTooLow       =1,              //当前运行App版本过低
-        ResDownlooadError      =2,              //资源下载错误
+        AppVersionTooLow = 1,              //当前运行App版本过低
+        ResDownlooadError = 2,              //资源下载错误
     }
 
     /// <summary>
@@ -17,7 +18,7 @@ namespace lgu3d
     {
         void UpdataView(string TitleStr, string DescribeStr, float Progress);
         void UpdataView(string TitleStr, string DescribeStr, float Progress01, float Progress02);
-        void CheckVersionError(VersionCheckErrorType errtype,Action retryFunc);
+        void CheckVersionError(VersionCheckErrorType errtype, Action retryFunc);
 
     }
 
@@ -27,7 +28,7 @@ namespace lgu3d
         private Text Progress1Describe;
         private Slider Progress2;
         private Text Progress2Describe;
-        public override void Load(ModelBase _ModelContorl, params object[] _Agr)
+        public override void Load(ModuleBase _ModelContorl, params object[] _Agr)
         {
             base.Load(_ModelContorl, "DefaultInfoOutView");
             Progress1 = UIGameobject.OnSubmit<Slider>("Progress1");
@@ -52,26 +53,33 @@ namespace lgu3d
 
         public virtual void CheckVersionError(VersionCheckErrorType errtype, Action retryFunc)
         {
-            switch (errtype) {
+            switch (errtype)
+            {
                 case VersionCheckErrorType.CannotAccessResService:
                     //需要下载新的App
-                    CommonModule.Instance.ShowBox("无法访问远程资源服务器", () => {
+                    CommonModule.Instance.ShowBox("无法访问远程资源服务器", () =>
+                    {
                         retryFunc?.Invoke();
-                    }, () => {
+                    }, () =>
+                    {
                         Application.Quit();
                     });
                     break;
                 case VersionCheckErrorType.AppVersionTooLow:
-                    CommonModule.Instance.ShowBox("当前App版本过低!", () => {
+                    CommonModule.Instance.ShowBox("当前App版本过低!", () =>
+                    {
                         retryFunc?.Invoke();
-                    }, () => {
+                    }, () =>
+                    {
                         Application.Quit();
                     });
                     break;
                 case VersionCheckErrorType.ResDownlooadError:
-                    CommonModule.Instance.ShowBox("资源下载异常!", () => {
+                    CommonModule.Instance.ShowBox("资源下载异常!", () =>
+                    {
                         retryFunc?.Invoke();
-                    }, () => {
+                    }, () =>
+                    {
                         Application.Quit();
                     });
                     break;

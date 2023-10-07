@@ -10,30 +10,32 @@ namespace lgu3d
     public class AppVersionContrastComp : ModelCompBase<VersionManagerModule>
     {
 
-        public override void Load(ModelBase _ModelContorl, params object[] _Agr)
+        public override void Load(ModuleBase _ModelContorl, params object[] _Agr)
         {
             base.Load(_ModelContorl, _Agr);
             LoadEnd();
         }
 
-        public void ContrastVersion(string AssetInfoUrl,AppModuleAssetInfo Localassetinfo,Action<AppModuleAssetInfo, List<ResBuileInfo>> CallBack, Action ErrorBack)
+        public void ContrastVersion(string AssetInfoUrl, AppModuleAssetInfo Localassetinfo, Action<AppModuleAssetInfo, List<ResBuileInfo>> CallBack, Action ErrorBack)
         {
-            RequestAssetVersionInfo(AssetInfoUrl,(SerassetInfo) =>
+            RequestAssetVersionInfo(AssetInfoUrl, (SerassetInfo) =>
             {
                 List<ResBuileInfo> UpdataAssetinfo = ContrastAssetInfo(Localassetinfo, SerassetInfo);
-                CallBack?.Invoke(SerassetInfo,UpdataAssetinfo);
-            },ErrorBack);
+                CallBack?.Invoke(SerassetInfo, UpdataAssetinfo);
+            }, ErrorBack);
         }
 
         private void RequestAssetVersionInfo(string AssetInfoUrl, Action<AppModuleAssetInfo> CallBack, Action ErrorBack)
         {
-            Action<UnityWebRequest> func =  (UnityWebRequest result) => {
+            Action<UnityWebRequest> func = (UnityWebRequest result) =>
+            {
                 if (!result.isNetworkError)
                 {
                     AppModuleAssetInfo SerassetInfo = JsonTools.JsonStrToObject<AppModuleAssetInfo>(result.downloadHandler.text);
                     CallBack?.Invoke(SerassetInfo);
                 }
-                else {
+                else
+                {
                     ErrorBack?.Invoke();
                 }
             };

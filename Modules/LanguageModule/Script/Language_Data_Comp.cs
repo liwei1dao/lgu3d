@@ -13,7 +13,7 @@ namespace lgu3d
     public LanguageTable Languages;
 
     #region 框架构造
-    public override void Load(ModelBase _ModelContorl, params object[] _Agr)
+    public override void Load(ModuleBase _ModelContorl, params object[] _Agr)
     {
       base.Load(_ModelContorl);
       Languages = MyModule.LoadAsset<LanguageTable>("Data", "LanguageTable");

@@ -7,14 +7,14 @@ namespace lgu3d
     /// <summary>
     /// 模块音频组件
     /// </summary>
-    public class Module_AdvManager_Comp<C> : ModelCompBase<C> where C : ModelBase, new()
+    public class Module_AdvManager_Comp<C> : ModelCompBase<C> where C : ModuleBase, new()
     {
         protected List<IAdv> advs;
         public AdvInitializationEvent InitializationEvent;
         public AdvLoadEvent LoadEvent;
         protected Action<AdvType, bool> advRewarCall;
         #region 框架构造
-        public override void Load(ModelBase module, params object[] agrs)
+        public override void Load(ModuleBase module, params object[] agrs)
         {
             advs = new List<IAdv>();
             base.Load(module, agrs);

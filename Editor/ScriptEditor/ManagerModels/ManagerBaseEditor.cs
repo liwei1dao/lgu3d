@@ -11,7 +11,7 @@ namespace lgu3d.Editor
     public class ManagerBaseEditor : UnityEditor.Editor
     {
         ModuleManagerBase obj;
-        Dictionary<string, ModelBase> Models;
+        Dictionary<string, ModuleBase> Models;
         List<string> ModelNames;
 
         bool IsInit = false;
@@ -71,7 +71,7 @@ namespace lgu3d.Editor
             GUILayout.EndHorizontal();
             this.Repaint();
         }
-        protected virtual void ShowModeInfo(string ModelStr, ModelBase Model)
+        protected virtual void ShowModeInfo(string ModelStr, ModuleBase Model)
         {
             var t = Model.GetType();
             FieldInfo[] properties = t.GetFields(BindingFlags.Default | BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 */
 namespace lgu3d
 {
-    public class ManagerContorBase : ModelBase
+    public class ManagerContorBase : ModuleBase
     {
         protected ModelLoadBackCall<ManagerContorBase> LoadBackCall;
 

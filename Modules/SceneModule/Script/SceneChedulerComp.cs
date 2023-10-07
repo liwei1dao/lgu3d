@@ -15,7 +15,7 @@ namespace lgu3d
     private ISceneLoadCompBase CurrSceneLoadComp;
 
     #region 框架构造
-    public override void Load(ModelBase _ModelContorl, params object[] _Agr)
+    public override void Load(ModuleBase _ModelContorl, params object[] _Agr)
     {
       Cheduler = (IScenesChedulerBase)_Agr[0];
       base.Load(_ModelContorl);

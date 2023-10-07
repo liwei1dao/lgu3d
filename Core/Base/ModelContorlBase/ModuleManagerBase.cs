@@ -8,19 +8,19 @@ namespace lgu3d
 {
   public abstract class ModuleManagerBase : MonoBehaviour
   {
-    protected Dictionary<string, ModelBase> modules;
+    protected Dictionary<string, ModuleBase> modules;
     private bool Lock = false;                              //models 操作锁
-    private List<ModelBase> AddTmpmodels; //防止models循环中操作队列导致报错
+    private List<ModuleBase> AddTmpmodels; //防止models循环中操作队列导致报错
     private List<string> RemoveTmpmodels; //防止models循环中操作队列导致报错
-    public Dictionary<string, ModelBase> Models
+    public Dictionary<string, ModuleBase> Models
     {
       get { return modules; }
     }
 
     protected virtual void Init()
     {
-      modules = new Dictionary<string, ModelBase>();
-      AddTmpmodels = new List<ModelBase>();
+      modules = new Dictionary<string, ModuleBase>();
+      AddTmpmodels = new List<ModuleBase>();
       RemoveTmpmodels = new List<string>();
     }
 
@@ -30,7 +30,7 @@ namespace lgu3d
       return modules.ContainsKey(moduleName);
     }
 
-    protected void StartModule(string moduleName, ModelBase _Model)
+    protected void StartModule(string moduleName, ModuleBase _Model)
     {
       if (!Lock)
       {

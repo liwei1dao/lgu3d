@@ -51,7 +51,7 @@ namespace lgu3d
     }
 
     #region 普通模块基类
-    public abstract class ModelBase : IModule
+    public abstract class ModuleBase : IModule
     {
         public string ModuleName;                                                   //模块名称
         public string ModuleTag;                                                    //模块标签
@@ -63,7 +63,7 @@ namespace lgu3d
         protected Module_ResourceComp ResourceComp;                                 //资源管理组件（需要则初始化）
         protected Module_GameObjectPoolComp GameObjectPoolComp;
 
-        public ModelBase()
+        public ModuleBase()
         {
             State = ModelBaseState.Close;
         }

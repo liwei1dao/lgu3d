@@ -83,7 +83,7 @@ namespace lgu3d
 
         protected Dictionary<string, GameObjectPoolByQueue> qpools = new Dictionary<string, GameObjectPoolByQueue>();
         protected Dictionary<string, GameObjectPoolByDictionary> dpools = new Dictionary<string, GameObjectPoolByDictionary>();
-        public override void Load(ModelBase module, params object[] agr)
+        public override void Load(ModuleBase module, params object[] agr)
         {
             base.Load(module, agr);
             LoadEnd();

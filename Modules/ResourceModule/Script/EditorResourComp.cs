@@ -11,7 +11,7 @@ namespace lgu3d
   {
     private Dictionary<string, Dictionary<string, UnityEngine.Object>> Assets;
     public PackingConfig Config;
-    public override void Load(ModelBase _ModelContorl, params object[] _Agr)
+    public override void Load(ModuleBase _ModelContorl, params object[] _Agr)
     {
       base.Load(_ModelContorl, _Agr);
       Assets = new Dictionary<string, Dictionary<string, Object>>();

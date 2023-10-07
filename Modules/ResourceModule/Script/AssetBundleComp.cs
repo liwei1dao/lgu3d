@@ -25,7 +25,7 @@ namespace lgu3d
     AppModuleAssetInfo ResourceInfo;
 
 
-    public override void Load(ModelBase _ModelContorl, params object[] _Agr)
+    public override void Load(ModuleBase _ModelContorl, params object[] _Agr)
     {
       base.Load(_ModelContorl, _Agr);
       // IsHaveLoadView = false;

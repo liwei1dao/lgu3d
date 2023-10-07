@@ -6,7 +6,7 @@ namespace lgu3d
     {
         private Slider LoadProgress;
 
-        public override void Load(ModelBase _ModelContorl, params object[] _Agr)
+        public override void Load(ModuleBase _ModelContorl, params object[] _Agr)
         {
             ShowLevel = UILevel.HightUI;
             base.Load(_ModelContorl, "LoadingView");

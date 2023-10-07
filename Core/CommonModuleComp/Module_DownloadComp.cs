@@ -124,13 +124,13 @@ namespace lgu3d
       ErrorTaskBack?.Invoke(this, Task);
     }
   }
-  public class Module_DownloadComp<C> : ModelCompBase<C> where C : ModelBase, new()
+  public class Module_DownloadComp<C> : ModelCompBase<C> where C : ModuleBase, new()
   {
     private Queue<DownloadTaskGroup> TasksQueues;
     private DownloadTaskGroup CurrDownloadTask;
     private bool IsDownloading = false;
     #region 框架构造
-    public override void Load(ModelBase _ModelContorl, params object[] _Agr)
+    public override void Load(ModuleBase _ModelContorl, params object[] _Agr)
     {
       IsDownloading = false;
       TasksQueues = new Queue<DownloadTaskGroup>();
