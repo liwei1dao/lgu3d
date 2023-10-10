@@ -291,7 +291,7 @@ namespace lgu3d.Editor
     //获取编译输出文件
     public virtual string GetBuildOutFile()
     {
-      if (!Path.EndsWith("lua") && !Path.EndsWith("proto"))
+      if (!Path.EndsWith("lua") && !Path.EndsWith("proto") && !Path.EndsWith("bytes"))
       {
         return (Application.dataPath + Path).Substring(AppConfig.PlatformRoot.Length + 1);
       }
@@ -307,6 +307,13 @@ namespace lgu3d.Editor
         else if (Path.EndsWith("proto"))
         {
           string protobuildfile = (Application.dataPath + Path).Replace(".proto", ".txt");
+          FilesTools.CopyFile(Application.dataPath + Path, protobuildfile);
+          string outstr = protobuildfile.Substring(AppConfig.PlatformRoot.Length + 1);
+          return outstr;
+        }
+        else if (Path.EndsWith("bytes"))
+        {
+          string protobuildfile = (Application.dataPath + Path).Replace(".bytes", ".txt");
           FilesTools.CopyFile(Application.dataPath + Path, protobuildfile);
           string outstr = protobuildfile.Substring(AppConfig.PlatformRoot.Length + 1);
           return outstr;
@@ -331,6 +338,14 @@ namespace lgu3d.Editor
       else if (Path.EndsWith("proto"))
       {
         string protobuildfile = (Application.dataPath + Path).Replace(".proto", ".txt");
+        if (File.Exists(protobuildfile))
+        {
+          File.Delete(protobuildfile);
+        }
+      }
+      else if (Path.EndsWith("bytes"))
+      {
+        string protobuildfile = (Application.dataPath + Path).Replace(".bytes", ".txt");
         if (File.Exists(protobuildfile))
         {
           File.Delete(protobuildfile);

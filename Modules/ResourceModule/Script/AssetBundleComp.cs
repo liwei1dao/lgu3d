@@ -171,62 +171,9 @@ namespace lgu3d
       return data;
     }
 
-    //加载lua文件
-    public byte[] LoadLuaFile(string ModelName, string BundleName, string AssetName)
-    {
-      ModelName = ModelName.ToLower();
-      BundleName = BundleName.ToLower();
-      AssetName = AssetName.ToLower();
-      string Key = string.Empty;
-      if (AssetName != null)
-        Key = BundleName + "/" + AssetName;
-      else
-        Key = BundleName;
-      if (!Assets.ContainsKey(ModelName))
-      {
-        Assets[ModelName] = new Dictionary<string, UnityEngine.Object>();
-      }
-      if (Assets[ModelName].ContainsKey(Key))
-      {
-        TextAsset luaCode = Assets[ModelName][Key] as TextAsset;
 
-        if (luaCode != null)
-        {
-          return luaCode.bytes;
-        }
-        else
-        {
-          Debug.LogError(ModelName + "No Find :" + Key);
-        }
-      }
-      else
-      {
-        AssetBundle bundle = LoadAssetBundle(ModelName, BundleName);
-        if (bundle != null)
-        {
-          TextAsset ret;
-          if (AssetName != null)
-            ret = bundle.LoadAsset<TextAsset>(GetAssetName(bundle, AssetName));
-          else
-            ret = bundle.LoadAllAssets<TextAsset>()[0];
-
-          if (null != ret)
-          {
-            Assets[ModelName][Key] = ret;
-            return ret.bytes;
-          }
-          else
-          {
-            Debug.LogError("Asset文件不存在 ModelName = " + ModelName + " BundleName = " + BundleName + " AssetName = " + AssetName);
-          }
-        }
-      }
-      return null;
-    }
-
-
-    //加载pb文件
-    public byte[] LoadProtoFile(string ModelName, string BundleName, string AssetName)
+    //加载文本
+    public byte[] LoadByteFile(string ModelName, string BundleName, string AssetName)
     {
       ModelName = ModelName.ToLower();
       BundleName = BundleName.ToLower();

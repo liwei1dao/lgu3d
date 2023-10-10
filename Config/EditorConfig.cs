@@ -12,7 +12,7 @@ namespace lgu3d.Editor
         /// <summary>
         /// 可编译文件
         /// </summary>
-        public static string[] CanBuildFileTypes = { ".prefab", ".unity", ".asset", ".fbx", ".mat", ".tga", ".wav", ".ogg", ".mp3", ".ttc", ".png", ".jpg", ".lua", ".proto" };
+        public static string[] CanBuildFileTypes = { ".prefab", ".unity", ".asset", ".fbx", ".mat", ".tga", ".wav", ".ogg", ".mp3", ".ttc", ".png", ".jpg", ".bytes", ".lua", ".proto" };
 
         /// <summary>
         /// 工具开发资源目录 完整路径

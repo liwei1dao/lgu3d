@@ -23,6 +23,52 @@ namespace lgu3d
       }
       LoadEnd();
     }
+    public byte[] LoadByteFile(string ModelName, string BundleName, string AssetName)
+    {
+      ModelName = ModelName.ToLower();
+      BundleName = BundleName.ToLower();
+      AssetName = AssetName.ToLower();
+      string Key = string.Empty;
+      if (AssetName != null)
+        Key = BundleName + "/" + AssetName;
+      else
+        Key = BundleName;
+
+      if (!Assets.ContainsKey(ModelName))
+      {
+        Assets[ModelName] = new Dictionary<string, UnityEngine.Object>();
+      }
+      if (Assets[ModelName].ContainsKey(Key))
+      {
+        TextAsset luaCode = Assets[ModelName][Key] as TextAsset;
+        if (luaCode != null)
+        {
+          return luaCode.bytes;
+        }
+        else
+        {
+          Debug.LogError(ModelName + "No Find :" + Key);
+        }
+      }
+      else
+      {
+        for (int i = Config.ResourceCatalog.Count - 1; i >= 0; i--)
+        {
+          string _Path = Path.Combine(Application.dataPath + Config.ResourceCatalog[i].Path, ModelName + "/" + BundleName);
+          if (PathTools.IsDirectory(_Path))
+          {
+            _Path += "/" + AssetName + ".bytes";
+            if (File.Exists(_Path))
+            {
+              byte[] FileBytes = File.ReadAllBytes(_Path);
+              return FileBytes;
+            }
+          }
+        }
+      }
+      Debug.LogError("No Find Lua File:" + ModelName + "/" + Key);
+      return null;
+    }
 
     public byte[] LoadLuaFile(string ModelName, string BundleName, string AssetName)
     {

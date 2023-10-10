@@ -82,6 +82,28 @@ namespace lgu3d
       }
     }
 
+    public byte[] LoadByteFile(string BundleName, string AssetName)
+    {
+      string ModelName = MyModule.ModuleName;
+      if (AppConfig.AppResModel == AppResModel.release)
+      {
+        ModelName = ModelName.ToLower();
+        BundleName = BundleName.ToLower();
+        if (AssetName != null)
+          AssetName = AssetName.ToLower();
+      }
+      if (ResourceModule.Instance != null)
+      {
+        return ResourceModule.Instance.LoadByteFile(MyModule.ModuleName, BundleName, AssetName);
+      }
+      else
+      {
+        Debug.LogError("ResourceModel No Load");
+        return null;
+      }
+    }
+
+
     public byte[] LoadLuaFile(string BundleName, string AssetName)
     {
       string ModelName = MyModule.ModuleName;

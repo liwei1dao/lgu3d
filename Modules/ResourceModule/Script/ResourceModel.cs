@@ -134,7 +134,30 @@ namespace lgu3d
 #endif
       }
     }
+    public byte[] LoadByteFile(string ModelName, string BundlePath, string AssetName)
+    {
+      if (AppConfig.AppResModel == AppResModel.release)
+      {
+        ModelName = ModelName.ToLower();
+        BundlePath = BundlePath.ToLower();
+        if (AssetName != null)
+          AssetName = AssetName.ToLower();
+        return BundleResComp.LoadByteFile(ModelName, BundlePath, AssetName);
+      }
+      else
+      {
+#if UNITY_EDITOR
+        return EditorResComp.LoadByteFile(ModelName, BundlePath, AssetName);
+#else
+                ModelName = ModelName.ToLower();
+                BundlePath = BundlePath.ToLower();
+                if (AssetName != null)
+                    AssetName = AssetName.ToLower();
+                return BundleResComp.LoadByteFile(ModelName, BundlePath, AssetName);
+#endif
+      }
 
+    }
     public byte[] LoadLuaFile(string ModelName, string BundlePath, string AssetName)
     {
       if (AppConfig.AppResModel == AppResModel.release)
@@ -143,7 +166,7 @@ namespace lgu3d
         BundlePath = BundlePath.ToLower();
         if (AssetName != null)
           AssetName = AssetName.ToLower();
-        return BundleResComp.LoadLuaFile(ModelName, BundlePath, AssetName);
+        return BundleResComp.LoadByteFile(ModelName, BundlePath, AssetName);
       }
       else
       {
@@ -154,7 +177,7 @@ namespace lgu3d
                 BundlePath = BundlePath.ToLower();
                 if (AssetName != null)
                     AssetName = AssetName.ToLower();
-                return BundleResComp.LoadLuaFile(ModelName, BundlePath, AssetName);
+                return BundleResComp.LoadByteFile(ModelName, BundlePath, AssetName);
 #endif
       }
 
@@ -169,7 +192,7 @@ namespace lgu3d
         BundlePath = BundlePath.ToLower();
         if (AssetName != null)
           AssetName = AssetName.ToLower();
-        return BundleResComp.LoadProtoFile(ModelName, BundlePath, AssetName);
+        return BundleResComp.LoadByteFile(ModelName, BundlePath, AssetName);
       }
       else
       {
@@ -180,7 +203,7 @@ namespace lgu3d
                 BundlePath = BundlePath.ToLower();
                 if (AssetName != null)
                     AssetName = AssetName.ToLower();
-                return BundleResComp.LoadLuaFile(ModelName, BundlePath, AssetName);
+                return BundleResComp.LoadByteFile(ModelName, BundlePath, AssetName);
 #endif
       }
 
