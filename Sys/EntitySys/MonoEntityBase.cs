@@ -6,11 +6,7 @@ namespace lgu3d
 {
     public abstract class MonoEntityBase : MonoBehaviour, IEntityBase
     {
-        /// <summary>
-        /// 实体ID
-        /// </summary>
-        /// <value></value>
-        [LGAttributeRename("实体ID", false)] public long EntityID;
+
         /// <summary>
         /// 实体对象
         /// </summary>
@@ -28,7 +24,6 @@ namespace lgu3d
         #region 框架函数
         public virtual void LGInit(IEntityBase entity)
         {
-            EntityID = Utils.GuidToLongID();
             Entity = entity;
             Comps = new List<IEntityCompBase>();
             State = EntityState.Active;
