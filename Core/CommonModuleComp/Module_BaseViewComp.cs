@@ -87,6 +87,7 @@ namespace lgu3d
     private int Index;
     public GameObject UIGameobject;
     protected Canvas Canvas;
+    protected bool ishow;
     #region 框架构造
     /// <summary>
     /// 基础界面组件
@@ -107,6 +108,10 @@ namespace lgu3d
       else if (option == UIOption.Find)
       {
         UIGameobject = ViewManagerModule.Instance.FindView(this, PrefabName);
+      }
+      else if (option == UIOption.Empty)
+      {
+        UIGameobject = ViewManagerModule.Instance.CreateEmptyView(this, PrefabName);
       }
       else
       {
@@ -161,11 +166,13 @@ namespace lgu3d
     {
       ViewManagerModule.Instance.SetViewToTop(this);
       UIGameobject.SetActive(true);
+      ishow = true;
     }
 
     public virtual void Hide()
     {
       UIGameobject.SetActive(false);
+      ishow = false;
     }
   }
 

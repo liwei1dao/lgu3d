@@ -16,6 +16,7 @@ namespace lgu3d
     Create = 1,                  //创建界面
     Find = 2,                    //寻找界面
     Auto = 3,                    //自动 先找 找不到就创建
+    Empty = 4,                   //空界面
   }
 
   public class ViewManagerModule : ManagerContorBase<ViewManagerModule>
@@ -242,6 +243,40 @@ namespace lgu3d
       }
     }
 
+    public GameObject CreateEmptyView(ViewComp View, string ViewName)
+    {
+      GameObject UIRoot = null;
+      List<ViewComp> views = null;
+      switch (View.GetLevel())
+      {
+        case UILevel.LowUI:
+          UIRoot = LowUIRoot;
+          views = mLowViewComps;
+          break;
+        case UILevel.NormalUI:
+          UIRoot = NormalUIRoot;
+          views = mNormalViewComps;
+          break;
+        case UILevel.HightUI:
+          UIRoot = HightUIRoot;
+          views = mHightViewComps;
+          break;
+      }
+
+      GameObject UIGameobject = UIRoot.CreateChild(ViewName);
+      RectTransform rectTrans = UIGameobject.GetComponent<RectTransform>();
+      rectTrans.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0, 0);
+      rectTrans.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 0, 0);
+      rectTrans.anchorMin = Vector2.zero;
+      rectTrans.anchorMax = Vector2.one;
+      Canvas canvas = UIGameobject.AddMissingComponent<Canvas>();
+      UIGameobject.AddMissingComponent<GraphicRaycaster>();
+      canvas.overrideSorting = true;
+      View.SetCanvas(canvas);
+      View.SetIndex(views.Count);
+      views.Add(View);
+      return UIGameobject;
+    }
 
 
     public void SetViewToTop(ViewComp View)
