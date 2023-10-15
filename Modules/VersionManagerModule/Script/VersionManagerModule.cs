@@ -28,11 +28,13 @@ namespace lgu3d
             if (agr != null && agr.Length >= 1)
             {
                 ResServiceUrl = (string)agr[0];
-                if (agr.Length >= 2 && agr[1] is IVersionManageInfoOutComp) {
+                if (agr.Length >= 2 && agr[1] is IVersionManageInfoOutComp)
+                {
                     agr[1] = InfoOutComp as IVersionManageInfoOutComp;
                 }
             }
-            else {
+            else
+            {
                 Debug.LogError("VersionManagerModule 启动参数异常");
             }
             base.Load(agr);
@@ -41,94 +43,104 @@ namespace lgu3d
         /// <summary>
         /// 开始App版本校验
         /// </summary>
-        public void StartAppVersionCheck(Action<bool> Complete) {
+        public void StartAppVersionCheck(Action<bool> Complete)
+        {
             //先校验本地资源文件是否ok
             LocalCheckeComp.CheckeLocalVersion((LocalVersion, LocalAssetInfo) =>
             {
                 string Url = ResServiceUrl + AppConfig.TargetPlatform.ToString() + "/VersionInfo.json";
-                Action<UnityWebRequest> func = (UnityWebRequest result) => {
+                Action<UnityWebRequest> func = (UnityWebRequest result) =>
+                {
                     if (string.IsNullOrEmpty(result.error))
                     {
                         Dictionary<string, int> ServiceVersion = JsonTools.JsonStrToDictionary<string, int>(result.downloadHandler.text);
                         if (ServiceVersion["ProVersion"] <= LocalVersion["ProVersion"])
                         {
-                        if (ServiceVersion["ResVersion"] > LocalVersion["ResVersion"])
-                        {
-                            VersionContrastComp.ContrastVersion(ResServiceUrl + AppConfig.TargetPlatform.ToString() + "/AssetInfo.json", LocalAssetInfo, (sassetinfos, upres) =>
+                            if (ServiceVersion["ResVersion"] > LocalVersion["ResVersion"])
                             {
-                                if (upres != null && upres.Count >= 0)
+                                VersionContrastComp.ContrastVersion(ResServiceUrl + AppConfig.TargetPlatform.ToString() + "/AssetInfo.json", LocalAssetInfo, (sassetinfos, upres) =>
                                 {
-                                    DownloadTask[] tsdks = new DownloadTask[upres.Count];
-                                    for (int i = 0; i < upres.Count; i++)
+                                    if (upres != null && upres.Count >= 0)
                                     {
-                                        tsdks[i] = new DownloadTask()
+                                        DownloadTask[] tsdks = new DownloadTask[upres.Count];
+                                        for (int i = 0; i < upres.Count; i++)
                                         {
-                                            Id = upres[i].Id,
-                                            Url = ResServiceUrl + AppConfig.TargetPlatform.ToString() + "/" + upres[i].Id,
-                                            FileName = AppConfig.AppAssetBundleTemp + "/" + upres[i].Id,
-                                            Szie = upres[i].Size,
-                                            IsComp = false,
-                                        };
-                                    }
+                                            tsdks[i] = new DownloadTask()
+                                            {
+                                                Id = upres[i].Id,
+                                                Url = ResServiceUrl + AppConfig.TargetPlatform.ToString() + "/" + upres[i].Id,
+                                                FileName = AppConfig.AppAssetBundleTemp + "/" + upres[i].Id,
+                                                Szie = upres[i].Size,
+                                                IsComp = false,
+                                            };
+                                        }
 
-                                    DownlooadComp.StartDownload(tsdks, (TasksGroup, Progress) =>
-                                    {
-                                        if (!TasksGroup.IsComp)
+                                        DownlooadComp.StartDownload(tsdks, (TasksGroup, Progress) =>
                                         {
-                                            InfoOutComp.UpdataView("下载资源文件", TasksGroup.CurrTask.Url, Progress, TasksGroup.CurrTask.Progress);
-                                        }
-                                        else
+                                            if (!TasksGroup.IsComp)
+                                            {
+                                                InfoOutComp.UpdataView("下载资源文件", TasksGroup.CurrTask.Url, Progress, TasksGroup.CurrTask.Progress);
+                                            }
+                                            else
+                                            {
+                                                InfoOutComp.UpdataView("下载资源文件", "下载完毕", Progress);
+                                            }
+                                        },
+                                        (TasksGroup, Task) =>
                                         {
-                                            InfoOutComp.UpdataView("下载资源文件", "下载完毕", Progress);
-                                        }
-                                    },
-                                    (TasksGroup, Task) =>
-                                    {
-                                        string ResId = Task.Id;
-                                        string ResPath = AppConfig.AppAssetBundleTemp + "/" + ResId;
-                                        string TargetPath = AppConfig.AppAssetBundleAddress + "/" + ResId;
-                                        FilesTools.CopyFile(ResPath, TargetPath);
-                                        LocalAssetInfo.AppResInfo[ResId] = sassetinfos.AppResInfo[ResId];
-                                        string AssetInfoStr = JsonTools.ObjectToJsonStr(LocalAssetInfo);
-                                        FilesTools.WriteStrToFile(AppConfig.AppAssetBundleAddress + "/AssetInfo.json", AssetInfoStr);
-                                        if (TasksGroup.IsComp)
+                                            string ResId = Task.Id;
+                                            string ResPath = AppConfig.AppAssetBundleTemp + "/" + ResId;
+                                            string TargetPath = AppConfig.AppAssetBundleAddress + "/" + ResId;
+                                            FilesTools.CopyFile(ResPath, TargetPath);
+                                            LocalAssetInfo.AppResInfo[ResId] = sassetinfos.AppResInfo[ResId];
+                                            string AssetInfoStr = JsonTools.ObjectToJsonStr(LocalAssetInfo);
+                                            FilesTools.WriteStrToFile(AppConfig.AppAssetBundleAddress + "/AssetInfo.json", AssetInfoStr);
+                                            if (TasksGroup.IsComp)
+                                            {
+                                                string VersionStr = JsonTools.DictionaryToJsonStr<string, int>(ServiceVersion);
+                                                FilesTools.WriteStrToFile(AppConfig.AppAssetBundleAddress + "/VersionInfo.json", VersionStr);
+                                                FilesTools.ClearDirectory(AppConfig.AppAssetBundleTemp);
+                                                Complete?.Invoke(true);
+                                            }
+                                        },
+                                        (TasksGroup, Task) =>
                                         {
-                                            string VersionStr = JsonTools.DictionaryToJsonStr<string, int>(ServiceVersion);
-                                            FilesTools.WriteStrToFile(AppConfig.AppAssetBundleAddress + "/VersionInfo.json", VersionStr);
-                                            FilesTools.ClearDirectory(AppConfig.AppAssetBundleTemp);
-                                            Complete?.Invoke(true);
-                                        }
-                                    },
-                                    (TasksGroup, Task) => {
-                                        InfoOutComp.CheckVersionError(VersionCheckErrorType.AppVersionTooLow, () => {
-                                            DownlooadComp.StartNextTask();      //继续任务
+                                            InfoOutComp.CheckVersionError(VersionCheckErrorType.AppVersionTooLow, () =>
+                                            {
+                                                DownlooadComp.StartNextTask();      //继续任务
                                             });
+                                        });
+                                    }
+                                    else
+                                    {
+                                        Complete?.Invoke(false);
+                                    }
+                                },
+                                () =>
+                                { //请求对比服务端资源info文件失败
+                                    InfoOutComp.CheckVersionError(VersionCheckErrorType.CannotAccessResService, () =>
+                                    {
+                                        StartAppVersionCheck(Complete);
                                     });
-                                }
-                                else
-                                {
-                                    Complete?.Invoke(false);
-                                }
-                            },
-                            () => { //请求对比服务端资源info文件失败
-                                InfoOutComp.CheckVersionError(VersionCheckErrorType.CannotAccessResService, () => {
-                                    StartAppVersionCheck(Complete);
                                 });
-                            });
                             }
-                            else {
+                            else
+                            {
                                 Complete?.Invoke(false);
                             }
                         }
-                        else {
-                            InfoOutComp.CheckVersionError(VersionCheckErrorType.AppVersionTooLow, () => {
+                        else
+                        {
+                            InfoOutComp.CheckVersionError(VersionCheckErrorType.AppVersionTooLow, () =>
+                            {
                                 Application.OpenURL("你的App下载地址");
                             });
                         }
                     }
                     else
                     {
-                        InfoOutComp.CheckVersionError(VersionCheckErrorType.CannotAccessResService,()=> {
+                        InfoOutComp.CheckVersionError(VersionCheckErrorType.CannotAccessResService, () =>
+                        {
                             StartAppVersionCheck(Complete);
                         });
                     }
@@ -138,11 +150,14 @@ namespace lgu3d
         }
 
         //启动模块版本校验
-        public void StartModuleVersionCheck(string ModuleName, Action<bool> Complete) {
+        public void StartModuleVersionCheck(string ModuleName, Action<bool> Complete)
+        {
             ModuleName = ModuleName.ToLower();
-            LocalCheckeComp.CheckLoadModule(ModuleName, (LocalVersion, LocalAssetInfo) => {
-                string AssetUrl = ResServiceUrl + AppConfig.TargetPlatform.ToString()+"/"+ ModuleName +"/AssetInfo.json";
-                VersionContrastComp.ContrastVersion(AssetUrl, LocalAssetInfo, (sassetinfos, upres) => {
+            LocalCheckeComp.CheckLoadModule(ModuleName, (LocalVersion, LocalAssetInfo) =>
+            {
+                string AssetUrl = ResServiceUrl + AppConfig.TargetPlatform.ToString() + "/" + ModuleName + "/AssetInfo.json";
+                VersionContrastComp.ContrastVersion(AssetUrl, LocalAssetInfo, (sassetinfos, upres) =>
+                {
                     if (upres != null && upres.Count >= 0)
                     {
                         DownloadTask[] tsdks = new DownloadTask[upres.Count];
@@ -183,22 +198,26 @@ namespace lgu3d
                                 FilesTools.ClearDirectory(AppConfig.AppAssetBundleTemp);
                                 Complete?.Invoke(true);
                             }
-                        }, 
-                        (TasksGroup, Task) => {
+                        },
+                        (TasksGroup, Task) =>
+                        {
                             //需要下载新的App
-                            CommonModule.Instance.ShowBox("资源下载出现错误!", () => {
-                                DownlooadComp.StartNextTask();      //继续任务
-                            }, () => {
-                                Application.Quit();
-                            });
+                            Debug.LogError("资源下载出现错误!");
+                            // CommonModule.Instance.ShowBox("资源下载出现错误!", () => {
+                            //     DownlooadComp.StartNextTask();      //继续任务
+                            // }, () => {
+                            //     Application.Quit();
+                            // });
                         });
                     }
                     else
                     {
                         Complete?.Invoke(false);
                     }
-                },()=> {
-                    InfoOutComp.CheckVersionError(VersionCheckErrorType.CannotAccessResService, () => {
+                }, () =>
+                {
+                    InfoOutComp.CheckVersionError(VersionCheckErrorType.CannotAccessResService, () =>
+                    {
                         StartAppVersionCheck(Complete);
                     });
                 });

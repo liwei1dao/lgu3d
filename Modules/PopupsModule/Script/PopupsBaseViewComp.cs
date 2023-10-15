@@ -16,10 +16,10 @@ namespace lgu3d
         protected GameObject UIGameobject;
         public override void Load(ModuleBase module, params object[] agrs)
         {
+            base.Load(module, agrs);
             string PrefabName = (string)agrs[0];
             GameObject uiasset = MyModule.LoadAsset<GameObject>("Prefab", PrefabName);
             UIGameobject = PopupsModule.Instance.CreatePopups(uiasset);
-            base.Load(module, agrs);
         }
 
         public override void Close()
@@ -28,7 +28,7 @@ namespace lgu3d
             base.Close();
         }
 
-        public virtual void Show()
+        public virtual void Show(object data)
         {
             UIGameobject.SetActive(true);
         }

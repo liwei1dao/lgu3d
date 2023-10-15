@@ -8,6 +8,11 @@ using UnityEngine.UI;
 
 namespace lgu3d
 {
+    public class PopupsViewQueueData
+    {
+        public IPopupsView view;
+        public object data;
+    }
     /// <summary>
     /// 弹窗界面
     /// </summary>
@@ -16,12 +21,12 @@ namespace lgu3d
         /// <summary>
         /// 弹窗队列
         /// </summary>
-        public Queue<IPopupsView> queue;
+        public Queue<PopupsViewQueueData> queue;
 
         public override void Load(ModuleBase module, params object[] agrs)
         {
             base.Load(module, "PopupsViewCpmp", UILevel.NormalUI, UIOption.Empty);
-            queue = new Queue<IPopupsView>();
+            queue = new Queue<PopupsViewQueueData>();
             Hide();
             LoadEnd();
         }
@@ -41,9 +46,9 @@ namespace lgu3d
         }
 
         //添加弹窗显示
-        public void PushPopupsView(IPopupsView view)
+        public void PushPopupsView(IPopupsView view, object data)
         {
-            queue.Enqueue(view);
+            queue.Enqueue(new() { view = view, data = data });
             if (!ishow)
             {
                 Show();
@@ -55,8 +60,8 @@ namespace lgu3d
         {
             if (queue.Count > 0)
             {
-                IPopupsView view = queue.Dequeue();
-                view.Show();
+                PopupsViewQueueData data = queue.Dequeue();
+                data.view.Show(data.data);
             }
             else
             {

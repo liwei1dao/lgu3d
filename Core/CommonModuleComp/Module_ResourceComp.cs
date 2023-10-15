@@ -53,7 +53,7 @@ namespace lgu3d
       }
       if (ResourceModule.Instance != null)
       {
-        return ResourceModule.Instance.LoadAsset<T>(MyModule.ModuleName, BundleName, AssetName);
+        return ResourceModule.Instance.LoadAsset<T>(ModelName, BundleName, AssetName);
       }
       else
       {
@@ -73,7 +73,7 @@ namespace lgu3d
       }
       if (ResourceModule.Instance != null)
       {
-        return ResourceModule.Instance.LoadAllAsset<T>(MyModule.ModuleName, BundleName, AssetName);
+        return ResourceModule.Instance.LoadAllAsset<T>(ModelName, BundleName, AssetName);
       }
       else
       {
@@ -94,7 +94,7 @@ namespace lgu3d
       }
       if (ResourceModule.Instance != null)
       {
-        return ResourceModule.Instance.LoadByteFile(MyModule.ModuleName, BundleName, AssetName);
+        return ResourceModule.Instance.LoadByteFile(ModelName, BundleName, AssetName);
       }
       else
       {
@@ -116,7 +116,7 @@ namespace lgu3d
       }
       if (ResourceModule.Instance != null)
       {
-        return ResourceModule.Instance.LoadLuaFile(MyModule.ModuleName, BundleName, AssetName);
+        return ResourceModule.Instance.LoadLuaFile(ModelName, BundleName, AssetName);
       }
       else
       {
@@ -137,7 +137,7 @@ namespace lgu3d
       }
       if (ResourceModule.Instance != null)
       {
-        return ResourceModule.Instance.LoadProtoFile(MyModule.ModuleName, BundleName, AssetName);
+        return ResourceModule.Instance.LoadProtoFile(ModelName, BundleName, AssetName);
       }
       else
       {

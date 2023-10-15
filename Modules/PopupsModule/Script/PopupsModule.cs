@@ -26,6 +26,11 @@ namespace lgu3d
         {
             viewComp.ShowNextQueuePopups();
         }
+
+        public void PushPopupsView(IPopupsView view, object data)
+        {
+            viewComp.PushPopupsView(view, data);
+        }
     }
 }
 

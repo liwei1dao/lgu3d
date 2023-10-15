@@ -264,7 +264,7 @@ namespace lgu3d
       }
 
       GameObject UIGameobject = UIRoot.CreateChild(ViewName);
-      RectTransform rectTrans = UIGameobject.GetComponent<RectTransform>();
+      RectTransform rectTrans = UIGameobject.AddMissingComponent<RectTransform>();
       rectTrans.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0, 0);
       rectTrans.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 0, 0);
       rectTrans.anchorMin = Vector2.zero;

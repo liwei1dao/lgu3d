@@ -56,32 +56,35 @@ namespace lgu3d
             switch (errtype)
             {
                 case VersionCheckErrorType.CannotAccessResService:
+                    Debug.LogError("无法访问远程资源服务器!");
                     //需要下载新的App
-                    CommonModule.Instance.ShowBox("无法访问远程资源服务器", () =>
-                    {
-                        retryFunc?.Invoke();
-                    }, () =>
-                    {
-                        Application.Quit();
-                    });
+                    // CommonModule.Instance.ShowBox("无法访问远程资源服务器", () =>
+                    // {
+                    //     retryFunc?.Invoke();
+                    // }, () =>
+                    // {
+                    //     Application.Quit();
+                    // });
                     break;
                 case VersionCheckErrorType.AppVersionTooLow:
-                    CommonModule.Instance.ShowBox("当前App版本过低!", () =>
-                    {
-                        retryFunc?.Invoke();
-                    }, () =>
-                    {
-                        Application.Quit();
-                    });
+                    Debug.LogError("当前App版本过低!");
+                    // CommonModule.Instance.ShowBox("当前App版本过低!", () =>
+                    // {
+                    //     retryFunc?.Invoke();
+                    // }, () =>
+                    // {
+                    //     Application.Quit();
+                    // });
                     break;
                 case VersionCheckErrorType.ResDownlooadError:
-                    CommonModule.Instance.ShowBox("资源下载异常!", () =>
-                    {
-                        retryFunc?.Invoke();
-                    }, () =>
-                    {
-                        Application.Quit();
-                    });
+                    Debug.LogError("资源下载异常!");
+                    // CommonModule.Instance.ShowBox("资源下载异常!", () =>
+                    // {
+                    //     retryFunc?.Invoke();
+                    // }, () =>
+                    // {
+                    //     Application.Quit();
+                    // });
                     break;
             }
 
