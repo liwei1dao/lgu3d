@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace lgu3d
 {
@@ -277,6 +278,59 @@ namespace lgu3d
             butt.onClick.AddListener(call);
         }
 
+        /// <summary>
+        /// 扫描范围内目标
+        /// </summary>
+        /// <param name="Target">扫描中心</param>
+        /// <param name="distance">距离</param>
+        /// <param name="tag">目标标签</param>
+        /// <returns></returns>
+        public static List<GameObject> ScanRangeTarget(this GameObject Target, float distance, string tag)
+        {
+            List<GameObject> objects = GameObject.FindGameObjectsWithTag(tag).ToList();
+            objects = objects.Where((e) =>
+            {
+                if (Vector3.Distance(Target.transform.position, e.transform.position) < distance) return true;
+                else return false;
+            }).ToList();
+            return objects;
+        }
+        /// <summary>
+        /// 扫描范围内目标
+        /// </summary>
+        /// <param name="Target">扫描中心</param>
+        /// <param name="distance">距离</param>
+        /// <param name="tag">目标标签</param>
+        /// <returns></returns>
+        public static List<GameObject> ScanSortRangeTarget(this GameObject Target, float distance, string tag)
+        {
+            List<GameObject> objects = GameObject.FindGameObjectsWithTag(tag).ToList();
+            objects = objects.Where((e) =>
+            {
+                if (Vector3.Distance(Target.transform.position, e.transform.position) < distance) return true;
+                else return false;
+            }).ToList();
 
+            objects.Sort((a, b) =>
+            {
+                float da = Vector3.Distance(Target.transform.position, a.transform.position);
+                float db = Vector3.Distance(Target.transform.position, b.transform.position);
+                if (da > db)
+                {
+                    return 1;
+                }
+                else if (da == db)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return -1;
+                }
+
+            });
+
+            return objects;
+        }
     }
 }

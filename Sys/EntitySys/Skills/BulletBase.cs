@@ -51,6 +51,17 @@ namespace lgu3d
         public virtual void LGInit(ISkillBase skill, Dictionary<string, object> meta)
         {
             Skill = skill as S;
+            Meta = meta;
+        }
+        /// <summary>
+        /// 释放子弹效果
+        /// </summary>
+        protected virtual void LGRelease(params IEntityBaseSkillAcceptComp[] targets)
+        {
+            foreach (var target in targets)
+            {
+                target.Accept(this);
+            }
         }
     }
 
