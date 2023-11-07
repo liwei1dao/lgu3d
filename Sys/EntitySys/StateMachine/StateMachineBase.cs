@@ -19,6 +19,10 @@ namespace lgu3d
                 item.Value.LGInit(this, entity, agrs);
             }
         }
+        public virtual void ResetState(params object[] agrs)
+        {
+
+        }
 
         public virtual void AddState(S key, StateBase<S> state)
         {

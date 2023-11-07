@@ -20,5 +20,7 @@ namespace lgu3d
     {
         void AddState(S Key, StateBase<S> State);
         void EnterState(S Key, params object[] agrs);
+        //重置状态
+        void ResetState(params object[] agrs);
     }
 }
