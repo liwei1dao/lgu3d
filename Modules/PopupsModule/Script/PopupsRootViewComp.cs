@@ -16,7 +16,7 @@ namespace lgu3d
     /// <summary>
     /// 弹窗界面
     /// </summary>
-    public class PopupsRootViewComp : Model_BaseViewComp<CommonModule>
+    public class PopupsRootViewComp : Model_BaseViewComp<PopupsModule>
     {
         /// <summary>
         /// 弹窗队列
