@@ -9,10 +9,10 @@ namespace lgu3d
   public class EventModuleDataComp : ModelCompBase<EventModule>
   {
     #region 框架构造
-    public override void Load(ModuleBase _ModelContorl, params object[] _Agr)
+    public override void Load(ModuleBase module, params object[] _Agr)
     {
 
-      base.Load(_ModelContorl);
+      base.Load(module);
       m_events = new Dictionary<string, EventDelegates>();
       base.LoadEnd();
     }

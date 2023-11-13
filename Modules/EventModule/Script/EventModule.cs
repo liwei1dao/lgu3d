@@ -10,9 +10,9 @@ namespace lgu3d
   public class EventModule : ManagerContorBase<EventModule>
   {
     private EventModuleDataComp DataComp;
-    public override void Load(params object[] _Agr)
+    public override void Load(params object[] agrs)
     {
-      base.Load(_Agr);
+      base.Load(agrs);
       DataComp = AddComp<EventModuleDataComp>();
     }
 

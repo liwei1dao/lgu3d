@@ -26,12 +26,12 @@ namespace lgu3d
     public LanguageType SelectLanguage;
     public Language_Data_Comp Data_Comp;
     public LanguageModule_ChangeLanguage chanagelanguage;
-    public override void Load(params object[] agr)
+    public override void Load(params object[] agrs)
     {
-      base.Load(agr);
-      if (agr.Length == 1)
+      base.Load(agrs);
+      if (agrs.Length == 1)
       {
-        SelectLanguage = (LanguageType)agr[0];
+        SelectLanguage = (LanguageType)agrs[0];
         if (PlayerPrefs.HasKey(Localization))
         {
           SelectLanguage = (LanguageType)PlayerPrefs.GetInt(Localization);
