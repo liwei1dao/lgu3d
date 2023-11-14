@@ -14,9 +14,9 @@ namespace lgu3d
 #endif
     public override void Load(params object[] agrs)
     {
+      LoadViewComp = agrs[0] as ILoadViewComp;
       if (AppConfig.AppResModel == AppResModel.release)
       {
-        LoadViewComp = agrs[0] as ILoadViewComp;
         BundleResComp = AddComp<AssetBundleComp>();
       }
       else
@@ -24,7 +24,6 @@ namespace lgu3d
 #if UNITY_EDITOR
         EditorResComp = AddComp<EditorResourComp>();
 #else
-        LoadViewComp = agrs[0] as ILoadViewComp;
         BundleResComp = AddComp<AssetBundleComp>();
 #endif
       }

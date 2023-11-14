@@ -11,9 +11,9 @@ namespace lgu3d
   {
     private Dictionary<string, Dictionary<string, UnityEngine.Object>> Assets;
     public PackingConfig Config;
-    public override void Load(ModuleBase _ModelContorl, params object[] _Agr)
+    public override void Load(ModuleBase _ModelContorl, params object[] agrs)
     {
-      base.Load(_ModelContorl, _Agr);
+      base.Load(_ModelContorl, agrs);
       Assets = new Dictionary<string, Dictionary<string, Object>>();
       string ConfigPath = Path.Combine(ToolsConfig.RelativeEditorResources, "PackingToolsSetting.asset");
       Config = AssetDatabase.LoadAssetAtPath<PackingConfig>(ConfigPath);
@@ -22,6 +22,12 @@ namespace lgu3d
         Debug.LogError("资源编译配置文件没有生成 PackingConfig = null");
       }
       LoadEnd();
+    }
+
+    public override void Start(params object[] agrs)
+    {
+      base.Start(agrs);
+      MyModule.LoadViewComp?.UpdateProgress(1, "资源初始化完毕!");
     }
     public byte[] LoadByteFile(string ModelName, string BundleName, string AssetName)
     {

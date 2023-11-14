@@ -63,8 +63,8 @@ crashlytics-build.properties
 
 */UmengModule/*
 !*/UmengModule/UmengModule.unitypackage
-*/BaseHttpModule/*
-!*/BaseHttpModule/BaseHttpModule.unitypackage
+*/AppServiceModule/*
+!*/AppServiceModule/AppServiceModule.unitypackage
 */ServerModule/*
 !*/ServerModule/ServerModule.unitypackage
 */LuaManagerModule/*
