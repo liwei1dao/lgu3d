@@ -332,5 +332,41 @@ namespace lgu3d
 
             return objects;
         }
+        /// <summary>
+        /// 扫描范围内目标
+        /// </summary>
+        /// <typeparam name="T">目标实体类型</typeparam>
+        /// <param name="Target"></param>
+        /// <param name="objects"></param>
+        /// <param name="distance"></param>
+        /// <returns></returns>
+        public static List<T> ScanSortRangeTarget<T>(this GameObject Target, List<T> objects, float distance) where T : Component
+        {
+            objects = objects.Where((e) =>
+            {
+                if (Vector3.Distance(Target.transform.position, e.transform.position) < distance) return true;
+                else return false;
+            }).ToList();
+
+            objects.Sort((a, b) =>
+            {
+                float da = Vector3.Distance(Target.transform.position, a.transform.position);
+                float db = Vector3.Distance(Target.transform.position, b.transform.position);
+                if (da > db)
+                {
+                    return 1;
+                }
+                else if (da == db)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return -1;
+                }
+
+            });
+            return objects;
+        }
     }
 }
