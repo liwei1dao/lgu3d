@@ -5,9 +5,10 @@ namespace lgu3d
 {
     public enum SkillState
     {
-        NoRelease,
-        InRelease,
-        InCd,
+        NoRelease,          //没有释放
+        InRelease,          //释放中
+        InCd,               //CD冷却中
+        Reloading,          //装弹中
     }
     public enum SkillCDState
     {
