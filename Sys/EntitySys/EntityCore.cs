@@ -3,10 +3,10 @@ namespace lgu3d
 {
     public enum EntityState
     {
-        NoBorn = 0,
+        Sleep = 0,
         //活跃的
         Active = 1,
-        //死亡
-        Die = 2,
+        //销毁
+        Destroy = 2,
     }
 }

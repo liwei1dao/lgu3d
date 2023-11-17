@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace lgu3d
 {
@@ -15,12 +16,24 @@ namespace lgu3d
         CdEnd,
         CdIn,
     }
-    //技能释放类型
-    public enum SkilReleaseType
+
+    public enum BulletState
     {
-        Target,                     //目标
-        Direction                   //方向
+        Inmotion = 1,   //运动中
+        Release = 2,    //释放
+        Destroy = 3,    //销毁
     }
+
+    //子弹
+    public interface IBulletBase
+    {
+        void Launch(EntityBase target, Dictionary<string, object> meta);
+    }
+    public interface MonoBulletBase
+    {
+        void Launch(MonoEntityBase target, Dictionary<string, object> meta);
+    }
+
     public interface ISkillMonitor
     {
         void OnReleaseEnd(ISkillBase skil);
@@ -29,7 +42,6 @@ namespace lgu3d
     public interface ISkillBase : IEntityCompBase
     {
         public SkillState GetState();
-        public SkilReleaseType GetSkilReleaseType();
         IEntityBase GetHostEntity();
         ///技能释放接口
         void Release(IEntityBase target, params object[] agrs);

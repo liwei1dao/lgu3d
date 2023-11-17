@@ -8,7 +8,6 @@ namespace lgu3d
     public abstract class SkillBase<E, D> : EntityCompBase<E>, ISkillBase where E : class, IEntityBase where D : class
     {
         public D Config;
-        public SkilReleaseType ReleaseType;
         public SkillState State;
         public SkillCDBase Cd;
         protected List<IBulletBase> Bullets;
@@ -16,10 +15,7 @@ namespace lgu3d
         {
             return State;
         }
-        public SkilReleaseType GetSkilReleaseType()
-        {
-            return ReleaseType;
-        }
+
         public virtual IEntityBase GetHostEntity()
         {
             return Entity;
@@ -53,15 +49,9 @@ namespace lgu3d
     }
     public abstract class MonoSkillBase<E> : MonoEntityCompBase<E>, ISkillBase where E : class, IEntityBase
     {
-        public SkilReleaseType ReleaseType;
         public SkillState State;
         public SkillCDBase Cd;
-        protected List<IBulletBase> Bullets;
 
-        public SkilReleaseType GetSkilReleaseType()
-        {
-            return ReleaseType;
-        }
         public SkillState GetState()
         {
             return State;
@@ -104,15 +94,10 @@ namespace lgu3d
     public abstract class MonoSkillBase<E, D> : MonoEntityCompBase<E>, ISkillBase where E : class, IEntityBase where D : class
     {
         public D Config;
-        public SkilReleaseType ReleaseType;
         public SkillState State;
         public SkillCDBase Cd;
         protected List<IBulletBase> Bullets;
 
-        public SkilReleaseType GetSkilReleaseType()
-        {
-            return ReleaseType;
-        }
         public SkillState GetState()
         {
             return State;

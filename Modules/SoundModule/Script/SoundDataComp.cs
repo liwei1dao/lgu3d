@@ -105,10 +105,10 @@ namespace lgu3d
 
     private Dictionary<string, ModelSoundPlayerData> ModelMusicPLayers;
 
-    public override void Load(ModuleBase _ModelContorl, params object[] _Agr)
+    public override void Load(ModuleBase _ModelContorl, params object[] agrs)
     {
       ModelMusicPLayers = new Dictionary<string, ModelSoundPlayerData>();
-      base.Load(_ModelContorl, _Agr);
+      base.Load(_ModelContorl, agrs);
       LoadEnd();
     }
 

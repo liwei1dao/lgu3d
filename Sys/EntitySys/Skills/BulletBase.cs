@@ -4,108 +4,36 @@ using System.Collections.Generic;
 namespace lgu3d
 {
 
-
-
-    public enum BulletState
+    public abstract class BulletBase<E> : EntityBase<E>, IBulletBase where E : BulletBase<E>
     {
-        Inmotion = 1,   //运动中
-        Release = 2,    //释放
-        Destroy = 3,    //销毁
-    }
+        public ISkillBase Skill;
+        public Dictionary<string, object> Meta;
 
-    //子弹
-    public interface IBulletBase
-    {
-        BulletState State { get; set; }
-        object GetMeta(string key);
-        ISkillBase GetHostSkill();
-        void SetMeta(string key, object value);
-        void LGInit(ISkillBase skill, Dictionary<string, object> meta);
-    }
-
-    public abstract class BulletBase<S> : IBulletBase where S : class, ISkillBase
-    {
-        public S Skill;
-        public BulletState State { get; set; }
-        /// <summary>
-        /// 元数据
-        /// </summary>
-        protected Dictionary<string, object> Meta;
-        public BulletBase(S skill, Dictionary<string, object> meta)
+        public virtual void LGInit(IEntityBase entity, ISkillBase skill)
         {
-            LGInit(skill, meta);
+            base.LGInit(entity);
+            Skill = skill;
+            Meta = new Dictionary<string, object>();
         }
-        public ISkillBase GetHostSkill()
+        public virtual void Launch(EntityBase target, Dictionary<string, object> meta)
         {
-            return Skill;
-        }
-        public virtual object GetMeta(string key)
-        {
-            return Meta[key];
-        }
-        public void SetMeta(string key, object value)
-        {
-            Meta[key] = value;
-        }
-
-        public virtual void LGInit(ISkillBase skill, Dictionary<string, object> meta)
-        {
-            Skill = skill as S;
             Meta = meta;
         }
-        /// <summary>
-        /// 释放子弹效果
-        /// </summary>
-        protected virtual void LGRelease(params IEntityBaseSkillAcceptComp[] targets)
-        {
-            foreach (var target in targets)
-            {
-                target.Accept(this);
-            }
-        }
     }
 
-    public abstract class MonoBulletBase<S> : MonoBehaviour, IBulletBase where S : class, ISkillBase
+    public abstract class MonoBulletBase<E> : MonoEntityBase<E>, MonoBulletBase where E : MonoBulletBase<E>
     {
-        public S Skill;
-        public BulletState State { get; set; }
-        protected Dictionary<string, object> Meta;
-        public ISkillBase GetHostSkill()
+        public ISkillBase Skill;
+        public Dictionary<string, object> Meta;
+        public virtual void LGInit(IEntityBase entity, ISkillBase skill)
         {
-            return Skill;
-        }
-        public virtual object GetMeta(string key)
-        {
-            return Meta[key];
-        }
-        public void SetMeta(string key, object value)
-        {
-            Meta[key] = value;
+            base.LGInit(entity);
+            Skill = skill;
         }
 
-        public virtual void LGInit(ISkillBase skill, Dictionary<string, object> meta)
+        public virtual void Launch(MonoEntityBase target, Dictionary<string, object> meta)
         {
-            Skill = skill as S;
             Meta = meta;
-        }
-
-        /// <summary>
-        /// 释放子弹效果
-        /// </summary>
-        protected virtual void LGRelease(params IEntityBaseSkillAcceptComp[] targets)
-        {
-            foreach (var target in targets)
-            {
-                target.Accept(this);
-            }
-        }
-
-        /// <summary>
-        /// 自我销毁
-        /// </summary>
-        protected virtual void LGDestroy()
-        {
-            GameObject.Destroy(gameObject);
         }
     }
 }

@@ -5,7 +5,10 @@
     {
         void Accept(IBulletBase Bullet);
     }
-
+    public interface IMonoEntityBaseSkillAcceptComp : IEntityCompBase
+    {
+        void Accept(MonoBulletBase Bullet);
+    }
     /// <summary>
     /// 技能接收
     /// </summary>
@@ -22,9 +25,9 @@
     /// 技能接收
     /// </summary>
     /// <typeparam name="E"></typeparam>
-    public abstract class MonoEntityBaseSkillAcceptComp<E> : MonoEntityCompBase<E>, IEntityBaseSkillAcceptComp where E : MonoEntityBase
+    public abstract class MonoEntityBaseSkillAcceptComp<E> : MonoEntityCompBase<E>, IMonoEntityBaseSkillAcceptComp where E : MonoEntityBase
     {
-        public virtual void Accept(IBulletBase Bullet)
+        public virtual void Accept(MonoBulletBase Bullet)
         {
 
         }

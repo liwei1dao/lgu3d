@@ -61,7 +61,7 @@ namespace lgu3d
         protected Module_SoundComp SoundComp;                                       //声音组件 （需要则初始化）
         protected Module_CoroutineComp CoroutineComp;                               //协程组件（需要则初始化）
         protected Module_ResourceComp ResourceComp;                                 //资源管理组件（需要则初始化）
-        protected Module_GameObjectPoolComp GameObjectPoolComp;
+        protected Module_GameObjectPoolComp GameObjectPoolComp;                     //对象池
 
         public ModuleBase()
         {
@@ -299,29 +299,29 @@ namespace lgu3d
         #endregion
 
         #region 对象池
-        public void RegisterDictionaryPool<T>(string poolname, Func<string, T> cf) where T : UnityEngine.Object
+        public void NewPool<T>(string poolname, Func<string, GameObject, T> cf) where T : UnityEngine.Object
         {
-            GameObjectPoolComp.RegisterDictionaryPool<T>(poolname, cf);
+            ObjectPoolModule.Instance.NewPool<T>(poolname, cf);
         }
-        public void RegisterQueuePool<T>(string poolname, Func<T> cf) where T : UnityEngine.Object
+        public void NewPool<T>(string poolname, Func<GameObject, T> cf) where T : UnityEngine.Object
         {
-            GameObjectPoolComp.RegisterQueuePool<T>(poolname, cf);
+            ObjectPoolModule.Instance.NewPool<T>(poolname, cf);
         }
-        public T GetByQueuePool<T>(string poolname) where T : UnityEngine.Object
+        public T GetPool<T>(string poolname) where T : UnityEngine.Object
         {
-            return GameObjectPoolComp.GetByQueuePool<T>(poolname);
+            return ObjectPoolModule.Instance.Get<T>(poolname);
         }
-        public void PushByQueuePool<T>(string poolname, T obj) where T : UnityEngine.Object
+        public void PushPool<T>(string poolname, T obj) where T : UnityEngine.Object
         {
-            GameObjectPoolComp.PushByQueuePool<T>(poolname, obj);
+            ObjectPoolModule.Instance.Push<T>(poolname, obj);
         }
-        public T GetByDictionaryPool<T>(string poolname, string key) where T : UnityEngine.Object
+        public T GetPool<T>(string poolname, string key) where T : UnityEngine.Object
         {
-            return GameObjectPoolComp.GetByDictionaryPool<T>(poolname, key);
+            return ObjectPoolModule.Instance.Get<T>(poolname, key);
         }
-        public void PushByDictionaryPool<T>(string poolname, string key, T obj) where T : UnityEngine.Object
+        public void PushPool<T>(string poolname, string key, T obj) where T : UnityEngine.Object
         {
-            GameObjectPoolComp.PushByDictionaryPool<T>(poolname, key, obj);
+            ObjectPoolModule.Instance.Push<T>(poolname, key, obj);
         }
         #endregion
         #endregion

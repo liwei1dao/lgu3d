@@ -26,11 +26,11 @@ namespace lgu3d
         {
             Entity = entity;
             Comps = new List<IEntityCompBase>();
-            State = EntityState.Active;
         }
 
         public virtual void LGStart()
         {
+            State = EntityState.Active;
             for (int i = 0; i < Comps.Count; i++)
             {
                 Comps[i].LGStart();
