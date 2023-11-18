@@ -38,10 +38,10 @@ namespace lgu3d
         }
         public virtual void LGAddComps(IEntityCompBase[] comps, params object[] agrs)
         {
+            Comps.AddRange(comps);
             foreach (var comp in comps)
             {
                 comp.LGInit(Entity, agrs);
-                Comps.Add(comp);
             }
             return;
         }
@@ -113,7 +113,7 @@ namespace lgu3d
         #endregion
     }
 
-    public abstract class MonoEntityBase<E, D> : MonoEntityBase where E : MonoEntityBase<E, D> where D : EntityDataBase
+    public abstract class MonoEntityBase<E, D> : MonoEntityBase where E : MonoEntityBase<E, D> where D : class
     {
         public D Config;
         public new E Entity { get; set; }

@@ -23,13 +23,16 @@ namespace lgu3d
         Release = 2,    //释放
         Destroy = 3,    //销毁
     }
-
     //子弹
-    public interface IBulletBase
+    public interface IBullet
+    {
+        Dictionary<string, object> GetMeta();
+    }
+    public interface IBulletBase : IBullet
     {
         void Launch(EntityBase target, Dictionary<string, object> meta);
     }
-    public interface MonoBulletBase
+    public interface IMonoBulletBase : IBullet
     {
         void Launch(MonoEntityBase target, Dictionary<string, object> meta);
     }
@@ -47,5 +50,6 @@ namespace lgu3d
         void Release(IEntityBase target, params object[] agrs);
         void Release(Vector3 direction, params object[] agrs);
         void CdEnd();
+        void ReclaimIBullet(IBullet bullet);
     }
 }

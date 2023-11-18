@@ -95,6 +95,18 @@ namespace lgu3d
             {
                 Pool[key] = new Queue<UnityEngine.Object>();
             }
+            if (obj is GameObject)
+            {
+                GameObject gameObject = obj as GameObject;
+                gameObject.SetParent(Root);
+                gameObject.SetActive(false);
+            }
+            else if (obj is Component)
+            {
+                Component component = obj as Component;
+                component.gameObject.SetParent(Root);
+                component.gameObject.SetActive(false);
+            }
             Pool[key].Enqueue(obj);
         }
 

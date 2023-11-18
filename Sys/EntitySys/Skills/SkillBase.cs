@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace lgu3d
@@ -45,7 +46,14 @@ namespace lgu3d
         {
             State = SkillState.NoRelease;
         }
+        /// <summary>
+        /// 回收子弹
+        /// </summary>
+        /// <param name="bullet"></param>
+        public virtual void ReclaimIBullet(IBullet bullet)
+        {
 
+        }
     }
     public abstract class MonoSkillBase<E> : MonoEntityCompBase<E>, ISkillBase where E : class, IEntityBase
     {
@@ -63,6 +71,7 @@ namespace lgu3d
         public override void LGInit(IEntityBase entity, params object[] agrs)
         {
             base.LGInit(entity, agrs);
+            Cd ??= new SkillCDBase();
             Cd.Skill = this;
             State = SkillState.NoRelease;
         }
@@ -85,7 +94,14 @@ namespace lgu3d
         {
             State = SkillState.NoRelease;
         }
+        /// <summary>
+        /// 回收子弹
+        /// </summary>
+        /// <param name="bullet"></param>
+        public virtual void ReclaimIBullet(IBullet bullet)
+        {
 
+        }
         protected virtual void Update()
         {
             Cd.Update(Time.deltaTime);
@@ -136,7 +152,14 @@ namespace lgu3d
         {
             State = SkillState.NoRelease;
         }
+        /// <summary>
+        /// 回收子弹
+        /// </summary>
+        /// <param name="bullet"></param>
+        public virtual void ReclaimIBullet(IBullet bullet)
+        {
 
+        }
         protected virtual void Update()
         {
             Cd.Update(Time.deltaTime);
