@@ -301,11 +301,11 @@ namespace lgu3d
         #region 对象池
         public void NewPool<T>(string poolname, Func<string, GameObject, T> cf) where T : UnityEngine.Object
         {
-            ObjectPoolModule.Instance.NewPool<T>(poolname, cf);
+            ObjectPoolModule.Instance.NewObjectPool<T>(poolname, cf);
         }
         public void NewPool<T>(string poolname, Func<GameObject, T> cf) where T : UnityEngine.Object
         {
-            ObjectPoolModule.Instance.NewPool<T>(poolname, cf);
+            ObjectPoolModule.Instance.NewObjectPool<T>(poolname, cf);
         }
         public T GetPool<T>(string poolname) where T : UnityEngine.Object
         {

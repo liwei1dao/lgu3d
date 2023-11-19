@@ -19,12 +19,12 @@ namespace lgu3d
             base.Load(_Agr);
         }
 
-        public void NewPool<T>(string poolname, Func<GameObject, T> cf) where T : UnityEngine.Object
+        public void NewObjectPool<T>(string poolname, Func<GameObject, T> cf) where T : UnityEngine.Object
         {
             objectPoolsComp.RegisterQueuePool(poolname, cf);
         }
 
-        public void NewPool<T>(string poolname, Func<string, GameObject, T> cf) where T : UnityEngine.Object
+        public void NewObjectPool<T>(string poolname, Func<string, GameObject, T> cf) where T : UnityEngine.Object
         {
             objectPoolsComp.RegisterDictionaryPool(poolname, cf);
         }
