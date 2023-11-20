@@ -213,6 +213,15 @@ namespace lgu3d
             }
             return SoundComp.PlayMusic(Music, IsBackMusic);
         }
+        public AudioSource PlayMusic(AudioClip Music, bool IsBackMusic = false)
+        {
+            if (SoundComp == null)
+            {
+                Debug.LogError(ModuleName + " No Load SoundComp");
+                return null;
+            }
+            return SoundComp.PlayMusic(Music, IsBackMusic);
+        }
         public AudioSource PlayMusic(string Music, float MusicValue, bool IsBackMusic = false)
         {
             if (SoundComp == null)
@@ -222,7 +231,15 @@ namespace lgu3d
             }
             return SoundComp.PlayMusic(Music, MusicValue, IsBackMusic);
         }
-
+        public AudioSource PlayMusic(AudioClip Music, float MusicValue, bool IsBackMusic = false)
+        {
+            if (SoundComp == null)
+            {
+                Debug.LogError(ModuleName + " No Load SoundComp");
+                return null;
+            }
+            return SoundComp.PlayMusic(Music, MusicValue, IsBackMusic);
+        }
         public void StopBackMusic()
         {
             if (SoundComp == null)

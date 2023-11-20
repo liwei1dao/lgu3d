@@ -69,12 +69,35 @@ namespace lgu3d
     /// <param name="MusicValue"></param>
     /// <param name="IsBackMusic"></param>
     /// <returns></returns>
+    public AudioSource PlayMusic(AudioClip Music, bool IsBackMusic = false)
+    {
+      return SoundModule.Instance.PlayMusic(MyModule.ModuleName, Music, IsBackMusic);
+    }
+    /// <summary>
+    /// 播放音效
+    /// </summary>
+    /// <param name="ModelName"></param>
+    /// <param name="Music"></param>
+    /// <param name="MusicValue"></param>
+    /// <param name="IsBackMusic"></param>
+    /// <returns></returns>
     public AudioSource PlayMusic(string Music, float MusicValue, bool IsBackMusic = false)
     {
       AudioClip music = MyModule.LoadAsset<AudioClip>("Sound", Music);
       return SoundModule.Instance.PlayMusic(MyModule.ModuleName, music, MusicValue, IsBackMusic);
     }
-
+    /// <summary>
+    /// 播放音效
+    /// </summary>
+    /// <param name="ModelName"></param>
+    /// <param name="Music"></param>
+    /// <param name="MusicValue"></param>
+    /// <param name="IsBackMusic"></param>
+    /// <returns></returns>
+    public AudioSource PlayMusic(AudioClip Music, float MusicValue, bool IsBackMusic = false)
+    {
+      return SoundModule.Instance.PlayMusic(MyModule.ModuleName, Music, MusicValue, IsBackMusic);
+    }
     public void StopBackMusic()
     {
       SoundModule.Instance.StopBackMusic(MyModule.ModuleName);
