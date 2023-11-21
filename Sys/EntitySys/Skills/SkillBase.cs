@@ -122,7 +122,7 @@ namespace lgu3d
         {
             return Entity;
         }
-        public virtual void Init(IEntityBase entity, params object[] agrs)
+        public override void LGInit(IEntityBase entity, params object[] agrs)
         {
             base.LGInit(entity, agrs);
             Cd.Skill = this;
