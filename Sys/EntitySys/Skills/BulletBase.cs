@@ -20,7 +20,7 @@ namespace lgu3d
             Skill = skill;
             Meta = new Dictionary<string, object>();
         }
-        public virtual void Launch(EntityBase target, Dictionary<string, object> meta)
+        public virtual void Launch(IEntityBase target, Dictionary<string, object> meta)
         {
             Meta = meta;
         }

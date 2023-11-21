@@ -30,7 +30,7 @@ namespace lgu3d
     }
     public interface IBulletBase : IBullet
     {
-        void Launch(EntityBase target, Dictionary<string, object> meta);
+        void Launch(IEntityBase target, Dictionary<string, object> meta);
     }
     public interface IMonoBulletBase : IBullet
     {
