@@ -27,14 +27,9 @@ namespace lgu3d
     public interface IBullet
     {
         Dictionary<string, object> GetMeta();
-    }
-    public interface IBulletBase : IBullet
-    {
         void Launch(IEntityBase target, Dictionary<string, object> meta);
-    }
-    public interface IMonoBulletBase : IBullet
-    {
-        void Launch(MonoEntityBase target, Dictionary<string, object> meta);
+        void Launch(IEntityBase target, Transform targetTransform, Dictionary<string, object> meta);
+
     }
 
     public interface ISkillMonitor

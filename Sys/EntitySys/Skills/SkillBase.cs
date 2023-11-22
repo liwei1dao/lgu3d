@@ -11,7 +11,6 @@ namespace lgu3d
         public D Config;
         public SkillState State;
         public SkillCDBase Cd;
-        protected List<IBulletBase> Bullets;
         public SkillState GetState()
         {
             return State;
@@ -112,7 +111,6 @@ namespace lgu3d
         public D Config;
         public SkillState State;
         public SkillCDBase Cd;
-        protected List<IBulletBase> Bullets;
 
         public SkillState GetState()
         {
