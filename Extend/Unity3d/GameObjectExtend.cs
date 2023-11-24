@@ -176,10 +176,13 @@ namespace lgu3d
         /// <param name="Parent"></param>
         public static void SetParent(this GameObject Target, GameObject Parent)
         {
-            Target.transform.SetParent(Parent.transform);
-            Target.transform.localPosition = Vector3.zero;
-            Target.transform.localScale = Vector3.one;
-            Target.transform.localRotation = Quaternion.identity;
+            if (Parent != null)
+            {
+                Target.transform.SetParent(Parent.transform);
+                Target.transform.localPosition = Vector3.zero;
+                Target.transform.localScale = Vector3.one;
+                Target.transform.localRotation = Quaternion.identity;
+            }
         }
         /// <summary>
         /// 設置父物体对象
