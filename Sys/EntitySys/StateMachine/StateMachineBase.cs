@@ -27,7 +27,10 @@ namespace lgu3d
 
         public virtual void AddState(S key, StateBase<S> state)
         {
-            states.Add(key, state);
+            if (!states.ContainsKey(key))
+            {
+                states.Add(key, state);
+            }
         }
 
         public virtual void EnterState(S key, params object[] agrs)
