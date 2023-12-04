@@ -26,24 +26,7 @@ namespace lgu3d
         InCd,               //CD冷却中
     }
 
-    [LabelText("技能类型")]
-    public enum LGSkillSpellType
-    {
-        [LabelText("主动技能")]
-        Initiative,
-        [LabelText("被动技能")]
-        Passive,
-    }
-    [LabelText("技能目标阵营")]
-    public enum LGSkillTargetFindType
-    {
-        [LabelText("自身")]
-        Self = 0,
-        [LabelText("己方")]
-        SelfTeam = 1,
-        [LabelText("敌方")]
-        EnemyTeam = 2,
-    }
+
     /// <summary>
     /// LG技能对象
     /// </summary>
@@ -60,20 +43,11 @@ namespace lgu3d
     }
 
     /// <summary>
-    /// 技能检索器
+    /// 子弹对象
     /// </summary>
-    public interface ILGSkillTargetFinder
+    public interface ILGSkillBullet
     {
-        List<ILGEntity> Finds(List<ILGEntity> targets);
-    }
 
-    /// <summary>
-    /// 技能效果
-    /// </summary>
-    public interface ILGSkillEffect
-    {
-        //触发生效技能效果
-        bool OnTriggerApplyEffect(ILGEntity target);
     }
 
 }

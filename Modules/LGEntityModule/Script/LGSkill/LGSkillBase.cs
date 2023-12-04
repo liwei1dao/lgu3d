@@ -8,11 +8,15 @@ namespace lgu3d
     public abstract class LGSkillBase : LGEntityCompBase, ILGSkill
     {
         public LGSkillState State { get; set; }
-        public List<ILGSkillTargetFinder> Finders;
         public override void LGInit(ILGEntity entity, params object[] agrs)
         {
-            base.LGInit(entity);
+            base.LGInit(entity, agrs);
             State = LGSkillState.NoRelease;
         }
+
+        public abstract void Release(params object[] agrs);
+        public abstract List<ILGEntity> TargetFilters();
+        public abstract List<ILGSkillBullet> CreateSkillBullet();
+
     }
 }
