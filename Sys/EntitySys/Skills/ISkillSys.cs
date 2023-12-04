@@ -11,12 +11,17 @@ namespace lgu3d
         InCd,               //CD冷却中
         Reloading,          //装弹中
     }
+
     public enum SkillCDState
     {
         CdEnd,
         CdIn,
     }
 
+
+    /// <summary>
+    /// 子弹状态
+    /// </summary>
     public enum BulletState
     {
         Inmotion = 1,   //运动中
@@ -37,6 +42,7 @@ namespace lgu3d
         void OnReleaseEnd(ISkillBase skil);
         void OnCdEnd(ISkillBase skil);
     }
+    
     public interface ISkillBase : IEntityCompBase
     {
         public SkillState GetState();
