@@ -2,15 +2,20 @@ using System;
 
 namespace lgu3d
 {
-    [Serializable]
     public class LGSkillCD
     {
+        private ILGSkill Skill;
         public float CdTime;
         public float CurrCd;
         public float Progress;
         public LGSkillCDState State;
 
-        public void CdStart()
+        public LGSkillCD(ILGSkill skill)
+        {
+            this.Skill = skill;
+        }
+
+        public void CdStart(float cd)
         {
             CurrCd = CdTime;
             State = LGSkillCDState.CdIn;
@@ -33,7 +38,7 @@ namespace lgu3d
 
         public void CdEnd()
         {
-
+            Skill.CdEnd();
         }
 
     }

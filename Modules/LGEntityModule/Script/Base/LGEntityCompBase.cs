@@ -24,16 +24,21 @@ namespace lgu3d
         {
 
         }
+
+        public virtual void LGUpdate(float time)
+        {
+
+        }
         public virtual void LGReset()
         {
 
         }
     }
 
-    public abstract class LGEntityCompBase<E> : EntityCompBase where E : class, IEntityBase
+    public abstract class LGEntityCompBase<E> : LGEntityCompBase where E : class, ILGEntity
     {
         public new E Entity { get; set; }
-        public override void LGInit(IEntityBase entity, params object[] agrs)
+        public override void LGInit(ILGEntity entity, params object[] agrs)
         {
             base.LGInit(entity, agrs);
             Entity = entity as E;

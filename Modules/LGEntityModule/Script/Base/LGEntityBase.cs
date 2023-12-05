@@ -36,6 +36,18 @@ namespace lgu3d
             }
             State = LGEntityState.Active;
         }
+
+        public virtual void LGUpdate(float time)
+        {
+            if (State != LGEntityState.Active)
+                return;
+            for (int i = 0; i < Comps.Count; i++)
+            {
+                Comps[i].LGUpdate(time);
+            }
+        }
+
+
         //回收
         public virtual void Reclaim()
         {
@@ -80,6 +92,18 @@ namespace lgu3d
                 }
             }
             return null;
+        }
+        public virtual List<C> LGGetComps<C>() where C : class, ILGEntityComponent
+        {
+            List<C> comps = new();
+            foreach (var item in Comps)
+            {
+                if (item is C)
+                {
+                    comps.Add(item as C);
+                }
+            }
+            return comps;
         }
         public virtual C LGAddMissingComp<C>() where C : Component, ILGEntityComponent
         {

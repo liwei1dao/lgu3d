@@ -1,4 +1,5 @@
 
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -28,10 +29,12 @@ namespace lgu3d
         string Camp { get; set; }
         void LGInit(ILGEntity entity);
         void LGStart();
+        void LGUpdate(float time);
         void LGReset();
         void Reclaim();
         C LGAddComp<C>(C comp, params object[] agrs) where C : class, ILGEntityComponent;
         C LGGetComp<C>() where C : class, ILGEntityComponent;
+        List<C> LGGetComps<C>() where C : class, ILGEntityComponent;
         C LGAddMissingComp<C>() where C : Component, ILGEntityComponent;
     }
 
@@ -42,6 +45,19 @@ namespace lgu3d
     {
         void LGInit(ILGEntity entity, params object[] agrs);
         void LGStart();
+        void LGUpdate(float time);
         void LGReset();
+    }
+
+
+    /// <summary>
+    /// 实体行为
+    /// </summary>
+    public interface ILGAction
+    {
+        public ILGEntity Entity { get; }
+        public void FinishAction();
+        public void PreProcess();
+        public void PostProcess();
     }
 }
