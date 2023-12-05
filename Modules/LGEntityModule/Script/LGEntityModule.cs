@@ -18,6 +18,9 @@ namespace lgu3d
         public override void Load(params object[] agrs)
         {
             campEntitys = new Dictionary<string, List<ILGEntity>>();
+            ResourceComp = AddComp<Module_ResourceComp>();
+            SoundComp = AddComp<Module_SoundComp>();
+            GameObjectPoolComp = AddComp<Module_GameObjectPoolComp>();
             base.Load(agrs);
         }
 

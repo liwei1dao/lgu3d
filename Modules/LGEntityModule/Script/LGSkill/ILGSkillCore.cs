@@ -92,13 +92,6 @@ namespace lgu3d
         float Progress();
     }
 
-    /// <summary>
-    /// 子弹对象
-    /// </summary>
-    public interface ILGSkillBullet
-    {
-        void Launch(ILGSkill skill, params object[] agrs);
-    }
 
     /// <summary>
     /// 技能效果

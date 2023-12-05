@@ -24,6 +24,15 @@ namespace lgu3d
         [LabelText("技能冷却时长(毫秒)")]
         public int SkillCD = 1000;
 
+        [FoldoutGroup("子弹配置")]
+        [LabelText("子弹ID")]
+        public string BulletId;
+        [FoldoutGroup("子弹配置")]
+        public LGBulletTarget LGBulletTarget;
+        [FoldoutGroup("子弹配置")]
+        public LGBulletTrack LGBulletTrack;
+
+
         [OnInspectorGUI("BeginBox", append: false)]
         [LabelText("效果列表"), Space(30)]
         [ListDrawerSettings(DefaultExpandedState = true, DraggableItems = false, ShowItemCount = false, HideAddButton = true)]

@@ -29,4 +29,15 @@ namespace lgu3d
             CD.Update(time);
         }
     }
+
+    public abstract class LGSkillBase<E, C> : LGSkillBase where E : class, ILGEntity where C : SkillBaseConfig<C>
+    {
+        public C Config { get; set; }
+        public new E Entity { get; set; }
+        public override void LGInit(ILGEntity entity, params object[] agrs)
+        {
+            base.LGInit(entity, agrs);
+            Entity = entity as E;
+        }
+    }
 }

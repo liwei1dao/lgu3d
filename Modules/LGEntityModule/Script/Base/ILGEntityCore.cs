@@ -60,4 +60,14 @@ namespace lgu3d
         public void PreProcess();
         public void PostProcess();
     }
+
+
+
+    /// <summary>
+    /// 子弹对象
+    /// </summary>
+    public interface ILGSkillBullet
+    {
+        void Launch(ILGSkill skill, params object[] agrs);
+    }
 }
