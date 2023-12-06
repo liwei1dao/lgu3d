@@ -25,6 +25,8 @@ namespace lgu3d
         [LabelText("技能冷却时长(毫秒)"), SuffixLabel("毫秒", true)]
         public int SkillCD = 1000;
 
+
+
         [OnInspectorGUI("BeginBox", append: false)]
         [LabelText("效果列表"), Space(30)]
         [ListDrawerSettings(DefaultExpandedState = true, DraggableItems = false, ShowItemCount = false, HideAddButton = true)]

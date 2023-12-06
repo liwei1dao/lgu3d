@@ -17,6 +17,9 @@ namespace lgu3d
 
         public override void Load(params object[] agrs)
         {
+            ResourceComp = AddComp<Module_ResourceComp>();
+            SoundComp = AddComp<Module_SoundComp>();
+            GameObjectPoolComp = AddComp<Module_GameObjectPoolComp>();
             base.Load(agrs);
         }
 
