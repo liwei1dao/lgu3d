@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 /// <summary>
@@ -12,20 +13,16 @@ namespace lgu3d
     /// 基础实体对象
     /// </summary>
     public abstract class LGEntityBase : MonoBehaviour, ILGEntity
-
     {
-        public ILGEntity Entity { get; set; }
-        public LGEntityState State { get; set; }
-        public string Camp { get; set; }
+        [LabelText("技能名称")]
+        public bool Active { get; set; }
         protected List<ILGEntityComponent> Comps;
 
         public virtual void LGInit(ILGEntity entity)
         {
-            Entity = entity;
             Comps = new List<ILGEntityComponent>();
             ILGEntityComponent[] comps = gameObject.GetComponentsInChildren<ILGEntityComponent>();
             this.LGAddComps(comps);
-            State = LGEntityState.Loaded;
         }
 
         public virtual void LGStart()
@@ -34,12 +31,12 @@ namespace lgu3d
             {
                 Comps[i].LGStart();
             }
-            State = LGEntityState.Active;
+            Active = true;
         }
 
         public virtual void LGUpdate(float time)
         {
-            if (State != LGEntityState.Active)
+            if (!Active)
                 return;
             for (int i = 0; i < Comps.Count; i++)
             {
@@ -47,22 +44,13 @@ namespace lgu3d
             }
         }
 
-
-        //回收
-        public virtual void Reclaim()
-        {
-            State = LGEntityState.Recycle;
-            gameObject.SetActive(false);
-        }
         //重置
-        public virtual void LGReset()
+        public virtual void Activation()
         {
             for (int i = 0; i < Comps.Count; i++)
             {
-                Comps[i].LGReset();
+                Comps[i].Activation();
             }
-            State = LGEntityState.Active;
-            gameObject.SetActive(true);
         }
 
         protected virtual void LGAddComps(ILGEntityComponent[] comps)
@@ -70,14 +58,14 @@ namespace lgu3d
             Comps.AddRange(comps);
             foreach (var comp in comps)
             {
-                comp.LGInit(Entity);
+                comp.LGInit(this);
             }
             return;
         }
 
-        public virtual C LGAddComp<C>(C comp, params object[] agrs) where C : class, ILGEntityComponent
+        public virtual C LGAddComp<C>(C comp) where C : class, ILGEntityComponent
         {
-            comp.LGInit(this, agrs);
+            comp.LGInit(this);
             Comps.Add(comp);
             return comp;
         }
@@ -115,27 +103,14 @@ namespace lgu3d
                 }
             }
             C comp = gameObject.AddMissingComponent<C>();
-            comp.LGInit(Entity);
+            comp.LGInit(this);
             Comps.Add(comp);
             return comp;
         }
     }
     public abstract class LGEntityBase<E> : LGEntityBase where E : LGEntityBase<E>
     {
-
-        public new E Entity { get; set; }
-        #region 框架函数
-        public override void LGInit(ILGEntity entity)
-        {
-            base.LGInit(entity);
-            Entity = entity as E;
-        }
-        #endregion
-    }
-    public abstract class LGEntityBase<E, D> : LGEntityBase where E : LGEntityBase<E, D> where D : class
-    {
-        public D Config;
-        public new E Entity { get; set; }
+        public E Entity { get; set; }
         #region 框架函数
         public override void LGInit(ILGEntity entity)
         {

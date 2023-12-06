@@ -15,7 +15,7 @@ namespace lgu3d
     {
         public ILGEntity Entity { get; set; }
 
-        public virtual void LGInit(ILGEntity entity, params object[] agrs)
+        public virtual void LGInit(ILGEntity entity)
         {
             Entity = entity;
         }
@@ -29,7 +29,7 @@ namespace lgu3d
         {
 
         }
-        public virtual void LGReset()
+        public virtual void Activation()
         {
 
         }
@@ -38,9 +38,9 @@ namespace lgu3d
     public abstract class LGEntityCompBase<E> : LGEntityCompBase where E : class, ILGEntity
     {
         public new E Entity { get; set; }
-        public override void LGInit(ILGEntity entity, params object[] agrs)
+        public override void LGInit(ILGEntity entity)
         {
-            base.LGInit(entity, agrs);
+            base.LGInit(entity);
             Entity = entity as E;
         }
     }
