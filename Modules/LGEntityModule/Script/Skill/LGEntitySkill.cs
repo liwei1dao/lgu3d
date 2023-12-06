@@ -42,7 +42,21 @@ namespace lgu3d
         /// <param name="targets"></param>
         protected abstract void ExecutionEffect(List<ILGEntity> targets);
 
-        //cd结束
+        /// <summary>
+        /// 技能释放结束【=】
+        /// </summary>
+        public virtual void ReleaseEnd()
+        {
+            if (Config.SkillCD > 0)
+            {
+                State = LGSkillState.InCd;
+                CD.CdStart(Config.SkillCD);
+            }
+        }
+
+        /// <summary>
+        /// CD结束
+        /// </summary>
         public virtual void CdEnd()
         {
             State = LGSkillState.NoRelease;

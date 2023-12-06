@@ -17,57 +17,12 @@ namespace lgu3d
         public int Id;
         [LabelText("技能名称")]
         public string Name = "Skill_";
-        public SkillSpellType SkillSpellType;
 
         [LabelText("技能释放时长"), SuffixLabel("毫秒", true)]
         public int ReleaseTime = 100;
 
         [LabelText("技能冷却时长(毫秒)"), SuffixLabel("毫秒", true)]
         public int SkillCD = 1000;
-
-
-
-        [OnInspectorGUI("BeginBox", append: false)]
-        [LabelText("效果列表"), Space(30)]
-        [ListDrawerSettings(DefaultExpandedState = true, DraggableItems = false, ShowItemCount = false, HideAddButton = true)]
-        [HideReferenceObjectPicker]
-        public List<LGEffect> Effects = new();
-        [OnInspectorGUI("EndBox", append: true)]
-        [HorizontalGroup(PaddingLeft = 40, PaddingRight = 40)]
-        [HideLabel, OnValueChanged("AddEffect"), ValueDropdown("EffectTypeSelect")]
-        public string EffectTypeName = "(添加效果)";
-
-        public IEnumerable<string> EffectTypeSelect()
-        {
-            var types = typeof(LGEffect).Assembly.GetTypes()
-                .Where(x => !x.IsAbstract)
-                .Where(x => typeof(LGEffect).IsAssignableFrom(x))
-                .Where(x => x.GetCustomAttribute<LGEffectAttribute>() != null)
-                .OrderBy(x => x.GetCustomAttribute<LGEffectAttribute>().Order)
-                .Select(x => x.GetCustomAttribute<LGEffectAttribute>().EffectType);
-            var results = types.ToList();
-            results.Insert(0, "(添加效果)");
-            return results;
-        }
-
-        private void AddEffect()
-        {
-            if (EffectTypeName != "(添加效果)")
-            {
-                var effectType = typeof(LGEffect).Assembly.GetTypes()
-                    .Where(x => !x.IsAbstract)
-                    .Where(x => typeof(LGEffect).IsAssignableFrom(x))
-                    .Where(x => x.GetCustomAttribute<LGEffectAttribute>() != null)
-                    .Where(x => x.GetCustomAttribute<LGEffectAttribute>().EffectType == EffectTypeName)
-                    .FirstOrDefault();
-
-                var effect = Activator.CreateInstance(effectType) as LGEffect;
-                effect.Enabled = true;
-                Effects.Add(effect);
-
-                EffectTypeName = "(添加效果)";
-            }
-        }
 
         protected void DrawSpace()
         {
