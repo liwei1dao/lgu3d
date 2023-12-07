@@ -10,7 +10,6 @@ using Sirenix.OdinInspector;
 /// </summary>
 namespace lgu3d
 {
-
     [LabelText("作用对象")]
     public enum LGSkillEffetTargetType
     {
@@ -26,13 +25,29 @@ namespace lgu3d
     /// <summary>
     /// 效果执行
     /// </summary>
-    public interface IEffetExecution<E> where E : ILGEntity
+    public interface IEffetExecution<E> : IReference where E : ILGEntity
     {
+        /// <summary>
+        /// 状态类型
+        /// </summary>
+        public LGEffect Effect { get; }
+        /// <summary>
+        /// 效果来源技能
+        /// </summary>
+        public ILGSkill SourceEffetSkill { get; }
+        /// <summary>
+        /// 效果来源实体
+        /// </summary>
+        public E SourceEffetEntity { get; }
+        /// <summary>
+        /// 效果目标实体
+        /// </summary>
+        public E TargetEntity { get; }
         /// <summary>
         /// 执行函数
         /// </summary>
         /// <param name="entity"></param>
-        void Execution(E entity);
+        void Execution();
 
     }
 
@@ -42,7 +57,7 @@ namespace lgu3d
     /// </summary>
     public interface ILGEntityEffetExecutionComp : ILGEntityComponent
     {
-
+        void AddEffect(ILGSkill source, LGEffect effect);
     }
 
 }

@@ -37,8 +37,17 @@ namespace lgu3d
 
         [ToggleGroup("Enabled", "$Label")]
         public bool Enabled;
-
         [ToggleGroup("Enabled")]
         public LGSkillEffetTargetType LGSkillEffetTargetType;
+
+        [ToggleGroup("Enabled"), LabelText("触发概率")]
+        public string TriggerProbability = "100%";
+
+        //初始化
+        public abstract void LGInit(ILGSkill skill);
     }
+
+
+
+
 }

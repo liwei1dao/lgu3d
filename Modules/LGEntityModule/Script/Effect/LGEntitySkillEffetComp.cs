@@ -10,9 +10,9 @@ namespace lgu3d
     {
         public Queue<IEffetExecution<E>> ExecutionEffects { get; private set; } = new Queue<IEffetExecution<E>>();
 
-        public virtual void AddEffect(LGEffect effect)
+        public virtual void AddEffect(ILGSkill source, LGEffect effect)
         {
-            List<IEffetExecution<E>> effetExecutions = CreateExecution(effect);
+            List<IEffetExecution<E>> effetExecutions = CreateExecution(source, effect);
             foreach (var item in effetExecutions)
             {
                 ExecutionEffects.Enqueue(item);
@@ -24,7 +24,7 @@ namespace lgu3d
         /// </summary>
         /// <param name="effect"></param>
         /// <returns></returns>
-        public abstract List<IEffetExecution<E>> CreateExecution(LGEffect effect);
+        public abstract List<IEffetExecution<E>> CreateExecution(ILGSkill source, LGEffect effect);
 
 
         public override void LGUpdate(float time)
@@ -32,8 +32,8 @@ namespace lgu3d
             if (ExecutionEffects.Count > 0)
             {
                 IEffetExecution<E> effetExecution = ExecutionEffects.Dequeue();
-                effetExecution.Execution(Entity);
-
+                effetExecution.Execution();
+                ReferencePool.Release(effetExecution);
             }
         }
 

@@ -18,45 +18,45 @@ namespace lgu3d
             CD = new LGSkillCD(this);
         }
 
-        //技能释放
-        public abstract void Release();
-
-        /// <summary>
-        /// 技能释放条件检测
-        /// </summary>
-        /// <returns></returns>
-        protected virtual bool SkillReleaseConditionCheck()
+        public bool Condition()
         {
             return true;
         }
 
-        /// <summary>
-        /// 选择目标对象
-        /// </summary>
-        /// <returns></returns>
-        protected abstract List<ILGEntity> SelectTarget();
-
-        /// <summary>
-        /// 执行技能效果
-        /// </summary>
-        /// <param name="targets"></param>
-        protected abstract void ExecutionEffect(List<ILGEntity> targets);
-
-        /// <summary>
-        /// 技能释放结束【=】
-        /// </summary>
-        public virtual void ReleaseEnd()
+        public void Release()
         {
-            if (Config.SkillCD > 0)
-            {
-                State = LGSkillState.InCd;
-                CD.CdStart(Config.SkillCD);
-            }
+
         }
 
-        /// <summary>
-        /// CD结束
-        /// </summary>
+        public virtual void Release_Entity(ILGEntity target)
+        {
+
+        }
+
+        public virtual void Release_Direction(Vector3 Direction)
+        {
+
+        }
+
+        public virtual void Release_Point(Vector3 Point)
+        {
+
+        }
+
+        public virtual void Release_DynamicPoints(Transform Point)
+        {
+
+        }
+
+        public abstract ILGBullet CreateBullet();
+
+        public virtual void ReleaseEnd()
+        {
+
+        }
+
+
+
         public virtual void CdEnd()
         {
             State = LGSkillState.NoRelease;
@@ -69,5 +69,6 @@ namespace lgu3d
                 CD.Update(time);
             }
         }
+
     }
 }
