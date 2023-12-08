@@ -1,9 +1,10 @@
-
-using System;
 using System.Collections.Generic;
-using BestHTTP.SecureProtocol.Org.BouncyCastle.Asn1.X509;
-using Sirenix.OdinInspector;
+using System;
+using System.IO;
+using System.Linq;
+using System.Reflection;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 /// <summary>
 /// 实体基础对象
@@ -11,5 +12,9 @@ using UnityEngine;
 /// </summary>
 namespace lgu3d
 {
+    [Serializable]
+    public class LGButtleConfig
+    {
 
+    }
 }

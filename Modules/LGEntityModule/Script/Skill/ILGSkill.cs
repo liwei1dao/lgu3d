@@ -22,36 +22,26 @@ namespace lgu3d
         InCd,               //CD冷却中
     }
 
-    [LabelText("技能类型")]
-    public enum SkillSpellType
-    {
-        [LabelText("主动技能")]
-        Initiative,
-        [LabelText("被动技能")]
-        Passive,
-    }
-
-
     [LabelText("技能目标输入类型")]
     public enum SkillTargetInputType
     {
         [LabelText("自动选择")]
-        Auto,
+        Auto = 0,
         [LabelText("目标实体")]
-        Entity,
+        Entity = 1,
         [LabelText("目标方向")]
-        Direction,
+        Direction = 2,
         [LabelText("目标点")]
-        Point,
+        Point = 3,
         [LabelText("动态点")]
-        DynamicPoints,
+        DynamicPoints = 4,
     }
 
 
     [LabelText("弹道类型")]
     public enum SkillBallisticsType
     {
-        [LabelText("无弹道(直接目标点释放)")]
+        [LabelText("无弹道")]
         None = 0,
         [LabelText("直线弹道")]
         StraightLine = 1,

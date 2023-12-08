@@ -11,51 +11,41 @@ using Sirenix.Utilities.Editor;
 
 namespace lgu3d
 {
-    public abstract class SkillBaseConfig<C> : SerializedScriptableObject where C : SkillBaseConfig<C>
+    [CreateAssetMenu(fileName = "技能配置", menuName = "实体/基础技能配置")]
+    [LabelText("技能配置")]
+    public class SkillBaseConfig : SerializedScriptableObject
     {
         [TitleGroup("Base"), LabelText("技能ID"), DelayedProperty]
         public int Id;
-        [TitleGroup("Base"), LabelText("技能名称")]
-        public string Name = "Skill_";
-
-        [TitleGroup("Base"), LabelText("技能输出类型")]
+        [TitleGroup("Base"), LabelText("技能输入类型"), OnValueChanged("SkillTargetInputTypeChange")]
         public SkillTargetInputType SkillTargetInputType;
-
         [TitleGroup("Base"), LabelText("技能释放时长"), SuffixLabel("毫秒", true)]
         public int ReleaseTime = 100;
 
-        [TitleGroup("Base"), LabelText("技能冷却时长(毫秒)"), SuffixLabel("毫秒", true)]
+        [TitleGroup("Base"), LabelText("技能冷却时长"), SuffixLabel("毫秒", true)]
         public int SkillCD = 1000;
 
+        [TitleGroup("Bullet"), LabelText("子弹配置")]
+        public bool BulletEnabled { get { return SkillBulletType != SkillBallisticsType.None; } }
 
-
-        #region 子弹配置
-        [TitleGroup("Bullet")]
-        [LabelText("子弹弹道类型")]
+        [TitleGroup("Bullet"), LabelText("子弹弹道类型")]
         public SkillBallisticsType SkillBulletType;
-        [TitleGroup("Bullet")]
-        [LabelText("子弹特效ID"), HideIf("SkillBulletType", SkillBallisticsType.None)]
+
+        [TitleGroup("Bullet"), ShowIf("BulletEnabled"), LabelText("子弹特效ID")]
         public string BulletEffectId;
-        [TitleGroup("Bullet")]
-        [LabelText("子弹销毁特效ID"), HideIf("SkillBulletType", SkillBallisticsType.None)]
+        [TitleGroup("Bullet"), ShowIf("BulletEnabled"), LabelText("子弹销毁特效ID")]
         public string BulletDestroyedEffectId;
-        [TitleGroup("Bullet")]
-        [LabelText("子弹速度"), HideIf("SkillBulletType", SkillBallisticsType.None)]
+        [TitleGroup("Bullet"), ShowIf("BulletEnabled"), LabelText("子弹速度")]
         public float BulletSpeed;
-        [TitleGroup("Bullet")]
 
-
-        #region 效果集合
-        [OnInspectorGUI("BeginBox", append: false)]
-        [LabelText("子弹效果列表"), Space(30)]
+        #region 子弹效果集合
+        [TitleGroup("Bullet"), ShowIf("BulletEnabled"), LabelText("子弹效果列表")]
         [ListDrawerSettings(DefaultExpandedState = true, DraggableItems = false, ShowItemCount = false, HideAddButton = true)]
         [HideReferenceObjectPicker]
         public List<LGEffect> BulletEffects = new();
-        [OnInspectorGUI("EndBox", append: true)]
-        [HorizontalGroup(PaddingLeft = 40, PaddingRight = 40)]
-        [HideLabel, OnValueChanged("AddEffect"), ValueDropdown("EffectTypeSelect")]
-        public string EffectTypeName = "(添加效果)";
-
+        [TitleGroup("Bullet"), ShowIf("BulletEnabled")]
+        [HideLabel, OnValueChanged("AddBulletEffect"), ValueDropdown("BulletEffectTypeSelect")]
+        public string BulletEffectTypeName = "(添加子弹效果)";
         public IEnumerable<string> BulletEffectTypeSelect()
         {
             var types = typeof(LGEffect).Assembly.GetTypes()
@@ -65,32 +55,87 @@ namespace lgu3d
                 .OrderBy(x => x.GetCustomAttribute<LGEffectAttribute>().Order)
                 .Select(x => x.GetCustomAttribute<LGEffectAttribute>().EffectType);
             var results = types.ToList();
-            results.Insert(0, "(添加效果)");
+            results.Insert(0, "(添加子弹效果)");
             return results;
         }
-
         private void AddBulletEffect()
         {
-            if (EffectTypeName != "(添加效果)")
+            if (BulletEffectTypeName != "(添加子弹效果)")
             {
                 var effectType = typeof(LGEffect).Assembly.GetTypes()
                     .Where(x => !x.IsAbstract)
                     .Where(x => typeof(LGEffect).IsAssignableFrom(x))
                     .Where(x => x.GetCustomAttribute<LGEffectAttribute>() != null)
-                    .Where(x => x.GetCustomAttribute<LGEffectAttribute>().EffectType == EffectTypeName)
+                    .Where(x => x.GetCustomAttribute<LGEffectAttribute>().EffectType == BulletEffectTypeName)
                     .FirstOrDefault();
 
                 var effect = Activator.CreateInstance(effectType) as LGEffect;
                 effect.Enabled = true;
                 BulletEffects.Add(effect);
-
-                EffectTypeName = "(添加效果)";
+                BulletEffectTypeName = "(添加子弹效果)";
             }
         }
         #endregion
 
+
+
+        #region 添加技能效果
+        [TitleGroup("SkillEffect"), LabelText("技能效果列表")]
+        [ListDrawerSettings(DefaultExpandedState = true, DraggableItems = false, ShowItemCount = false, HideAddButton = true)]
+        [HideReferenceObjectPicker]
+        public List<LGEffect> SkillEffects = new();
+        [TitleGroup("SkillEffect")]
+        [HideLabel, OnValueChanged("AddSkillEffect"), ValueDropdown("SkillEffectTypeSelect")]
+        public string SkillEffectTypeName = "(添加技能效果)";
+
+        public IEnumerable<string> SkillEffectTypeSelect()
+        {
+            var types = typeof(LGEffect).Assembly.GetTypes()
+                .Where(x => !x.IsAbstract)
+                .Where(x => typeof(LGEffect).IsAssignableFrom(x))
+                .Where(x => x.GetCustomAttribute<LGEffectAttribute>() != null)
+                .OrderBy(x => x.GetCustomAttribute<LGEffectAttribute>().Order)
+                .Select(x => x.GetCustomAttribute<LGEffectAttribute>().EffectType);
+            var results = types.ToList();
+            results.Insert(0, "(添加技能效果)");
+            return results;
+        }
+
+        private void AddSkillEffect()
+        {
+            if (SkillEffectTypeName != "(添加技能效果)")
+            {
+                var effectType = typeof(LGEffect).Assembly.GetTypes()
+                    .Where(x => !x.IsAbstract)
+                    .Where(x => typeof(LGEffect).IsAssignableFrom(x))
+                    .Where(x => x.GetCustomAttribute<LGEffectAttribute>() != null)
+                    .Where(x => x.GetCustomAttribute<LGEffectAttribute>().EffectType == SkillEffectTypeName)
+                    .FirstOrDefault();
+
+                var effect = Activator.CreateInstance(effectType) as LGEffect;
+                effect.IsSkillEffect = true;
+                effect.SetSkillTargetInputType(SkillTargetInputType);
+                effect.Enabled = true;
+                SkillEffects.Add(effect);
+                SkillEffectTypeName = "(添加技能效果)";
+            }
+        }
         #endregion
 
+        /// <summary>
+        /// 技能输入类型变化 重置效果作用目标
+        /// </summary>
+        private void SkillTargetInputTypeChange()
+        {
+            foreach (var beffect in BulletEffects)
+            {
+                beffect.SetSkillTargetInputType(SkillTargetInputType);
+            }
+            foreach (var seffect in SkillEffects)
+            {
+                seffect.SetSkillTargetInputType(SkillTargetInputType);
+            }
+        }
 
 
         protected void DrawSpace()
@@ -127,7 +172,7 @@ namespace lgu3d
             {
                 string guid = guids[0];
                 string assetPath = UnityEditor.AssetDatabase.GUIDToAssetPath(guid);
-                var so = UnityEditor.AssetDatabase.LoadAssetAtPath<C>(assetPath);
+                var so = UnityEditor.AssetDatabase.LoadAssetAtPath<SkillBaseConfig>(assetPath);
                 if (so != this)
                 {
                     return;

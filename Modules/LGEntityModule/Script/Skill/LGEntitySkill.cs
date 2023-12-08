@@ -6,7 +6,7 @@ namespace lgu3d
     /// <summary>
     /// 技能对象
     /// </summary>
-    public abstract class LGEntitySkill<C> : LGEntityCompBase, ILGSkill where C : SkillBaseConfig<C>
+    public abstract class LGEntitySkill<C> : LGEntityCompBase, ILGSkill where C : SkillBaseConfig
     {
         protected C Config;
         public LGSkillState State { get; set; }

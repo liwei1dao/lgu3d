@@ -1,12 +1,18 @@
 using System;
 using BestHTTP.WebSocket;
-
-/// <summary>
-/// 实体模块
-/// </summary>
-public interface ILGEntityModule
+using Sirenix.OdinInspector;
+namespace lgu3d
 {
 
-}
 
+
+    /// <summary>
+    /// 实体模块
+    /// </summary>
+    public interface ILGEntityModule
+    {
+
+    }
+
+}
 

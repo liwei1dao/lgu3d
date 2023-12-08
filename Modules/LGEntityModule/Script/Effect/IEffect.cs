@@ -17,11 +17,26 @@ namespace lgu3d
         SkillTarget = 0,
         [LabelText("自身")]
         Self = 1,
-        [LabelText("其他")]
-        Other = 2,
     }
 
-
+    /// <summary>
+    /// 效果触发类型
+    /// </summary>
+    public enum EffectTriggerType
+    {
+        [LabelText("（空）")]
+        None = 0,
+        [LabelText("立即触发")]
+        Instant = 1,
+        [LabelText("条件触发")]
+        Condition = 2,
+        [LabelText("行动点触发")]
+        Action = 3,
+        [LabelText("子弹命中触发")]
+        BulletHit = 4,
+        [LabelText("子弹销毁触发")]
+        BulletDestroy = 5,
+    }
     /// <summary>
     /// 效果执行
     /// </summary>
