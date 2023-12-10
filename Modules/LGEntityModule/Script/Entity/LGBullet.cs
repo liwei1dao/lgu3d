@@ -12,9 +12,21 @@ using Sirenix.OdinInspector;
 /// </summary>
 namespace lgu3d
 {
-    [Serializable]
-    public class LGButtleConfig
+
+    /// <summary>
+    /// 子弹对象
+    /// </summary>
+    public interface ILGBullet : ILGEntity
     {
 
     }
+
+    /// <summary>
+    /// 子弹实体
+    /// </summary>
+    public abstract class LGBullet : LGEntityBase, ILGBullet
+    {
+
+    }
+
 }

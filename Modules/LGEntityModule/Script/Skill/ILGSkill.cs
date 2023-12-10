@@ -91,13 +91,4 @@ namespace lgu3d
         void ReleaseEnd();
         void CdEnd();
     }
-
-    /// <summary>
-    /// 子弹对象
-    /// </summary>
-    public interface ILGBullet
-    {
-
-    }
-
 }

@@ -5,7 +5,7 @@ namespace lgu3d
     /// <summary>
     /// 实体事件
     /// </summary>
-    public abstract class EffetExecution<E> : IEffetExecution<E> where E : class, ILGEntity
+    public abstract class EffetExecution : LGEntityBase, IEffetExecution
     {
 
         /// <summary>
@@ -19,11 +19,12 @@ namespace lgu3d
         /// <summary>
         /// 效果来源实体
         /// </summary>
-        public E SourceEffetEntity => SourceEffetSkill.Entity as E;
+        public ILGBattleEntity SourceEffetEntity => SourceEffetSkill.Entity as ILGBattleEntity;
         /// <summary>
         /// 效果目标实体
         /// </summary>
-        public E TargetEntity { get; set; }
+        public ILGBattleEntity TargetEntity { get; set; }
+
         /// <summary>
         /// 执行函数
         /// </summary>
@@ -51,11 +52,12 @@ namespace lgu3d
 
         }
 
-        public virtual void Clear()
+        public override void Clear()
         {
             Effect = null;
             SourceEffetSkill = null;
             TargetEntity = null;
+            base.Clear();
         }
     }
 }

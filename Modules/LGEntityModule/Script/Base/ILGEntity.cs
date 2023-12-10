@@ -12,31 +12,21 @@ namespace lgu3d
     /// <summary>
     /// LG实体对象
     /// </summary>
-    public interface ILGEntity
+    public interface ILGEntity : IReference
     {
-        void LGInit(ILGEntity entity);
+        ILGEntity Parent { get; }
+        void LGInit(ILGEntityModule module, ILGEntity parent);
         void LGStart();
         void LGUpdate(float time);
         void Activation();
         C LGAddComp<C>(C comp) where C : class, ILGEntityComponent;
         C LGGetComp<C>() where C : class, ILGEntityComponent;
         List<C> LGGetComps<C>() where C : class, ILGEntityComponent;
-        C LGAddMissingComp<C>() where C : Component, ILGEntityComponent;
-    }
+        C LGAddMissingComp<C>() where C : class, ILGEntityComponent;
+        E LGAddEntity<E>() where E : class, ILGEntity;
 
-    /// <summary>
-    /// LG实体组件
-    /// </summary>
-    public interface ILGEntityComponent
-    {
-        /// <summary>
-        /// 状态类型
-        /// </summary>
-        ILGEntity Entity { get; }
-        void LGInit(ILGEntity entity);
-        void LGStart();
-        void LGUpdate(float time);
-        void Activation();
-    }
+        E LGGetEntity<E>() where E : class, ILGEntity;
 
+        void LGRemoveEntity(ILGEntity entity);
+    }
 }

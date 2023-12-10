@@ -1,16 +1,17 @@
 namespace lgu3d
 {
     /// <summary>
-    /// 属性管理
+    /// LG实体组件
     /// </summary>
-    public interface ILGEntityAttributeComp
+    public interface ILGEntityComponent
     {
-
+        /// <summary>
+        /// 状态类型
+        /// </summary>
+        ILGEntity Entity { get; }
+        void LGInit(ILGEntity entity);
+        void LGStart();
+        void LGUpdate(float time);
+        void Activation();
     }
-
-
-
-
-
-
 }

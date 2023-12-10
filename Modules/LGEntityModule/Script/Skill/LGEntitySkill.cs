@@ -6,14 +6,22 @@ namespace lgu3d
     /// <summary>
     /// 技能对象
     /// </summary>
-    public abstract class LGEntitySkill<C> : LGEntityCompBase, ILGSkill where C : SkillBaseConfig
+    public abstract class LGEntitySkill<E, C> : LGEntityCompBase, ILGSkill where E : LGBattleEntity where C : SkillBaseConfig
     {
         protected C Config;
         public LGSkillState State { get; set; }
+        public new E Entity { get; set; }
         protected LGSkillCD CD;
+
+        public LGEntitySkill(C config)
+        {
+            Config = config;
+        }
+
         public override void LGInit(ILGEntity entity)
         {
             base.LGInit(entity);
+            Entity = entity as E;
             State = LGSkillState.NoRelease;
             CD = new LGSkillCD(this);
         }
@@ -52,10 +60,8 @@ namespace lgu3d
 
         public virtual void ReleaseEnd()
         {
-
+            State = LGSkillState.InCd;
         }
-
-
 
         public virtual void CdEnd()
         {

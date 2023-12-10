@@ -37,10 +37,11 @@ namespace lgu3d
         [LabelText("子弹销毁触发")]
         BulletDestroy = 5,
     }
+
     /// <summary>
-    /// 效果执行
+    /// 效果执行实体
     /// </summary>
-    public interface IEffetExecution<E> : IReference where E : ILGEntity
+    public interface IEffetExecution : ILGEntity
     {
         /// <summary>
         /// 状态类型
@@ -53,11 +54,7 @@ namespace lgu3d
         /// <summary>
         /// 效果来源实体
         /// </summary>
-        public E SourceEffetEntity { get; }
-        /// <summary>
-        /// 效果目标实体
-        /// </summary>
-        public E TargetEntity { get; }
+        public ILGBattleEntity SourceEffetEntity { get; }
         /// <summary>
         /// 执行函数
         /// </summary>

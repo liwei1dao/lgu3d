@@ -11,7 +11,7 @@ namespace lgu3d
     /// <summary>
     /// 基础实体对象
     /// </summary>
-    public abstract class LGEntityCompBase : MonoBehaviour, ILGEntityComponent
+    public abstract class LGEntityCompBase : ILGEntityComponent
     {
         public ILGEntity Entity { get; set; }
 

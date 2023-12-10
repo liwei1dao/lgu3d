@@ -1,7 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
-using UnityEngine;
+using Unity.VisualScripting;
 
 /// <summary>
 /// 实体基础对象
@@ -12,17 +11,19 @@ namespace lgu3d
     /// <summary>
     /// 基础实体对象
     /// </summary>
-    public abstract class LGEntityBase : MonoBehaviour, ILGEntity
+    public abstract class LGEntityBase : ILGEntity
     {
-        [LabelText("技能名称")]
+
         public bool Active { get; set; }
+        public ILGEntity Parent { get; protected set; }
+        protected ILGEntityModule module;
+        protected List<ILGEntity> Childs;
         protected List<ILGEntityComponent> Comps;
 
-        public virtual void LGInit(ILGEntity entity)
+        public virtual void LGInit(ILGEntityModule module, ILGEntity parent)
         {
+            Parent = parent;
             Comps = new List<ILGEntityComponent>();
-            ILGEntityComponent[] comps = gameObject.GetComponentsInChildren<ILGEntityComponent>();
-            this.LGAddComps(comps);
         }
 
         public virtual void LGStart()
@@ -53,6 +54,14 @@ namespace lgu3d
             }
         }
 
+        /// <summary>
+        /// 回收清理
+        /// </summary>
+        public virtual void Clear()
+        {
+
+        }
+
         protected virtual void LGAddComps(ILGEntityComponent[] comps)
         {
             Comps.AddRange(comps);
@@ -60,13 +69,25 @@ namespace lgu3d
             {
                 comp.LGInit(this);
             }
+            foreach (var comp in comps)
+            {
+                comp.LGStart();
+            }
             return;
         }
-
+        public virtual C LGAddComp<C>() where C : class, ILGEntityComponent
+        {
+            C comp = default(C);
+            Comps.Add(comp);
+            comp.LGInit(this);
+            comp.LGStart();
+            return comp;
+        }
         public virtual C LGAddComp<C>(C comp) where C : class, ILGEntityComponent
         {
-            comp.LGInit(this);
             Comps.Add(comp);
+            comp.LGInit(this);
+            comp.LGStart();
             return comp;
         }
 
@@ -93,7 +114,7 @@ namespace lgu3d
             }
             return comps;
         }
-        public virtual C LGAddMissingComp<C>() where C : Component, ILGEntityComponent
+        public virtual C LGAddMissingComp<C>() where C : class, ILGEntityComponent
         {
             foreach (var item in Comps)
             {
@@ -102,21 +123,36 @@ namespace lgu3d
                     return item as C;
                 }
             }
-            C comp = gameObject.AddMissingComponent<C>();
-            comp.LGInit(this);
-            Comps.Add(comp);
+            C comp = default;
+            this.LGAddComp<C>(comp);
             return comp;
         }
-    }
-    public abstract class LGEntityBase<E> : LGEntityBase where E : LGEntityBase<E>
-    {
-        public E Entity { get; set; }
-        #region 框架函数
-        public override void LGInit(ILGEntity entity)
+
+        public virtual E LGAddEntity<E>() where E : class, ILGEntity
         {
-            base.LGInit(entity);
-            Entity = entity as E;
+            E entity = default(E);
+            Childs.Add(entity);
+            entity.LGInit(module, this);
+            entity.LGStart();
+            return entity;
         }
-        #endregion
+
+        public E LGGetEntity<E>() where E : class, ILGEntity
+        {
+            foreach (ILGEntity entity in Childs)
+            {
+                if (entity is E)
+                {
+                    return entity as E;
+                }
+            }
+            return null;
+        }
+
+        public virtual void LGRemoveEntity(ILGEntity entity)
+        {
+            Childs.Remove(entity);
+            return;
+        }
     }
 }
