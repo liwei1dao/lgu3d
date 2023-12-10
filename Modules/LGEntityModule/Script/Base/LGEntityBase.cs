@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using Unity.VisualScripting;
+using UnityEngine;
 
 /// <summary>
 /// 实体基础对象
@@ -155,4 +156,5 @@ namespace lgu3d
             return;
         }
     }
+
 }

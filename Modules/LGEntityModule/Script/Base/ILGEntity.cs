@@ -29,4 +29,9 @@ namespace lgu3d
 
         void LGRemoveEntity(ILGEntity entity);
     }
+    public interface IMonoLGEntity : ILGEntity
+    {
+        public GameObject gameObject { get; set; }
+    }
+
 }
