@@ -8,7 +8,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace lgu3d
+namespace LG
 {
     /// <summary>
     /// 引用池。

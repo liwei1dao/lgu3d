@@ -8,7 +8,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace lgu3d
+namespace LG
 {
     public static partial class ReferencePool
     {

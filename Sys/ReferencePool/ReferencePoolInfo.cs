@@ -7,7 +7,7 @@
 
 using System;
 
-namespace lgu3d
+namespace LG
 {
     /// <summary>
     /// 引用池信息。

@@ -5,7 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 
-namespace lgu3d
+namespace LG
 {
     /// <summary>
     /// 引用接口。

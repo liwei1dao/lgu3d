@@ -5,6 +5,7 @@ using UnityEngine;
 using BestHTTP;
 using BestHTTP.WebSocket;
 using System.Collections.Generic;
+using LG;
 
 
 namespace lgu3d
