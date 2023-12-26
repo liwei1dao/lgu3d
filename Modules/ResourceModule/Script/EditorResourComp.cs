@@ -223,6 +223,7 @@ namespace lgu3d
 
         }
       }
+      Debug.LogError($"LoadAsset:[{ModelName}]-[{BundleName}.{AssetName}] Fail!");
       return null;
     }
 
