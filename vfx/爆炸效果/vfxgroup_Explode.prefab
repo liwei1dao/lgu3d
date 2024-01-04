@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &793890194855719240
+--- !u!1 &705948964242268096
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,23 +8,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7960523771184788206}
-  - component: {fileID: 6853935392572484471}
-  - component: {fileID: 2787620146567928121}
+  - component: {fileID: 5884784385244353049}
+  - component: {fileID: 5161808752519197597}
+  - component: {fileID: 4820404235823798211}
   m_Layer: 0
-  m_Name: vxfgroup_bullet_yellow
+  m_Name: vfxgroup_Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7960523771184788206
+--- !u!4 &5884784385244353049
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 793890194855719240}
+  m_GameObject: {fileID: 705948964242268096}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -33,15 +33,15 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!2083052967 &6853935392572484471
+--- !u!2083052967 &5161808752519197597
 VisualEffect:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 793890194855719240}
+  m_GameObject: {fileID: 705948964242268096}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: 8c005bb5745f1a8499936132838d7e7c, type: 3}
+  m_Asset: {fileID: 8926484042661614526, guid: acbeb45af63574c4392ecd3f3974ccf4, type: 3}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0
@@ -50,20 +50,14 @@ VisualEffect:
   m_ResourceVersion: 1
   m_PropertySheet:
     m_Float:
-      m_Array:
-      - m_Value: 1
-        m_Name: Size
-        m_Overridden: 1
-      - m_Value: 8
-        m_Name: Rate
-        m_Overridden: 1
+      m_Array: []
     m_Vector2f:
       m_Array: []
     m_Vector3f:
       m_Array: []
     m_Vector4f:
       m_Array:
-      - m_Value: {x: 5.9921565, y: 1.7047316, z: 0.8156861, w: 1}
+      - m_Value: {x: 10.246377, y: 2.5137837, z: 0.75104296, w: 0}
         m_Name: Color
         m_Overridden: 1
     m_Uint:
@@ -77,22 +71,19 @@ VisualEffect:
     m_Gradient:
       m_Array: []
     m_NamedObject:
-      m_Array:
-      - m_Value: {fileID: 2800000, guid: 509168dc01264f94584dbf35825e3956, type: 3}
-        m_Name: MianTex
-        m_Overridden: 1
+      m_Array: []
     m_Bool:
       m_Array: []
---- !u!73398921 &2787620146567928121
+--- !u!73398921 &4820404235823798211
 VFXRenderer:
   serializedVersion: 1
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 793890194855719240}
+  m_GameObject: {fileID: 705948964242268096}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
