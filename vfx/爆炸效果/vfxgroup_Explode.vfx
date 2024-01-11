@@ -24,37 +24,13 @@ MonoBehaviour:
     - model: {fileID: 8926484042661614558}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661614640}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614672}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614580}
-      id: 0
-      isStickyNote: 0
     - model: {fileID: 8926484042661614583}
       id: 0
       isStickyNote: 0
     - model: {fileID: 8926484042661614555}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661614606}
-      id: 0
-      isStickyNote: 0
     - model: {fileID: 8926484042661614585}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614589}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614697}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614591}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614593}
       id: 0
       isStickyNote: 0
     - model: {fileID: 8926484042661614701}
@@ -86,43 +62,16 @@ MonoBehaviour:
     - model: {fileID: 8926484042661614720}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661614735}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614747}
-      id: 0
-      isStickyNote: 0
     - model: {fileID: 8926484042661614715}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661614764}
-      id: 0
-      isStickyNote: 0
     - model: {fileID: 8926484042661614753}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614756}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614789}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614786}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614758}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614761}
       id: 0
       isStickyNote: 0
     - model: {fileID: 8926484042661614774}
       id: 1
       isStickyNote: 0
     - model: {fileID: 8926484042661614751}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614803}
       id: 0
       isStickyNote: 0
     - model: {fileID: 8926484042661614701}
@@ -142,28 +91,10 @@ MonoBehaviour:
     - model: {fileID: 8926484042661614917}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661614932}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615000}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614944}
-      id: 0
-      isStickyNote: 0
     - model: {fileID: 8926484042661614912}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661614961}
-      id: 0
-      isStickyNote: 0
     - model: {fileID: 8926484042661614965}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614977}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614985}
       id: 0
       isStickyNote: 0
     - model: {fileID: 8926484042661614701}
@@ -1543,7 +1474,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Vector, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"vector":{"x":-0.3330000042915344,"y":0.20000000298023225,"z":-0.3330000042915344}}'
+      m_SerializableObject: '{"vector":{"x":-0.10000000149011612,"y":0.0,"z":-0.10000000149011612}}'
     m_Space: 0
   m_Property:
     name: A
@@ -1713,7 +1644,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Vector, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"vector":{"x":0.3330000042915344,"y":0.20000000298023225,"z":0.3330000042915344}}'
+      m_SerializableObject: '{"vector":{"x":0.10000000149011612,"y":0.10000000149011612,"z":0.10000000149011612}}'
     m_Space: 0
   m_Property:
     name: B
@@ -3205,7 +3136,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 1
+      m_SerializableObject: 2
     m_Space: 2147483647
   m_Property:
     name: b
@@ -3341,7 +3272,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 2
+      m_SerializableObject: 3
     m_Space: 2147483647
   m_Property:
     name: b
@@ -10076,7 +10007,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0
+      m_SerializableObject: 0.1
     m_Space: 2147483647
   m_Property:
     name: Delay
